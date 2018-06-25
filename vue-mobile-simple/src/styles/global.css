@@ -1,3 +1,15 @@
-body {
-  margin: 0;
-}
+@charset "utf-8";
+/*
+  需要注意的是：
+  样式的reset中需先设置html字体的初始化大小为50px，这是为了防止js被禁用或者加载不到或者执行错误而做的兼容
+  样式的reset中需先设置body字体的初始化大小为16px，这是为了让body内的字体大小不继承父级html元素的50px，而用系统默认的16px
+*/
+html{-ms-text-size-adjust: none;-webkit-text-size-adjust: none;text-size-adjust: none;font-size: 50px;}
+body{background-color: #fff;color: rgba(0, 0, 0, .85);font: status-bar; font-size: 16px; line-height: 1.42858;font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;}
+h1,h2,h3,h4,h5,h6{font-size: 100%; margin: 0; font-weight: 400;}
+body,form,ul,ol,dl,dd,p{margin: 0;}
+ul,ol{list-style-type: none; padding: 0;}
+img{border: 0 none;vertical-align: bottom;}
+button,input,select,textarea{font-size: 1em; font-family: inherit; *font-family: 'microsoft yahei';}
+a,a:hover{text-decoration: none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display: block;}
