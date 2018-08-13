@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import axios from 'axios';
 import qs from 'qs';
-import VueAxios from './../plugins/vue-axios';
+import { VueAxios } from '../plugins/vue-axios';
 
-const cancel = null;
-const promiseArr = {};
+let cancel = null;
+let promiseArr = {};
 
-const ApiService = {
+export default {
   init() {
     Vue.use(VueAxios, axios);
 
@@ -23,7 +23,7 @@ const ApiService = {
     }, error => Promise.reject(error));
 
     // 默认错误处理方式
-    const onerror = function (error) {
+    let onerror = function (error) {
       // 使用 类似 Toast 组件进行错误提示
       return {
         title: '请求错误',
@@ -35,7 +35,8 @@ const ApiService = {
     // 响应拦截器
     Vue.axios.interceptors.response.use(
       response => response,
-      (err) => {
+      (error) => {
+        let err = error;
         if (err && err.response) {
           switch (err.response.status) {
             case 400: err.message = '请求错误(400)'; break;
@@ -177,8 +178,6 @@ const ApiService = {
     }
   },
 };
-
-export default ApiService;
 
 // 文章服务
 // export const ArticlesService = {

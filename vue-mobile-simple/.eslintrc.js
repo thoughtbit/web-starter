@@ -28,6 +28,8 @@ module.exports = {
     // 自定义
     'max-len': 0,
     'import/prefer-default-export': 0,
+    'prefer-const': 0,
+    'func-names': 0,
 
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
