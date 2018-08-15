@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import axios from 'axios';
 import qs from 'qs';
-import { VueAxios } from '../plugins/vue-axios';
+import { VueAxios } from './../plugins/vue-axios';
+import JwtService from './../service/jwt.service';
+import ApiConfig from './../config/app.config';
 
-let cancel = null;
-let promiseArr = {};
+// 创建取消请求令牌
+let CancelToken = axios.CancelToken;
 
 export default {
   init() {
@@ -12,18 +14,26 @@ export default {
 
     // 请求拦截器
     Vue.axios.interceptors.request.use((config) => {
+      let conf = config;
       // 发起请求时，取消掉当前正在进行的相同请求
-      if (promiseArr[config.url]) {
-        promiseArr[config.url]('操作取消');
-        promiseArr[config.url] = cancel;
-      } else {
-        promiseArr[config.url] = cancel;
+      let requestName = conf.data.requestName;
+      if (requestName) {
+        if (axios[requestName] && axios[requestName].cancel) {
+          axios[requestName].cancel();
+        }
+        conf.cancelToken = new CancelToken((c) => {
+          axios[requestName] = {};
+          axios[requestName].cancel = c;
+        });
       }
-      return config;
+      return conf;
     }, error => Promise.reject(error));
 
     // 默认错误处理方式
-    let onerror = function (error) {
+    let onError = function (error) {
+      if (error.message) {
+        return true;
+      }
       // 使用 类似 Toast 组件进行错误提示
       return {
         title: '请求错误',
@@ -66,15 +76,15 @@ export default {
         } else {
           err.message = '连接到服务器失败';
         }
-        onerror(err);
+        onError(err);
         return Promise.resolve(err.response);
       });
 
     // 环境的切换
     if (process.env.NODE_ENV === 'development') {
-      Vue.axios.defaults.baseURL = '';
+      Vue.axios.defaults.baseURL = '/';
     } else if (process.env.NODE_ENV === 'production') {
-      Vue.axios.defaults.baseURL = '';
+      Vue.axios.defaults.baseURL = ApiConfig.BASE_URL;
     }
 
     // 请求超时时间
@@ -87,7 +97,7 @@ export default {
   },
 
   setHeader() {
-    // Vue.axios.defaults.headers.common['Authorization'] = `Token ${}`;
+    Vue.axios.defaults.headers.common['Authorization'] = `Token ${JwtService.getToken()}`;
     // Vue.axios.defaults.timeout = 8000;
     // Vue.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     // Vue.axios.defaults.headers.common['Content-Type'] = 'application/json';
@@ -120,7 +130,7 @@ export default {
       }
       return res;
     } catch (error) {
-      throw new Error(`[TT] ApiService ${error}`);
+      throw new Error(`ApiService ${error}`);
     }
   },
 
@@ -134,7 +144,7 @@ export default {
       const res = await Vue.axios.post(url, params);
       return res;
     } catch (error) {
-      throw new Error(`[TT] ApiService ${error}`);
+      throw new Error(`ApiService ${error}`);
     }
   },
   async patch(url, params) {
@@ -142,7 +152,7 @@ export default {
       const res = await Vue.axios.patch(url, params);
       return res;
     } catch (error) {
-      throw new Error(`[TT] ApiService ${error}`);
+      throw new Error(`ApiService ${error}`);
     }
   },
   async put(url, params) {
@@ -150,7 +160,7 @@ export default {
       const res = await Vue.axios.put(url, params);
       return res;
     } catch (error) {
-      throw new Error(`[TT] ApiService ${error}`);
+      throw new Error(`ApiService ${error}`);
     }
   },
   async delete(url, params) {
@@ -161,7 +171,7 @@ export default {
       const res = await Vue.axios.post(url, params);
       return res;
     } catch (error) {
-      throw new Error(`[TT] ApiService ${error}`);
+      throw new Error(`ApiService ${error}`);
     }
   },
   async upload(url, formdata) {
@@ -174,7 +184,7 @@ export default {
       const res = await Vue.axios.post(url, formdata, config);
       return res;
     } catch (error) {
-      throw new Error(`[TT] ApiService ${error}`);
+      throw new Error(`ApiService ${error}`);
     }
   },
 };

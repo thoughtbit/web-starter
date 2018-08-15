@@ -30,6 +30,25 @@ module.exports = {
     'import/prefer-default-export': 0,
     'prefer-const': 0,
     'func-names': 0,
+    'no-else-return': 0,
+    'no-bitwise': 0,
+    'guard-for-in': 0,
+    'no-restricted-syntax': 0,
+    'import/no-mutable-exports': 0,
+    'consistent-return': 0,
+    'no-unused-vars': 0,
+    'no-unused-expressions': 0,
+    'no-console': 0,
+    'no-shadow': 0,
+    'no-alert': 0,
+    'no-plusplus': 0,
+    'no-param-reassign': 0,
+    'no-underscore-dangle': 0,
+    'no-useless-escape': 0,
+    'dot-notation': 0,
+    'arrow-body-style': 0,
+    'linebreak-style': 'off',
+
 
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {

@@ -124,6 +124,9 @@ export default {
   components: {
     [Button.name]: Button,
   },
+  created() {
+
+  },
   mounted() {
     this.renderFlexible('dpr', window.lib.flexible.dpr);
     this.renderFlexible('rem', window.lib.flexible.rem);

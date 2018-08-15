@@ -7,6 +7,11 @@
 <script>
 export default {
   name: 'App',
+  metaInfo() {
+    return {
+      title: 'My App',
+    };
+  },
 };
 </script>
 
