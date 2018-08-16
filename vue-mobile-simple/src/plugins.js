@@ -7,7 +7,6 @@ import SetSize from './utils/set-size';
 import Focus from './utils/focus';
 import { VueBus } from './plugins/vue-bus';
 
-
 Vue.use(VueMeta);
 Vue.use(Responsive, {
   computed: {
@@ -27,7 +26,7 @@ Vue.use(Responsive, {
 });
 
 // 注册UI组件
-Vue.use();
+// Vue.use();
 
 // 全局事件中心
 Vue.use(VueBus);

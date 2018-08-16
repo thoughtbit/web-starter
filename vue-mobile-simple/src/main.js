@@ -22,15 +22,15 @@ Vue.config.productionTip = false;
 // 注册接口服务
 ApiService.init();
 
-router.afterEach((toRoute) => {
-  window.scrollTo(0, 0);
-});
+// router.afterEach((toRoute) => {
+//   window.scrollTo(0, 0);
+// });
 
-router.beforeEach((to, from, next) => {
-  return Promise
-    .all([store.dispatch(CHECK_AUTH)])
-    .then(next);
-});
+// router.beforeEach((to, from, next) => {
+//   return Promise
+//     .all([store.dispatch(CHECK_AUTH)])
+//     .then(next);
+// });
 
 new Vue({
   el: '#app',

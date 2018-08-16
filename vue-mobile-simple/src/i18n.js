@@ -19,13 +19,8 @@ function detectLanguage() {
 
 async function autoInstallLocale(lang) {
   try {
-    let response = await fetch(`https://unpkg.com/vue-cli-locale-${lang}`);
+    let response = await fetch(`https://unpkg.com/vue-cli-locale-zh@0.3.1/locales/zh.json`);
     if (response.ok) {
-      // Redirect
-      const location = response.headers.get('location');
-      if (location) {
-        response = await fetch(`https://unpkg.com${location}`);
-      }
       const data = await response.json();
       mergeLocale(lang, data);
       return true;
@@ -49,18 +44,18 @@ async function autoDetect() {
     }
 
     if (!ok) {
-      console.log(`[UI] No locale package was found for your locale ${codes[0]}.`);
+      console.log(`[APP] No locale package was found for your locale ${codes[0]}.`);
     }
   }
 }
 
 async function tryAutoLang(lang) {
-  console.log(`[UI] Trying to load ${lang} locale...`);
+  console.log(`[APP] Trying to load ${lang} locale...`);
   const result = await autoInstallLocale(lang);
   if (result) {
     i18n.locale = lang;
     // eslint-disable-next-line no-console
-    console.log(`[UI] Automatically loaded ${lang} locale `);
+    console.log(`[APP] Automatically loaded ${lang} locale `);
   }
   return result;
 }
