@@ -61,3 +61,11 @@ export default {
 };
 
 // Vue.use(Bus)
+/*
+this.$bus('eventName', id)
+bus: {
+  eventName(id) {
+    console.log(id);
+  },
+},
+*/
