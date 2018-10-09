@@ -5,9 +5,7 @@ import { bindActionCreators } from 'redux'
 
 import * as ActionsCounter from '../../actions/counter'
 
-import './service.styl'
-
-class Service extends Component {
+class ServicePage extends Component {
   config = {
     navigationBarTitleText: '工作台'
   }
@@ -21,7 +19,7 @@ class Service extends Component {
       ]
     }
   }
-  
+
   componentDidMount () {
     console.log('service mount')
   }
@@ -84,4 +82,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Service);
+export default connect(mapStateToProps, mapDispatchToProps)(ServicePage);

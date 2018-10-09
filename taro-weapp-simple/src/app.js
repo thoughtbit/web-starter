@@ -1,17 +1,14 @@
 import Taro, { Component } from '@tarojs/taro'
 import '@tarojs/async-await'
 import { Provider } from '@tarojs/redux'
+import Message from './pages/message/MessagePage'
+import configStore from './redux/store'
 
-import Message from './pages/message'
-
-import configStore from './store'
-
-import './app.styl'
+import './styles'
 
 const store = configStore()
 
 class App extends Component {
-
   config = {
     pages: [
       'pages/message/message',

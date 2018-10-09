@@ -1,10 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import './contact.styl';
 
-export default class Contact extends Component {
+export default class AuthPage extends Component {
   config = {
-    navigationBarTitleText: '通讯录'
+    navigationBarTitleText: '认证'
   }
 
   constructor () {
@@ -13,25 +12,25 @@ export default class Contact extends Component {
   }
 
   componentDidMount () {
-    console.log('contact mount')
+    console.log('auth mount')
   }
 
   componentDidShow () {
-    console.log('contact show')
+    console.log('auth show')
   }
 
   componentDidHide () {
-    console.log('contact hide')
+    console.log('auth hide')
   }
 
   componentWillUnmount () {
-    console.log('contact unmount')
+    console.log('auth unmount')
   }
 
   render () {
     return (
       <View className='page'>
-        <Text>通讯录</Text>
+        <Text>认证</Text>
       </View>
     )
   }

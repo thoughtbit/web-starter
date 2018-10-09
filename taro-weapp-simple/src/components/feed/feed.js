@@ -2,9 +2,9 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
 import more from './../../assets/icons/more.png'
 
-import './feed.styl'
+import './style.styl'
 
-export default class Feed extends Component {
+class Feed extends Component {
   navigateTo = (url) => {
     Taro.navigateTo({url:url});
   }
@@ -49,3 +49,6 @@ export default class Feed extends Component {
     );
   }
 }
+
+
+export default Feed;

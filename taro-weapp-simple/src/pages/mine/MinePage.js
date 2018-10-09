@@ -1,8 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import './mine.styl';
 
-export default class Mine extends Component {
+export default class MinePage extends Component {
   config = {
     navigationBarTitleText: '我的'
   }
