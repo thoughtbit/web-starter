@@ -16,11 +16,10 @@ const initialState = {
 };
 
 // action types
-const appNamespace = defineAction('APP');
 export const TYPES = defineAction(
   'FETCH',
   ['REQUEST', 'SUCCESS', 'FAILURE', 'REMOVE_ERROR'],
-  appNamespace
+  'app'
 );
 
 // action creators
