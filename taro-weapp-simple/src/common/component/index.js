@@ -1,4 +1,4 @@
-import Taro, { Component } from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -16,7 +16,7 @@ const objectToString = style => {
   return ''
 }
 
-class Component extends Component {
+class Component extends Taro.Component {
   /**
    * 合并 style
    * @param {Object|String} style1

@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
 import more from './../../assets/icons/more.png'
 
-import './style.styl'
+import './index.styl'
 
 class Feed extends Component {
   navigateTo = (url) => {

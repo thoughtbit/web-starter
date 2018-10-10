@@ -14,7 +14,12 @@ const config = {
         'transform-class-properties',
         'transform-decorators-legacy',
         'transform-object-rest-spread'
-      ]
+      ],
+      "env": {
+        "production": {
+          "plugins": ["transform-remove-console"]
+        }
+      }
     },
     typescript: {
       compilerOptions: {

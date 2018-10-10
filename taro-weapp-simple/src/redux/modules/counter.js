@@ -1,42 +1,51 @@
-import { createReducer } from 'redux-immutablejs'
-import { fromJS } from 'immutable'
+const initialState = {
+  num: 0,
+};
 
-export const ADD = 'ADD'
-export const MINUS = 'MINUS'
+// action types
+export const TYPES = {
+  ADD: "COUNTER/ADD",    // 加
+  MINUS: "COUNTER/MINUS"   // 减
+};
 
-export const add = () => {
-  return {
-    type: ADD
-  }
-}
-export const minus = () => {
-  return {
-    type: MINUS
-  }
-}
-
-// 异步的action
-export function asyncAdd () {
-  return dispatch => {
-    setTimeout(() => {
-      dispatch(add())
-    }, 2000)
-  }
-}
-
-export default createReducer(fromJS({
-  num: 0
-}),{
-  [ADD]: (state) => {
-    const counterState = state.toJS()
-    return state.merge({
-      num: counterState.num + 1
-    })
+// action creators
+export const actions = {
+  add: () => {
+    return {
+      type: TYPES.ADD
+    }
   },
-  [MINUS]: (state) => {
-    const counterState = state.toJS()
-    return state.merge({
-      num: counterState.num - 1
-    })
+  minus: () => {
+    return {
+      type: TYPES.MINUS
+    }
+  },
+  // 异步的action
+  asyncAdd: () => {
+    return dispatch => {
+      setTimeout(() => {
+        dispatch(actions.add())
+      }, 2000)
+    };
+  },
+};
+
+// reducers
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case TYPES.ADD:
+      return {
+        ...state,
+        num: state.num + 1
+      }
+     case TYPES.MINUS:
+       return {
+         ...state,
+         num: state.num - 1
+       }
+     default:
+       return state
   }
-})
+};
+
+export default reducer;

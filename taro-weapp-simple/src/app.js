@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import '@tarojs/async-await'
 import { Provider } from '@tarojs/redux'
-import Message from './pages/message/MessagePage'
+import  { MessagePage } from './pages/message'
 import configStore from './redux/store'
 
 import './styles'
@@ -11,11 +11,11 @@ const store = configStore()
 class App extends Component {
   config = {
     pages: [
-      'pages/message/message',
-      'pages/service/service',
-      'pages/contact/contact',
-      'pages/mine/mine',
-      'pages/auth/auth'
+      'pages/message/MessagePage',
+      'pages/service/ServicePage',
+      'pages/contact/ContactPage',
+      'pages/mine/MinePage',
+      'pages/auth/AuthPage'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -32,25 +32,25 @@ class App extends Component {
       backgroundColor: '#ffffff',
       list: [
         {
-          pagePath: 'pages/message/message',
+          pagePath: 'pages/message/MessagePage',
           iconPath: 'assets/icons/view.png',
           selectedIconPath: 'assets/icons/view_on.png',
           text: '消息'
         },
         {
-          pagePath: 'pages/service/service',
+          pagePath: 'pages/service/ServicePage',
           iconPath: 'assets/icons/view.png',
           selectedIconPath: 'assets/icons/view_on.png',
           text: '工作台'
         },
         {
-          pagePath: 'pages/contact/contact',
+          pagePath: 'pages/contact/ContactPage',
           iconPath: 'assets/icons/view.png',
           selectedIconPath: 'assets/icons/view_on.png',
           text: '通讯录'
         },
         {
-          pagePath: 'pages/mine/mine',
+          pagePath: 'pages/mine/MinePage',
           iconPath: 'assets/icons/view.png',
           selectedIconPath: 'assets/icons/view_on.png',
           text: '我的'
@@ -70,7 +70,7 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <Message />
+        <MessagePage />
       </Provider>
     )
   }

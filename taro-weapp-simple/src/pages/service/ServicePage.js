@@ -3,7 +3,7 @@ import { View, Text, Button, Image } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { bindActionCreators } from 'redux'
 
-import * as ActionsCounter from '../../actions/counter'
+import { actions as counterActions } from "../../redux/modules/counter";
 
 class ServicePage extends Component {
   config = {
@@ -38,7 +38,7 @@ class ServicePage extends Component {
 
   navigateTo () {
     Taro.navigateTo({
-      url: '/pages/auth/auth'
+      url: '/pages/auth/AuthPage'
     })
   }
 
@@ -69,16 +69,14 @@ class ServicePage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    counter: state.counter.toJS()
+    counter: state.counter
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // add: () => dispatch(add()),
-    // minus: () => dispatch(minus()),
-    // asyncAdd: () => dispatch(asyncAdd())
-    ...bindActionCreators(ActionsCounter, dispatch)
+    ...bindActionCreators(counterActions, dispatch)
+    // ...bindActionCreators(bannerActions, dispatch),
   };
 };
 
