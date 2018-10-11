@@ -1,4 +1,4 @@
-import ApiService from "./api.service";
+// import ApiService from "./api.service";
 
 class AuthService {
   constructor() {
@@ -27,7 +27,6 @@ class AuthService {
     this.auth = {};
     localStorage.removeItem("auth");
   }
-
 }
 
 export default new AuthService();

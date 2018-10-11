@@ -1,13 +1,12 @@
-import { stringify } from 'qs';
-import AuthService from "./auth.service";
+import Taro from '@tarojs/taro';
+// import { stringify } from 'qs';
+// import AuthService from "./auth.service";
 import API_CONFIG from '../config/api.config';
 
 class WebSocketService {
   constructor() {
     this.socket = null;
     this.store = null;
-    this.lastPing = null;
-    this.reconnectInterval = null;
   }
 
   init(store) {
@@ -15,69 +14,53 @@ class WebSocketService {
   }
 
   connect() {
-    if (this.isConnected()) return;
-    this.socket = new WebSocket(API_CONFIG.WEB_SOCKET_URL);
-    this.socket.onopen = this.handleOpen.bind(this);
-    this.socket.onmessage = this.handleMessage.bind(this);
-    this.socket.onclose = this.handleClose.bind(this);
-    this.socket.onclose = this.handleError.bind(this);
+    this.socket = Taro.connectSocket({
+      url: API_CONFIG.WEB_SOCKET_URL,
+      success: function () {
+        return true
+      },
+      fail: function() {
+        return false
+      }
+    }).then(task => {
+      task.onOpen(function () {
+        console.log('onOpen')
+        task.send({ data: 'xxx' })
+      })
+      task.onMessage(function (msg) {
+        console.log('onMessage: ', msg)
+        task.close()
+      })
+      task.onError(function () {
+        console.log('onError')
+      })
+      task.onClose(function (e) {
+        console.log('onClose: ', e)
+      })
+    })
   }
 
   disconnect() {
-    if (this.isConnected()) {
-      this.socket.close(1000);
-      this.socket = null;
-    }
+
   }
 
   send(data) {
-    this.socket.send(JSON.stringify(data));
-  }
-
-  subscribe(channel) {
-    this.send({
-      command: "subscribe",
-      identifier: JSON.stringify({ channel })
-    });
-  }
-
-  getUrl() {
-    const auth = stringify(AuthService.auth);
-    return API_CONFIG.WEB_SOCKET_URL + `?${auth}`;
+    console.log(data);
   }
 
   isConnected() {
-    return Date.now() - this.lastPing < 6000;
+
   }
 
   handleMessage(message) {
-    const data = JSON.parse(message.data);
-
-    this.store.dispatch(data.message);
-  }
-
-
-  setLastPing(data) {
-    this.lastPing = data.message * 1000;
-  }
-
-  startReconnectLoop() {
-    this.reconnectInterval = setInterval(() => {
-      if (this.isConnected()) return;
-      this.store.dispatch(this.disconnected());
-      this.connect();
-    }, 10000);
+    console.log(message);
   }
 
   handleOpen(e) {
-    this.store.dispatch(this.connected());
-    this.subscribe("UserChannel");
-    clearInterval(this.reconnectInterval);
-    this.startReconnectLoop();
+    console.log(e);
   }
 
   handleClose(e) {
-    clearInterval(this.reconnectInterval);
     console.log(e);
   }
 

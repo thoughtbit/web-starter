@@ -69,8 +69,8 @@ export default class MessagePage extends Component {
       Taro.hideLoading()
       if (res.data.success) {
         this.setState({
-          isLoading: this.state.list.concat(res.data.data),
-          loading: false
+          list: this.state.list.concat(res.data.data),
+          isLoading: false
         })
       }
     })

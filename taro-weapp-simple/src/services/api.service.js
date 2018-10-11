@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro';
-import { stringify } from 'qs';
+// import { stringify } from 'qs';
 import API_CONFIG from './../config/api.config';
 import AuthService from './auth.service'
 
@@ -54,21 +54,21 @@ class ApiService {
     // const state = this.store.getState();
 
     const defaultOptions = {
-      Accept: 'application/json',
+      accept: 'application/json',
       header: AuthService.auth
     };
     const newOptions = { ...defaultOptions, ...options };
     if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
       newOptions.header = {
-        'Content-Type': 'application/json; charset=utf-8',
+        'content-type': 'application/json',
         ...newOptions.header,
       };
       newOptions.data = JSON.stringify(newOptions.data);
     }
 
     console.log(url, newOptions);
-    
-    return await Taro.request({ 
+
+    return await Taro.request({
       url,
       ...newOptions
     })
@@ -118,4 +118,9 @@ class ApiService {
   // }
 }
 
+const getApi = () => {
+  return new ApiService();
+};
+
+export { getApi }
 export default new ApiService();
