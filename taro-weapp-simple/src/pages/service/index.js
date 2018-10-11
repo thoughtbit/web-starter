@@ -1,1 +1,1 @@
-export { default as ServicePage } from './ServicePage';
+export { default as ServicePage } from './service';

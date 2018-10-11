@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro';
 // import { stringify } from 'qs';
-import API_CONFIG from './../config/api.config';
 import AuthService from './auth.service'
+import ConfigService from './config.service';
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -90,8 +90,9 @@ class ApiService {
 
   // 用户登录
   async loginUser(params) {
+    const url = ConfigService.get('app_base_api').login_url;
     return await this.request(
-      API_CONFIG.WEBAPP_API.ACTION_LOGIN_URL,
+      url,
       {
         method: 'POST',
         data: {
@@ -103,7 +104,8 @@ class ApiService {
 
   // 当前用户详情
   async getUser() {
-    return await this.request(`${API_CONFIG.WEBAPP_API.ACTION_USER_INFO_URL}`);
+    const url = ConfigService.get('app_base_api').user_info_url;
+    return await this.request(url);
   }
 
   // 资讯
@@ -112,7 +114,7 @@ class ApiService {
   //     id: '10011',
   //     pageCount: 1,
   //   });
-  //   const news = await this.request(`${API_CONFIG.WEBAPP_API.NEWS_LIST_URL}?${queryString}`);
+  //   const news = await this.request(`${url}?${queryString}`);
 
   //   return news;
   // }

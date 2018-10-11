@@ -11,11 +11,11 @@ const store = configStore()
 class App extends Component {
   config = {
     pages: [
-      'pages/message/MessagePage',
-      'pages/service/ServicePage',
-      'pages/contact/ContactPage',
-      'pages/mine/MinePage',
-      'pages/auth/AuthPage'
+      'pages/message/message',
+      'pages/service/service',
+      'pages/contact/contact',
+      'pages/mine/mine',
+      'pages/auth/auth'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -32,25 +32,25 @@ class App extends Component {
       backgroundColor: '#ffffff',
       list: [
         {
-          pagePath: 'pages/message/MessagePage',
+          pagePath: 'pages/message/message',
           iconPath: 'assets/icons/view.png',
           selectedIconPath: 'assets/icons/view_on.png',
           text: '消息'
         },
         {
-          pagePath: 'pages/service/ServicePage',
+          pagePath: 'pages/service/service',
           iconPath: 'assets/icons/view.png',
           selectedIconPath: 'assets/icons/view_on.png',
           text: '工作台'
         },
         {
-          pagePath: 'pages/contact/ContactPage',
+          pagePath: 'pages/contact/contact',
           iconPath: 'assets/icons/view.png',
           selectedIconPath: 'assets/icons/view_on.png',
           text: '通讯录'
         },
         {
-          pagePath: 'pages/mine/MinePage',
+          pagePath: 'pages/mine/mine',
           iconPath: 'assets/icons/view.png',
           selectedIconPath: 'assets/icons/view_on.png',
           text: '我的'

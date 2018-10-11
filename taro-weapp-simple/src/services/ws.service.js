@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro';
 // import { stringify } from 'qs';
 // import AuthService from "./auth.service";
-import API_CONFIG from '../config/api.config';
+import ConfigService from './config.service';
 
 class WebSocketService {
   constructor() {
@@ -14,8 +14,9 @@ class WebSocketService {
   }
 
   connect() {
+    const url = ConfigService.get('websocket_url');
     this.socket = Taro.connectSocket({
-      url: API_CONFIG.WEB_SOCKET_URL,
+      url,
       success: function () {
         return true
       },
