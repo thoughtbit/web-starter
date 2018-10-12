@@ -56,8 +56,8 @@ export default class MessagePage extends Component {
   }
 
   nextPageFeedList = () => {
-    if (this.state.loading) {
-      return
+    if (this.state.isLoading) {
+      return false;
     }
     this.setState({
       isLoading: true
