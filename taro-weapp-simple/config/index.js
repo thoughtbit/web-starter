@@ -53,7 +53,9 @@ const config = {
   defineConstants: {
   },
   weapp: {
+    module: {
 
+    }
   },
   h5: {
     publicPath: '/',

@@ -23,7 +23,6 @@ class App extends Component {
       navigationBarTitleText: '风信办公',
       navigationBarTextStyle: 'white',
       enablePullDownRefresh: false
-
     },
     tabBar: {
       color: '#353535',
@@ -56,7 +55,7 @@ class App extends Component {
           text: '我的'
         }
       ]
-    },
+    }
   }
 
   componentDidMount () {}
