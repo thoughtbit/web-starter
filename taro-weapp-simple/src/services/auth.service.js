@@ -13,7 +13,7 @@ class AuthService {
   }
 
   set(auth) {
-    ["access-token", "token-type", "client", "expiry", "uid"].forEach(key => {
+    ["access-token", "token-type", "expiry", "uid"].forEach(key => {
       if (auth[key]) this.auth[key] = auth[key];
     });
     Taro.setStorageSync("auth", this.auth);
@@ -27,6 +27,13 @@ class AuthService {
   clear() {
     this.auth = {};
     Taro.removeStorageSync("auth");
+  }
+
+  logout() {
+    const state = this.store.getState();
+    console.log('退出登录', state);
+    this.clear();
+    // 退出处理
   }
 }
 

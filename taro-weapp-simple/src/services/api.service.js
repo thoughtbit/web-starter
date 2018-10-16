@@ -88,15 +88,19 @@ class ApiService {
       });
   }
 
+  /**
+   * 用户相关接口
+   */
+
   // 用户登录
-  async loginUser(params) {
-    const url = API_CONFIG.APP_BASE_API.ACTION_LOGIN_URL;
+  async login(params) {
+    const url = API_CONFIG.APP_BASE_API.LOGIN_URL;
     return await this.request(
       url,
       {
         method: 'POST',
         data: {
-          ...params,
+          ...params
         },
       }
     );
@@ -104,7 +108,30 @@ class ApiService {
 
   // 当前用户详情
   async getUser() {
-    const url = API_CONFIG.APP_BASE_API.ACTION_USER_INFO_URL;
+    const url = API_CONFIG.APP_BASE_API.USER_INFO_URL;
+    return await this.request(url);
+  }
+
+  // 用户注册
+  async signup(params) {
+    const url = API_CONFIG.APP_BASE_API.SIGNUP_URL;
+    return await this.request(url, {
+      method: 'POST',
+      data: {
+        ...params
+      }
+    });
+  }
+
+  // 获取所有用户
+  async getUsers() {
+    const url = API_CONFIG.APP_BASE_API.USERS_URL;
+    return await this.request(url);
+  }
+
+  // 根据用户ID获取用户
+  async getUsersById(id) {
+    const url = `${API_CONFIG.APP_BASE_API.USERS_URL}/${id}`;
     return await this.request(url);
   }
 
