@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 
 import { actions as counterActions } from "../../redux/modules/counter";
 
+import './index.styl';
+
 class ServicePage extends Component {
   config = {
     navigationBarTitleText: '工作台'

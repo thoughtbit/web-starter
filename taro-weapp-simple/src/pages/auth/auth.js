@@ -1,6 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
+import './index.styl';
+
 export default class AuthPage extends Component {
   config = {
     navigationBarTitleText: '认证'

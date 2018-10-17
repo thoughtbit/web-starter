@@ -2,6 +2,8 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
 import { Feed } from '../../components/feed'
 
+import './index.styl';
+
 export default class MessagePage extends Component {
   config = {
     navigationBarTitleText: '消息'

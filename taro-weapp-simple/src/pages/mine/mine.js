@@ -1,6 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
+import './index.styl';
+
 export default class MinePage extends Component {
   config = {
     navigationBarTitleText: '我的'

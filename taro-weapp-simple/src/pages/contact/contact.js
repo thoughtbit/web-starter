@@ -1,6 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 
+import './index.styl';
+
 export default class ContactPage extends Component {
   config = {
     navigationBarTitleText: '通讯录'
