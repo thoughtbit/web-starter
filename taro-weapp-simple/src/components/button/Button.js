@@ -1,6 +1,6 @@
 
 import Taro from '@tarojs/taro';
-import { View, Button } from '@tarojs/components';
+import { View, Button as CButton } from '@tarojs/components';
 import { Component, PropTypes } from './../../common';
 
 import { Loading } from '../loading'
@@ -96,7 +96,7 @@ class Button extends Component {
         style={customStyle}
         onClick={this.onClick.bind(this)}
       >
-        {isWEAPP && !disabled && <Button className='button__wxbutton'
+        {isWEAPP && !disabled && <CButton className='button__wxbutton'
           formType={formType}
           openType={openType}
           lang={lang}
@@ -112,7 +112,7 @@ class Button extends Component {
           onError={this.onError.bind(this)}
           onContact={this.onContact.bind(this)}
         >
-        </Button>}
+        </CButton>}
         {component}<View className='button__text'>{this.props.children}</View>
       </View>
     )
