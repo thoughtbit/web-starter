@@ -4,7 +4,7 @@ import { Component, PropTypes } from './../../common';
 class HomePage extends Component {
   render() {
     return (
-      <div className="page">
+      <div className="page-home">
         首页
       </div>
     );

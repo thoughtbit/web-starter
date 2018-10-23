@@ -1,3 +1,4 @@
+import "whatwg-fetch";
 // import { stringify } from 'qs';
 import AuthService from './auth.service';
 import API_CONFIG from './../config/api.config';
@@ -32,6 +33,17 @@ function checkStatus(response) {
   throw error;
 }
 
+/**
+ * Max Query String
+ */
+function assertLongQuery(url) {
+  const [, ...queryParts] = url.split('?');
+  const query = queryParts.join('');
+  if (query.length > 2048) {
+    console.error(`Query length (${query.length}) is longer than ${2048}. This doesn't work on some servers [${url}]`);
+  }
+}
+
 class ApiService {
   constructor() {
     this.store = null;
@@ -48,10 +60,91 @@ class ApiService {
 
   /**
    * Requests a URL, returning a promise.
+   *
+   * @param  {string} url       The URL we want to request
+   * @param  {object} [options] The options we want to pass to "fetch"
+   * @return {object}           An object containing either "data" or "err"
    */
-  async request(url, options) {
-    // const state = this.store.getState();
+  async request(url, options, isInternal = true) {
+    // 判断Query String 参数值是否太大
+    assertLongQuery(url);
 
+    const defaultOptions = {
+      timeout: 20 * 1000,
+      credentials: 'include', // 是否可以将对请求的响应暴露给页面, Credentials可以是 cookies, authorization headers 或 TLS client certificates.
+    };
+    const newOptions = { ...defaultOptions, ...options };
+    newOptions.headers = {
+      'Accept': 'application/json, text/plain, */*',
+    };
+    if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
+      if (!(newOptions.body instanceof FormData)) {
+        newOptions.headers = {
+          'Content-Type': 'application/json; charset=utf-8',
+          ...newOptions.headers,
+        };
+        newOptions.body = JSON.stringify(newOptions.body);
+      } else {
+        // newOptions.body is FormData
+        newOptions.headers = {
+          'Content-Type': 'multipart/form-data',
+          ...newOptions.headers,
+        };
+      }
+    }
+
+    if (isInternal) {
+      newOptions.headers = {
+        'token': this.store.token,
+        ...newOptions.headers,
+      };
+    }
+
+    console.log(url, newOptions);
+    const fetchPromise = new Promise((resolve, reject) => {
+      fetch(url, newOptions)
+        .then(checkStatus)
+        .then((response) => {
+          if (newOptions.method === 'DELETE' || response.status === 204) {
+            return response.text();
+          }
+          return response.json();
+        })
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((e) => {
+          reject(e);
+        });
+    });
+
+    return this.timeoutPromise(fetchPromise, newOptions.timeout);
+  }
+
+  /**
+   * 超时
+   * @param fetchPromise
+   * @param timeout
+   * @returns {Promise<any>}
+   */
+  timeoutPromise = (fetchPromise, timeout) => {
+    let abortFn = null;
+
+    // 这是一个可以被reject的promise
+    const abortPromise = new Promise((resolve, reject) => {
+      abortFn = () => {
+        reject(new Error({ status: 504 }));
+      };
+    });
+
+    // 这里使用Promise.race，以最快 resolve 或 reject 的结果来传入后续绑定的回调
+    const racePromise = Promise.race([fetchPromise, abortPromise]);
+
+    setTimeout(() => {
+      abortFn();
+    }, timeout);
+
+    return racePromise;
   }
 
   /**

@@ -1,19 +1,26 @@
-import find from 'lodash/find';
-// import Loadable from 'react-loadable';
+import App from './../pages/App';
+import AsyncComponent from './AsyncComponent';
+// import { HomePage } from './../pages/home';
+// import { LoginPage } from './../pages/auth';
+// import { PageNotFoundPage, WelcomePage } from './../pages/common';
 
-import App  from './../pages/App';
-import { HomePage } from '../pages/home';
-import { LoginPage } from '../pages/auth';
+const HomePage = AsyncComponent.load('home/HomePage');
+const LoginPage = AsyncComponent.load('auth/modules/login/LoginPage');
+const WelcomePage = AsyncComponent.load('common/WelcomePage');
+const PageNotFoundPage = AsyncComponent.load('common/PageNotFoundPage');
 
-import { PageNotFound, WelcomePage } from './../pages/common';
+const authorizedRoutes = {
+
+};
 
 const normalRoutes = {
   path: '',
   name: 'Home',
+  // component: HomePage,
   childRoutes: [
     { name: 'Home page', component: HomePage, isIndex: true },
     { path: '/welcome', name: 'Welcome page', component: WelcomePage },
-    { path: '/login', name: 'Welcome page', exact: true, component: LoginPage }
+    { path: '/login', name: 'Login page', component: LoginPage }
   ]
 };
 
@@ -21,11 +28,10 @@ const sharedRoutes = {
 
 };
 
-// NOTE: DO NOT CHANGE the 'childRoutes' name and the declaration pattern.
-// This is used for Rekit cmds to register routes config for new features, and remove config when remove features, etc.
 const childRoutes = [
-  normalRoutes,
-  sharedRoutes
+  authorizedRoutes,
+  sharedRoutes,
+  normalRoutes
 ];
 
 const routes = [{
@@ -33,7 +39,7 @@ const routes = [{
   component: App,
   childRoutes: [
     ...childRoutes,
-    { path: '*', name: 'Page not found', component: PageNotFound },
+    { path: '*', name: 'Page not found', component: PageNotFoundPage },
   ].filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0)),
 }];
 
@@ -44,10 +50,10 @@ function handleIndexRoute(route) {
     return;
   }
 
-  const indexRoute = find(route.childRoutes, (child => child.isIndex));
+  const indexRoute = route.childRoutes.find(child => child.isIndex);
   if (indexRoute) {
     const first = { ...indexRoute };
-    first.path = '';
+    first.path = route.path;
     first.exact = true;
     first.autoIndexRoute = true; // mark it so that the simple nav won't show it.
     route.childRoutes.unshift(first);
