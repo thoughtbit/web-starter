@@ -5,7 +5,7 @@ import ApiService, { getApi } from './../../services/api.service';
 import AuthService from './../../services/auth.service';
 import WebSocketService from './../../services/ws.service';
 import { history } from './../../router';
-import rootReducer from './../modules';
+import rootReducer from './../models';
 
 const router = routerMiddleware(history);
 
@@ -40,7 +40,7 @@ export default function configureStore(initialState = {}) {
   // Hot reloading
   if (module.hot) {
     // Reload reducers
-    module.hot.accept('./../modules', () => {
+    module.hot.accept('./../models', () => {
       store.replaceReducer(connectRouter(history)(rootReducer))
     });
   }
