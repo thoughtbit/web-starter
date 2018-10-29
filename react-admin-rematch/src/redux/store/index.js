@@ -1,6 +1,7 @@
 import { init } from '@rematch/core'
 import createLoadingPlugin from '@rematch/loading';
-import selectPlugin from '@rematch/select';
+import createSelectPlugin from '@rematch/select';
+// import createRematchPersist from '@rematch/persist';
 import reduxThunk from 'redux-thunk';
 import { routerMiddleware } from 'connected-react-router';
 import createHistory from 'history/createBrowserHistory';
@@ -21,7 +22,7 @@ const middlewares = [
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
-/* Logger  */
+/* Logger */
 if (isDevelopment) {
   const createLogger = require('redux-logger').createLogger;
 
@@ -29,10 +30,21 @@ if (isDevelopment) {
   middlewares.push(logger);
 }
 
+const loadingPlugin = createLoadingPlugin({});
+
+// const persistPlugin = createRematchPersist({
+//   whitelist: [],
+//   throttle: 2000,
+//   version: 1,
+// });
+
+const reactRouterPlugin = createReactRouterPlugin();
+const selectPlugin = createSelectPlugin();
+
 export default function configureStore(initialState = {}) {
   const store = init({
     models,
-    plugins: [createReactRouterPlugin(), createLoadingPlugin({}), selectPlugin()],
+    plugins: [reactRouterPlugin, loadingPlugin, selectPlugin, /*persistPlugin*/],
     redux: {
       initialState,
       devtoolOptions: {

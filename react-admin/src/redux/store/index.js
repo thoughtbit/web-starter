@@ -8,6 +8,7 @@ import { history } from './../../router';
 import rootReducer from './../models';
 
 const router = routerMiddleware(history);
+const baseReducer = connectRouter(history)(rootReducer);
 
 // NOTE: Do not change middleware delaration pattern since rekit plugins may register middleware to it.
 const middlewares = [
@@ -32,7 +33,7 @@ if (process.env.NODE_ENV === 'development') {
 
 export default function configureStore(initialState = {}) {
   const store = createStore(
-    connectRouter(history)(rootReducer),
+    baseReducer,
     initialState,
     compose(applyMiddleware(...middlewares), devToolsExtension)
   );

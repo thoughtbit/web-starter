@@ -7,6 +7,7 @@ import AsyncComponent from './AsyncComponent';
 const HomePage = AsyncComponent.load('home/HomePage');
 const LoginPage = AsyncComponent.load('auth/modules/login/LoginPage');
 const WelcomePage = AsyncComponent.load('common/WelcomePage');
+const CounterPage = AsyncComponent.load('counter/CounterPage');
 const PageNotFoundPage = AsyncComponent.load('common/PageNotFoundPage');
 
 const authorizedRoutes = {
@@ -20,6 +21,7 @@ const normalRoutes = {
   childRoutes: [
     { name: 'Home page', component: HomePage, isIndex: true },
     { path: '/welcome', name: 'Welcome page', component: WelcomePage },
+    { path: '/counter', name: 'Counter page', component: CounterPage },
     { path: '/login', name: 'Login page', component: LoginPage }
   ]
 };
