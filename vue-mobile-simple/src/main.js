@@ -8,6 +8,9 @@ import router from './router';
 import store from './store'
 import i18n from './i18n'
 import ApiService from './service/api.service';
+
+import directives from './directives';
+
 import './styles/theme.styl';
 import './styles/global.css';
 
@@ -31,6 +34,8 @@ ApiService.init();
 //     .all([store.dispatch(CHECK_AUTH)])
 //     .then(next);
 // });
+
+directives.map(directive => Vue.use(directive));
 
 new Vue({
   el: '#app',
