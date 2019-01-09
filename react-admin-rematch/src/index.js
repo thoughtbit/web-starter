@@ -1,12 +1,15 @@
 import React from 'react';
 import { AppContainer } from 'react-hot-loader';
 import { render } from 'react-dom';
+import * as Promise from 'bluebird';
 import configStore from './redux/store';
 import { routeConfig } from './router';
 import Root from './Root';
 import * as serviceWorker from './serviceWorker';
 
 import './styles';
+
+global.Promise = Promise;
 
 const store = configStore();
 

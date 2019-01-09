@@ -8,6 +8,7 @@
     "@rematch/select": "^2.0.3",
     "@rematch/persist": "^1.1.5",
     "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
     "classnames": "^2.2.6",
     "connected-react-router": "^4.5.0",
     "history": "^4.7.2",
