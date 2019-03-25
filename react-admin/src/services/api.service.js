@@ -110,6 +110,7 @@ class ApiService {
           }
           return response.json();
         })
+        .then(this.setAuth)
         .then((res) => {
           resolve(res);
         })
