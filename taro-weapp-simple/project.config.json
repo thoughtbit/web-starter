@@ -1,15 +1,13 @@
 {
-	"miniprogramRoot": "dist/",
-	"projectname": "taro-weapp-simple",
-	"description": "Taro版微信小程序",
-	"appid": "wxc26f62499fadfc80",
-	"setting": {
-		"urlCheck": true,
-		"es6": false,
-		"postcss": false,
-		"minified": false,
-		"newFeature": true
-	},
-	"compileType": "miniprogram",
-	"condition": {}
+  "miniprogramRoot": "./dist",
+  "projectname": "taro-weapp-simple",
+  "description": "Taro版微信小程序",
+  "appid": "wxc26f62499fadfc80",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
 }

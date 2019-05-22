@@ -11,9 +11,9 @@ class Feed extends Component {
   render() {
     return (
       <View className='feed-item'>
-        <View className='feed-source'>
+        <View className='feed-source at-col'>
           <View className='avatar flex1'>
-            <Image src={this.props.feed_source_img}></Image>
+            <Image className='avatar-img' src={this.props.feed_source_img}></Image>
           </View>
           <View className='flex8'>
             <Text className='feed-source-txt'>{this.props.feed_source_name}{this.props.feed_source_txt}</Text>

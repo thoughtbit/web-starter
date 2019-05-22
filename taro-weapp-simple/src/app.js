@@ -1,12 +1,18 @@
-import Taro, { Component } from '@tarojs/taro'
-import '@tarojs/async-await'
-import { Provider } from '@tarojs/redux'
-import  { MessagePage } from './pages/message'
-import configStore from './redux/store'
+import '@tarojs/async-await';
+import Taro, { Component } from '@tarojs/taro';
+import { Provider } from '@tarojs/redux';
+import  { MessagePage } from './pages/message';
+import configStore from './redux/store';
 
-import './styles'
+import './styles';
 
-const store = configStore()
+// 如果需要在 h5 环境中开启 React Devtools
+// 取消以下注释：
+// if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
+//   require('nerv-devtools')
+// }
+
+const store = configStore();
 
 class App extends Component {
   config = {
@@ -71,8 +77,8 @@ class App extends Component {
       <Provider store={store}>
         <MessagePage />
       </Provider>
-    )
+    );
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App />, document.getElementById('app'));
