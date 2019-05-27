@@ -1,46 +1,70 @@
 import { createReducer } from 'redux-create-reducer';
-import { actions as appActions } from "./apps";
+import { actions as appActions } from './apps';
+import AuthService from './../../services/auth.service';
 
 const initialState = {
-  userId: null,
-  username: null
+  isAuthenticated: false,
+  user: null
 };
 
 // action types
 export const TYPES = {
-  LOGIN: "AUTH/LOGIN",    //登录
-  LOGOUT: "AUTH/LOGOUT"   //注销
+  LOGIN: 'AUTH/LOGIN',    //登录
+  LOGOUT: 'AUTH/LOGOUT',   //注销
 };
 
 // action creators
 export const actions = {
   // 异步action，执行登录验证
   login: (username, password) => {
-    return dispatch => {
+    return async (dispatch, getState, getApi) => {
       // 每个API请求开始前，发送app模块定义的startRequest action
       dispatch(appActions.startRequest());
-      const params = { username, password };
-      console.log('params:', params);
-      // return post('', params).then(data => {
-      //   // 每个API请求结束后，发送app模块定义的finishRequest action
-      //   dispatch(appActions.finishRequest());
-      //   // 请求返回成功，保存登录用户的信息，否则，设置全局错误信息
-      //   if (!data.error) {
-      //     dispatch(actions.setLoginInfo(data.userId, username));
-      //   } else {
-      //     dispatch(appActions.setError(data.error));
-      //   }
-      // });
+      dispatch(appActions.removeError());
+      return await getApi(getState)
+        .login({ username, password })
+        .then((res) => {
+          const { data } = res;
+          const user = {
+            id: data.id,
+            username,
+            token: data.token
+          }
+
+          // 本地保存登录认证
+          AuthService.set(user);
+
+          // 每个API请求结束后，发送app模块定义的finishRequest action
+          dispatch(appActions.finishRequest());
+          // 请求返回成功，保存登录用户的信息
+          dispatch(actions.setLoginInfo(user));
+          return Promise.resolve(res);
+        }).catch((error) => {
+          dispatch(appActions.setError(error.message));
+          return Promise.reject(error);
+        });
     };
   },
-  logout: () => ({
-    type: TYPES.LOGOUT
-  }),
-  setLoginInfo: (userId, username) => ({
+  logout: ()  => {
+    return async (dispatch) => {
+      // 本地保存登录认证
+      await AuthService.clear();
+
+      // 退出登录
+      dispatch({ type: TYPES.LOGOUT });
+    }
+  },
+  // logout: () => ({
+  //   type: TYPES.LOGOUT,
+  // }),
+  setLoginInfo: (user) => ({
     type: TYPES.LOGIN,
-    userId: userId,
-    username: username
-  })
+    user
+  }),
+  setToken: (user) => ({
+    type: TYPES.SET_AUTH,
+    user
+  }),
 };
 
 // reducers
@@ -49,18 +73,18 @@ const reducer = createReducer(initialState, {
   [TYPES.LOGIN](state, action) {
     return {
       ...state,
-      userId: action.userId,
-      username: action.username
+      user: action.user,
+      isAuthenticated: true
     };
   },
   // 退出
   [TYPES.LOGOUT](state) {
     return {
       ...state,
-      userId: null,
-      username: null
+      user: null,
+      isAuthenticated: false
     };
-  }
+  },
 });
 
 export default reducer;

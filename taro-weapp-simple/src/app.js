@@ -21,7 +21,8 @@ class App extends Component {
       'pages/service/service',
       'pages/contact/contact',
       'pages/mine/mine',
-      'pages/auth/auth'
+      'pages/auth/auth',
+      'pages/auth/modules/login/login',
     ],
     window: {
       backgroundTextStyle: 'light',

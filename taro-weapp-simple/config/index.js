@@ -1,3 +1,5 @@
+const path = require('path');
+
 const config = {
   projectName: 'taro-weapp-simple',
   date: '2019-5-22',
@@ -25,6 +27,14 @@ const config = {
     }
   },
   defineConstants: {
+  },
+  alias: {
+    '@actions': path.resolve(__dirname, '..', 'src/actions'),
+    '@assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@components': path.resolve(__dirname, '..', 'src/components'),
+    '@redux': path.resolve(__dirname, '..', 'src/redux'),
+    '@styles': path.resolve(__dirname, '..', 'src/styles'),
+    '@common': path.resolve(__dirname, '..', 'src/common')
   },
   copy: {
     patterns: [
@@ -68,8 +78,21 @@ const config = {
     }
   },
   h5: {
+    // NOTE H5 打包静态资源时带 hash 值，方便缓存、版本管理
     publicPath: '/',
     staticDirectory: 'static',
+    output: {
+      filename: 'js/[name].[hash].js',
+      chunkFilename: 'js/[name].[chunkhash].js'
+    },
+    imageUrlLoaderOption: {
+      limit: 5000,
+      name: 'static/images/[name].[hash].[ext]'
+    },
+    miniCssExtractPluginOption: {
+      filename: 'css/[name].[hash].css',
+      chunkFilename: 'css/[name].[chunkhash].css',
+    },
     module: {
       postcss: {
         autoprefixer: {

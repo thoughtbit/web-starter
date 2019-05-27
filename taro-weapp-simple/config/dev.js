@@ -5,5 +5,17 @@ module.exports = {
   defineConstants: {
   },
   weapp: {},
-  h5: {}
+  h5: {
+    devServer: {
+      proxy: {
+        '/api/': {
+          target: '',
+          pathRewrite: {
+            '^/api/': '/'
+          },
+          changeOrigin: true
+        }
+      }
+    }
+  }
 }

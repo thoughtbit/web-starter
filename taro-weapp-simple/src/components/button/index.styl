@@ -1,0 +1,42 @@
+
+.comp-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 94px;
+  border: 0;
+  border-radius: 0;
+  background: #ffffff;
+
+  &--primary {
+    background: #ab2b2b;
+  }
+
+  &--plain {
+    border: 1px solid #ab2b2b;
+    /* TODO background: transparent 的编译有问题 */
+    background-color: transparent;
+  }
+
+  &--disabled {
+    background: #dddddd;
+  }
+}
+
+.comp-button__txt {
+  color: #333333;
+  font-size: 28px;
+
+  &--primary {
+    color: #ffffff;
+  }
+
+  &--plain {
+    color: #ab2b2b;
+  }
+
+  &--disabled {
+    color: #ffffff;
+  }
+}

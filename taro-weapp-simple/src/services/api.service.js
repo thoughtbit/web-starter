@@ -1,155 +1,90 @@
-import Taro from '@tarojs/taro';
-// import { stringify } from 'qs';
+// import Taro from '@tarojs/taro';
 import AuthService from './auth.service';
-import API_CONFIG from './../config/api.config';
-
-const codeMessage = {
-  200: '服务器成功返回请求的数据。',
-  201: '新建或修改数据成功。',
-  202: '一个请求已经进入后台排队（异步任务）。',
-  204: '删除数据成功。',
-  400: '发出的请求有错误，服务器没有进行新建或修改数据的操作。',
-  401: '用户没有权限（令牌、用户名、密码错误）。',
-  403: '用户得到授权，但是访问是被禁止的。',
-  404: '发出的请求针对的是不存在的记录，服务器没有进行操作。',
-  406: '请求的格式不可得。',
-  410: '请求的资源被永久删除，且不会再得到的。',
-  422: '当创建一个对象时，发生一个验证错误。',
-  500: '服务器发生错误，请检查服务器。',
-  502: '网关错误。',
-  503: '服务不可用，服务器暂时过载或维护。',
-  504: '网关超时。',
-};
-
-function checkStatus(response) {
-  if (response.statusCode >= 200 && response.statusCode < 300) {
-    return response;
-  }
-  const errorText = codeMessage[response.statusCode] || response.statusText;
-
-  const error = new Error(errorText);
-  error.code = response.statusCode;
-  error.json = response;
-  throw error;
-}
+import ApiConfig from '../config/api.config';
+import { HttpClient } from '../common/http';
 
 class ApiService {
-  constructor() {
-    this.store = null;
-  }
-
-  init(store) {
+  constructor(store) {
     this.store = store;
-  }
+    this.http = new HttpClient();
+    this.http.interceptors.request.push((url, options) => {
+      console.log('拦截HTTP请求处理结果: ', options);
+      const nextOptions = options;
 
-  setAuth(res) {
-    AuthService.set(res.header);
-    return res;
-  }
+      // const { user, isAuthenticated } = this.store.auth;
+      // if (user && isAuthenticated) {
+      //   nextOptions.header.Authorization = `Bearer ${user.token}`;
+      // }
 
-  /**
-   * Requests a URL, returning a promise.
-   */
-  async request(url, options) {
-    // const state = this.store.getState();
-
-    const defaultOptions = {
-      accept: 'application/json',
-      header: AuthService.auth
-    };
-    const newOptions = { ...defaultOptions, ...options };
-    if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
-      newOptions.header = {
-        'content-type': 'application/json',
-        ...newOptions.header,
-      };
-      newOptions.data = JSON.stringify(newOptions.data);
-    }
-
-    console.log(url, newOptions);
-
-    return await Taro.request({
-      url,
-      ...newOptions
-    })
-      .then(checkStatus)
-      .then(response => {
-        if (newOptions.method === 'DELETE' || response.statusCode === 204) {
-          return response.text();
-        }
-        return response.json();
-      })
-      .then(this.setAuth)
-      .catch(error => {
-        if (error.response.statusCode === 401) {
-          AuthService.logout();
-        }
-        throw error;
-      });
-  }
-
-  /**
-   * 用户相关接口
-   */
-
-  // 用户登录
-  async login(params) {
-    const url = API_CONFIG.APP_BASE_API.LOGIN_URL;
-    return await this.request(
-      url,
-      {
-        method: 'POST',
-        data: {
-          ...params
-        },
+      if (AuthService.auth) {
+        nextOptions.header.Authorization = `Bearer ${AuthService.auth.token}`;
       }
-    );
-  }
+     
+      return { url, options: nextOptions };
+    });
 
-  // 当前用户详情
-  async getUser() {
-    const url = API_CONFIG.APP_BASE_API.USER_INFO_URL;
-    return await this.request(url);
-  }
+    this.http.interceptors.response.push((response) => {
+      console.log('拦截HTTP响应处理结果: ', response);
+      const { user, isAuthenticated } = this.store.auth;
+      const { code } = response;
 
-  // 用户注册
-  async signup(params) {
-    const url = API_CONFIG.APP_BASE_API.SIGNUP_URL;
-    return await this.request(url, {
-      method: 'POST',
-      data: {
-        ...params
+      if (user && isAuthenticated && code === 401) {
+        // 跳转登录页面
+        AuthService.logout();
       }
+      return response;
     });
   }
-
-  // 获取所有用户
-  async getUsers() {
-    const url = API_CONFIG.APP_BASE_API.USERS_URL;
-    return await this.request(url);
+  
+  request(url, options) {
+    return this.http.request(url, options);
   }
 
-  // 根据用户ID获取用户
-  async getUsersById(id) {
-    const url = `${API_CONFIG.APP_BASE_API.USERS_URL}/${id}`;
-    return await this.request(url);
+  /**
+   * 用户管理服务
+   */
+  // 用户登录
+  login(params) {
+    return this.http.post(ApiConfig.APP_BASE_API.LOGIN_URL, params);
   }
-
-  // 资讯
-  // async getNews() {
-  //   const queryString = stringify({
-  //     id: '10011',
-  //     pageCount: 1,
-  //   });
-  //   const news = await this.request(`${}?${queryString}`);
-
-  //   return news;
-  // }
+  // 找回密码
+  findPassword(params) {
+    return this.http.post(ApiConfig.APP_BASE_API.FIND_PASSWORD_URL, params);
+  }
+  // 修改密码
+  modifyPassword(params) {
+    return this.http.post(ApiConfig.APP_BASE_API.MODIFY_PASSWORD_URL, params);
+  }
+  // 用户注册
+  signup(params) {
+    return this.http.post(ApiConfig.APP_BASE_API.SIGNUP_URL, params);
+  }
+  // 查询用户
+  getUser() {
+    return this.http.get(ApiConfig.APP_BASE_API.USER_INFO_URL);
+  }
+  
+  /**
+   * 用户列表管理服务
+   */
+  getUsers(params) {
+    return this.http.get(ApiConfig.APP_BASE_API.USER_URL, params);
+  }
+  createUser(params) {
+    return this.http.post(ApiConfig.APP_BASE_API.USERS_URL, params);
+  }
+  updateUser(params) {
+    return this.http.update(ApiConfig.APP_BASE_API.USERS_URL, params);
+  }
+  destroyUser() {
+    return this.http.delete(ApiConfig.APP_BASE_API.USERS_URL);
+  }
 }
 
-const getApi = () => {
-  return new ApiService();
+const getApi = (getState) => {
+  const state = getState();
+  // console.log('全局状态树：', state);
+  return new ApiService(state);
 };
 
 export { getApi }
-export default new ApiService();

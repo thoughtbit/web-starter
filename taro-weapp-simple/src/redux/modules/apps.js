@@ -8,10 +8,10 @@ const initialState = {
 
 // action types
 export const TYPES = {
-  START_REQUEST: "APP/START_REQUEST",   // 开始发送请求
-  FINISH_REQUEST: "APP/FINISH_REQUEST", // 请求结束
-  SET_ERROR: "APP/SET_ERROR",           // 设置错误信息
-  REMOVE_ERROR: "APP/REMOVE_ERROR"      // 删除错误信息
+  START_REQUEST: 'APP/START_REQUEST',   // 开始发送请求
+  FINISH_REQUEST: 'APP/FINISH_REQUEST', // 请求结束
+  SET_ERROR: 'APP/SET_ERROR',           // 设置错误信息
+  REMOVE_ERROR: 'APP/REMOVE_ERROR'      // 删除错误信息
 };
 
 // action creators

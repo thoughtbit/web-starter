@@ -40,7 +40,7 @@ class ServicePage extends Component {
 
   navigateTo () {
     Taro.navigateTo({
-      url: '/pages/auth/AuthPage'
+      url: '/pages/auth/auth'
     })
   }
 

@@ -4,8 +4,8 @@ const initialState = {
 
 // action types
 export const TYPES = {
-  ADD: "COUNTER/ADD",    // 加
-  MINUS: "COUNTER/MINUS"   // 减
+  ADD: 'COUNTER/ADD',    // 加
+  MINUS: 'COUNTER/MINUS'   // 减
 };
 
 // action creators

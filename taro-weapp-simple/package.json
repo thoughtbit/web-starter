@@ -15,7 +15,8 @@
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:tt": "npm run build:tt -- --watch",
     "dev:h5": "npm run build:h5 -- --watch",
-    "dev:rn": "npm run build:rn -- --watch"
+    "dev:rn": "npm run build:rn -- --watch",
+    "server": "nodemon mock-server/server.js --watch mock-server"
   },
   "author": "",
   "license": "MIT",
@@ -63,6 +64,14 @@
     "stylelint": "9.3.0",
     "stylelint-config-taro-rn": "1.3.0-beta.3",
     "stylelint-taro-rn": "1.3.0-beta.3",
-    "eslint-plugin-taro": "1.3.0-beta.3"
+    "eslint-plugin-taro": "1.3.0-beta.3",
+
+    "nodemon": "^1.19.0",
+    "bcrypt": "^3.0.6",
+    "express": "^4.16.4",
+    "http-proxy-middleware": "^0.19.1",
+    "json-server": "^0.14.2",
+    "jsonwebtoken": "^8.5.0",
+    "lowdb": "^1.0.0"
   }
 }

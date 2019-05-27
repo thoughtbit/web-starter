@@ -1,5 +1,4 @@
 import Taro from '@tarojs/taro';
-// import ApiService from "./api.service";
 
 class AuthService {
   constructor() {
@@ -13,20 +12,17 @@ class AuthService {
   }
 
   set(auth) {
-    ["access-token", "token-type", "expiry", "uid"].forEach(key => {
-      if (auth[key]) this.auth[key] = auth[key];
-    });
-    Taro.setStorageSync("auth", this.auth);
+    Taro.setStorageSync('auth', auth);
   }
 
   get() {
-    const auth = Taro.getStorageSync("auth");
+    const auth = Taro.getStorageSync('auth');
     return auth || {};
   }
 
   clear() {
     this.auth = {};
-    Taro.removeStorageSync("auth");
+    Taro.removeStorageSync('auth');
   }
 
   logout() {

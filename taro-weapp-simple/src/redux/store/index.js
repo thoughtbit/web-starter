@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import rootReducer from './../modules';
-import ApiService, { getApi } from './../../services/api.service';
+import { getApi } from './../../services/api.service';
 import AuthService from './../../services/auth.service';
 import WebSocketService from './../../services/ws.service';
 
@@ -29,7 +29,6 @@ const enhancer = composeEnhancers(
 export default function configStore () {
   const store = createStore(rootReducer, enhancer);
 
-  ApiService.init(store);
   AuthService.init(store);
   WebSocketService.init(store);
 

@@ -100,14 +100,12 @@ const mutations = {
     state.user = user;
     state.errors = {};
     JwtService.saveToken(state.user.token);
-    JwtService.saveUserId(state.user.id);
   },
   [PURGE_AUTH](state) {
     state.isAuthenticated = false;
     state.user = {};
     state.errors = {};
     JwtService.destroyToken();
-    JwtService.destroyUserId();
   },
 };
 
