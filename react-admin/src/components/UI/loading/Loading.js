@@ -1,5 +1,5 @@
 import React from 'react';
-import { Component } from './../../common';
+import { Component } from './../../../common';
 
 import './index.styl';
 

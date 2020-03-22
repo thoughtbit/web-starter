@@ -1,26 +1,50 @@
+import React, { lazy, Suspense } from 'react';
+import { SceneLoader } from './../components/SceneLoader';
 import App from './../pages/App';
-import AsyncComponent from './AsyncComponent';
-// import { HomePage } from './../pages/home';
-// import { LoginPage } from './../pages/auth';
-// import { PageNotFoundPage, WelcomePage } from './../pages/common';
 
-const HomePage = AsyncComponent.load('home/HomePage');
-const LoginPage = AsyncComponent.load('auth/modules/login/LoginPage');
-const WelcomePage = AsyncComponent.load('common/WelcomePage');
-const PageNotFoundPage = AsyncComponent.load('common/PageNotFoundPage');
+const Home = lazy(() => import('./../pages/home/HomePage'));
+const Login = lazy(() => import('./../pages/auth/modules/login/LoginPage'));
+const Welcome = lazy(() => import('./../pages/common/WelcomePage'));
+const PageNotFound = lazy(() => import('./../pages/common/PageNotFoundPage'));
 
 const authorizedRoutes = {
-
+  path: 'auth',
+  name: 'Authorized',
+  childRoutes: [
+  ],
 };
 
 const normalRoutes = {
   path: '',
   name: 'Home',
-  // component: HomePage,
   childRoutes: [
-    { name: 'Home page', component: HomePage, isIndex: true },
-    { path: '/welcome', name: 'Welcome page', component: WelcomePage },
-    { path: '/login', name: 'Login page', component: LoginPage }
+    {
+      name: 'Home page',
+      component: () => (
+        <Suspense fallback={<SceneLoader />}>
+          <Home />
+        </Suspense>
+      ),
+      isIndex: true
+    },
+    {
+      path: '/welcome',
+      name: 'Welcome page',
+      component: () => (
+        <Suspense fallback={<SceneLoader />}>
+          <Welcome />
+        </Suspense>
+      ),
+    },
+    {
+      path: '/login',
+      name: 'Login page',
+      component: () => (
+        <Suspense fallback={<SceneLoader />}>
+          <Login />
+        </Suspense>
+      ),
+    }
   ]
 };
 
@@ -28,10 +52,21 @@ const sharedRoutes = {
 
 };
 
+const examplesRoutes = {
+  // path: 'examples',
+  // component: Layout,
+  // childRoutes: [
+  //   { path: '', component: WelcomePage, isIndex: true },
+  //   { path: 'counter', component: CounterPage },
+  //   { path: 'reddit', component: RedditListPage },
+  // ],
+}
+
 const childRoutes = [
   authorizedRoutes,
   sharedRoutes,
-  normalRoutes
+  normalRoutes,
+  examplesRoutes,
 ];
 
 const routes = [{
@@ -39,7 +74,15 @@ const routes = [{
   component: App,
   childRoutes: [
     ...childRoutes,
-    { path: '*', name: 'Page not found', component: PageNotFoundPage },
+    { 
+      path: '*', 
+      name: 'Page not found', 
+      component: () => (
+        <Suspense fallback={<SceneLoader />}>
+          <PageNotFound />
+        </Suspense>
+      ),
+    },
   ].filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0)),
 }];
 
@@ -53,7 +96,8 @@ function handleIndexRoute(route) {
   const indexRoute = route.childRoutes.find(child => child.isIndex);
   if (indexRoute) {
     const first = { ...indexRoute };
-    first.path = route.path;
+    // first.path = route.path;
+    first.path = '';
     first.exact = true;
     first.autoIndexRoute = true; // mark it so that the simple nav won't show it.
     route.childRoutes.unshift(first);
@@ -62,4 +106,5 @@ function handleIndexRoute(route) {
 }
 
 routes.forEach(handleIndexRoute);
+
 export default routes;

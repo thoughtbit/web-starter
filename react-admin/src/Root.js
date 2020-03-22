@@ -1,19 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Suspense } from 'react';
+import { setConfig, hot } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import { Router, history } from './router';
+import { Router, history, routeConfig } from './router';
+import configStore from './redux/store';
 
-const Root = ({ store, routeConfig }) => {
-  return (
+setConfig({
+  logLevel: 'debug',
+  errorReporter: false
+});
+
+const store = configStore();
+
+const Root = () => (
+  <Suspense fallback={ null }>
     <Provider store={store}>
       <Router history={history} config={routeConfig}></Router>
     </Provider>
-  );
-}
+  </Suspense>
+)
 
-Root.propTypes = {
-  store: PropTypes.object.isRequired,
-  routeConfig: PropTypes.array.isRequired
-};
-
-export default Root;
+export default hot(module)(Root)

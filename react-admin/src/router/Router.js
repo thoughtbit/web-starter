@@ -38,14 +38,14 @@ function renderRouteConfigV3(routes, contextPath) {
 
 
 const Router = ({ history, config }) => {
-  console.log('config:', JSON.stringify(config));
+  // console.log('config:', JSON.stringify(config));
   const children = renderRouteConfigV3(config, '/');
   return (
     <ConnectedRouter history={history}>
       { children }
     </ConnectedRouter>
   );
-} 
+}
 
 Router.propTypes = {
   config: PropTypes.array.isRequired,

@@ -13,6 +13,7 @@ class WebSocketService {
 
   connect() {
     const url = API_CONFIG.WEB_SOCKET_URL;
+    console.log(url);
   }
 
   disconnect() {

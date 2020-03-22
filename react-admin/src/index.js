@@ -1,33 +1,14 @@
 import React from 'react';
-import { AppContainer } from 'react-hot-loader';
-import { render } from 'react-dom';
-import configStore from './redux/store';
-import { routeConfig } from './router';
+import ReactDOM from 'react-dom';
+
+// import initReactFastclick from 'react-fastclick';
 import Root from './Root';
 import * as serviceWorker from './serviceWorker';
 
 import './styles';
 
-const store = configStore();
+// initReactFastclick();
 
-const renderApp = (app) => {
-  render(
-    <AppContainer>
-      {app}
-    </AppContainer>,
-    document.getElementById('root')
-  );
-}
-
-renderApp(<Root store={store} routeConfig={routeConfig} />);
-
-// Hot reloading
-if (module.hot) {
-  // Reload components
-  module.hot.accept('./router/routeConfig', () => {
-    const nextRouteConfig = require('./router/routeConfig').default;
-    renderApp(<Root store={store} routeConfig={nextRouteConfig} />);
-  });
-}
+ReactDOM.render(<Root />, document.getElementById('root'))
 
 serviceWorker.unregister();
