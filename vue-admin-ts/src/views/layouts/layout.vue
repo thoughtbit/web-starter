@@ -1,9 +1,9 @@
 <template>
   <div class="layout">
-    <layout-footer />
+    <layout-header />
     <div class="layout-body">
       <aside class="sider-menu">
-        主菜单
+        <router-link class="nav-link" to="/dashboard">工作台</router-link>
       </aside>
       <aside class="sider-sub-menu">
         子菜单
@@ -30,7 +30,17 @@
 </script>
 
 <style lang="scss" scoped>
-  .layout {
+  .layout-body {
+    display: flex;
     background-color: #f5f5f5;
+  }
+  .sider-menu {
+    width: 280px;
+  }
+  .sider-sub-menu {
+    width: 180px;
+  }
+  .content {
+    flex: 1;
   }
 </style>

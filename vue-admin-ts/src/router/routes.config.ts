@@ -8,29 +8,41 @@ export const routesConfig = Object.freeze<RoutesConfig>({
   // 登录
   login: {
     path: "/login",
-    name: "Login",
+    name: "login",
     hidden: true
   },
   // 主框架
   index: {
     path: "/",
-    name: "Index",
+    name: "index",
     hidden: true
   },
   // 异常
   unauthorized: {
-    name: "Unauthorized",
+    name: "unauthorized",
     path: "/401",
     hidden: true
   },
   notFound: {
-    name: "NotFound",
+    name: "notFound",
     path: "*",
     hidden: true
   },
   error: {
-    name: "Error",
+    name: "error",
     path: "/error",
+    hidden: true
+  },
+
+  about: {
+    name: "about",
+    path: "/about",
+    hidden: true
+  },
+
+  dashboard: {
+    name: "dashboard",
+    path: "/dashboard",
     hidden: true
   }
 });
@@ -46,5 +58,10 @@ export const routesMap = {
   // 异常
   error: "views/containers/error",
   notFound: "views/containers/404",
-  unauthorized: "views/containers/401"
+  unauthorized: "views/containers/401",
+
+  // 其它
+  about: "views/containers/about",
+
+  dashboard: "views/containers/dashboard"
 };

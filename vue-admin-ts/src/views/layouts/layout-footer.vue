@@ -1,5 +1,5 @@
 <template>
-  <header class="layout-footer">底部</header>
+  <footer class="layout-footer">底部</footer>
 </template>
 
 <script lang="ts">

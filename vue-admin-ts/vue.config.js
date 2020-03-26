@@ -8,7 +8,6 @@ module.exports = {
     name
   },
 
-  assetsDir: "assets/",
   publicPath: process.env.NODE_ENV === "production" ? "/clinet/" : "/",
   lintOnSave: process.env.NODE_ENV === "development",
   productionSourceMap: false,

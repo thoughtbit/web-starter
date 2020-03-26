@@ -17,7 +17,8 @@ export function filterAsyncRoutes (routes: RouteConfig[]) {
           };
         }
         // @ts-ignore
-        const routePath = routesMap[rt.name.toLowerCase()];
+        const routePath = routesMap[rt.name];
+        console.log('routePath:', routePath);
         if (routePath) {
           rt.component = () =>  import(`@/${routePath}.vue`);
         }
@@ -37,33 +38,31 @@ export function filterAsyncRoutes (routes: RouteConfig[]) {
 }
 
 // 根路由
-export const rootRoute = [
-  {
-    component: () => import(/* webpackChunkName: "layout" */ "@/views/layouts/layout.vue"),
-    ...routesConfig.index
-  }
-];
+export const rootRoute = {
+  path: "/",
+  component: () => import("@/views/layouts/menu-view.vue")
+};
 
 // 公共路由
 export const commonRoutes = [
   {
-    ...routesConfig.index
+    ...routesConfig.login
   },
   {
-    ...routesConfig.login
+    ...routesConfig.about
   }
 ];
 
 // 错误和异常路由
 export const exceptionRoutes = [
   {
+    ...routesConfig.error
+  },
+  {
     ...routesConfig.unauthorized
   },
   {
     ...routesConfig.notFound
-  },
-  {
-    ...routesConfig.error
   }
 ];
 
@@ -89,9 +88,26 @@ export const createRouter = (routes: RouteConfig[]) =>{
 };
 
 // const routes = store.getters.routes.length ? store.getters.routes : commonRoutes
-const routes = commonRoutes;
-const router = createRouter(filterAsyncRoutes(routes));
-console.log("路由配置:", routes, filterAsyncRoutes(routes));
+// const router = createRouter(filterAsyncRoutes(routes));
+
+const routes = commonRoutes.concat(exceptionRoutes);
+const router = createRouter(
+  [
+    {
+      ...rootRoute,
+      children: [
+        {
+          name: "dashboard",
+          path: "/dashboard",
+          component: () => import("@/views/containers/dashboard.vue")
+        }
+      ]
+    },
+    ...filterAsyncRoutes(routes)
+  ]
+);
+
+console.log("路由配置:", routes, router);
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {

@@ -9,6 +9,9 @@ import "@/registerServiceWorker";
 // 全局样式
 import "@/assets/styles/tailwind.css";
 
+// 鉴权和路由守卫
+import "@/router/permission";
+
 // 插件集合
 import "@/plugins";
 
