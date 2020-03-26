@@ -1,0 +1,27 @@
+### 用户列表
+GET https://localhost:4000/user HTTP/1.1
+
+
+### 用户登录
+POST https://localhost:4000/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "moocss",
+    "password": "123456"
+}
+
+
+### 用户注册
+POST https://localhost:4000/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "123456"
+}
+
+### 验证 JWT
+POST https://localhost:4000/token/validate HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNybmFtZSI6Im1vb2NzcyIsImlhdCI6MTU1MzUwNTg0MCwiZXhwIjoxNTUzNTkyMjQwfQ.sQ0jC1KiiNYtQtg-UwKh-dvyTTe1IsUGxC_MCvXPCzI1nKcPy7vfZGZHxGRJysEHwh_LuBwhdB_w8H9ckcwUOFe6LPl-OHlN0rk9Z_rjIHsJB3QoHr3N-a2zq36cCeg_ON03d_QrXL05p7TEvFBDQjOHwYMjxv44YHOkofZh1c_lpFmF0R9YUwKw6eGeX59SZo8cupRVNDNLGPigUg7McalcUtyc_WkHaQpYUWYxGTP7Sbw8lO-_RZZhGLj8K_OqlpxkkYtdT8eKVyaY7pVPKQbe2f3DG-ulGafqm26mCbb_ugSW6vXU1o-RZMpsY30HN-crzINkmqxl6R4LmArXZg

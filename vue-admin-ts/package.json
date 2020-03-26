@@ -1,0 +1,81 @@
+{
+  "name": "vue-admin-ts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:e2e": "vue-cli-service test:e2e",
+    "test:unit": "vue-cli-service test:unit",
+    "mock-server": "cd mock-server && ts-node-dev --respawn --transpileOnly server.ts"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.149",
+    "consola": "^2.11.3",
+    "core-js": "^3.6.4",
+    "echarts": "^4.7.0",
+    "js-cookie": "^2.2.1",
+    "lodash": "^4.17.15",
+    "qs": "^6.9.2",
+    "register-service-worker": "^1.7.1",
+    "resize-detector": "^0.2.1",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^8.4.1",
+    "vue-router": "^3.1.6",
+    "vuex": "^3.1.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/clipboard": "^2.0.1",
+    "@types/http-proxy-middleware": "^0.19.3",
+    "@types/jest": "^24.0.19",
+    "@types/js-cookie": "^2.2.5",
+    "@types/json-server": "^0.14.2",
+    "@types/jsonwebtoken": "^8.3.8",
+    "@types/lowdb": "^1.0.9",
+    "@types/node": "^13.9.3",
+    "@types/qs": "^6.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "@vue/cli-plugin-babel": "^4.2.0",
+    "@vue/cli-plugin-e2e-cypress": "^4.2.0",
+    "@vue/cli-plugin-eslint": "^4.2.0",
+    "@vue/cli-plugin-pwa": "^4.2.0",
+    "@vue/cli-plugin-typescript": "^4.2.0",
+    "@vue/cli-plugin-unit-jest": "^4.2.0",
+    "@vue/cli-service": "^4.2.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^5.0.1",
+    "@vue/test-utils": "1.0.0-beta.31",
+    "bcrypt": "^4.0.1",
+    "dayjs": "^1.8.23",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.3",
+    "json-server": "^0.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "lowdb": "^1.0.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
+    "svg-sprite-loader": "^4.2.1",
+    "tailwindcss": "^1.2.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "~3.7.5",
+    "vue-meta": "^2.3.3",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
