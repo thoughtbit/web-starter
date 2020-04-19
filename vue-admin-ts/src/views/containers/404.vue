@@ -1,11 +1,13 @@
 <template>
   <div class="page page-404">
+    <ui-header msg="找不到页面" />
     <div class="container">
       <h5 class="title">404 Not Found</h5>
       <p class="subtitle">{{ message }}</p>
       <a href="javascript:" @click="handleBack">返回上一页</a>
       <a href="javascript:" @click="handleLogin">重新登录</a>
     </div>
+    <ui-footer />
   </div>
 </template>
 

@@ -1,0 +1,111 @@
+/* theme color */
+$--color-primary: #1890ff;
+$--color-success: #13ce66;
+$--color-warning: #FFBA00;
+$--color-danger: #ff4949;
+// $--color-info: #1E1E1E;
+
+$--button-font-weight: 400;
+
+// $--color-text-regular: #1f2d3d;
+
+$--border-color-light: #dfe4ed;
+$--border-color-lighter: #e6ebf5;
+
+$--table-border:1px solid#dfe6ec;
+
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  theme: $--color-primary;
+}
+
+// cover some element-ui styles
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
+
+.el-upload {
+  input[type="file"] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+.cell {
+  .el-tag {
+    margin-right: 0;
+  }
+}
+
+.small-padding {
+  .cell {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.fixed-width {
+  .el-button--mini {
+    padding: 7px 10px;
+    width: 60px;
+  }
+}
+
+.status-col {
+  .cell {
+    padding: 0 10px;
+    text-align: center;
+
+    .el-tag {
+      margin-right: 0;
+    }
+  }
+}
+
+// to fixed https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+// refine element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+// dropdown
+.el-dropdown-menu {
+  a {
+    display: block
+  }
+}
+
+// fix date-picker ui bug in filter-item
+.el-range-editor.el-input__inner {
+  display: inline-flex !important;
+}
+
+// to fix el-date-picker css style
+.el-range-separator {
+  box-sizing: content-box;
+}

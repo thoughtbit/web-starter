@@ -11,6 +11,12 @@ export const routesConfig = Object.freeze<RoutesConfig>({
     name: "login",
     hidden: true
   },
+  // 注册
+  register: {
+    path: "/register",
+    name: "register",
+    hidden: true
+  },
   // 主框架
   index: {
     path: "/",
@@ -47,10 +53,11 @@ export const routesConfig = Object.freeze<RoutesConfig>({
   }
 });
 
-
 export const routesMap = {
   // 登录
   login: "views/containers/login",
+  // 注册
+  register: "views/containers/register",
 
   // 主框架
   index: "views/layouts/menu-view",

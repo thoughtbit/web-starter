@@ -6,14 +6,19 @@ import store from "@/store";
 // PWA
 import "@/registerServiceWorker";
 
-// 全局样式
-import "@/assets/styles/tailwind.css";
+import '@/assets/styles/index.scss';
+
+// 错误日志收集
+import "@/error";
 
 // 鉴权和路由守卫
 import "@/router/permission";
 
 // 插件集合
 import "@/plugins";
+
+// 组件集合
+import "@/registerComponents";
 
 Vue.config.productionTip = false;
 

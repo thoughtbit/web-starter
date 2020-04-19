@@ -37,3 +37,10 @@ yarn run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## 问题
+无法远程安装 cypress.
+```
+export CYPRESS_INSTALL_BINARY=/Users/moocss/cypress.zip
+```

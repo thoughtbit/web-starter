@@ -12,35 +12,46 @@
         <slot></slot>
       </main>
     </div>
-    <layout-footer />
   </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from "vue-property-decorator";
   import LayoutHeader from "./layout-header.vue";
-  import LayoutFooter from "./layout-footer.vue";
   @Component({
     components: {
-      LayoutHeader,
-      LayoutFooter
+      LayoutHeader
     }
   })
   export default class Layout extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-  .layout-body {
+  .layout {
+    flex-direction: column;
     display: flex;
-    background-color: #f5f5f5;
+    height: 100vh;
+    width: 100%;
+    &-body {
+      display: flex;
+      height: calc(100vh - 64px);
+      width: 100%;
+      .sider-menu {
+        width: 220px;
+        background-color: #444;
+      }
+      .sider-sub-menu {
+        width: 180px;
+        background-color: #eee;
+        border-right: 1px solid #ddd;
+      }
+      .content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
   }
-  .sider-menu {
-    width: 280px;
-  }
-  .sider-sub-menu {
-    width: 180px;
-  }
-  .content {
-    flex: 1;
-  }
+
 </style>

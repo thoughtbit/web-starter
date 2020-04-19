@@ -4,9 +4,9 @@ import { routesConfig, routesMap } from "@/router/routes.config";
 
 Vue.use(VueRouter);
 
-export function filterAsyncRoutes (routes: RouteConfig[]) {
+export function filterAsyncRoutes(routes: RouteConfig[]) {
   let routeList: RouteConfig[] = [];
-  const loop = ({routes, parentPath = "/"}: { routes: any, parentPath?: string }) => {
+  const loop = ({ routes, parentPath = "/" }: { routes: any; parentPath?: string }) => {
     if (routes instanceof Array && routes.length) {
       routes.forEach((route) => {
         let { children, ...rt } = route;
@@ -18,22 +18,22 @@ export function filterAsyncRoutes (routes: RouteConfig[]) {
         }
         // @ts-ignore
         const routePath = routesMap[rt.name];
-        console.log('routePath:', routePath);
+        // console.log("routePath:", routePath);
         if (routePath) {
-          rt.component = () =>  import(`@/${routePath}.vue`);
+          rt.component = () => import(`@/${routePath}.vue`);
         }
         if (children instanceof Array && children.length) {
-          const subMenus = children.filter(c => c.menuType !== 2);
+          const subMenus = children.filter((c) => c.menuType !== 2);
           if (subMenus.length) rt.redirect = subMenus[0].path;
         }
         routeList.push(rt);
         if (children) {
-          loop({routes: children, parentPath: (rt.hidden ? parentPath : rt.path)});
+          loop({ routes: children, parentPath: rt.hidden ? parentPath : rt.path });
         }
       });
     }
   };
-  loop({routes: routes});
+  loop({ routes: routes });
   return routeList;
 }
 
@@ -47,6 +47,9 @@ export const rootRoute = {
 export const commonRoutes = [
   {
     ...routesConfig.login
+  },
+  {
+    ...routesConfig.register
   },
   {
     ...routesConfig.about
@@ -67,7 +70,7 @@ export const exceptionRoutes = [
 ];
 
 // 路由实例化
-export const createRouter = (routes: RouteConfig[]) =>{
+export const createRouter = (routes: RouteConfig[]): VueRouter => {
   return new VueRouter({
     mode: "history",
     base: process.env.BASE_URL,
@@ -79,8 +82,8 @@ export const createRouter = (routes: RouteConfig[]) =>{
         };
       } else if (savedPosition) {
         return savedPosition;
-      } else {
-        return { x: 0, y: 0 };
+      } else if (to.path !== from.path) { // do not change scroll position when navigating on the same page (ex. change filters)
+        return { x: 0, y: 0 }
       }
     },
     routes
@@ -91,23 +94,21 @@ export const createRouter = (routes: RouteConfig[]) =>{
 // const router = createRouter(filterAsyncRoutes(routes));
 
 const routes = commonRoutes.concat(exceptionRoutes);
-const router = createRouter(
-  [
-    {
-      ...rootRoute,
-      children: [
-        {
-          name: "dashboard",
-          path: "/dashboard",
-          component: () => import("@/views/containers/dashboard.vue")
-        }
-      ]
-    },
-    ...filterAsyncRoutes(routes)
-  ]
-);
+const router = createRouter([
+  {
+    ...rootRoute,
+    children: [
+      {
+        name: "dashboard",
+        path: "/dashboard",
+        component: () => import("@/views/containers/dashboard.vue")
+      }
+    ]
+  },
+  ...filterAsyncRoutes(routes)
+]);
 
-console.log("路由配置:", routes, router);
+// console.log("路由配置:", routes, router);
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {

@@ -11,6 +11,6 @@
 
 <style lang="scss" scoped>
   .layout-footer {
-    background-color: #fff;
+
   }
 </style>

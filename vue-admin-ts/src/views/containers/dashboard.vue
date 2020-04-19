@@ -1,7 +1,16 @@
 <template>
-  <div>工作台页面</div>
+  <div class="page">工作台页面</div>
 </template>
 
-<script></script>
+<script lang="ts">
+  import { Component, Vue } from "vue-property-decorator";
 
-<style scoped></style>
+  @Component
+  export default class Dashboard extends Vue {}
+</script>
+
+<style lang="scss" scoped>
+  .page {
+    height: 2000px;
+  }
+</style>

@@ -1,13 +1,13 @@
 import { MetaInfo } from "vue-meta";
 
 // App.vue
-export const MetaInfoApp = Object.freeze<MetaInfo>({
+const MetaInfoApp = Object.freeze<MetaInfo>({
   title: "入口页",
   titleTemplate: "%s | 大数据统一管理平台"
 });
 
 // Home.vue
-export const MetaInfoHome = Object.freeze<MetaInfo>({
+const MetaInfoHome = Object.freeze<MetaInfo>({
   title: "首页",
   titleTemplate: "%s | 大数据统一管理平台",
   meta: [
@@ -27,7 +27,7 @@ export const MetaInfoHome = Object.freeze<MetaInfo>({
 });
 
 // common/410.vue
-export const MetaInfo404 = Object.freeze<MetaInfo>({
+const MetaInfo404 = Object.freeze<MetaInfo>({
   title: "404 找不到页面",
   titleTemplate: "%s | 大数据统一管理平台",
   meta: [
@@ -47,7 +47,7 @@ export const MetaInfo404 = Object.freeze<MetaInfo>({
 });
 
 // common/410.vue
-export const MetaInfo401 = Object.freeze<MetaInfo>({
+const MetaInfo401 = Object.freeze<MetaInfo>({
   title: "401 无权限访问页面",
   titleTemplate: "%s | 大数据统一管理平台",
   meta: [
@@ -66,7 +66,7 @@ export const MetaInfo401 = Object.freeze<MetaInfo>({
   ]
 });
 
-export const MetaInfoError = Object.freeze<MetaInfo>({
+const MetaInfoError = Object.freeze<MetaInfo>({
   title: "错误页面",
   titleTemplate: "%s | 大数据统一管理平台",
   meta: [
@@ -85,3 +85,4 @@ export const MetaInfoError = Object.freeze<MetaInfo>({
   ]
 });
 
+export { MetaInfoApp, MetaInfoHome, MetaInfo404, MetaInfo401, MetaInfoError };

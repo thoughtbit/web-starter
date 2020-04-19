@@ -1,10 +1,12 @@
 <template>
   <div class="page page-401">
+    <ui-header msg="无权访问页面" />
     <div class="container">
       <h5 class="title">你没有权限去该页面</h5>
       <p class="subtitle">{{ message }}</p>
       <a href="javascript:;" @click="back">返回</a>
     </div>
+    <ui-footer />
   </div>
 </template>
 
