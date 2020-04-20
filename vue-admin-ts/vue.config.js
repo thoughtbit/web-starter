@@ -12,11 +12,11 @@ module.exports = {
     name
   },
 
-  publicPath: process.env.NODE_ENV === "production" ? "/clinet/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/client/" : "/",
   // 在npm run build 或 yarn build 时 ，生成文件的目录名称（要和baseUrl的生产环境路径一致）（默认dist）
   outputDir: 'dist',
   // 用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
-  assetsDir: 'static',
+  // assetsDir: 'static',
   // 是否开启eslint保存检测，有效值：ture | false | 'error'
   lintOnSave: process.env.NODE_ENV === "development",
   // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
@@ -65,31 +65,11 @@ module.exports = {
     // https://webpack.js.org/configuration/devtool/#development
     config.when(process.env.NODE_ENV !== "development", (config) => config.devtool("cheap-source-map"));
     config.when(process.env.NODE_ENV !== "development", (config) => {
-      config
-        .plugin("ScriptExtHtmlWebpackPlugin")
-        .after("html")
-        .use("script-ext-html-webpack-plugin", [
-          {
-            // `runtime` must same as runtimeChunk name. default is `runtime`
-            inline: /runtime\..*\.js$/
-          }
-        ])
-        .end();
+
 
       config.optimization.splitChunks({
         chunks: "all",
         cacheGroups: {
-          echarts: {
-            name: "echarts",
-            test: /[\\/]node_modules[\\/]echarts[\\/]/,
-            priority: 0,
-            chunks: "initial"
-          },
-          elementUI: {
-            name: 'chunk-element-ui', // split elementUI into a single package
-            priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-            test: /[\\/]node_modules[\\/]_?element-ui(.*)/
-          },
           vendors: {
             name: "chunk-vendors",
             test: /[\\/]node_modules[\\/]/,
@@ -108,19 +88,55 @@ module.exports = {
       config.optimization.runtimeChunk("single");
     });
 
+    // use cdn start
+    // ------------------------------------------------------
+    const externals = {
+      "vue": "Vue",
+      "vue-router": "VueRouter",
+      "vuex": "Vuex",
+      "axios": "axios",
+      "element-ui": "ELEMENT",
+      "echarts/lib/echarts": "echarts",
+      // lodash: '_',
+      "dayjs": "dayjs",
+      "crypto-js": "CryptoJS"
+    };
+
     // 忽略的打包文件
-    config.externals({
-      // vue: "Vue",
-      // "vue-router": "VueRouter",
-      // vuex: "Vuex",
-      // axios: "axios",
-      // "element-ui": "ELEMENT",
-      // "echarts/lib/echarts": "echarts",
-      // // lodash: '_',
-      //  moment: "moment",
-      // "crypto-js": "CryptoJS",
-      // jquery: "jQuery",
+    config.externals(externals);
+
+    const cdn = {
+      css: [
+        "./cdn/element-ui/2.13.0/theme-chalk/index.css"
+      ],
+      js: [
+        "./cdn/vue/2.6.11/vue.min.js",
+        "./cdn/vuex/3.1.3/vuex.min.js",
+        "./cdn/vue-router/3.1.6/vue-router.min.js",
+        "./cdn/axios/0.18.1/axios.min.js",
+        "./cdn/element-ui/2.13.0/index.js",
+        "./cdn/echarts/4.7.0/echarts.min.js",
+        "./cdn/dayjs/1.8.24/dayjs.min.js",
+        "./cdn/crypto-js/4.0.0/crypto-js.min.js"
+      ]
+    };
+    config.plugin("html").tap((args) => {
+      args[0].cdn = cdn;
+      return args;
     });
+    // use cdn end
+    // ------------------------------------------------------
+
+    config
+      .plugin("ScriptExtHtmlWebpackPlugin")
+      .after("html")
+      .use("script-ext-html-webpack-plugin", [
+        {
+          // `runtime` must same as runtimeChunk name. default is `runtime`
+          inline: /runtime\..*\.js$/
+        }
+      ])
+      .end();
 
     // set svg-sprite-loader
     config.module

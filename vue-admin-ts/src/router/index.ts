@@ -72,7 +72,7 @@ export const exceptionRoutes = [
 // 路由实例化
 export const createRouter = (routes: RouteConfig[]): VueRouter => {
   return new VueRouter({
-    mode: "history",
+    // mode: "history",
     base: process.env.BASE_URL,
     linkActiveClass: "is-active",
     scrollBehavior: (to, from, savedPosition) => {

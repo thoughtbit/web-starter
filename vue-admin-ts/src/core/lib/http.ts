@@ -208,13 +208,11 @@ export const extendConfig = (config: ExtendConfig): APIConfig => {
     headers = { ...config.headers, ...authHeaders };
   }
 
-  let _config = {
+  return {
     baseURL: config && config.server ? config.server : process.env.VUE_APP_API_PREFIX,
     ...config,
     headers
   };
-
-  return _config;
 };
 
 export const checkIfServerOnline = async (): Promise<void> => {
@@ -239,6 +237,12 @@ export const checkIfServerOnline = async (): Promise<void> => {
 };
 
 export default {
+  getHttpInstance() {
+    return instance;
+  },
+  getApiInstance() {
+    return api;
+  },
   /**
    *
    * @param options
