@@ -7,6 +7,7 @@ declare module "vue-router" {
   import VueRouter, { RouteConfig } from "node_modules/vue-router";
   export * from "node_modules/vue-router";
   export default class extends VueRouter {
+    match: any;
     public addRoutes(routes: RouteConfig[], useRouteQueue?: boolean, priority?: number): void;
   }
 }

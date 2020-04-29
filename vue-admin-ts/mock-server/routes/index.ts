@@ -20,14 +20,4 @@ export const routes = function(app) {
 
   // 用户接口, 菜单接口, 购物接口
   app.use([user, menus, shop]);
-
-  // Catch 404 error
-  app.use((req: Request, res: Response, next: NextFunction) => {
-    const err = new Error('Not Found');
-    res.status(404).json({
-      code: 404,
-      msg: err.message,
-      data: {}
-    });
-  });
 }

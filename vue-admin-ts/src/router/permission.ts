@@ -1,45 +1,101 @@
-import router from "@/router";
+import router, { createRouter } from "@/router";
+import store from "@/store";
+import { SET_LOGIN_STATUS, SET_TOKEN } from "@/store/mutation-types";
+import StorageManager from "@/utils/storage-manager";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import { Logger } from "@/utils/logger";
 
 NProgress.configure({
   showSpinner: false
 });
 
-const whiteList = ["/login", "/auth-redirect", "/register"];
-
-router.beforeEach(async(to, from, next) => {
-  // console.log('路由切换：', from.path, '===>', to.path);
-
-  NProgress.start();
-  // const hasToken = getToken();
-  // 如果token存在
-  if(/*hasToken*/false) {
-    // 登录后进入登录页
-    if (to.path === "/login") {
-      next({ path: '/' });
-      NProgress.done();
-    } else {
-      // 当进入非登录页时，需要进行权限校验
-
-
-
-
-      next();
-      NProgress.done();
-    }
+function authStatusCheck(cb: (authCheck: boolean) => void) {
+  const accessToken = StorageManager.getAccessToken();
+  if (!!accessToken) {
+    store.commit(`auth/${SET_TOKEN}`, {
+      token: accessToken
+    });
+    store.dispatch("auth/getUser").then((res) => {
+      if (!res) {
+        // StorageManager.clearToken();
+        store.commit(`auth/${SET_LOGIN_STATUS}`, false);
+        cb(false);
+      } else {
+        store.commit(`auth/${SET_LOGIN_STATUS}`, true);
+        cb(true);
+      }
+    });
   } else {
-    // 没有token
-    if (whiteList.indexOf(to.path) !== -1) {
-      // next(`/login?redirect=${to.path}`) // 否则全部重定向到登录页
-      // next(`/login?redirect=${escape(to.fullPath)}`);
+    store.commit(`auth/${SET_LOGIN_STATUS}`, false);
+    cb(false);
+  }
+}
+
+const whiteList = ["/login", "/register"];
+
+router.beforeEach(async (to, from, next) => {
+  // console.log('路由切换：', from.path, '===>', to.path);
+  await store.dispatch("permission/currentRoute", {
+    routeMap: {
+      to,
+      from
+    }
+  });
+  NProgress.start();
+
+  authStatusCheck((authCheck) => {
+    // 如果有Token
+    if (authCheck) {
+      // 登录后进入登录页
+      if (to.path === "/login") {
+        next();
+        NProgress.done();
+      } else {
+        // 当进入非登录页时，需要进行权限校验
+        const addRoutes = store.getters.app.addRoutes;
+        // console.log(addRoutes.length, store.getters.routes)
+        if (addRoutes.length === 0) {
+          store.dispatch("app/generateRoutes").then((routes) => {
+            // console.log('动态加载路由')
+            if (routes instanceof Array && routes.length) {
+              router.match = createRouter(routes).match;
+              router.addRoutes(routes); // 动态添加可访问路由表
+              // @ts-ignore
+              next({ ...to }); //, replace: true
+            } else {
+              console.log("路由获取失败");
+            }
+          });
+        } else {
+          // console.log('已加载过动态路由')
+          if (to.path === "/") {
+            next({
+              path: "/workplace/index",
+              replace: true
+            });
+          } else {
+            if (store.state.permission.openTarget.includes(<string>to.name) && from.name && from.name !== to.name) {
+              window.open(`/#${to.fullPath}`);
+            } else {
+              next();
+            }
+          }
+          NProgress.done();
+        }
+      }
+    } else if (whiteList.indexOf(to.path) !== -1) {
+      // next({
+      //   path: "/login",
+      //   query: { redirect: to.fullPath }
+      // });
       next();
       NProgress.done();
     } else {
       next();
       NProgress.done();
     }
-  }
+  });
 });
 
 router.afterEach((to) => {

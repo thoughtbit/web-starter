@@ -78,9 +78,9 @@ class Logger {
     }
 
     if (tag) {
-      return console.debug.bind(window.console, '%cVSF%c %c' + tag + '%c ' + this.convertToString(message), bgColorStyle('grey'), 'color: inherit', bgColorStyle('gray'), 'font-weight: normal', context)
+      return console.debug.bind(window.console, '%cVAD%c %c' + tag + '%c ' + this.convertToString(message), bgColorStyle('grey'), 'color: inherit', bgColorStyle('gray'), 'font-weight: normal', context)
     } else {
-      return console.debug.bind(window.console, '%cVSF%c ' + this.convertToString(message), bgColorStyle('grey'), 'font-weight: normal', context)
+      return console.debug.bind(window.console, '%cVAD%c ' + this.convertToString(message), bgColorStyle('grey'), 'font-weight: normal', context)
     }
   }
 
@@ -116,9 +116,9 @@ class Logger {
     }
 
     if (tag) {
-      return console.log.bind(window.console, '%cVSF%c %c' + tag + '%c ' + this.convertToString(message), bgColorStyle('green'), 'color: inherit', bgColorStyle('gray'), 'font-weight: bold', context)
+      return console.log.bind(window.console, '%cVAD%c %c' + tag + '%c ' + this.convertToString(message), bgColorStyle('green'), 'color: inherit', bgColorStyle('gray'), 'font-weight: bold', context)
     } else {
-      return console.log.bind(window.console, '%cVSF%c ' + this.convertToString(message), bgColorStyle('green'), 'font-weight: bold', context)
+      return console.log.bind(window.console, '%cVAD%c ' + this.convertToString(message), bgColorStyle('green'), 'font-weight: bold', context)
     }
   }
 
@@ -140,9 +140,9 @@ class Logger {
     }
 
     if (tag) {
-      return console.warn.bind(window.console, '%cVSF%c %c' + tag + '%c ' + this.convertToString(message), bgColorStyle('orange'), 'color: inherit', bgColorStyle('gray'), 'font-weight: bold', context)
+      return console.warn.bind(window.console, '%cVAD%c %c' + tag + '%c ' + this.convertToString(message), bgColorStyle('orange'), 'color: inherit', bgColorStyle('gray'), 'font-weight: bold', context)
     } else {
-      return console.warn.bind(window.console, '%cVSF%c ' + this.convertToString(message), bgColorStyle('orange'), 'font-weight: bold', context)
+      return console.warn.bind(window.console, '%cVAD%c ' + this.convertToString(message), bgColorStyle('orange'), 'font-weight: bold', context)
     }
   }
 
@@ -162,9 +162,9 @@ class Logger {
 
     if (this.canPrint('error')) {
       if (tag) {
-        return console.error.bind(window.console, '%cVSF%c %c' + tag + '%c ' + this.convertToString(message), bgColorStyle('red'), 'color: inherit', bgColorStyle('gray'), 'font-weight: bold', context)
+        return console.error.bind(window.console, '%cVAD%c %c' + tag + '%c ' + this.convertToString(message), bgColorStyle('red'), 'color: inherit', bgColorStyle('gray'), 'font-weight: bold', context)
       } else {
-        return console.error.bind(window.console, '%cVSF%c ' + this.convertToString(message), bgColorStyle('red'), 'font-weight: bold', context)
+        return console.error.bind(window.console, '%cVAD%c ' + this.convertToString(message), bgColorStyle('red'), 'font-weight: bold', context)
       }
     }
 
@@ -180,8 +180,7 @@ const logger = new Logger(
 export {logger as Logger}
 
 /*
+* Logger.info('', 'user', '')()
 * Logger.error(err, 'user')()
 * Logger.debug(result, 'user')()
-*
-*
 * */

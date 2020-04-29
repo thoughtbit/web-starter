@@ -36,7 +36,7 @@ export default {
      */
     Vue.prototype.$weChatUrl = (url: string) => {
       if (url && url.indexOf("mmbiz.") > -1) {
-        const base = process.env.VUE_APP_API_HOST;
+        const base = process.env.VUE_APP_BASE_API;
         return `${base}/common/loadingImage?imageUrl=${url}`;
       } else {
         return url;
@@ -92,14 +92,14 @@ export default {
      * @method $path
      * @param {}
      */
-    Vue.prototype.$path = process.env.VUE_APP_API_HOST;
+    Vue.prototype.$path = process.env.VUE_APP_BASE_API;
 
     /** 当前地址ip
      * @method $getPath
      * @param {url: 路径}
      */
     Vue.prototype.$getPath = function(url: string) {
-      const base = process.env.VUE_APP_API_HOST;
+      const base = process.env.VUE_APP_BASE_API;
       if (/^http/.test(url)) return url;
       return base + url;
     };

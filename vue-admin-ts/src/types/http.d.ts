@@ -3,7 +3,7 @@ export interface APIConfig {
   baseURL?: string;
   data?: object;
   headers?: object;
-  token?: string ;
+  token?: string;
 }
 
 export interface CoreOptions {
@@ -16,7 +16,7 @@ export interface CoreOptions {
 
 export interface AuthorizationHeaders {
   "Content-Type": string;
-  "Authorization": string;
+  Authorization: string;
 }
 
 export interface RestAPI {
@@ -32,7 +32,7 @@ export interface ExtendConfig {
   data?: object;
 }
 
-export  interface Get {
+export interface Get {
   config: APIConfig | ExtendConfig;
   url: string;
   params?: object;

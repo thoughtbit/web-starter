@@ -1,21 +1,57 @@
 {
   "users": [
     {
+      "id": 1,
       "username": "moocss",
       "password": "$2b$10$SvlC0V6kHLw9UbB9WM1yl.bILiC4fjSXulL7V.hov3zOfgXoXnu5W",
-      "id": 1
+      "userinfo": {
+        "gender": 1,
+        "nickname": "客户",
+        "rolename": "editor",
+        "avatar_url": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+      }
     },
     {
+      "id": 2,
       "username": "admin",
       "password": "$2b$10$mc1uRuJtMydg/1wQvCLV3uLf5AL8mGgWiIhmzZobcngt5GfnqVwpe",
-      "id": 2
+      "userinfo": {
+        "gender": 1,
+        "nickname": "管理员",
+        "rolename": "administrator",
+        "avatar_url": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+      }
     },
     {
-      "username": "wkiwi",
-      "password": "$2b$10$6ZvedoGgmOIiS1ts9u8y1.dwibAxGvfnwdJIqYnmoA0mVM3ATPgxy",
+      "username": "mimi",
+      "password": "$2b$10$1EJKtNA.e0E/Urg7mFWMZu1ZgBsa.KrZPbp/k.88HEYC1C4V3pFWy",
       "id": 3
+    },
+    {
+      "username": "kiki",
+      "password": "$2b$10$Y2LoG3Xxx1cfow72DO4u.OdiLAZxHJacqgYoInMF/X8IPYPmdLdoi",
+      "id": 4
+    },
+    {
+      "username": "mama",
+      "password": "$2b$10$pMm2wSboom7Zj/M2vzA.EOb/rWpwOCWBLl8x5XqUXq9rWGLasU6F6",
+      "id": 5
+    },
+    {
+      "username": "tata",
+      "password": "$2b$10$jfQzlfyrAeQLMgzu/mVLqOMgRST9h75Y6dSBIHXwu1T9dRXxQ9hiO",
+      "id": 6
+    },
+    {
+      "username": "totot",
+      "password": "$2b$10$3zrxDbxmRnIubcE0QLy7fei8M43MljXEuSYpEWIYlDm2A/yMo5llu",
+      "id": 7
     }
   ],
+  "captcha": {
+    "key": "dec53856-b64d-4af1-8ba8-2b944e14ff96",
+    "image": "data:image/png;base64,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"
+  },
   "menus": [
     {
       "component": "layouts/RouteView",
@@ -55,7 +91,6 @@
       ]
     },
     {
-
       "component": "layouts/RouteView",
       "hidden": false,
       "icon": "xitong",
@@ -166,7 +201,6 @@
           "sortNum": 3
         },
         {
-
           "component": "layouts/PageView",
           "hidden": false,
           "icon": "",
@@ -566,6 +600,58 @@
           ]
         }
       ]
+    }
+  ],
+  "roles": [
+    {
+      "id": "EBe54453-2DB6-65f2-ABDd-cefBdD1adbff",
+      "name": "满利",
+      "createdAt": "2002-12-16 20:27:37"
+    },
+    {
+      "id": "386CC7Cb-3e94-6dd5-f97B-7eBaecFf3CA7",
+      "name": "办备格况非",
+      "createdAt": "1981-06-17 10:29:41"
+    },
+    {
+      "id": "8DFb0e75-85Ce-f223-418F-6D888FcC67f6",
+      "name": "识华节点义",
+      "createdAt": "2012-08-04 07:26:33"
+    },
+    {
+      "id": "8AFfF1FB-ccBF-f6Bd-7AF0-7FC1c2213B6d",
+      "name": "完文能温引阶",
+      "createdAt": "1986-05-27 16:07:34"
+    },
+    {
+      "id": "Efb032Af-4edF-c0Eb-fc39-ee3Bfeb7Ffc5",
+      "name": "可铁产",
+      "createdAt": "1975-09-19 16:21:28"
+    },
+    {
+      "id": "CCDb5bF7-3e3c-8E98-B3F6-61c7b25DB3a0",
+      "name": "文着物",
+      "createdAt": "2018-08-15 02:18:21"
+    },
+    {
+      "id": "5c4e1DAB-4feA-4A88-eBcD-f9e5bB59Ac2D",
+      "name": "图压火包话",
+      "createdAt": "1975-04-09 21:02:10"
+    },
+    {
+      "id": "deA1FCbf-4486-CbA2-45fD-9A1DfcCe6e2a",
+      "name": "做至通联又政",
+      "createdAt": "2001-09-24 08:02:31"
+    },
+    {
+      "id": "8c5cc8d4-CDd1-f563-7d62-d2F8c8753f69",
+      "name": "金写社山族整近",
+      "createdAt": "1988-02-26 07:57:31"
+    },
+    {
+      "id": "4A71Fd1e-eff8-20cC-BdAB-B4b18fFb4e9f",
+      "name": "图支在构际如任",
+      "createdAt": "1991-02-01 14:40:30"
     }
   ]
 }

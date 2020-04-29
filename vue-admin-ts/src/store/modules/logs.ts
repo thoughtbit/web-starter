@@ -12,11 +12,7 @@ const initState: State = {
 };
 
 // getters
-const getters = {
-  logsList: (state: State)  => {
-    return state.logsList;
-  }
-};
+const getters = {};
 
 // mutations
 const mutations = {

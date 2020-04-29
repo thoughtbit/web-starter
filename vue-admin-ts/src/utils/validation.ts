@@ -1,6 +1,7 @@
 function isValidUsername(str: string) {
-  const validMap = ["admin", "editor"];
-  return validMap.indexOf(str.trim()) >= 0;
+  // const validMap = ["admin", "editor"];
+  // return validMap.indexOf(str.trim()) >= 0;
+  return str.length > 3;
 }
 
 /**

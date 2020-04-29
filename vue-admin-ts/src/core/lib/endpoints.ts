@@ -1,5 +1,5 @@
 // 心跳链接
-export const HeartUrl = `${process.env.VUE_APP_API_PREFIX}/version`;
+export const HeartUrl = "/health";
 
 // 全局API配置
 export const AppEndpoints = {
@@ -14,7 +14,7 @@ export const AppEndpoints = {
 export const UserEndpoints = {
   // 用户登录
   login: {
-    method: "GET",
+    method: "POST",
     endpoint: "/login"
   },
   // 找回密码

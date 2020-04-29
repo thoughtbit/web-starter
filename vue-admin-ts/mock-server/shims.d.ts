@@ -14,3 +14,6 @@ declare module 'express' {
   let express: any;
   export = express;
 }
+
+declare var __filename: string;
+declare var __dirname: string;

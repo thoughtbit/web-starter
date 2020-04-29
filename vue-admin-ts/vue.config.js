@@ -1,4 +1,10 @@
 const path = require("path");
+const webpack = require("webpack");
+const WebpackBar = require("webpackbar");
+const FileManagerPlugin = require("filemanager-webpack-plugin");
+const dayjs = require("dayjs");
+
+const pkg = require("./package.json");
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -7,6 +13,9 @@ function resolve(dir) {
 const devServerPort = 4000;
 const name = "大数据统一管理平台";
 
+const date = dayjs().format("YYYY-MM-DD HH:mm:ss");
+const dateFormat = dayjs().format("YYYY.MM.DD");
+
 module.exports = {
   pwa: {
     name
@@ -14,7 +23,7 @@ module.exports = {
 
   publicPath: process.env.NODE_ENV === "production" ? "/client/" : "/",
   // 在npm run build 或 yarn build 时 ，生成文件的目录名称（要和baseUrl的生产环境路径一致）（默认dist）
-  outputDir: 'dist',
+  outputDir: "dist",
   // 用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
   // assetsDir: 'static',
   // 是否开启eslint保存检测，有效值：ture | false | 'error'
@@ -34,14 +43,14 @@ module.exports = {
       errors: true
     },
     proxy: {
-      [process.env.VUE_APP_BASE_API]: {
-        target: process.env.VUE_APP_API_PREFIX,
+      [process.env.VUE_APP_BASE_API_PREFIX]: {
+        target: process.env.VUE_APP_BASE_API,
         changeOrigin: true, // needed for virtual hosted sites
         // ws: true, // proxy websockets
-        // autoRewrite: true,
+        autoRewrite: true,
         // cookieDomainRewrite: true,
         pathRewrite: {
-          [`^${process.env.VUE_APP_BASE_API}`]: ""
+          [`^${process.env.VUE_APP_BASE_API_PREFIX}`]: ""
         }
       }
     },
@@ -53,6 +62,32 @@ module.exports = {
       alias: {
         "@": resolve("src")
       }
+    },
+    plugins: [
+      // 自动全局加载库
+      // new webpack.ProvidePlugin({
+      //   $: "jquery",
+      //   jQuery: "jquery",
+      //   "windows.jQuery": "jquery",
+      //   echarts: "echarts",
+      //   "window.echarts": "echarts",
+      // }),
+      new webpack.DefinePlugin({
+        "process.env.VUE_APP_UPDATE_TIME": date
+      }),
+      new WebpackBar({
+        name: `\u5f00\u59cb\u6784\u5efa[${pkg.name}]`
+      })
+    ],
+    // Webpack 的性能提示
+    performance: {
+      hints: "warning",
+      // 入口起点的最大体积
+      maxEntrypointSize: 50000000,
+      // 生成文件的最大体积
+      maxAssetSize: 30000000,
+      // 只给出 js 文件的性能提示
+      assetFilter: (assetFilename) => assetFilename.endsWith(".js")
     }
   },
   chainWebpack(config) {
@@ -65,8 +100,6 @@ module.exports = {
     // https://webpack.js.org/configuration/devtool/#development
     config.when(process.env.NODE_ENV !== "development", (config) => config.devtool("cheap-source-map"));
     config.when(process.env.NODE_ENV !== "development", (config) => {
-
-
       config.optimization.splitChunks({
         chunks: "all",
         cacheGroups: {
@@ -86,6 +119,28 @@ module.exports = {
         }
       });
       config.optimization.runtimeChunk("single");
+      config.plugin("banner")
+        .use(webpack.BannerPlugin, [
+          `[${pkg.name}]\nversion:${pkg.version}\nauthor: ${pkg.author}\ntime: ${date}`,
+        ])
+        .end();
+
+      config
+        .plugin("fileManager")
+        .use(FileManagerPlugin, [
+          {
+            onEnd: {
+              delete: ["./dist/video", "./dist/data"],
+              archive: [
+                {
+                  source: "./dist",
+                  destination: `./dist/dist-${dateFormat}-${pkg.version}.zip`
+                }
+              ]
+            }
+          }
+        ])
+        .end();
     });
 
     // use cdn start
@@ -167,5 +222,15 @@ module.exports = {
       .end();
   },
   // node_modules依赖项es6语法未转换问题
-  transpileDependencies: ["vuex-module-decorators", "resize-detector"]
+  transpileDependencies: ["vuex-module-decorators", "resize-detector"],
+  runtimeCompiler: true,
+  css: {
+    requireModuleExtension: true,
+    sourceMap: true,
+    loaderOptions: {
+      scss: {
+        prependData: '@import "~@/assets/styles/variables.scss";'
+      }
+    }
+  }
 };

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import { routesConfig, routesMap } from "@/router/routes.config";
+import { Logger } from "@/utils/logger";
 
 Vue.use(VueRouter);
 
@@ -20,7 +21,7 @@ export function filterAsyncRoutes(routes: RouteConfig[]) {
         const routePath = routesMap[rt.name];
         // console.log("routePath:", routePath);
         if (routePath) {
-          rt.component = () => import(`@/${routePath}.vue`);
+          rt.component = () => import(/* webpackChunkName: "page" */ `@/${routePath}.vue`);
         }
         if (children instanceof Array && children.length) {
           const subMenus = children.filter((c) => c.menuType !== 2);
@@ -40,7 +41,7 @@ export function filterAsyncRoutes(routes: RouteConfig[]) {
 // 根路由
 export const rootRoute = {
   path: "/",
-  component: () => import("@/views/layouts/menu-view.vue")
+  component: () => import(/* webpackChunkName: "root" */ '@/views/layouts/menu-view.vue')
 };
 
 // 公共路由
@@ -108,7 +109,7 @@ const router = createRouter([
   ...filterAsyncRoutes(routes)
 ]);
 
-// console.log("路由配置:", routes, router);
+Logger.info("router", "路由配置", router)();
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {

@@ -114,7 +114,7 @@ export default class Login extends Vue {
       if (valid) {
         this.loading = true;
         this.$store
-          .dispatch("user/login", this.loginForm)
+          .dispatch("auth/login", this.loginForm)
           .then(() => {
             this.$router.push({ path: this.redirect || "/", query: this.otherQuery });
             this.loading = false;

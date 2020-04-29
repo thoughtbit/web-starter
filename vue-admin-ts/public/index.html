@@ -14,61 +14,10 @@
     <% for(var js of htmlWebpackPlugin.options.cdn.js) { %>
     <link href="<%=js%>" rel="preload" as="script">
     <% } %>
-    <style>
-      html,
-      body,
-      #app {
-        height: 100%;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-      }
-      .launch {
-        background-color: #555;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-      .launch__main {
-        user-select: none;
-        width: 100%;
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-
-      .launch__footer {
-        width: 100%;
-        flex-grow: 0;
-        text-align: center;
-        padding: 20px 0;
-        font-size: 14px;
-        color: #fff;
-      }
-
-      .launch__footer > a {
-        color: #fff;
-        text-decoration: none;
-      }
-
-      .launch__loading {
-        height: 48px;
-        width: 48px;
-        margin-bottom: 20px;
-      }
-
-      .launch__title {
-        color: #fff;
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-
-      .launch__sub-title {
-        color: #ababab;
-        font-size: 14px;
-      }
+    <style type="text/css">
+      html,body,#app{height:100%;width:100%;padding:0;margin:0}
+      html, body {overflow: hidden;}
+      .launch{background-color:#555;height:100%;display:flex;flex-direction:column}.launch__main{user-select:none;width:100%;flex-grow:1;display:flex;justify-content:center;align-items:center;flex-direction:column}.launch__footer{width:100%;flex-grow:0;text-align:center;padding:20px 0;font-size:14px;color:#fff}.launch__footer>a{color:#fff;text-decoration:none}.launch__loading{height:48px;width:48px;margin-bottom:20px}.launch__title{color:#fff;font-size:16px;margin-bottom:10px}.launch__sub-title{color:#ababab;font-size:14px}
     </style>
   </head>
   <body>

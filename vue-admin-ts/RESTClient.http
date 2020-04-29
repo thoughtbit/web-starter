@@ -1,19 +1,10 @@
-### 用户列表
-GET https://localhost:4000/user HTTP/1.1
-
+### 用户查询
+GET https://localhost:3000/user HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTU4ODA1MzA3MCwiZXhwIjoxNTg4MTM5NDcwfQ.gO0bQfXQilekso0s3L_JXWPCXQNSLZQRc0OsE7qSAn2BjvptuWFbXrFuJ9Hht3qPmIihTX-Ab1bskC-DRUrHWVHJvrWbyMVMnbd5XnbOdxCnwviRXaIDEGAJrAX2CkYCq6q9WDuMDrxl2S6FVGjXNt8JZiW6fsPfFdakV2Z_rh5EAkzWGMTWNP7ip-LqpBXuldY1nzwI14sCxMt4LonH_XR_Q9MCylD4eHgOzBV7bNbRE-4cj0Cig9zD2vS9Wc-yhZfnmr5MN4ggleSgpb81LDN3yWgsJCUGwG07L7wiqOLcXEA2OWVVK99VGPPnWqUVL1k2SEwcjIbMzoUkR_MU-w
 
 ### 用户登录
-POST https://localhost:4000/login HTTP/1.1
-content-type: application/json
-
-{
-    "username": "moocss",
-    "password": "123456"
-}
-
-
-### 用户注册
-POST https://localhost:4000/users HTTP/1.1
+POST https://localhost:3000/login HTTP/1.1
 content-type: application/json
 
 {
@@ -21,7 +12,21 @@ content-type: application/json
     "password": "123456"
 }
 
-### 验证 JWT
-POST https://localhost:4000/token/validate HTTP/1.1
+
+### 用户注册
+POST https://localhost:3000/users HTTP/1.1
 content-type: application/json
-Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNybmFtZSI6Im1vb2NzcyIsImlhdCI6MTU1MzUwNTg0MCwiZXhwIjoxNTUzNTkyMjQwfQ.sQ0jC1KiiNYtQtg-UwKh-dvyTTe1IsUGxC_MCvXPCzI1nKcPy7vfZGZHxGRJysEHwh_LuBwhdB_w8H9ckcwUOFe6LPl-OHlN0rk9Z_rjIHsJB3QoHr3N-a2zq36cCeg_ON03d_QrXL05p7TEvFBDQjOHwYMjxv44YHOkofZh1c_lpFmF0R9YUwKw6eGeX59SZo8cupRVNDNLGPigUg7McalcUtyc_WkHaQpYUWYxGTP7Sbw8lO-_RZZhGLj8K_OqlpxkkYtdT8eKVyaY7pVPKQbe2f3DG-ulGafqm26mCbb_ugSW6vXU1o-RZMpsY30HN-crzINkmqxl6R4LmArXZg
+
+{
+    "username": "totot",
+    "password": "123456"
+}
+
+### 角色列表
+POST https://localhost:3000/roles HTTP/1.1
+content-type: application/json
+
+### 验证 JWT
+POST https://localhost:3000/token/validate HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTU4Nzk3NDQwNiwiZXhwIjoxNTg4MDYwODA2fQ.sPDFq0iEu9FdMBFLU3rml1VoxcPDKdArOEllK4nLdFUzbS0Yr-7dUDaoPMLY7LnoAuwIKNd-vk8DJ-zZ5hm6VcRF28SZgtro4hJGKd7VIZqOSc7Gyl_p4o3aSxx7NeAE0hK0JCWB7cvD7uHQeUCW9YOMefWkQ3eT3UAqgacUY4lH5f-pUtMzDY9IrkNYjRLWIVYJekicMb4I24jBAd2JcNVRbhfSHr4KcXZUAvhTGy-hH16OFqgVGQj7W7rZbFxHZGqW5omXjZFMe7EmQJ8ZlvfHAxP202Bgiz5lUTpZaQewU5DKA9fPVcqEyp7EzCRC6JinpJuxq6xT5TG_t67CnA

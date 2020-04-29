@@ -2,17 +2,18 @@ import * as https from 'https';
 import * as jsonServer from 'json-server';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import consola from 'consola';
-import { dbFile } from './db';
+import { dbPath } from './db';
 import { routes } from './routes';
-import { serverCert, serverKey } from './config';
+import { serverCert, serverKey, serverConfig } from './config';
 
 const server = jsonServer.create();
-const router = jsonServer.router(dbFile);
+const router = jsonServer.router(dbPath);
 const middlewares = jsonServer.defaults();
 
+// 是否开启HTTPS
 const secure = true;
-const host = process.env.HOST || '0.0.0.0';
-const port = process.env.PORT || 4000;
+const host = process.env.HOST || serverConfig.host;
+const port = process.env.PORT || serverConfig.port;
 
 const apiProxy = createProxyMiddleware({
   target: 'https://jsonplaceholder.typicode.com/',
@@ -25,7 +26,7 @@ server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
 // 注册反向代理
-server.use('/api/v1', apiProxy);
+// server.use('/api/v1', apiProxy);
 // https://localhost:4000/api/v1/users
 
 // All routes for the server
@@ -82,7 +83,7 @@ if (secure) {
     host
   }, () => {
     consola.ready({
-      message: `HTTP JSON Server running at https://${host}:${port}`,
+      message: `HTTP JSON Server running at http://${host}:${port}`,
       badge: true
     });
   });
