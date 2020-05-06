@@ -17,6 +17,16 @@ export const routesConfig = Object.freeze<RoutesConfig>({
     name: "register",
     hidden: true
   },
+  callback: {
+    path: "/callback",
+    name: "callback",
+    hidden: true
+  },
+  layout: {
+    path: "/layout",
+    name: "layout",
+    hidden: true
+  },
   // 主框架
   index: {
     path: "/",

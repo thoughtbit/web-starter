@@ -1,5 +1,5 @@
 import store from "store2";
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "@/constants";
+import { TOKEN_KEY, ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "@/constants";
 
 interface StoredData {
   [key: string]: any;
@@ -10,36 +10,44 @@ export default {
     return store.get(key);
   },
   removeItem(key: string) {
-    return store.remove(key);
+    store.remove(key);
   },
   setItem(key: string, val: any) {
     if (val) {
-      return store.set(key, val, true);
+      store.set(key, val, true);
     } else {
-      return store.remove(key);
+      store.remove(key);
     }
   },
   setAll(data: StoredData) {
-    return store.setAll(data, true);
+    store.setAll(data, true);
   },
   getAll() {
     return store.getAll();
   },
   clear() {
-    return store.clear();
+    store.clear();
   },
   has(key: string) {
     return store.has(key);
   },
-
+  getToken() {
+    return this.getItem(TOKEN_KEY);
+  },
+  setToken(val: any) {
+    this.setItem(TOKEN_KEY, val);
+  },
+  removeToken() {
+    this.removeItem(TOKEN_KEY);
+  },
   getAccessToken() {
     return this.getItem(ACCESS_TOKEN_KEY);
   },
   setAccessToken(val: any) {
     if (val) {
-      return this.setItem(ACCESS_TOKEN_KEY, val);
+      this.setItem(ACCESS_TOKEN_KEY, val);
     } else {
-      return this.removeItem(ACCESS_TOKEN_KEY);
+      this.removeItem(ACCESS_TOKEN_KEY);
     }
   },
   getRefreshToken() {
@@ -47,12 +55,12 @@ export default {
   },
   setRefreshToken(val: any) {
     if (val) {
-      return this.setItem(REFRESH_TOKEN_KEY, val);
+      this.setItem(REFRESH_TOKEN_KEY, val);
     } else {
-      return this.removeItem(REFRESH_TOKEN_KEY);
+      this.removeItem(REFRESH_TOKEN_KEY);
     }
   },
-  clearToken () {
+  removeAllToken () {
     this.removeItem(ACCESS_TOKEN_KEY);
     this.removeItem(REFRESH_TOKEN_KEY);
   }

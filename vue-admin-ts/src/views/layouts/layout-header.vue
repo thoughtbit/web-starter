@@ -6,7 +6,7 @@
     </div>
     <div class="searchbox">
       <form action="/" method="post" class="search-form">
-        <input type="text" name="" id="" class="s-ipt">
+        <input type="text" name="" id="" class="s-ipt" />
         <button type="button" class="s-btn">搜索</button>
       </form>
     </div>
@@ -16,16 +16,12 @@
       <router-link class="nav-link" to="/about">关于</router-link>
       <button type="button" class="quick-menu-button">消息</button>
       <button type="button" class="quick-menu-button">我的</button>
+      <el-button type="primary" @click.native.prevent="logout">退出登录</el-button>
     </nav>
   </header>
 </template>
 
-<script lang="ts">
-  import { Component, Vue } from "vue-property-decorator";
-
-  @Component
-  export default class LayoutHeader extends Vue {}
-</script>
+<script lang="ts" src="@/views/layouts/layout-header.ts"></script>
 
 <style lang="scss" scoped>
   .layout-header {
@@ -58,7 +54,6 @@
         background-color: red;
       }
     }
-
   }
   .quick-menu {
     align-items: center;

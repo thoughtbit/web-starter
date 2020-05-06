@@ -2,9 +2,11 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import qs from "qs";
 import { Message } from "element-ui";
 import router from "@/router";
+import store from "@/store";
 import StorageManager from "@/utils/storage-manager";
 import { ExtendConfig, RestAPI, Get, APIConfig } from "@/types/http";
 import { Logger } from "@/utils/logger";
+import { SET_LOGIN_STATUS } from "@/store/mutation-types";
 
 // 创建取消请求令牌
 const CancelToken = axios.CancelToken;
@@ -45,11 +47,14 @@ const onError = (error: AxiosResponse | any) => {
         errorMessage = `服务错误类型(${response.status})`;
     }
   } else {
+    if (!window.navigator.onLine) {
+      errorMessage = '网络被外星人劫持了';
+    }
     if(errorMessage.match(/network error/gi)) {
-      errorMessage = '网络异常';
+      errorMessage = "网络似乎出了点问题";
     }
     if (errorMessage.match("timeout")) {
-      errorMessage = '服务请求超时';
+      errorMessage = "网络不给力啊悲剧";
     }
   }
 
@@ -79,7 +84,7 @@ const checkStatus = (response: AxiosResponse) => {
   // 未登录则跳转登录页面，并携带当前页面的路径
   // 在登录成功后返回当前页面，这一步需要在登录页操作。
   if (status === 401) {
-    StorageManager.setAccessToken("");
+    StorageManager.removeToken();
     const url = window.location.hash.substr(1);
     if (/^\/login/.test(url)) {
       router.push(url);
@@ -92,7 +97,22 @@ const checkStatus = (response: AxiosResponse) => {
   // 清除本地token和清空vuex中token对象
   // 跳转登录页面
   if (status === 403) {
-    StorageManager.setAccessToken("");
+    Message({
+      showClose: true,
+      message: "登录过期, 请重新登录",
+      type: "error",
+      duration: 3 * 1000
+    });
+    StorageManager.removeToken();
+    // store.commit(`auth/${SET_LOGIN_STATUS}`, false);
+    // setTimeout(() => {
+    //   router.replace({
+    //     path: "/login",
+    //     query: {
+    //       redirect: router.currentRoute.fullPath
+    //     }
+    //   });
+    // }, 1000);
   }
   if ((status >= 200 && status < 300) || status === 304 || status === 400 || status === 404) {
     return response.data;
@@ -107,10 +127,12 @@ const checkStatus = (response: AxiosResponse) => {
 instance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     const conf = config;
+    const { method } = config;
     // 得到参数中的 requestName 字段，用于决定下次发起请求，取消对应的 相同字段的请求
     // 如果没有 requestName 就默认添加一个不同的时间戳
     let requestName: number | string;
-    if (config.method === "post") {
+    // @ts-ignore
+    if (method.toLocaleLowerCase() === "post") {
       if (config.data && qs.parse(config.data).cancel) {
         requestName = qs.parse(config.data).cancel;
       } else {
@@ -165,7 +187,7 @@ export const extendConfig = (config: ExtendConfig): APIConfig => {
     };
     headers = { ...config.headers, ...authHeaders };
   } else {
-    const accessToken = StorageManager.getAccessToken();
+    const accessToken = store.getters.accessToken || "";
     const authHeaders = {
       "Content-Type": "application/json; charset=UTF-8",
       Authorization: `${accessToken}`

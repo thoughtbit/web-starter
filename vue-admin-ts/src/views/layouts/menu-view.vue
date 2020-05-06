@@ -1,24 +1,26 @@
 <template>
   <layout>
-    <!-- 标签页tabs -->
+    <!-- 标签页容器 -->
     <div class="view-tabs">
-      <ul class="tabs">
-        <li class="tabs-trigger on">
-          <i class="ui-icon"></i>
-          <span class="text">工作台</span>
-          <span class="close">x</span>
-        </li>
-        <li class="tabs-trigger">
-          <i class="ui-icon"></i>
-          <span class="text">用户管理</span>
-          <span class="close">x</span>
-        </li>
-        <li class="tabs-trigger">
-          <i class="ui-icon"></i>
-          <span class="text">日志管理</span>
-          <span class="close">x</span>
-        </li>
-      </ul>
+      <!-- 标签上的右键菜单 -->
+      <ContextMenu ref="contextMenu" :itemList="menuItemList" :visible.sync="menuVisible" @select="onMenuSelect" />
+      <!-- tabs -->
+      <el-tabs
+        class="menus-tabs-container"
+        type="card"
+        closable
+        v-model="activePage"
+        @tab-click="changePage"
+        @tab-remove="removeTab"
+        @contextmenu.native="onContextMenu"
+      >
+        <el-tab-pane
+          v-for="page in pageList"
+          :key="page.fullPath"
+          :name="page.fullPath"
+          :label="page.name"
+        />
+      </el-tabs>
     </div>
     <!-- 路由页面 -->
     <div class="menu-view-container">
@@ -27,23 +29,14 @@
   </layout>
 </template>
 
-<script lang="ts">
-  import { Component, Vue } from "vue-property-decorator";
-  import Layout from "./layout.vue";
-  @Component({
-    components: {
-      Layout
-    }
-  })
-  export default class MenuView extends Vue {}
-</script>
+<script lang="ts" src="@/views/layouts/menu-view.ts"></script>
 
 <style lang="scss" scoped>
   .view-tabs {
     height: 42px;
-    line-height: 36px;
-    padding-top: 6px;
-    border-bottom: 1px solid #ddd;
+    /*line-height: 36px;*/
+    /*padding-top: 6px;*/
+    /*border-bottom: 1px solid #ddd;*/
     background-color: #eee;
     ul {
       display: flex;
@@ -67,7 +60,6 @@
           width: 1px;
           font-size: 0;
           background-color: #000;
-
         }
         &:last-child:before {
           display: none;
@@ -86,7 +78,7 @@
           margin: 0 10px;
           text-align: left;
         }
-        .ui-icon{
+        .ui-icon {
           width: 24px;
           height: 24px;
           line-height: 24px;
@@ -101,7 +93,7 @@
           border-radius: 20px;
           background-color: transparent;
         }
-        .close  {
+        .close {
           &:hover {
             background-color: #444;
             color: #fff;

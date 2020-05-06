@@ -1,7 +1,18 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
+import { PositionResult } from "vue-router/types/router";
+import store from "@/store";
 import { routesConfig, routesMap } from "@/router/routes.config";
 import { Logger } from "@/utils/logger";
+
+// 修复 Uncaught (in promise) undefined 问题
+const originalPush = VueRouter.prototype.push;
+// @ts-ignore
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject);
+  // @ts-ignore
+  return originalPush.call(this, location).catch(err => err);
+}
 
 Vue.use(VueRouter);
 
@@ -54,6 +65,12 @@ export const commonRoutes = [
   },
   {
     ...routesConfig.about
+  },
+  {
+    ...routesConfig.callback
+  },
+  {
+    ...routesConfig.layout
   }
 ];
 
@@ -76,7 +93,7 @@ export const createRouter = (routes: RouteConfig[]): VueRouter => {
     // mode: "history",
     base: process.env.BASE_URL,
     linkActiveClass: "is-active",
-    scrollBehavior: (to, from, savedPosition) => {
+    scrollBehavior: (to, from, savedPosition): PositionResult => {
       if (to.hash) {
         return {
           selector: to.hash
@@ -91,9 +108,10 @@ export const createRouter = (routes: RouteConfig[]): VueRouter => {
   });
 };
 
-// const routes = store.getters.routes.length ? store.getters.routes : commonRoutes
-// const router = createRouter(filterAsyncRoutes(routes));
+const routes = store.getters.routes.length ? store.getters.routes : commonRoutes
+const router = createRouter(filterAsyncRoutes(routes));
 
+/*
 const routes = commonRoutes.concat(exceptionRoutes);
 const router = createRouter([
   {
@@ -108,6 +126,7 @@ const router = createRouter([
   },
   ...filterAsyncRoutes(routes)
 ]);
+*/
 
 Logger.info("router", "路由配置", router)();
 

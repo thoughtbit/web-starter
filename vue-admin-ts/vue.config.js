@@ -95,6 +95,9 @@ module.exports = {
     // it can be accessed in index.html to inject the correct title.
     config.set("name", name);
 
+    // 自定义, 可以配置的全局常量
+    config.plugin("__VERSION__").use(new webpack.DefinePlugin({ __VERSION__: JSON.stringify(pkg.version) })).end();
+
     config.when(process.env.NODE_ENV === "development", (config) => config.devtool("source-map"));
 
     // https://webpack.js.org/configuration/devtool/#development

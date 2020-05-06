@@ -5,10 +5,22 @@ import * as types from "@/store/mutation-types";
 
 export interface State {
   language: string;
+  setting: {
+    id: string,
+    aduitMemberFlowId: string,
+    dataBackupsMemory: any,
+    attrs: any
+  },
 }
 
 const initState: State = {
-  language: getLocale()
+  language: getLocale(),
+  setting: {
+    id: "",
+    aduitMemberFlowId: "",
+    dataBackupsMemory: {},
+    attrs: {}
+  },
 };
 
 // getters

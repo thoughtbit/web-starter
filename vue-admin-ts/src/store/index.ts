@@ -21,7 +21,8 @@ export interface State {
 
 export default new Vuex.Store<State>({
   strict: debug,
-  plugins: debug ? [createLogger()] : [],
+  // plugins: debug ? [createLogger()] : [],
+  plugins: [],
   getters,
   modules: {
     app,

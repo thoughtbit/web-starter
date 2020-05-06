@@ -1,3 +1,5 @@
+import { EndpointOptions } from "@/types/http";
+
 // 心跳链接
 export const HeartUrl = "/health";
 
@@ -10,12 +12,26 @@ export const AppEndpoints = {
   }
 };
 
+//权限API配置
+export const PermissionEndpoints = {
+  // 菜单及权限标识列表
+  getMenusPermission: {
+    method: "GET",
+    endpoint: "/menus"
+  },
+}
+
 // 用户API配置
-export const UserEndpoints = {
+export const UserEndpoints: EndpointOptions = {
   // 用户登录
   login: {
     method: "POST",
     endpoint: "/login"
+  },
+  // 退出登录
+  logout: {
+    method: "POST",
+    endpoint: "/logout"
   },
   // 找回密码
   findPassword: {
@@ -36,6 +52,11 @@ export const UserEndpoints = {
   getUser: {
     method: "GET",
     endpoint: "/user"
+  },
+  // 验证码
+  getCaptcha:{
+    method: "GET",
+    endpoint: "/kaptcha"
   },
 
   /**
@@ -64,5 +85,6 @@ export const UserEndpoints = {
  */
 export default {
   ...AppEndpoints,
-  ...UserEndpoints
+  ...UserEndpoints,
+  ...PermissionEndpoints
 };

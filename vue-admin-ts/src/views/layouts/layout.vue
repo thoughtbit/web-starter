@@ -2,12 +2,8 @@
   <div class="layout">
     <layout-header />
     <div class="layout-body">
-      <aside class="sider-menu">
-        <router-link class="nav-link" to="/dashboard">工作台</router-link>
-      </aside>
-      <aside class="sider-sub-menu">
-        子菜单
-      </aside>
+      <sider-menu :menuData="menuData" :activeMenu="activeMenu" @menuSelect="onMenuSelect" />
+      <sider-sub-menu :menuData="menuData" :collapsed="collapsed" :menuPath="activeMenu" :menuTitle="menuTitle" />
       <main class="content">
         <slot></slot>
       </main>
@@ -15,16 +11,7 @@
   </div>
 </template>
 
-<script lang="ts">
-  import { Component, Vue } from "vue-property-decorator";
-  import LayoutHeader from "./layout-header.vue";
-  @Component({
-    components: {
-      LayoutHeader
-    }
-  })
-  export default class Layout extends Vue {}
-</script>
+<script lang="ts" src="@/views/layouts/layout.ts"></script>
 
 <style lang="scss" scoped>
   .layout {
@@ -36,15 +23,6 @@
       display: flex;
       height: calc(100vh - 64px);
       width: 100%;
-      .sider-menu {
-        width: 220px;
-        background-color: #444;
-      }
-      .sider-sub-menu {
-        width: 180px;
-        background-color: #eee;
-        border-right: 1px solid #ddd;
-      }
       .content {
         display: flex;
         flex: 1;
@@ -53,5 +31,4 @@
       }
     }
   }
-
 </style>

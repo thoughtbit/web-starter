@@ -43,6 +43,7 @@ module.exports = {
     "@typescript-eslint/no-empty-function": 0,
 
     // sonarts
+    "sonarjs/no-collapsible-if": 1,
     "sonarjs/no-all-duplicated-branches": "error",
     "sonarjs/no-element-overwrite": "error",
     "sonarjs/no-collection-size-mischeck": "error",

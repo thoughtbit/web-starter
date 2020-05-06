@@ -2,22 +2,31 @@ import { Commit, Dispatch } from "vuex";
 import StorageManager from "@/utils/storage-manager";
 import * as types from "@/store/mutation-types";
 import SERVICE from "@/core/lib/sevice";
-import { IUserModel } from "@/types/user";
+import { IUserModel, ITokenModel } from "@/types/user";
 import { Logger } from "@/utils/logger";
 
 export interface State {
   errors: any;
-  token: string;
+  token: ITokenModel;
   isLogin: boolean;
   userInfo: IUserModel;
 }
 
 const initState: State = {
   errors: null,
-  token: "",
+  token: {
+    access_token: "",
+    refresh_token: "",
+    expires_in: 0
+  },
   isLogin: false,
-  // @ts-ignore
-  userInfo: null
+  userInfo: {
+    id: "",
+    username: "",
+    nickname: "",
+    rolename: "",
+    avatar_url: "",
+  },
 };
 
 // getters
@@ -28,7 +37,7 @@ const mutations = {
   [types.SET_ERROR](state: State, error: any): void {
     state.errors = error;
   },
-  [types.SET_TOKEN](state: State, token: string): void {
+  [types.SET_TOKEN](state: State, token: ITokenModel): void {
     state.token = token;
     state.isLogin = true;
   },
@@ -39,49 +48,70 @@ const mutations = {
     state.isLogin = loginStatus;
   },
   [types.CLEAR_TOKEN](state: State): void {
-    state.token = ""
+    state.token = {
+      access_token: "",
+      refresh_token: "",
+      expires_in: 0
+    }
     state.isLogin = false;
   }
 };
 
 // actions
 const actions = {
-  async getUser(context: { state: State, commit: Commit }): Promise<void> {
+  async getUser(context: { state: State, commit: Commit }): Promise<boolean> {
     // @ts-ignore
-    await SERVICE["getUser"]().then((res) => {
-      // Logger.info("用户基础信息", "AuthStore", res)();
+    return await SERVICE["getUser"]().then((res) => {
+      Logger.info("用户基础信息", "AuthStore", res)();
       context.commit(types.SET_USER, res.data);
+      return true;
     });
   },
 
   async login(
-    context: { commit: Commit, dispatch: Dispatch },
+    context: { commit: Commit },
     params: { username: string; password: string }
   ): Promise<void> {
     // @ts-ignore
     await SERVICE["login"](params).then((res) => {
-      // Logger.info("用户登录", "AuthStore", res)();
+      Logger.info("用户登录", "AuthStore", res)();
 
-      StorageManager.setAccessToken(res.data.access_token);
-      StorageManager.setRefreshToken(res.data.refresh_token);
+      StorageManager.setToken(res.data);
 
-      context.commit(types.SET_TOKEN, res.data.access_token);
+      context.commit(types.SET_TOKEN, res.data);
       context.commit(types.SET_LOGIN_STATUS, true);
     });
   },
 
-  logout(context: { commit: Commit, dispatch: Dispatch }) {
-    context.commit(types.SET_TOKEN, "");
+  async logout(context: { commit: Commit, dispatch: Dispatch }) {
+    // @ts-ignore
+    await SERVICE["logout"]().then(() => {
+      context.commit(types.SET_TOKEN, {
+        access_token: "",
+        refresh_token: "",
+        expires_in: 0
+      });
+      context.commit(types.SET_LOGIN_STATUS, false);
+      StorageManager.removeToken();
+      context.dispatch("permission/clear", true, { root: true })
+    });
   },
 
   async resetToken(context: { commit: Commit }): Promise<void> {
-    context.commit(types.SET_TOKEN, "");
-    await StorageManager.setAccessToken("");
+    context.commit(types.SET_TOKEN, {
+      access_token: "",
+      refresh_token: "",
+      expires_in: 0
+    });
+    StorageManager.removeToken();
   },
   refreshToken(context: { commit: Commit, state: State }) {
-    context.commit(types.SET_TOKEN, context.state.token);
+    context.commit(types.SET_TOKEN, context.state.token.refresh_token);
   },
-  resetPassword() {}
+  resetPassword() {
+
+  },
+
 };
 
 export default {

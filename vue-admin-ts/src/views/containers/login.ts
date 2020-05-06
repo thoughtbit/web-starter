@@ -6,6 +6,7 @@ import { isValidUsername } from "@/utils/validation";
 interface User {
   username: string | any[];
   password: string | any[];
+  captcha: string | any[];
 }
 
 const validateUsername = (rule: any, value: string, callback: any): void => {
@@ -27,7 +28,9 @@ const validatePassword = (rule: any, value: string, callback: any): void => {
 export default class Login extends Vue {
   private loginForm = <User>{
     username: "",
-    password: ""
+    password: "",
+    verifiy: "",
+    captcha: "/kaptcha",
   };
   private loginRules = <User>{
     username: [{ required: true, trigger: "blur", validator: validateUsername }],
@@ -59,9 +62,9 @@ export default class Login extends Vue {
     this.redirect = route.query && (route.query.redirect as string);
   }
 
-  // private created() {
-  //   console.log("===> created");
-  // }
+  private created() {
+    this.refreshCaptcha();
+  }
 
   private beforeMount () {
     setTimeout(() => {
@@ -127,5 +130,9 @@ export default class Login extends Vue {
         return false;
       }
     });
+  }
+
+  private refreshCaptcha(): void {
+    this.loginForm.captcha = `/kaptcha?t=${new Date().getTime()}`;
   }
 }

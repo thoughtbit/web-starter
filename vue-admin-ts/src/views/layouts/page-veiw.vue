@@ -10,7 +10,11 @@
 
   @Component
   export default class MenuView extends Vue {
-    @Prop({ default: false }) private noRoute!: boolean;
+    @Prop({
+      type: Boolean,
+      default: false
+    })
+    private noRoute: boolean | undefined;
   }
 </script>
 

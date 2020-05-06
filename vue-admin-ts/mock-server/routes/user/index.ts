@@ -2,7 +2,8 @@
 import * as express from "express";
 import * as bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";
-import mockjs from 'mockjs';
+import mockjs from "mockjs";
+import { create } from "svg-captcha";
 import { db } from "../../db";
 import { privateKey, publicKey } from "../../config";
 import { authMiddleware, authRefreshMiddleware } from "../../middlewares/auth";
@@ -63,7 +64,6 @@ router.get("/user", (req, res) => {
     return;
   }
 
-
   try {
     const decoded = jwt.verify(token, publicKey);
     if (decoded) {
@@ -71,7 +71,7 @@ router.get("/user", (req, res) => {
       const user = getUserById(id);
       res.status(202).send({
         code: 202,
-        msg: "当前用户",
+        message: "当前用户",
         data: {
           id: user.id,
           username: user.username,
@@ -83,14 +83,14 @@ router.get("/user", (req, res) => {
     } else {
       res.status(401).send({
         code: 401,
-        msg: "无权限",
+        message: "无权限",
         data: {}
       });
     }
   } catch (error) {
-    res.status(400).send({
-      code: 400,
-      msg: error.message,
+    res.status(403).send({
+      code: 403,
+      message: "Token过期了",
       data: {}
     });
   }
@@ -104,7 +104,7 @@ router.post("/users", (req, res, next) => {
   if (user) {
     res.status(409).send({
       code: 409,
-      msg: "用户名被占用了！",
+      message: "用户名被占用了！",
       data: {}
     });
     return;
@@ -125,7 +125,7 @@ router.post("/login", (req, res) => {
   if (!user) {
     res.status(404).send({
       code: 404,
-      msg: "用户名不存在",
+      message: "用户名不存在",
       data: {}
     });
     return;
@@ -136,7 +136,7 @@ router.post("/login", (req, res) => {
       const { accessToken, refreshToken } = signToken(user);
       res.status(200).send({
         code: 200,
-        msg: "success",
+        message: "success",
         data: {
           access_token: accessToken,
           refresh_token: refreshToken,
@@ -146,10 +146,19 @@ router.post("/login", (req, res) => {
     } else {
       res.status(401).send({
         code: 401,
-        msg: "密码无效",
+        message: "密码无效",
         data: {}
       });
     }
+  });
+});
+
+// 退出登录
+router.post("/logout", (req, res) => {
+  res.status(200).send({
+    code: 200,
+    message: "退出登录",
+    data: {}
   });
 });
 
@@ -163,7 +172,7 @@ router.post("/token/refresh", authRefreshMiddleware, (req, res) => {
   const { token } = req.body;
   res.status(200).send({
     code: 200,
-    msg: "success",
+    message: "success",
     data: {
       refresh_token: token,
       expires_in: 3600,
@@ -185,5 +194,36 @@ router.post("/roles", (req, res, next) => {
   db.set('roles', list).write();
 });
 
+// 生成验证码
+router.get("/kaptcha",  (req, res) => {
+  const captcha = create({
+    size: 5,
+    // 翻转颜色
+    inverse: false,
+    // 字体大小
+    fontSize: 48,
+    // 干扰线条的数量
+    noise: 3,
+    // 宽度
+    width: 128,
+    // 高度
+    height: 40,
+  });
+  // console.log("captcha:", captcha);
+  // res.status(200).send({
+  //   code: 0,
+  //   message: '图形验证码',
+  //   data: {
+  //     // 产生的验证码 忽略大小写
+  //     kaptcha: captcha.text.toLowerCase(),
+  //     kaptchaSvg: String(captcha.data)
+  //   },
+  // });
+  res.set({
+    "Content-Type": "image/svg+xml",
+    "Captcha-Text": captcha.text
+  })
+  res.status(200).send(captcha.data);
+})
 
 export default router;

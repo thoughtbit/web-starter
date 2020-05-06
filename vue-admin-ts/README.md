@@ -44,3 +44,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 export CYPRESS_INSTALL_BINARY=/Users/moocss/cypress.zip
 ```
+无法远程安装 Puppeteer.
+
+运行下面的命令，跳过chromium的安装
+```
+env PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn add puppeteer
+```
+
+在终端执行：
+```
+PUPPETEER_DOWNLOAD_HOST=https://storage.googleapis.com.cnpmjs.org npm install puppeteer
+```

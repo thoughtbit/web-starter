@@ -1,3 +1,29 @@
+export type Method =
+  | "get"
+  | "GET"
+  | "post"
+  | "POST"
+  | "delete"
+  | "DELETE"
+  | "head"
+  | "HEAD"
+  | "options"
+  | "OPTIONS"
+  | "put"
+  | "PUT"
+  | "patch"
+  | "PATCH"
+  | "download"
+  | "DOWNLOAD"
+  | "upload"
+  | "UPLOAD";
+
+export interface ResponseData {
+  code: number;
+  data?: any;
+  message: string;
+}
+
 export interface APIConfig {
   server?: string;
   baseURL?: string;
@@ -37,4 +63,11 @@ export interface Get {
   url: string;
   params?: object;
   noCache?: number | boolean;
+}
+
+export interface EndpointOptions {
+  [key: string]: {
+    method: Method,
+    endpoint: string
+  }
 }

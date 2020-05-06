@@ -14,11 +14,11 @@ const getMenus = () => {
 
 router.get('/menus', (req, res) => {
   const result = getMenus();
-  consola.info(`结果: ${JSON.stringify(result)}`);
+  // consola.info(`结果: ${JSON.stringify(result)}`);
   
   res.status(202).send({
     code: 202,
-    msg: '系统菜单',
+    message: '系统菜单',
     data: result
   });
 });

@@ -4,7 +4,8 @@
     <div class="login-box">
       <div class="box-hd">
         <h2 class="title">用户登录</h2>
-      </div><!--/.box-hd -->
+      </div>
+      <!--/.box-hd -->
       <div class="box-bd">
         <el-form
           ref="loginForm"
@@ -51,11 +52,22 @@
               </span>
             </el-form-item>
           </el-tooltip>
-          <el-button
-            :loading="loading"
-            type="primary"
-            class="login-btn"
-            @click.native.prevent="handleLogin"
+          <el-form-item prop="captcha">
+            <span class="svg-container">
+              <i class="ui-icon icon-captcha"></i>
+            </span>
+            <el-input
+              ref="captcha"
+              v-model="loginForm.verifiy"
+              placeholder="验证码"
+              name="verifiy"
+              type="text"
+              tabindex="1"
+              autocomplete="on"
+            />
+            <img :src="loginForm.captcha" alt="" @click="refreshCaptcha" height="40" width="128" />
+          </el-form-item>
+          <el-button :loading="loading" type="primary" class="login-btn" @click.native.prevent="handleLogin"
             >Login</el-button
           >
         </el-form>
@@ -73,10 +85,8 @@
     margin: 0 auto;
     padding: 20px 0;
     .box-hd {
-
     }
     .box-bd {
-
     }
     .login-btn {
       width: 100%;
