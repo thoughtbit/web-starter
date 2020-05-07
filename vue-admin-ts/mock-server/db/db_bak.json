@@ -1,0 +1,6595 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "moocss",
+      "password": "$2b$10$SvlC0V6kHLw9UbB9WM1yl.bILiC4fjSXulL7V.hov3zOfgXoXnu5W",
+      "userinfo": {
+        "gender": 1,
+        "nickname": "客户",
+        "rolename": "editor",
+        "avatar_url": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+      }
+    },
+    {
+      "id": 2,
+      "username": "admin",
+      "password": "$2b$10$mc1uRuJtMydg/1wQvCLV3uLf5AL8mGgWiIhmzZobcngt5GfnqVwpe",
+      "userinfo": {
+        "gender": 1,
+        "nickname": "管理员",
+        "rolename": "administrator",
+        "avatar_url": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
+      }
+    },
+    {
+      "username": "mimi",
+      "password": "$2b$10$1EJKtNA.e0E/Urg7mFWMZu1ZgBsa.KrZPbp/k.88HEYC1C4V3pFWy",
+      "id": 3
+    },
+    {
+      "username": "kiki",
+      "password": "$2b$10$Y2LoG3Xxx1cfow72DO4u.OdiLAZxHJacqgYoInMF/X8IPYPmdLdoi",
+      "id": 4
+    },
+    {
+      "username": "mama",
+      "password": "$2b$10$pMm2wSboom7Zj/M2vzA.EOb/rWpwOCWBLl8x5XqUXq9rWGLasU6F6",
+      "id": 5
+    },
+    {
+      "username": "tata",
+      "password": "$2b$10$jfQzlfyrAeQLMgzu/mVLqOMgRST9h75Y6dSBIHXwu1T9dRXxQ9hiO",
+      "id": 6
+    },
+    {
+      "username": "totot",
+      "password": "$2b$10$3zrxDbxmRnIubcE0QLy7fei8M43MljXEuSYpEWIYlDm2A/yMo5llu",
+      "id": 7
+    }
+  ],
+  "captcha": {
+    "key": "dec53856-b64d-4af1-8ba8-2b944e14ff96",
+    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAAAwCAIAAABSYzXUAAAQXElEQVR42u1aC1BTVxp2prWt63S6zridjtNxXGc7nU7b7XZobXWsZX0zLq1WpepalxaNUgXkURQrirAqItZVBEWCIPIQhEVFUApWQaCoQHgFCOH9DuH9iiSEu9/hxJubmwjB1gc7OXMmc+65N8m9/3f+//v+/55JzIRqzdI7KWfWXHB5I1AwKWTnH5NOLC/PvqBWq5gJ3iZNoHsVXT8MAApTj/d11OOwp61akhmS4Gt+yeO99sYiEwxPqqmG1HsDLr+x1GWSmeBvFlantr0myr+nfxkcAvAoeuUmGJ5IAwbzbXyqG9swvu7/lZ+P7ZsWu27lSPSvzE30uhVqbYLhiTT4AcUADesdsai0uvmjbw7qX4kAdd5pugmGJ3NzZgJ2DE6mYeqVudsNXkwveP7b8NBQV3r6g7q6CQPD9EVOnT39rDdgySMivWflYdAbIJye52dR9/e3JydXurrmL1qUY2bWGBg4YWDY7BV2PCKVjqFTS++cMxf4BsXf0b8y5+r+5ICVz+EjDMpkzSEhZTY2eXPnwvq0F1payqKjJwwMIAZwskhSh1h0JerovwV/WeN6BmPeZeAMEMNzpVl7cnIa/PzEVla5c+aw1i9Zv75JKOwViRCXJljecEck/dTaG3zwzpq9Z51ml2aF6WMQ6TYLKcWzDzuDg91379YdO1a8ejVrepG5OQJRa2zsYGPj/0n61tlcilWP+IMB5QOMMfNsMQDZyuPjK5ydYXHW+gVLl1Z7eICK9Rf+hIeBhNr+zjvh29hixvVT/3gmsUjZ1taRmoqFX2hhwZoevdTaGmGnr7DQSOtPVBiebeuXSFrCwsptbbl8W7RyZZWbG8IOsHlSeUNpp2Lf/cZ1qVWLr5VPP58/JThvclDupMCcF87mHi1oMf5vruR3fulf8aq96IVtuS9/T/pUu7xpO0WLj5dbh1bn1PSP66ZXxTEveDOvHmPeOsNYXmLWXWY8M5jSxzWCsr299siR/CVLcj/5RPTZZ1JHx7aEBEatZoVmd2ZmjZcXzM1d+JRvByoqHlmJUTFpaczx44y9PWNry7i7M5WV44dBMaS2vVNLLb7658pwaTsgUQ+TU+IOBebRrW9Vj/mQCqV6bWDlJEEOOoze2qPCjwyqhsVNinhRp0dCE+Y/8BQbbzVRCzPpsIE+1Zdp6XucBQ4A0Ntv3CB3W11d5+ND13hjQABv4UNoYuFD/qs6O0f/2bIyxs2NEQgYT08mJYWpqtKMxwdD9+DQvMtlMLR5gqSy+wH/1lVqCgM8Y8znZDFA97/Vqn8B3AIu4hhTP9k2F+4CpxFmyHsfqB+ZTCQRo9d1MynVpCdImWUXNUjsS+folmGj/AAAFK9Zo5TLacQH2YJauWQLGACGLCICUsfIiJ+ZSYzu5MTc49QhMbNt2zhhWJgggZUtb0gNK7NhhsKAGDX6DTV0KikA833K8JlY1GUgwpyuwCmAgU/g4X2jec6hUkQtBKv08l79v0YsmuGnM2kWooFh+n801o+XkKg1K4BZG8943CGHrYbCXoWTEywui4nBGsdK58YcmuuWbtqEoDQu94LpYXFXV0Yu13pGfDyZRGgaBwyHRM0w8azIwl6lWt8Korb+hNouCsO0UNHo94SwQ2E4ndaKz5Zupf41u+IaWHfZE99AJwvqBxyi66Y75c/cXYiBpEVB5xMriLlhXLZJO7RxafIRRjVyy4Lr5HBxFKGNBeHMyz7k8M1TmrNY9ZCSFY6OXLujgxty5szBZ9nmzZ1paeK1azHZm5dnPAbNzcz27cTctGIkEjF795IZ+EdJCRkYC0ObQjU1OA8mTmnoZidbBpTeouYFV8soP7MdTjP6bdHQ/5qDCAOsdIPXxOVpoIITqHRDCY7A7Tj11l6NKnVIIQYFIWtRvKWFYUWMZnL2aXIofrgetydrLgj1vsTLbLHqq9zdazw9eZBQV8Cn1M7OeBh8fcmqB8GjxcZqAlF0NHPwIMHGy8toGPyKZbDvssRyDd2rh6GUeNZn+3e3a0a/rXVBVTAiwg4GiPuGSXJQjRBk7isBexvw8eo+/ALcgh5+EEysmcAJlhBLLAz+I0BL2sn4nbNMv1gMHQkrW9r/TC/YtvE0za2kO3YQEzs4IPVFxC9YvlwrQFetkl++rHWRjz8GhRiDAeVhUIJSycTFkTH6nj2MWMwMj0VUfBggimDfSCn540H1sPkIScAPQiVt0EVQTZQSMIa7jEmDn3qXwogIO2YHSz70KtEWpdPlsGx2lUbZcAk5o6K3qUsbuyLvteMXFv5E3K5fqTF376DmbGWnjljKL2hoT0zc730TY5tvQ1lTvvtDMb1g5claSEzYXR4Xh3mqjjpv3sS44eRJRW1tmY0NRYIEqIdfb6PLe6x24QKxO2gAwpRiAEfq6HisvAGUAEMXtQ9g7JnbhPGc+FKI14Y+JcB4PSzfX9w6aIwKGWlY5jAiwg4GkEA8WtbXqTQEsWsfzTaiFjNwJozhBDDlu0Ha68/f62cxmLGvmVptrkMWiT9L/lXyzTe1hw7JriWBruk1SDI0+O3ahSv7CgrIKv7xR4w7kpMxHurupuTM7fAnYx7WxYWYvqmJOX1aA4NuFXU8MEwZIQYao2dHFWGcLesDN8y4UIDe1K80PlAiY6BBP1ncjc9N57RJxpTtefQUYg47iaD0unM+JoEZO4lUg6XuA+lqmPJrISkdV7q6QttYbr3KwvDF1iuINhLnHyYfVv/JV8lKe8gk9howNm1Y77AvIhJJg9avx7j77l16CumCPkmM+bCwPuyOXAFZG2iAwgCN9Jgw0LDDG29Oq8HgXNn48tTbkh5YENlAQkEXBkeTNVl3UeMADikSkKfs9RuEVRQbZNc8fwo8dBHifZldKkzptvYQa6C/7i5hTXwxgzBypJiMv0vk5xm0H83WTObNm4evc8dqhUaMdWVk8GBAaj3mw6anE7uHhhJ1RDFAj4wkSgmooEMmQcUGBhIKMdYb6PjVcyKMOx4MUe1kdCjSkUCgBKRjGAAMOh+eTcL9DNcCmlfTyV/KeljZusjzfpNQWG5nd8PKhs5Ezyei/h1XYvSzu4IaAwOhOAdlsilHtSauGfn5L2P5HE5VE+05D0Gn9tUf0+oFl5/J59y5Yz6sUEjsnpNDAhELw/79zP37pCwCioaWZXlbXwPzYXj/khgWh2wlOie1CuO99xupW4wXhnOZbbDgxuCqzWE13KQBeRkOIZyoryAAKvof/Nkll4Xhi9UnqRW8Fwtw+JLgLkI8uHfq0WGYkls7YoM+Om6voYfMsEkcGrBhL5jpz3lbN/L7NCumbKxV5+Hh2hR6/nweSI9qnp7EvjKZlhguXzYgkGJiyCl7e4ZXDeHDsDaFKCUkaCSHah+gANBPJG7jgoGyK2IRyBlJMjuP/AA5BGt0O/vzVuv92UN0nw3uNV5e8vj4HUIxDucd0YRYZGew5iCnoICMjLUy2p7b/KyCxijakWHwYOiXEAGGmMNCUnPgAOsE6OKvv6Zp3ZgPi5gjGNm/ANZHlpCfb/gyVkTFxIwKw4kikjdAI2l8rVTOZgkQqVhlpZ2KcGn7plvV2zNqpXrlJv2kAYk0iJcNPkOqIWAwc0cm1+60v7T1Hh1Uyh9w+fm78zVcGLjN+abWytmNJFueE6qDEziZvUAs58PQeYsgU2ptjbGisrI9KYnOD7a0lG3ZQlWskUEJaZpAu42E6eoiyhX52tWrhKjhGaANTILAKQwg89FggJVhcYskbXC9WNHxxoUC6hMvC3NBHtNCRR/GldAE4pfGnkfdmeUpKYwoaVFQmQTBXnfsWMSXW3Dou8jGdbnzZ/+88KKAmP41e0LXs/cU0U8ePyN1oIeIKjwYkEBsvEqsD5J4X0jKR1wph7MseZiF6HyRBqKmICJ+q9zcKCQQWhQGzKs6OpBPQL8aSdHUG2h1HD7m4KApIiGXRvyhOsrHR1Pj068vGagpzb9Cihb6BSVuY8tKoHFJl8LgNTN3F8KIsdeIca02nqFP6LF0B6Hcvf4QiIgDcC9k0QCJphEkRkVpNvCImxTUOQrqBzSp5X+JQYtajY2Kh7K0ruCXo1st//xz3AyyB4xlUVFkx0pAQO7DmjYoQTWSdw2Ul5P6toXFmP+FbBnGpW8UoI4wxm/XPCwy4Me+/56YHmxBYcDhGDBUdj9AmgZmHuVfQRvcYGXgbaVMhiDzypZs5xW7SSK93Jm8pXJ3X+d9F4fcugWQgHh9270YOlVfUOGUttCSQwxq97NRGDT1klosxWBWgE6kIgVBOztSUFqyhLxMbmigmXNTcLAGhnnzKG2QbCY2FjP1J06M/nfwKxg3LY2MkTxjzH0hpFSSIgdovK5OAwMOxy50Y4HPjCgETzzynbB6mL5v4NXDofY6UlPLbGyEf98AI7645e5LW7JJBXtrjsVJadivbdCvOFRwXI1mFQt/krDCic6DEjCDyKYtOw4wr58gDNE6llbAb5hHaF3hF73SV+3hw9Ti3b/+ShwiIgIegEhV/NVXdb6+AIZ7cfuNGyRSBQeP8o9ZWdqwk5RExsARa7++nklNJcoV6ggztOKN7u9v3Nu3VoUKDAETgy0MnmXrfciuMdNXWAhZmTeiOtCzPvrE3PaKPg/TgitX+yIKYfJdDxKRVvhJuYIKM4eSmrn/C4MCBmRkY5QUOcwsNCRakHawWojm0rowqkEVbYmJFI+2K1eofAJ1PxJ4NYlCsG9x8UhlLIPx8CAMgQAFi4OoEZcgZymFoCcmjuddNPj57ejiZYnlUEetI8kEOBlRiFtz/UPgPSo2NA9mZdUcEoKgRHLL8l6H6DqaqbFdmKGzA/79A2L21NrAShqvgBMVtVmV/BebyVXMtONElRrMY5A6sH4AwMKKHmm2whUr2FoFKS7BkGp1z/37UEfsfguYHn7Dlvl4G08NvvDZuVNLCTovNLvJ62iKAWQVb/uAUTszbjf1OGTWLbhahnQaegkdGumtsFyLE9dcbPYkmBOBAT9A6De4JY3i4RhTj0wio0LnhdqgapjnK7A+AtQPsfW8qgbP1qviiHDal65JjBH6U6oJbbDSaEG4jkLVbx0pKTrvfB4mzNBFZd9+W25ryytpFCxfbmQuDStHRRGdqhphwP5+whnOztrsGs7xWzfIDPX0IKHlbkwDEyDVwvzjbYzIruqj9XD9vj2ydrRdI20EhoWRhIqRPKNP9SV5g+A6k9Vg3Muyc+d41exhpbI3Lw+qidb7uL0lLGzsl9tK5uRJrSSlyQSvBwWNf4OMzvsZsbjaw4PdqVBoadng5zf6nkDjW2JRFzc6oc9yKzT40vT3bTC61MEBTgBvgEBCOKpwcYHFVV1drHAyvtZNgBwmtSMAsHs3YQiEur4+DWljMinpsfYpUfED0VbCWR3SnTu7MzPHuzHNmIaU2+xgCbK2DcIqgy/jnnKTOjoiFsFpxvvF5mYSl4AdLa8eOECqF3L5OHdm0AbxU+Plxb4GAffSfSKMqf3ezQAMEHDQ/hKBgN2oA5ekSa/JXk8JBll0NFtawaBJKPwtWzNN7TFhgN0BQIWzM/IXA3mNqT0dGKA7R9kea2pPjxtMzQSDCQZTM8FggsHUnn37H5DFiH4xngUEAAAAAElFTkSuQmCC"
+  },
+  "menus": {
+    "menus": [
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/containers/dashboard",
+            "hidden": true,
+            "icon": "",
+            "id": 654,
+            "menuName": "工作台",
+            "name": "dashboard",
+            "path": "/dashboard",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/containers/workplace",
+            "hidden": true,
+            "icon": "",
+            "id": 654,
+            "menuName": "工作台首页",
+            "name": "workplace",
+            "path": "/workplace",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 783,
+            "menuName": "我的工作流",
+            "name": "workplaceWorkflow",
+            "path": "/workplace/workflow",
+            "redirect": "",
+            "sortNum": 2
+          }
+        ],
+        "component": "layouts/RouteView",
+        "hidden": false,
+        "icon": "gongzuotai",
+        "id": 653,
+        "menuName": "工作台",
+        "name": "workplace",
+        "path": "/workplace",
+        "redirect": "/workplace/index",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 785,
+            "menuName": "列表",
+            "name": "contentIndex",
+            "path": "/content/index",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 786,
+            "menuName": "新增",
+            "name": "contentCreate",
+            "path": "/content/create",
+            "redirect": "",
+            "sortNum": 2
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 787,
+            "menuName": "详情",
+            "name": "contentDetail",
+            "path": "/content/detail",
+            "redirect": "",
+            "sortNum": 3
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 788,
+            "menuName": "微信公众号编辑",
+            "name": "wechatPublicEdit",
+            "path": "/content/public/edit",
+            "redirect": "",
+            "sortNum": 33
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 789,
+            "menuName": "新浪微博编辑",
+            "name": "sinaWeiboEdit",
+            "path": "/content/sina/edit",
+            "redirect": "",
+            "sortNum": 34
+          }
+        ],
+        "component": "component",
+        "hidden": false,
+        "icon": "neirongguanli",
+        "id": 784,
+        "menuName": "内容管理",
+        "name": "content",
+        "path": "/content",
+        "redirect": "",
+        "sortNum": 2
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 791,
+            "menuName": "列表",
+            "name": "columnIndex",
+            "path": "/column/index",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 793,
+            "menuName": "文档权限",
+            "name": "docPermission",
+            "path": "/column/docPermission",
+            "redirect": "",
+            "sortNum": 3
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 792,
+            "menuName": "栏目权限",
+            "name": "columnPermission",
+            "path": "/column/permission",
+            "redirect": "",
+            "sortNum": 11
+          }
+        ],
+        "component": "component",
+        "hidden": false,
+        "icon": "langmuguanli",
+        "id": 790,
+        "menuName": "栏目管理",
+        "name": "column",
+        "path": "/column",
+        "redirect": "",
+        "sortNum": 3
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/Config/Site/Index",
+                "hidden": true,
+                "icon": "",
+                "id": 746,
+                "menuName": "列表",
+                "name": "configSiteIndex",
+                "path": "/config/site/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/Config/Site/Detail",
+                "hidden": true,
+                "icon": "",
+                "id": 747,
+                "menuName": "详情",
+                "name": "configSiteDetail",
+                "path": "/config/site/detail",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "views/Config/Site/Create",
+                "hidden": true,
+                "icon": "",
+                "id": 748,
+                "menuName": "新增",
+                "name": "configSiteCreate",
+                "path": "/config/site/create",
+                "redirect": "",
+                "sortNum": 3
+              },
+              {
+                "children": [],
+                "component": "views/Config/Site/Static",
+                "hidden": true,
+                "icon": "",
+                "id": 751,
+                "menuName": "发布静态页",
+                "name": "configSiteStatic",
+                "path": "/config/site/static",
+                "redirect": "",
+                "sortNum": 10
+              },
+              {
+                "children": [],
+                "component": "views/Config/Site/Permission/Site",
+                "hidden": true,
+                "icon": "",
+                "id": 749,
+                "menuName": "站点权限",
+                "name": "configSitePermissionSite",
+                "path": "/config/site/permission/site",
+                "redirect": "",
+                "sortNum": 11
+              },
+              {
+                "children": [],
+                "component": "views/Config/Site/Permission/SiteGroup",
+                "hidden": true,
+                "icon": "",
+                "id": 750,
+                "menuName": "站群权限",
+                "name": "configSitePermissionSiteGroup",
+                "path": "/config/site/permission/siteGroup",
+                "redirect": "",
+                "sortNum": 13
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 745,
+            "menuName": "站点管理",
+            "name": "configSite",
+            "path": "/config/site",
+            "redirect": "/config/site/index",
+            "sortNum": 1
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/Config/Templates/Index",
+                "hidden": true,
+                "icon": "",
+                "id": 753,
+                "menuName": "列表",
+                "name": "configTemplateseIndex",
+                "path": "/config/templates/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/Config/Templates/Detail",
+                "hidden": true,
+                "icon": "",
+                "id": 754,
+                "menuName": "详情",
+                "name": "configTemplatesDetail",
+                "path": "/config/templates/detail",
+                "redirect": "",
+                "sortNum": 2
+              }
+            ],
+            "component": "layouts/RouteView",
+            "hidden": false,
+            "icon": "",
+            "id": 752,
+            "menuName": "模板管理",
+            "name": "configTemplates",
+            "path": "/config/templates",
+            "redirect": "/config/templates/index",
+            "sortNum": 2
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/Config/Files/Index",
+                "hidden": true,
+                "icon": "",
+                "id": 756,
+                "menuName": "列表",
+                "name": "configFilesIndex",
+                "path": "/config/files/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/Config/Files/Detail",
+                "hidden": true,
+                "icon": "",
+                "id": 757,
+                "menuName": "详情",
+                "name": "configFilesDetail",
+                "path": "/config/files/detail",
+                "redirect": "",
+                "sortNum": 2
+              }
+            ],
+            "component": "layouts/RouteView",
+            "hidden": false,
+            "icon": "",
+            "id": 755,
+            "menuName": "文件管理",
+            "name": "configFiles",
+            "path": "/config/files",
+            "redirect": "/config/files/index",
+            "sortNum": 3
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/Config/Information/Index",
+                "hidden": true,
+                "icon": "",
+                "id": 759,
+                "menuName": "列表",
+                "name": "configInformationIndex",
+                "path": "/config/information/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/Config/Information/Detail",
+                "hidden": true,
+                "icon": "",
+                "id": 760,
+                "menuName": "详情",
+                "name": "configInformationDetail",
+                "path": "/config/information/detail",
+                "redirect": "",
+                "sortNum": 2
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 758,
+            "menuName": "消息模板管理",
+            "name": "configInformation",
+            "path": "/config/information",
+            "redirect": "/config/information/index",
+            "sortNum": 4
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "layouts/PageView",
+                "hidden": false,
+                "icon": "",
+                "id": 762,
+                "menuName": "tag词",
+                "name": "configVocabularyTag",
+                "path": "/config/vocabulary/tag",
+                "redirect": "/config/vocabulary/tag/index",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "layouts/PageView",
+                "hidden": false,
+                "icon": "",
+                "id": 764,
+                "menuName": "敏感词",
+                "name": "configVocabularySensitive",
+                "path": "/config/vocabulary/sensitive",
+                "redirect": "/config/vocabulary/sensitive/index",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "layouts/PageView",
+                "hidden": false,
+                "icon": "",
+                "id": 766,
+                "menuName": "搜索词",
+                "name": "configVocabularySearch",
+                "path": "/config/vocabulary/search",
+                "redirect": "/config/vocabulary/search/index",
+                "sortNum": 3
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/Config/Vocabulary/Hot/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 770,
+                    "menuName": "分类列表",
+                    "name": "configVocabularyHotIndex",
+                    "path": "/config/vocabulary/hot/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "views/Config/Vocabulary/Hot/Detail",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 771,
+                    "menuName": "分类详情",
+                    "name": "configVocabularyHotDetail",
+                    "path": "/config/vocabulary/hot/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  },
+                  {
+                    "children": [],
+                    "component": "views/Config/Vocabulary/Hot/HotManage/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 772,
+                    "menuName": "列表",
+                    "name": "configVocabularyHotManage",
+                    "path": "/config/vocabulary/hot/manage/index",
+                    "redirect": "",
+                    "sortNum": 6
+                  }
+                ],
+                "component": "layouts/PageView",
+                "hidden": false,
+                "icon": "",
+                "id": 768,
+                "menuName": "热词",
+                "name": "configVocabularyHot",
+                "path": "/config/vocabulary/hot",
+                "redirect": "/config/vocabulary/hot/index",
+                "sortNum": 4
+              }
+            ],
+            "component": "layouts/RouteView",
+            "hidden": false,
+            "icon": "",
+            "id": 761,
+            "menuName": "词汇管理",
+            "name": "configVocabulary",
+            "path": "/config/vocabulary",
+            "redirect": "",
+            "sortNum": 5
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 794,
+            "menuName": "内容索引",
+            "name": "configContent",
+            "path": "/config/content",
+            "redirect": "",
+            "sortNum": 6
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 795,
+            "menuName": "定时任务",
+            "name": "configTiming",
+            "path": "/config/timing",
+            "redirect": "",
+            "sortNum": 7
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 1263,
+                "menuName": "审核策略管理",
+                "name": "configAuditManage",
+                "path": "/config/audit/manage",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 1264,
+                "menuName": "审核栏目设置",
+                "name": "configAuditColumnSetting",
+                "path": "/config/audit/columnSetting",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 1265,
+                "menuName": "审核模型设置",
+                "name": "configAuditModelSetting",
+                "path": "/config/audit/modelSetting",
+                "redirect": "",
+                "sortNum": 3
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 1262,
+            "menuName": "内容智能审核",
+            "name": "configAudit",
+            "path": "/config/audit",
+            "redirect": "",
+            "sortNum": 10
+          }
+        ],
+        "component": "layouts/RouteView",
+        "hidden": false,
+        "icon": "peizhi",
+        "id": 744,
+        "menuName": "配置",
+        "name": "config",
+        "path": "/config",
+        "redirect": "/config/index",
+        "sortNum": 4
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 803,
+            "menuName": "网站概况",
+            "name": "statisticsGeneral",
+            "path": "/statistics/general",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 813,
+                "menuName": "实时访客",
+                "name": "statisticsFlowIndex",
+                "path": "/statistics/flow/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 814,
+                "menuName": "趋势分析",
+                "name": "statisticsFlowTendency",
+                "path": "/statistics/flow/tendency",
+                "redirect": "",
+                "sortNum": 2
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 812,
+            "menuName": "流量分析",
+            "name": "statisticsFlow",
+            "path": "/statistics/flow",
+            "redirect": "",
+            "sortNum": 2
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 816,
+                "menuName": "全部来源",
+                "name": "statisticsSourceIndex",
+                "path": "/statistics/source/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 817,
+                "menuName": "搜索引擎",
+                "name": "statisticsSourceSearch",
+                "path": "/statistics/source/search",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 818,
+                "menuName": "外部链接",
+                "name": "statisticsSourceLink",
+                "path": "/statistics/source/link",
+                "redirect": "",
+                "sortNum": 3
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 815,
+            "menuName": "来源分析",
+            "name": "statisticsSource",
+            "path": "/statistics/source",
+            "redirect": "",
+            "sortNum": 3
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 820,
+                "menuName": "受访页面",
+                "name": "statisticsInterviewerIndex",
+                "path": "/statistics/interviewer/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 821,
+                "menuName": "入口页面",
+                "name": "statisticsInterviewerEntrance",
+                "path": "/statistics/interviewer/entrance",
+                "redirect": "",
+                "sortNum": 2
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 819,
+            "menuName": "受访分析",
+            "name": "statisticsInterviewer",
+            "path": "/statistics/interviewer",
+            "redirect": "",
+            "sortNum": 4
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 823,
+                "menuName": "地域分布",
+                "name": "statisticsVisitorTerritory",
+                "path": "/statistics/visitor/territory",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 824,
+                "menuName": "网络设备",
+                "name": "statisticsVisitorNetwork",
+                "path": "/statistics/visitor/network",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 825,
+                "menuName": "新老访客",
+                "name": "statisticsVisitorVisitor",
+                "path": "/statistics/visitor/visitor",
+                "redirect": "",
+                "sortNum": 3
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 826,
+                "menuName": "忠诚度",
+                "name": "statisticsVisitorFidelity",
+                "path": "/statistics/visitor/fidelity",
+                "redirect": "",
+                "sortNum": 4
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 822,
+            "menuName": "访客分析",
+            "name": "statisticsVisitor",
+            "path": "/statistics/visitor",
+            "redirect": "",
+            "sortNum": 5
+          }
+        ],
+        "component": "component",
+        "hidden": false,
+        "icon": "shujutongji",
+        "id": 802,
+        "menuName": "网站统计",
+        "name": "statistics",
+        "path": "/statistics",
+        "redirect": "",
+        "sortNum": 5
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 829,
+                "menuName": "评论列表",
+                "name": "interactCommentIndex",
+                "path": "/interact/comment/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 830,
+                "menuName": "内容评论",
+                "name": "interactCommentContent",
+                "path": "/interact/comment/content",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 831,
+                "menuName": "会员评论",
+                "name": "interactCommentMember",
+                "path": "/interact/comment/member",
+                "redirect": "",
+                "sortNum": 3
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 832,
+                "menuName": "IP评论",
+                "name": "interactCommentIp",
+                "path": "/interact/comment/ip",
+                "redirect": "",
+                "sortNum": 4
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 833,
+                "menuName": "禁言列表",
+                "name": "interactCommentForbidIndex",
+                "path": "/interact/comment/forbid/index",
+                "redirect": "",
+                "sortNum": 5
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 834,
+                "menuName": "用户禁言管理",
+                "name": "interactCommentForbidMember",
+                "path": "/interact/comment/forbid/member",
+                "redirect": "",
+                "sortNum": 6
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 835,
+                "menuName": "IP禁言管理",
+                "name": "interactCommentForbidIp",
+                "path": "/interact/comment/forbid/ip",
+                "redirect": "",
+                "sortNum": 7
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 836,
+                "menuName": "举报列表",
+                "name": "interactCommentReport",
+                "path": "/interact/comment/report",
+                "redirect": "",
+                "sortNum": 8
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 828,
+            "menuName": "评论管理",
+            "name": "interactComment",
+            "path": "/interact/comment",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 1216,
+                "menuName": "采集管理",
+                "name": "interactCollectIndex",
+                "path": "/interact/collect/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 1215,
+                "menuName": "智慧采集",
+                "name": "interactCollectIframe",
+                "path": "/interact/collect/detail",
+                "redirect": "",
+                "sortNum": 2
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 1214,
+            "menuName": "采集管理",
+            "name": "interactCollect",
+            "path": "/interact/collect",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 838,
+                "menuName": "分类列表",
+                "name": "interactBlogrollIndex",
+                "path": "/interact/blogroll/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 839,
+                "menuName": "链接列表",
+                "name": "interactBlogrollDetail",
+                "path": "/interact/blogroll/detail",
+                "redirect": "",
+                "sortNum": 2
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 837,
+            "menuName": "友情链接",
+            "name": "interactBlogroll",
+            "path": "/interact/blogroll",
+            "redirect": "",
+            "sortNum": 2
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 1325,
+                "menuName": "投票调查",
+                "name": "interactVoteIndex",
+                "path": "/interact/vote/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 1326,
+                "menuName": "详情",
+                "name": "interactVoteDetail",
+                "path": "/interact/vote/detail",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 1327,
+                "menuName": "新增",
+                "name": "interactVoteCreate",
+                "path": "/interact/vote/create",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 1331,
+                "menuName": "查看答卷",
+                "name": "interactVoteView",
+                "path": "/interact/vote/view",
+                "redirect": "",
+                "sortNum": 10
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 1324,
+            "menuName": "投票调查",
+            "name": "interactVote",
+            "path": "/interact/vote",
+            "redirect": "",
+            "sortNum": 10
+          }
+        ],
+        "component": "component",
+        "hidden": false,
+        "icon": "hudong",
+        "id": 827,
+        "menuName": "互动",
+        "name": "interact",
+        "path": "/interact",
+        "redirect": "",
+        "sortNum": 6
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 843,
+                    "menuName": "列表",
+                    "name": "socialWechatAuthorizationIndex",
+                    "path": "/social/wechat/authorization/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 844,
+                    "menuName": "公众号详情",
+                    "name": "socialWechatPublicDetail",
+                    "path": "/social/wechat/public/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 845,
+                    "menuName": "小程序详情",
+                    "name": "socialWechatAppletDetail",
+                    "path": "/social/wechat/applet/detail",
+                    "redirect": "",
+                    "sortNum": 3
+                  }
+                ],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 842,
+                "menuName": "授权管理",
+                "name": "socialWechatAuthorization",
+                "path": "/social/wechat/authorization",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 847,
+                    "menuName": "菜单列表",
+                    "name": "socialWechatMenuIndex",
+                    "path": "/social/wechat/menu/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 848,
+                    "menuName": "默认菜单详情",
+                    "name": "socialWechatMenuDefaultDetail",
+                    "path": "/social/wechat/default/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 849,
+                    "menuName": "个性菜单详情",
+                    "name": "socialWechatIndividualizationDetail",
+                    "path": "/social/wechat/individualization/detail",
+                    "redirect": "",
+                    "sortNum": 3
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 850,
+                    "menuName": "默认菜单新增",
+                    "name": "socialWechatMenuDefaultAdd",
+                    "path": "/social/wechat/default/add",
+                    "redirect": "",
+                    "sortNum": 4
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 851,
+                    "menuName": "个性菜单新增",
+                    "name": "socialWechatIndividualizationAdd",
+                    "path": "/social/wechat/individualization/add",
+                    "redirect": "",
+                    "sortNum": 5
+                  }
+                ],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 846,
+                "menuName": "菜单管理",
+                "name": "socialWechatMenu",
+                "path": "/social/wechat/menu",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 853,
+                    "menuName": "素材列表",
+                    "name": "socialWechatMaterialIndex",
+                    "path": "/social/wechat/material/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 854,
+                    "menuName": "图文新增",
+                    "name": "socialWechatMaterialImageTextAdd",
+                    "path": "/social/wechat/imageText/add",
+                    "redirect": "",
+                    "sortNum": 2
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": false,
+                    "icon": "",
+                    "id": 855,
+                    "menuName": "图文修改",
+                    "name": "socialWechatMaterialImageTextEdit",
+                    "path": "/social/wechat/imageText/edit",
+                    "redirect": "",
+                    "sortNum": 3
+                  }
+                ],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 852,
+                "menuName": "素材管理",
+                "name": "socialWechatMaterial",
+                "path": "/social/wechat/material",
+                "redirect": "",
+                "sortNum": 3
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 856,
+                "menuName": "自动回复",
+                "name": "socialWechatAutoReply",
+                "path": "/social/wechat/AutoReply",
+                "redirect": "",
+                "sortNum": 4
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 858,
+                    "menuName": "列表",
+                    "name": "socialWechatFansIndex",
+                    "path": "/social/wechat/fans/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 859,
+                    "menuName": "发送消息",
+                    "name": "socialWechatFansSend",
+                    "path": "/social/wechat/fans/send",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 857,
+                "menuName": "粉丝管理",
+                "name": "socialWechatFans",
+                "path": "/social/wechat/fans",
+                "redirect": "",
+                "sortNum": 5
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 860,
+                "menuName": "留言管理",
+                "name": "socialWechatComment",
+                "path": "/social/wechat/comment",
+                "redirect": "",
+                "sortNum": 6
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 861,
+                "menuName": "消息管理",
+                "name": "socialWechatMessage",
+                "path": "/social/wechat/message",
+                "redirect": "",
+                "sortNum": 7
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 863,
+                    "menuName": "列表",
+                    "name": "socialWechatPushIndex",
+                    "path": "/social/wechat/push/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 864,
+                    "menuName": "详情",
+                    "name": "socialWechatPushDetail",
+                    "path": "/social/wechat/push/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 862,
+                "menuName": "推送管理",
+                "name": "socialWechatPush",
+                "path": "/social/wechat/push",
+                "redirect": "",
+                "sortNum": 9
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 865,
+                "menuName": "粉丝汇总",
+                "name": "socialWechatFansStatistics",
+                "path": "/social/wechat/FansStatistics",
+                "redirect": "",
+                "sortNum": 10
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 866,
+                "menuName": "定时群发",
+                "name": "socialWechatGroup",
+                "path": "/social/wechat/group",
+                "redirect": "",
+                "sortNum": 11
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 867,
+                "menuName": "汇总统计",
+                "name": "socialWechatStatistics",
+                "path": "/social/wechat/Statistics",
+                "redirect": "",
+                "sortNum": 12
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 868,
+                "menuName": "小程序代码管理",
+                "name": "socialWechatApplet",
+                "path": "/social/wechat/applet",
+                "redirect": "",
+                "sortNum": 13
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 841,
+            "menuName": "微信",
+            "name": "socialWechat",
+            "path": "/social/Wechat",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 870,
+                "menuName": "应用配置",
+                "name": "socialWeiboApplication",
+                "path": "/social/weibo/application",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 871,
+                "menuName": "账号管理",
+                "name": "socialWeiboAccount",
+                "path": "/social/weibo/account",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 872,
+                "menuName": "粉丝管理",
+                "name": "socialWeiboFans",
+                "path": "/social/weibo/fans",
+                "redirect": "",
+                "sortNum": 3
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 873,
+                "menuName": "消息管理",
+                "name": "socialWeiboMessage",
+                "path": "/social/weibo/message",
+                "redirect": "",
+                "sortNum": 4
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 874,
+                "menuName": "推送记录",
+                "name": "socialWeiboPushRecord",
+                "path": "/social/weibo/pushRecord",
+                "redirect": "",
+                "sortNum": 5
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 869,
+            "menuName": "微博",
+            "name": "socialWeibo",
+            "path": "/social/Weibo",
+            "redirect": "",
+            "sortNum": 2
+          }
+        ],
+        "component": "component",
+        "hidden": false,
+        "icon": "shejiaomeiti",
+        "id": 840,
+        "menuName": "社交媒体",
+        "name": "social",
+        "path": "/social",
+        "redirect": "",
+        "sortNum": 7
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 877,
+                "menuName": "列表",
+                "name": "vipCheckPendingIndex",
+                "path": "/vip/checkPending/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 878,
+                "menuName": "详情",
+                "name": "vipCheckPendingDetail",
+                "path": "/vip/checkPending/detail",
+                "redirect": "",
+                "sortNum": 2
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 876,
+            "menuName": "待审核会员",
+            "name": "vipCheckPending",
+            "path": "/vip/checkPending",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 880,
+                "menuName": "列表",
+                "name": "vipMemberIndex",
+                "path": "/vip/member/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 881,
+                "menuName": "详情",
+                "name": "vipMemberDetail",
+                "path": "/vip/member/detail",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 882,
+                "menuName": "新建",
+                "name": "vipMemberCreate",
+                "path": "/vip/member/create",
+                "redirect": "",
+                "sortNum": 3
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 879,
+            "menuName": "会员管理",
+            "name": "vipMember",
+            "path": "/vip/member",
+            "redirect": "",
+            "sortNum": 2
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 1053,
+                "menuName": "列表",
+                "name": "vipGroupNameIndex",
+                "path": "/vip/groupName/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 1054,
+                "menuName": "详情",
+                "name": "vipGroupNameDetail",
+                "path": "/vip/groupName/detail",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": true,
+                "icon": "",
+                "id": 1058,
+                "menuName": "成员列表",
+                "name": "vipGroupNameMembersIndex",
+                "path": "/vip/groupName/members/index",
+                "redirect": "",
+                "sortNum": 6
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 1052,
+            "menuName": "会员组管理",
+            "name": "vipGroupName",
+            "path": "/vip/groupName",
+            "redirect": "",
+            "sortNum": 3
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 884,
+            "menuName": "会员等级",
+            "name": "vipGrade",
+            "path": "/vip/grade",
+            "redirect": "",
+            "sortNum": 4
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 885,
+            "menuName": "积分配置",
+            "name": "vipIntegral",
+            "path": "/vip/integral",
+            "redirect": "",
+            "sortNum": 5
+          }
+        ],
+        "component": "component",
+        "hidden": false,
+        "icon": "huiyuan",
+        "id": 875,
+        "menuName": "会员",
+        "name": "vip",
+        "path": "/vip",
+        "redirect": "",
+        "sortNum": 8
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/System/Organize/Index",
+                "hidden": true,
+                "icon": "",
+                "id": 657,
+                "menuName": "列表",
+                "name": "organizeIndex",
+                "path": "/system/organize/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/System/Organize/Detail",
+                "hidden": true,
+                "icon": "",
+                "id": 658,
+                "menuName": "详情",
+                "name": "organizeDetail",
+                "path": "/system/organize/detail",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "views/System/Organize/Member",
+                "hidden": true,
+                "icon": "",
+                "id": 659,
+                "menuName": "成员列表",
+                "name": "organizeMember",
+                "path": "/system/organize/member",
+                "redirect": "",
+                "sortNum": 6
+              },
+              {
+                "children": [],
+                "component": "views/System/Organize/Permission",
+                "hidden": true,
+                "icon": "",
+                "id": 660,
+                "menuName": "权限列表",
+                "name": "organizePermission",
+                "path": "/system/organize/permission",
+                "redirect": "",
+                "sortNum": 9
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 656,
+            "menuName": "组织管理",
+            "name": "organize",
+            "path": "/system/organize",
+            "redirect": "/system/organize/index",
+            "sortNum": 1
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/System/Role/Index",
+                "hidden": true,
+                "icon": "",
+                "id": 662,
+                "menuName": "列表",
+                "name": "roleIndex",
+                "path": "/system/role/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/System/Role/Edit",
+                "hidden": true,
+                "icon": "",
+                "id": 663,
+                "menuName": "详情",
+                "name": "roleEdit",
+                "path": "/system/role/edit",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "views/System/Role/Membership",
+                "hidden": true,
+                "icon": "",
+                "id": 664,
+                "menuName": "成员列表",
+                "name": "roleMember",
+                "path": "/system/role/member",
+                "redirect": "",
+                "sortNum": 6
+              },
+              {
+                "children": [],
+                "component": "views/System/Role/Permission",
+                "hidden": true,
+                "icon": "",
+                "id": 665,
+                "menuName": "权限列表",
+                "name": "rolePermission",
+                "path": "/system/role/permission",
+                "redirect": "",
+                "sortNum": 9
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 661,
+            "menuName": "角色管理",
+            "name": "role",
+            "path": "/system/role",
+            "redirect": "/system/role/index",
+            "sortNum": 2
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/System/User/Index",
+                "hidden": true,
+                "icon": "",
+                "id": 667,
+                "menuName": "列表",
+                "name": "userIndex",
+                "path": "/system/user/index",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/System/User/Create",
+                "hidden": true,
+                "icon": "",
+                "id": 668,
+                "menuName": "修改",
+                "name": "userCreate",
+                "path": "/system/user/create",
+                "redirect": "",
+                "sortNum": 4
+              },
+              {
+                "children": [],
+                "component": "views/System/User/Permission",
+                "hidden": true,
+                "icon": "",
+                "id": 669,
+                "menuName": "权限列表",
+                "name": "userPermission",
+                "path": "/system/user/permission",
+                "redirect": "",
+                "sortNum": 10
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 666,
+            "menuName": "用户管理",
+            "name": "user",
+            "path": "/system/user",
+            "redirect": "/system/user/index",
+            "sortNum": 3
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/System/Model/Column/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 672,
+                    "menuName": "列表",
+                    "name": "modelColumnIndex",
+                    "path": "/system/model/column/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "views/System/Model/Column/Detail",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 673,
+                    "menuName": "字段详情",
+                    "name": "modelColumnDetail",
+                    "path": "/system/model/column/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 671,
+                "menuName": "栏目模型",
+                "name": "modelColumn",
+                "path": "/system/model/column",
+                "redirect": "/system/model/column/index",
+                "sortNum": 1
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/System/Model/Content/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 675,
+                    "menuName": "列表",
+                    "name": "modelContentIndex",
+                    "path": "/system/model/content/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "views/System/Model/Content/Detail",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 676,
+                    "menuName": "字段详情",
+                    "name": "modelNewContentDetail",
+                    "path": "/system/model/newcontent/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 674,
+                "menuName": "内容模型",
+                "name": "modelContent",
+                "path": "/system/model/content",
+                "redirect": "/system/model/content/index",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 677,
+                "menuName": "会员模型",
+                "name": "modelVip",
+                "path": "/system/model/vip",
+                "redirect": "/system/model/vip/detail",
+                "sortNum": 3
+              },
+              {
+                "children": [],
+                "component": "layouts/PageView",
+                "hidden": false,
+                "icon": "",
+                "id": 769,
+                "menuName": "来源管理",
+                "name": "configVocabularySource",
+                "path": "/system/model/source",
+                "redirect": "/config/vocabulary/source/index",
+                "sortNum": 4
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 886,
+                "menuName": "内容类型管理",
+                "name": "configVocabularyContent",
+                "path": "/system/model/contenttype",
+                "redirect": "",
+                "sortNum": 5
+              },
+              {
+                "children": [],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 887,
+                "menuName": "发文字号管理",
+                "name": "configVocabularyFontsize",
+                "path": "/system/model/fontsize",
+                "redirect": "",
+                "sortNum": 6
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 670,
+            "menuName": "模型管理",
+            "name": "model",
+            "path": "/system/model",
+            "redirect": "/system/model/column",
+            "sortNum": 4
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 679,
+            "menuName": "资源库",
+            "name": "resource",
+            "path": "/system/resource",
+            "redirect": "/system/resource/index",
+            "sortNum": 5
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 681,
+            "menuName": "系统设置",
+            "name": "systemSetting",
+            "path": "/system/system-setting",
+            "redirect": "/system/system-setting/index",
+            "sortNum": 6
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 683,
+            "menuName": "账户安全设置",
+            "name": "safe",
+            "path": "/system/safe",
+            "redirect": "",
+            "sortNum": 8
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/System/Security/User/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 687,
+                    "menuName": "列表",
+                    "name": "securityUserIndex",
+                    "path": "/system/security/user/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "component",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 961,
+                    "menuName": "详情",
+                    "name": "securityUserDetail",
+                    "path": "/system/security/user/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 686,
+                "menuName": "人员密级",
+                "name": "securityUser",
+                "path": "/system/security/user",
+                "redirect": "/system/security/user/index",
+                "sortNum": 1
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/System/Security/Content/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 690,
+                    "menuName": "列表",
+                    "name": "securityContentIndex",
+                    "path": "/system/security/content/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "views/System/Security/Content/Detail",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 691,
+                    "menuName": "详情",
+                    "name": "securityContentDetail",
+                    "path": "/system/security/content/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 689,
+                "menuName": "内容密级",
+                "name": "securityContent",
+                "path": "/system/security/content",
+                "redirect": "/system/security/content/index",
+                "sortNum": 2
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/System/Security/Accessory/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 693,
+                    "menuName": "列表",
+                    "name": "securityAccessoryIndex",
+                    "path": "/system/security/accessory/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "views/System/Security/Accessory/Detail",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 694,
+                    "menuName": "详情",
+                    "name": "securityAccessoryDetail",
+                    "path": "/system/security/accessory/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 692,
+                "menuName": "附件密级",
+                "name": "securityAccessory",
+                "path": "/system/security/accessory",
+                "redirect": "/system/security/accessory/index",
+                "sortNum": 3
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 685,
+            "menuName": "密级管理",
+            "name": "security",
+            "path": "/system/security",
+            "redirect": "/system/security/user",
+            "sortNum": 9
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/System/Storage/CloudStorage/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 700,
+                    "menuName": "列表",
+                    "name": "storageCloudIndex",
+                    "path": "/system/storage/cloudStorage/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "views/System/Storage/CloudStorage/Detail",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 701,
+                    "menuName": "详情",
+                    "name": "storageCloudDetail",
+                    "path": "/system/storage/cloudstorage/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 699,
+                "menuName": "云存储",
+                "name": "storageCloud",
+                "path": "/system/storage/cloudStorage",
+                "redirect": "/system/storage/cloudStorage/index",
+                "sortNum": 2
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/System/Storage/FtpStorge/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 697,
+                    "menuName": "列表",
+                    "name": "storageFtpIndex",
+                    "path": "/system/storage/ftpStorge/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "views/System/Storage/FtpStorge/Detail",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 698,
+                    "menuName": "详情",
+                    "name": "storageFtpDetail",
+                    "path": "/system/storage/ftpStorge/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 696,
+                "menuName": "FTP管理",
+                "name": "storageFtp",
+                "path": "/system/storage/ftpStorge",
+                "redirect": "/system/storage/ftpStorge/index",
+                "sortNum": 10
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 695,
+            "menuName": "存储管理",
+            "name": "storage",
+            "path": "/system/storage",
+            "redirect": "/system/storage/index",
+            "sortNum": 10
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 702,
+            "menuName": "第三方登录设置",
+            "name": "thirdParty",
+            "path": "/system/third-party",
+            "redirect": "/system/thirdParty/index",
+            "sortNum": 11
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 704,
+            "menuName": "短信服务设置",
+            "name": "sms",
+            "path": "/system/sms",
+            "redirect": "/system/sms/index",
+            "sortNum": 12
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 706,
+            "menuName": "邮件服务设置",
+            "name": "email",
+            "path": "/system/email",
+            "redirect": "/system/email/index",
+            "sortNum": 13
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 708,
+            "menuName": "微信开放平台设置",
+            "name": "weixin",
+            "path": "/system/weixin",
+            "redirect": "/system/weixin/index",
+            "sortNum": 14
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 710,
+            "menuName": "防火墙设置",
+            "name": "firewall",
+            "path": "/system/firewall",
+            "redirect": "/system/firewall/index",
+            "sortNum": 15
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 712,
+            "menuName": "数据备份",
+            "name": "backup",
+            "path": "/system/backup",
+            "redirect": "/system/backup/index",
+            "sortNum": 16
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/System/Log/RealTime/Index",
+                "hidden": false,
+                "icon": "",
+                "id": 715,
+                "menuName": "实时日志",
+                "name": "logRealTime",
+                "path": "/system/log/realTime",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/System/Log/System/Index",
+                "hidden": false,
+                "icon": "",
+                "id": 716,
+                "menuName": "系统日志",
+                "name": "logSystem",
+                "path": "/system/log/system",
+                "redirect": "",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "views/System/Log/Business/Index",
+                "hidden": false,
+                "icon": "",
+                "id": 717,
+                "menuName": "业务日志",
+                "name": "logBusiness",
+                "path": "/system/log/business",
+                "redirect": "",
+                "sortNum": 3
+              },
+              {
+                "children": [],
+                "component": "views/System/Log/Audit/Index",
+                "hidden": false,
+                "icon": "",
+                "id": 718,
+                "menuName": "审计日志",
+                "name": "logAudit",
+                "path": "/system/log/audit",
+                "redirect": "",
+                "sortNum": 4
+              },
+              {
+                "children": [],
+                "component": "views/System/Log/Safety/Index",
+                "hidden": false,
+                "icon": "",
+                "id": 719,
+                "menuName": "安全日志",
+                "name": "logSafety",
+                "path": "/system/log/safety",
+                "redirect": "",
+                "sortNum": 5
+              },
+              {
+                "children": [],
+                "component": "views/System/Log/Report/Index",
+                "hidden": false,
+                "icon": "",
+                "id": 720,
+                "menuName": "告警日志",
+                "name": "logReport",
+                "path": "/system/log/report",
+                "redirect": "",
+                "sortNum": 6
+              },
+              {
+                "children": [],
+                "component": "views/System/Log/Backups/Index",
+                "hidden": false,
+                "icon": "",
+                "id": 721,
+                "menuName": "日志备份",
+                "name": "logBackups",
+                "path": "/system/log/backups",
+                "redirect": "",
+                "sortNum": 7
+              },
+              {
+                "children": [],
+                "component": "views/System/Log/Strategy/Index",
+                "hidden": false,
+                "icon": "",
+                "id": 722,
+                "menuName": "日志策略",
+                "name": "logStrategy",
+                "path": "/system/log/strategy",
+                "redirect": "",
+                "sortNum": 8
+              },
+              {
+                "children": [],
+                "component": "views/System/Log/Statistics/Index",
+                "hidden": false,
+                "icon": "",
+                "id": 723,
+                "menuName": "日志统计",
+                "name": "logStatistics",
+                "path": "/system/log/statistics",
+                "redirect": "",
+                "sortNum": 9
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 714,
+            "menuName": "日志管理",
+            "name": "log",
+            "path": "/system/log",
+            "redirect": "/system/log/realTime/index",
+            "sortNum": 17
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/System/Menus/Apis/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 726,
+                    "menuName": "列表",
+                    "name": "menusApisIndex",
+                    "path": "/system/menus/apis/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "views/System/Menus/Apis/Detail",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 727,
+                    "menuName": "详情",
+                    "name": "menusApisDetail",
+                    "path": "/system/menus/apis/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  }
+                ],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 725,
+                "menuName": "接口管理",
+                "name": "menusApis",
+                "path": "/system/menus/apis",
+                "redirect": "/system/menus/apis/index",
+                "sortNum": 1
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/System/Menus/Menus/Index",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 729,
+                    "menuName": "列表",
+                    "name": "menusMenusIndex",
+                    "path": "/system/menus/menus/index",
+                    "redirect": "",
+                    "sortNum": 1
+                  },
+                  {
+                    "children": [],
+                    "component": "views/System/Menus/Menus/Detail",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 730,
+                    "menuName": "详情",
+                    "name": "menusMenusDetail",
+                    "path": "/system/menus/menus/detail",
+                    "redirect": "",
+                    "sortNum": 2
+                  },
+                  {
+                    "children": [],
+                    "component": "views/System/Menus/Menus/Create",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 731,
+                    "menuName": "新增",
+                    "name": "menusMenusCreate",
+                    "path": "/system/menus/menus/create",
+                    "redirect": "",
+                    "sortNum": 3
+                  }
+                ],
+                "component": "layouts/RouteView",
+                "hidden": false,
+                "icon": "",
+                "id": 728,
+                "menuName": "菜单管理",
+                "name": "menusMenus",
+                "path": "/system/menus/menus",
+                "redirect": "/system/menus/menus/index",
+                "sortNum": 2
+              }
+            ],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 724,
+            "menuName": "菜单管理",
+            "name": "menus",
+            "path": "/system/menus",
+            "redirect": "/system/menus/apis",
+            "sortNum": 18
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 732,
+            "menuName": "系统信息",
+            "name": "systemInfo",
+            "path": "/system/systemInfo",
+            "redirect": "/system/systemInfo/index",
+            "sortNum": 21
+          },
+          {
+            "children": [],
+            "component": "layouts/PageView",
+            "hidden": false,
+            "icon": "",
+            "id": 734,
+            "menuName": "区域管理",
+            "name": "district",
+            "path": "/system/district",
+            "redirect": "/system/district/index",
+            "sortNum": 22
+          },
+          {
+            "children": [],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 1314,
+            "menuName": "单点登录设置",
+            "name": "singleLoginSetting",
+            "path": "/system/single-login",
+            "redirect": "",
+            "sortNum": 23
+          }
+        ],
+        "component": "layouts/RouteView",
+        "hidden": false,
+        "icon": "xitong",
+        "id": 655,
+        "menuName": "系统",
+        "name": "system",
+        "path": "/system",
+        "redirect": "/system/organize",
+        "sortNum": 9
+      },
+      {
+        "children": [],
+        "component": "layouts/RouteView",
+        "hidden": true,
+        "icon": "",
+        "id": 742,
+        "menuName": "站内信",
+        "name": "inMail",
+        "path": "/inMail",
+        "redirect": "/inMail/index",
+        "sortNum": 10
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "component",
+            "hidden": true,
+            "icon": "",
+            "id": 1283,
+            "menuName": "服务市场",
+            "name": "serviceIndex",
+            "path": "/service/index",
+            "redirect": "",
+            "sortNum": 2
+          }
+        ],
+        "component": "component",
+        "hidden": false,
+        "icon": "fuwushichang",
+        "id": 1282,
+        "menuName": "服务市场",
+        "name": "service",
+        "path": "/service",
+        "redirect": "",
+        "sortNum": 12
+      }
+    ],
+    "routings": [
+      {
+        "apiUrl": "/admin/collect/consumeByIds",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/share",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/logBackups/restore",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditchannelset/off",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sso",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/usercomment/top",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/statisticsaccess/timePage",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentVersion",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/publicContentChannelTree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/on",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/roles/list/users",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/message",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/searchWords",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/resource/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/log/statistics/result",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/model/record",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/subject/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/modelItem",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/collect/consume",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/getAllTree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/site",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/links/sort",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sensitiveWords/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/menus/getMenus",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatmenugroup/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/usercomment/status",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/secrets/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatmenugroup/status",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sysSource",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/links",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatfans/send",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/index/upcoming",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment/unmarkelect",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditmodelset",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechattags/app",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/submit",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/memberLevel/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy/scene/text",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/contentext/page",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/hotWords",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/databaseBackup/recovery",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberLevel/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/messageTpl",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/template/unique/name",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/phone/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/ftp/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire ",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWordCategorys",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/synch/news",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/index/statistics",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatfans/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/modelName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/merge",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/valid",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/site/user",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/logBackups/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/sites/ownsite",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/area",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberGroup/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramCode/template/status",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/chart/trend",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/ftp",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/task/questionnaire/handle",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/sourceUrl",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/logs",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/model",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/users/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsflow/page",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/secrets/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/export",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/logs/export",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/model",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/userSecrets/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/modelName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberLevel",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/channel/user",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/authorizations ",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatreplyclick",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/channel/user",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaces/share",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/usercomment/reply",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/config/global",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/task/processDiagram",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/userSecrets",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/workflow/being",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaces",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/contentext/orders",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatreplycontent",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/task/questionnaire/revoke",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/clearAll",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/submit",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/usercomment/report/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentType/typeName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/qrcode",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/defaults",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/members",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/logs/export",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sensitiveWords",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/area",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/systemmessage",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/pwd/unique",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/linkTypes",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/invalid",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/ftp",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/linkTypes/typeName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/pic",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/year/sort",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/statisticsflow/overview",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/menus/routes/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/menus/openAuth",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/jobs/jobName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatsend/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/list/users",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/weiboSet",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/chart/trend",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sites/sort",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/dowload/video",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechattags",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/linkTypes/typeName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/wholeSite",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sensitiveWords/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsAccessPage/accessPage",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/domain",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/domain/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/links/move",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/auditchannelset",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/weibomessage/recComments",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/jobs/enabledJobs",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatreplyclick",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/linkTypes/sort",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/task/audit",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/databaseBackup/download",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/thisSite",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/secrets/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sysOss/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/channel/user",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/usercomment/specific/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/links",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy/scene/picture",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/contentext/rubbish",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/miniprogrammember/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditmodelset",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsaccess/pageInfo",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/users/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/config/global",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/usercomment/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsdevice/time",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/audit",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/contentTags/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/searchWords/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/restore",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/summarize",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/mail/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/ext",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/log/statistics/operationType",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/weChat/grantAuth",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/usercomment/count",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/config/global",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/agency/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/userSecrets",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment/off",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatreplycontent",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/email/calibration",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/template/dir",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/linkTypes/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentType",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/systemmessage/number",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/childs",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/getPerm",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWordCategorys/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/staticPage/index",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/channel/org",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/area/sort",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/weibomessage/sendComments",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/dataPerm/channel/user",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/statistics/province/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/getAllTree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/menus/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatsend/collect",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/upload/o_upload",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/content/conversion/doc",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/resetIndex",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/menus/closeAuth",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/model/isEnable",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sites/solutions",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/sort",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentTags/tagName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaces/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/link",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/MODULE-COLLECT/collectTasks/",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/roles/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentType",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/contentext/preview",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/weiboinfo",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sysblacklist",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/messageTpl/mesCode/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statistics/province",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/docImport",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/year",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/resource",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statistics/lga/collect",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/apis/path/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatmenugroup",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment/on",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/template/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/linkTypes",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/template",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/channel/staticChannelTree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/year/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statistics/sex/collect",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatsend/send",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/jobs",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/weiboinfo/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/logConfigs",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/claim/workflow",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/workflow",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/release",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/logs/export",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/category",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/submit/record",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/material",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/model/modelName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statistics/lga",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/alia/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/task/questionnaire/overDue",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/download",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/jobs/disabledJobs",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/systemmessage/number",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy/name",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/menus/hidden",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/contentext/operation",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/unShare",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentVersion",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaces/unShare",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentVersion",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/menus/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramCode/template",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/channel/template/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/summarizeArea",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/invalid",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/log/statistics/username",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberGroup",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsdevice/timedevice",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/usercomment/report",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/usercomment/specific/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/staticPage/channel",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/area/code/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/area/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/ownsite",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramCode/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/release",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/hotWords",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/statisticsflow/realtime",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/userSecrets",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/menus/getMenus",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/systemmessage/inbox",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/timearea",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/audit",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/logs/alarm/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/databaseBackup/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/modelName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/searchWords/unique/word",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberGroup",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/iptables",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/year/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment/markelect",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/getAllTree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/recycle/ids",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/summarizeArea",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatfans/sync",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/channel/org",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/dataPerm",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/statistics/map/collect",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/logs/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentType/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weChatSetUp",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentext/move",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatsend",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/searchWords",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/statisticsflow/realtime/uvnum",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/workflow",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/multiple",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/chart/device ",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/members/enable",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statistics/province/collect",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/menus",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/weiboinfo/admins",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resource/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/news",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/memberLevel",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/auditchannelset",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/memberGroup/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberLevel/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/members",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/auditchannelset",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/title/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechattags/check",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/userSecrets",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/resource",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/getAllTree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/weibo",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statistics/city/collect",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsaccess/timeInfo",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/secrets/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/reduction",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/link",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/news",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/message/outbox",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/template/export",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sites/ownsite",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/quote",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatfans",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/usercomment/specific/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberGroup/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/contentext/push",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/members/audit",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/ownerSite/org",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/wechatmenugroup",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaces",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sites",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/area/code/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsdevice/device",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sites/domain/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/childs",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/template/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/authorizations/product",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWords/unique/hotWord",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberLevel",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/usercomment/cancel/stop",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/jobs",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/sensitiveWords/import",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/agency/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/agency/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/members/disable",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/year/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/channel/org",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree/noauth",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/staticPage/index",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/summarizeArea",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment/reply",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statistics/map",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/recycle/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentrelation",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sysOss",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/list/users",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/weibofans/sync",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/task/actions",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberGroup",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/ownerSite/user",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/wechatsend",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/usercomment/report",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sensitiveWords",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/links/unEnable",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/button",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/sourceUrl/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/message",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/qrcode",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/top",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/menus/display",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/apis/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsdevice/devices",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/roles/list/users",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/linkTypes/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/menus",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/release",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaces",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sysSource",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/getAllTree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/export",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentext",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/memberGroup/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/modelName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentTags",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/wechatfans/black",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechattags/check",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weibomessage",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/task/questionnaire/revoke",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditchannelset/nopass",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/hotWordCategorys",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy/close",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/title/uniqu",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/list/users",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogrammember",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/modelItem",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/upload/o_upload",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/template",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/channel/element/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatmenugroup",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/path/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weiboinfo/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/list/users",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/thorough",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/task/handle",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weChatSetUp",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/jobs/jobName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo/default",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sso",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/url/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/logBackups",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/members/score",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/recycle",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/config/global",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/thirds",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/model/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/pause",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/secrets/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/top",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/questionnaire",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo/coreUser",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/workflow/being",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentVersion/compare",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment/hand",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentVersion",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/ftp",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/menus",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/weiboinfo",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/messageTpl/mesCode/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/area/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/adminpsw",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/dataPerm",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/members/score",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechattags/syncTags",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatreplycontent",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/noquote",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/content/staticPage/channel",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/members",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/hotWords/unique/hotWord",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/dowload/material",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/chart/device ",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/staticPage/channelBatch",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/auditmodelset/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/template/import",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/apis/path/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/subject/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/userSecrets/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWords/unique/hotWord",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/template/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/config/global",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/thirds",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resource/dir",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/interact/collect/detail?collectType=See",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/template/unique/dirName",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/thisSite",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sysSource/sourceName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/model",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberGroup/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/log/statistics/eventType",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sysSource",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/questionnaire",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/orgs/orgname/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/status",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/members",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/sysSource/sourceName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/apis",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/modelName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/areapage",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/area",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/site",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/site/org",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/task/revoke",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sensitiveWords/download",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment/articles",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weibomessage",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/miniprogramCode/synch/draft",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/term/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/summarize",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/top",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/ftp/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/site/user",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/preview",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sysOss",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatMenu",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/hotWords/unique/hotWord",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/statistics/download",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/url",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/modelItem",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sysOss/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/searchEngine",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/template/unique/name",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/share",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/linkTypes",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/logs/export",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree/noauth",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/leaf",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsflow/realtime/page",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/content/staticPage/content",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/miniprogrammember",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/menus/routes/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/user/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/roles/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/systemmessage/number",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsAccessPage/accessPage",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/area/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentTags",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/jobs",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/statisticsaccess/highInfo",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/secrets",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/roles/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsaccess/time",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/logs/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatMenu",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/synch/img",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/apis/path/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment/reply",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/orgs/orgname/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/linkTypes/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/ownerSite/org",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatfans/black",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/workflow/being",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/systemmessage",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/roles",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/memberGroup/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree/noauth",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/on",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/model/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statistics/sex",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/valid",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/preview",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/subject/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weiboinfo/user",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/resource/unique/dir",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weibomessage/atcomments",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechattags",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/logBackups/save",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/orgs",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/sourceType",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/notop",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/domain/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/user",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/messageTpl",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/contentext/pigeonhole",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/linkTypes/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weiboSet",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/ownsite",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statistics/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/username/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo/displayModifyDomain",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/timeuser",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentType/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/apis",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/auditchannelset/on",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/weibofans",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechattags",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sysSource/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatfans/syncblack",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statistics/collect",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/email",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/email",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/links",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/systeminfo",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/databaseBackup/backup",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/ownsite",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/chart/map",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatMenu",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/users/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaces/sharePage",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/docImport",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentext/chack/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/tpl/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/plus",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditmodelset",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/statisticsflow/image",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sites/models",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/messageTpl/mesCode/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/agency",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/subject/export",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/weibomessage",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/MODULE-COLLECT/collectTasks/start",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/element/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo/modifyDomain",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/task/questionnaire/handle",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/members/off",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/content/model",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/area",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/contentrecord/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/upload/o_upload",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/menus/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/logs/realTime",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/isEnable",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/agency/sort",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/jobs",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditchannelset/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatmenugroup",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/links/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/getOwnerTree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/jobs/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/claim/workflow",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/upload/img",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/year",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/template/unique/name",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditmodelset/items",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/sort",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/hotWords/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/term/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentrelation",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/questionnaire",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/contentTags",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statisticsaccess/timeHigh",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/task/overDue",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/task/revoke",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/databaseBackup",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/release/status",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/userSecrets/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/linkTypes",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sites/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/logConfigs",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechattags/app",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatmenugroup",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/subject/pieChart",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatsend/send",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/hotWords",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/area/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentrelation/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentType/typeName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/ownsite",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/authorizations/sendPhoneMsg",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/area/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/copy",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/MODULE-COLLECT/collect/data/results",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/content/plus",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/ext",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/model",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/interact/collect/detail",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWordCategorys/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/site",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatfanssendlog",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/collect/getId",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/agency",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statisticsvisit/timepage",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramCode/template",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/year",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sites/ownsite",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/messageTpl",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberLevel/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sensitiveWords/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/find",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWordCategorys",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/sourceUrl/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weiboarticlepush/preview",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/content/staticPage/channel/process",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/task/questionnaire/audit",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/weibomessage",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/template/unique/dirName",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/psw",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/weiboarticlepush",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/secrets/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/members",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/messageTpl",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sms",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/template/unique/dirName",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/usercomment/specific/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sensitiveWords",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/task/questionnaire/revoke",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsflow/image",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statistics/pageSum",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatfanssendlog/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/area/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/staticPage/contentBatch",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/contentType",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/index/upcoming",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/task/currWorkflowNode",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWordCategorys/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentTags/tagName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/userSecrets/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/secret/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWords/unique/hotWord",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resource/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/shift",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/task/toDeal",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/getAllTree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberGroup/list/users",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/authorizations",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/chart/map",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberLevel/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/userSecrets/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/sysblacklist/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWords/unique/hotWord",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/pic",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/recycle",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/ext",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sso/status",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatsend",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/template/upload",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/systemmessage",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatfans/cancelblack",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/statisticsAccessPage/entrancePage",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberLevel",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/template/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/usercomment",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/searchWords/unique/word",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/keyWord",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/memberGroup",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/video",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/sort",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/statisticsflow/image",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/content",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/members/addition",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/links",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/miniprogramversion/audit",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditmodelset/models",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weiboarticlepush/preview",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/workflow",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/setOpenIndex",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/users/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/submit",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo/category",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/members/on",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/links/enable",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/MODULE-COLLECT/collect/data/results/clear",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/statisticsAccessPage/entrancePage",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatMenu",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/memberLevel/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/recycle",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/area",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/logs/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo/coreUser/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/workflow/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentVersion/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberGroup/list/users",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/content/force/button",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/messageTpl/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/site/org",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditchannelset/pass",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/task/questionnaire/toDeal",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/ext",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWordCategorys/cateName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/members/addition/model",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/hotWordCategorys",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/content/model/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/task/questionnaire/audit",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatfans/syncFans",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sensitiveWords",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/sysOss",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/ftp",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/resource",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/content/push/sites",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/apis",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/userSecrets/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/message",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy/open",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/template",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentrelation/sort",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/weibomessage/status",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/auditStrategy/scene",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/secrets",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/workflow/being",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/memberLevel/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/area/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/usercomment/specific/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/jobs/jobName/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/users/off",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/members",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/wechattags/set",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/memberGroup/list/users",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/channel/user",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatreplycontent/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/subject/pieChart",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatsend",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaces/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/searchWords",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/content",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/subject/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/roles/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/share",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/weChatSetUp",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/menus",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/users/pwd/unique",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/model/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resource/upload",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/channel/content/model",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/off",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/index/statistics",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/miniprogramCode/synch/template",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/logs/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatreplyclick",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/weiboarticlepush/page",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaceDatas/share",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/roles/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentext/file",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/interact/collect/detail?collectType=Edit",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statisticsSource/searchEngine",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model/member",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/channel/content/common/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/staticPage/content/process",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/mark/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatInfo/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentMarks/agency",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/apis",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/questionnaire/find",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/contentVersion/recovery",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/usercomment/plus/stop",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/resource",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/sites/ownsite",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/model",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatreplyclick",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer/subject/export",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/model/wholeSite",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/content/duplication",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/sms",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatcomment",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/template",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/users",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/systeminfo/change",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/resourceSpaces/name/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/wechatmenugroup",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/content/source/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/questionnaireAnswer",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/statistics",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/statistics/city",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/keyWord/list",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sysOss",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/wechatMaterial/synch/material",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/list/users",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/iptables",
+        "requestMethod": "PUT"
+      },
+      {
+        "apiUrl": "/admin/contentext/chack/amount",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/orgs/tree",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/dataPerm/ownerSite/user",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/path/unique",
+        "requestMethod": "GET"
+      },
+      {
+        "apiUrl": "/admin/sites/recycle",
+        "requestMethod": "DELETE"
+      },
+      {
+        "apiUrl": "/admin/contentext/sort",
+        "requestMethod": "POST"
+      },
+      {
+        "apiUrl": "/admin/auditmodelset",
+        "requestMethod": "POST"
+      }
+    ]
+  },
+  "cart": {
+    "total": 376,
+    "items": [
+      {
+        "product_id": 4,
+        "name": "埃塞俄比亚赛其索咖啡豆",
+        "image": "https://resources.ninghao.net/w-store/images/ethiopia.jpg",
+        "price": "198",
+        "quantity": 1,
+        "total": 198
+      },
+      {
+        "product_id": 3,
+        "name": "秘鲁琼卡丽咖啡豆",
+        "image": "https://resources.ninghao.net/w-store/images/peru-chontali.jpg",
+        "price": "178",
+        "quantity": 1,
+        "total": 178
+      }
+    ]
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "坦桑尼亚穆丽瓦咖啡豆",
+      "description": "<h3>故事</h3>\n<p>塔里梅地区坐落于塞伦盖蒂平原和坦桑尼亚北部的维多利亚湖之因地处偏远，取水困难，大多数当地的咖啡种植农选择采用传统的西法加工处理咖啡豆。当地的一家合作社希望展现出该地区咖啡的所有特点，所以最近在穆丽瓦小镇建立了一个水洗站。咖啡种植农们开始将咖啡果送到穆丽瓦的湿加工处理厂进行水洗法处理成功地带来了这款全新的咖啡，入口清爽明亮，并伴有果香和茶般的清香一一花香四溢，优雅绵长。</p>\n<h3>设计</h3>\n<p><img class=\"alignnone size-full wp-image-78\" src=\"https://resources.ninghao.net/w-store/images/tanzania-muriba-01.jpg\" alt=\"\" width=\"784\" height=\"530\" /></p>\n<p>花香般风味和明亮口感，演化成为卡片上舞动的元素。插图流动的韵律致敬水洗站，色彩反映塞伦盖蒂多姿的风景和文化。</p>\n<h3>风味</h3>\n<p>花香四溢，并伴有佛手栏茶、柠檬和西柚般的风味。</p>\n",
+      "short_description": "<p>穆丽瓦水洗站克服取水的困难带来了这款口感纯净的全水洗咖啡豆。</p>\n",
+      "price": "78",
+      "regular_price": "178",
+      "sale_price": "78",
+      "on_sale": true,
+      "manage_stock": false,
+      "stock_quantity": null,
+      "stock_status": "instock",
+      "categories": [
+        {
+          "id": 1,
+          "name": "甄选咖啡",
+          "slug": "reserve"
+        }
+      ],
+      "tags": [
+        {
+          "id": 1,
+          "name": "咖啡豆",
+          "slug": "whole-bean"
+        },
+        {
+          "id": 2,
+          "name": "阿拉比卡",
+          "slug": "arabica"
+        }
+      ],
+      "images": [
+        {
+          "id": 79,
+          "src": "https://resources.ninghao.net/w-store/images/tanzania-muriba-e1548378296332.jpg",
+          "name": "tanzania-muriba"
+        },
+        {
+          "id": 5,
+          "src": "https://resources.ninghao.net/w-store/images/reserve-poster.jpg",
+          "name": "reserve-poster"
+        }
+      ],
+      "attributes": [
+        {
+          "id": 1,
+          "name": "产地",
+          "position": 0,
+          "visible": true,
+          "variation": false,
+          "options": [
+            "埃塞俄比亚赛"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "品牌",
+          "position": 1,
+          "visible": true,
+          "variation": false,
+          "options": [
+            "Starbucks / 星巴克"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "哥斯达黎加纳兰诺咖啡豆",
+      "description": "<h3>故事</h3>\n<p>纳兰诺合作社由一群小型种植农组建而成，他们希望通过该合作社发展当地咖啡社区，改善家人、朋友和邻里乡亲的生活。随着合作社的发展，他们开始投资发展农学教育、农业技术和清洁能源。合作社的成员们推行可持续的实践方法，提高咖啡品质，帮助新的成员培养相关能力。通过努力，纳兰诺已成为知名的咖啡原产地，我们很荣幸与您分享动人的故事和这款美妙的咖啡。</p>\n<h3>设计</h3>\n<p><img class=\"alignnone size-full wp-image-76\" src=\"https://resources.ninghao.net/w-store/images/costa-rica-naranjo-01.jpg\" alt=\"\" width=\"784\" height=\"530\" /></p>\n<p>灵感来自哥斯达黎加传统工艺ー一牛车相橘花是卡片的焦点浆果图案像太阳的光芒一样代表聚集的小型咖啡农场变得更加卓越。</p>\n<h3>风味</h3>\n<p>由子和柠檬般的清新酸度，并伴有牛奶巧克力般的甜味。</p>\n",
+      "short_description": "<p>纳兰诺合作社的不懈努力带来卓越咖啡。</p>\n",
+      "price": "178",
+      "regular_price": "178",
+      "sale_price": "",
+      "on_sale": false,
+      "manage_stock": false,
+      "stock_quantity": null,
+      "stock_status": "instock",
+      "categories": [
+        {
+          "id": 1,
+          "name": "甄选咖啡",
+          "slug": "reserve"
+        }
+      ],
+      "tags": [
+        {
+          "id": 1,
+          "name": "咖啡豆",
+          "slug": "whole-bean"
+        },
+        {
+          "id": 2,
+          "name": "阿拉比卡",
+          "slug": "arabica"
+        }
+      ],
+      "images": [
+        {
+          "id": 2,
+          "src": "https://resources.ninghao.net/w-store/images/costa-rica-naranjo.jpg",
+          "name": "costa-rica-naranjo"
+        }
+      ],
+      "attributes": [
+        {
+          "id": 1,
+          "name": "产地",
+          "position": 0,
+          "visible": true,
+          "variation": false,
+          "options": [
+            "埃塞俄比亚赛"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "品牌",
+          "position": 1,
+          "visible": true,
+          "variation": false,
+          "options": [
+            "Starbucks / 星巴克"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "秘鲁琼卡丽咖啡豆",
+      "description": "<h3>故事</h3>\n<p>在秘鲁的琼卡丽地区，咖啡专家向新一代的种植者分享知识并提供技术支持，共同致力于完善咖啡豆的品质，塑造经典卓越的咖啡风味体验。秘鲁北部高地偏远区被峭壁围绕的山谷，为咖啡豆提供卓越的生长条件。琼卡丽的崎岖地貌让道路基础建设成为挑战，这些种植者们互相协作、競兢业业，让人钦佩，这也是星巴克全球第年采购这款咖啡。</p>\n<h3>设计</h3>\n<p><img class=\"alignnone size-full wp-image-71\" src=\"https://resources.ninghao.net/w-store/images/peru-chontali-01.jpg\" alt=\"\" width=\"784\" height=\"530\" /></p>\n<p>设计灵感来源于咖啡与人的紧密联系。其色彩和元素也展现了秘鲁当地的咖啡种植风貌</p>\n<h3>风味</h3>\n<p>果汁般酸度、红苹果和甜渍柠檬般的风味，以及可可般的柔顺口感。</p>\n",
+      "short_description": "<p>一份走出大山的醇香。</p>\n",
+      "price": "178",
+      "regular_price": "178",
+      "sale_price": "",
+      "on_sale": false,
+      "manage_stock": false,
+      "stock_quantity": null,
+      "stock_status": "outofstock",
+      "categories": [
+        {
+          "id": 18,
+          "name": "甄选咖啡",
+          "slug": "reserve"
+        }
+      ],
+      "tags": [
+        {
+          "id": 1,
+          "name": "咖啡豆",
+          "slug": "whole-bean"
+        },
+        {
+          "id": 2,
+          "name": "阿拉比卡",
+          "slug": "arabica"
+        }
+      ],
+      "images": [
+        {
+          "id": 3,
+          "src": "https://resources.ninghao.net/w-store/images/peru-chontali.jpg",
+          "name": "peru-chontali"
+        }
+      ],
+      "attributes": [
+        {
+          "id": 1,
+          "name": "产地",
+          "position": 0,
+          "visible": true,
+          "variation": false,
+          "options": [
+            "埃塞俄比亚赛"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "品牌",
+          "position": 1,
+          "visible": true,
+          "variation": false,
+          "options": [
+            "Starbucks / 星巴克"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "埃塞俄比亚赛其索咖啡豆",
+      "description": "<h3>故事</h3>\n<p>为了让埃塞俄比亚赛其索地区的农民有更多机会与世界分享他们的咖啡，阿博特·博鲁(AbyotBoru)收购了当地水洗站。将自己的咖啡浆果推广到各水洗站后，他收购了一家咖啡加工厂，在当地咖啡贸易中有了更多发言权。阿博特的水洗站为奥洛米亚地区的小型种植农提供服务,该区是他父亲曾种植咖啡的地方。他为埃塞俄比亚咖啡付出毕生心血，这种激情体现在这款咖啡中：成熟浆果般的风味，茉莉花般的香气和香料般的风味，互相融合，回味无穷。</p>\n<h3>设计</h3>\n<p><img class=\"alignnone size-full wp-image-53\" src=\"https://resources.ninghao.net/w-store/images/ethiopia-shakiso-01.jpg\" alt=\"\" width=\"784\" height=\"530\" /></p>\n<p>豆卡设计灵感蓝色代表水洗法加工过程中流动的水流笔触、线条代表水洗加工站给社区注入的能量所有元素汇聚在一起象征着注入每杯咖啡的合作精神。</p>\n",
+      "short_description": "<p>阿博特的水洗站和他对咖啡品质的追求共同呈现这杯独特的风味。</p>\n",
+      "sku": "ethiopia-shakiso",
+      "price": "198",
+      "regular_price": "198",
+      "sale_price": "",
+      "on_sale": false,
+      "manage_stock": true,
+      "stock_quantity": 666,
+      "stock_status": "instock",
+      "categories": [
+        {
+          "id": 1,
+          "name": "甄选咖啡",
+          "slug": "reserve"
+        }
+      ],
+      "tags": [
+        {
+          "id": 1,
+          "name": "咖啡豆",
+          "slug": "whole-bean"
+        },
+        {
+          "id": 2,
+          "name": "阿拉比卡",
+          "slug": "arabica"
+        }
+      ],
+      "images": [
+        {
+          "id": 4,
+          "src": "https://resources.ninghao.net/w-store/images/ethiopia.jpg",
+          "name": "ethiopia"
+        },
+        {
+          "id": 5,
+          "src": "https://resources.ninghao.net/w-store/images/reserve-poster.jpg",
+          "name": "reserve-poster"
+        }
+      ],
+      "attributes": [
+        {
+          "id": 1,
+          "name": "产地",
+          "position": 0,
+          "visible": true,
+          "variation": false,
+          "options": [
+            "埃塞俄比亚赛"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "品牌",
+          "position": 1,
+          "visible": true,
+          "variation": false,
+          "options": [
+            "Starbucks / 星巴克"
+          ]
+        }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "id": "EBe54453-2DB6-65f2-ABDd-cefBdD1adbff",
+      "name": "满利",
+      "createdAt": "2002-12-16 20:27:37"
+    },
+    {
+      "id": "386CC7Cb-3e94-6dd5-f97B-7eBaecFf3CA7",
+      "name": "办备格况非",
+      "createdAt": "1981-06-17 10:29:41"
+    },
+    {
+      "id": "8DFb0e75-85Ce-f223-418F-6D888FcC67f6",
+      "name": "识华节点义",
+      "createdAt": "2012-08-04 07:26:33"
+    },
+    {
+      "id": "8AFfF1FB-ccBF-f6Bd-7AF0-7FC1c2213B6d",
+      "name": "完文能温引阶",
+      "createdAt": "1986-05-27 16:07:34"
+    },
+    {
+      "id": "Efb032Af-4edF-c0Eb-fc39-ee3Bfeb7Ffc5",
+      "name": "可铁产",
+      "createdAt": "1975-09-19 16:21:28"
+    },
+    {
+      "id": "CCDb5bF7-3e3c-8E98-B3F6-61c7b25DB3a0",
+      "name": "文着物",
+      "createdAt": "2018-08-15 02:18:21"
+    },
+    {
+      "id": "5c4e1DAB-4feA-4A88-eBcD-f9e5bB59Ac2D",
+      "name": "图压火包话",
+      "createdAt": "1975-04-09 21:02:10"
+    },
+    {
+      "id": "deA1FCbf-4486-CbA2-45fD-9A1DfcCe6e2a",
+      "name": "做至通联又政",
+      "createdAt": "2001-09-24 08:02:31"
+    },
+    {
+      "id": "8c5cc8d4-CDd1-f563-7d62-d2F8c8753f69",
+      "name": "金写社山族整近",
+      "createdAt": "1988-02-26 07:57:31"
+    },
+    {
+      "id": "4A71Fd1e-eff8-20cC-BdAB-B4b18fFb4e9f",
+      "name": "图支在构际如任",
+      "createdAt": "1991-02-01 14:40:30"
+    }
+  ]
+}
