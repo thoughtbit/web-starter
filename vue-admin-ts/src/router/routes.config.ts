@@ -56,9 +56,9 @@ export const routesConfig = Object.freeze<RoutesConfig>({
     hidden: true
   },
 
-  dashboard: {
-    name: "dashboard",
-    path: "/dashboard",
+  workplace: {
+    name: "workplace",
+    path: "/workplace/index",
     hidden: true
   }
 });
@@ -80,5 +80,5 @@ export const routesMap = {
   // 其它
   about: "views/containers/about",
 
-  dashboard: "views/containers/dashboard"
+  workplaceIndex: 'views/containers/workplace',
 };

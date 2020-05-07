@@ -58,39 +58,15 @@
         "children": [
           {
             "children": [],
-            "component": "views/containers/dashboard",
-            "hidden": true,
-            "icon": "",
-            "id": 654,
-            "menuName": "工作台",
-            "name": "dashboard",
-            "path": "/dashboard",
-            "redirect": "",
-            "sortNum": 1
-          },
-          {
-            "children": [],
-            "component": "views/containers/workplace",
+            "component": "views/WorkPlace/Index",
             "hidden": true,
             "icon": "",
             "id": 654,
             "menuName": "工作台首页",
-            "name": "workplace",
-            "path": "/workplace",
+            "name": "workplaceIndex",
+            "path": "/workplace/index",
             "redirect": "",
             "sortNum": 1
-          },
-          {
-            "children": [],
-            "component": "component",
-            "hidden": true,
-            "icon": "",
-            "id": 783,
-            "menuName": "我的工作流",
-            "name": "workplaceWorkflow",
-            "path": "/workplace/workflow",
-            "redirect": "",
-            "sortNum": 2
           }
         ],
         "component": "layouts/RouteView",

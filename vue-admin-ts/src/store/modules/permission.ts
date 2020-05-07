@@ -108,6 +108,17 @@ const actions = {
   asyncIncludes (context: { commit: Commit, state: State }, params: string[]): void {
     context.commit("SET_INCLUDES", params)
   },
+  addExcludes (context: { commit: Commit, state: State }, path: string) {
+    let excludes = context.state.excludes;
+    if (excludes.indexOf(path) < 0) {
+      excludes.push(path)
+    }
+    context.commit("SET_EXCLUDES", excludes)
+  },
+  delExcludes (context: { commit: Commit, state: State }, path: string) {
+    let excludes = context.state.excludes.filter(e => e !== path);
+    context.commit("SET_EXCLUDES", excludes);
+  },
   addIncludes (context: { commit: Commit, state: State }, path: any):void {
     let includes = context.state.includes;
     // @ts-ignore

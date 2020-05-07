@@ -68,7 +68,7 @@ router.beforeEach(async (to, from, next) => {
           // console.log('已加载过动态路由')
           if (to.path === "/") {
             next({
-              path: "/dashboard",
+              path: "/workplace/index",
               replace: true
             });
           } else {

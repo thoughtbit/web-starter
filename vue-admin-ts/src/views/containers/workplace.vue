@@ -1,13 +1,16 @@
 <template>
-  $END$
+  <div class="page">工作台页面</div>
 </template>
 
-<script>
-  export default {
-    name: "workplace.vue"
-  }
+<script lang="ts">
+  import { Component, Vue } from "vue-property-decorator";
+
+  @Component
+  export default class Workplace extends Vue {}
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .page {
+    height: 2000px;
+  }
 </style>

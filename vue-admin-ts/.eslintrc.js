@@ -41,6 +41,7 @@ module.exports = {
       }
     ],
     "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/no-this-alias": 0,
 
     // sonarts
     "sonarjs/no-collapsible-if": 1,

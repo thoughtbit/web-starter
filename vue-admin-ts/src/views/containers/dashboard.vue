@@ -1,5 +1,5 @@
 <template>
-  <div class="page">工作台页面</div>
+  <div class="page">控制台页面</div>
 </template>
 
 <script lang="ts">
