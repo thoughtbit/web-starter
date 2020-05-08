@@ -6,7 +6,6 @@ import store from "@/store";
 import StorageManager from "@/utils/storage-manager";
 import { ExtendConfig, RestAPI, Get, APIConfig } from "@/types/http";
 import { Logger } from "@/utils/logger";
-import { SET_LOGIN_STATUS } from "@/store/mutation-types";
 
 // 创建取消请求令牌
 const CancelToken = axios.CancelToken;

@@ -1,8 +1,6 @@
 import Vue, { DirectiveOptions } from "vue";
 import VueMeta from "vue-meta";
-import ElementUI from "element-ui";
 import VueEcharts from "@/plugins/vue-echarts";
-import i18n from "@/locales";
 import * as directives from "@/directives";
 import * as filters from "@/filters";
 import EventBus from "@/utils/event-bus";
@@ -37,11 +35,6 @@ Vue.use(Responsive, {
 
 // 注册完整的 Echarts
 Vue.use(VueEcharts);
-
-// 注册 element-ui
-Vue.use(ElementUI, {
-  i18n: (key: string, value: string) => i18n.t(key, value)
-});
 
 // 注册 全局集合
 Vue.use(GlobalUtils);

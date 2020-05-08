@@ -2,7 +2,7 @@ import { Commit, Dispatch } from "vuex";
 import router, { exceptionRoutes, filterAsyncRoutes, rootRoute } from "@/router";
 import SERVICE from "@/core/lib/sevice";
 import * as types from "@/store/mutation-types";
-import { Logger } from "@/utils/logger";
+// import { Logger } from "@/utils/logger";
 
 interface RouteItem {
   name: string

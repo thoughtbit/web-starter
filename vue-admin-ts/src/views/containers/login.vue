@@ -71,8 +71,10 @@
             >Login</el-button
           >
         </el-form>
-      </div><!-- /.box-bd -->
-    </div><!-- /.box -->
+      </div>
+      <!-- /.box-bd -->
+    </div>
+    <!-- /.box -->
     <ui-footer />
   </div>
 </template>
@@ -110,7 +112,7 @@
       username: "",
       password: "",
       verifiy: "",
-      captcha: "/kaptcha",
+      captcha: "/kaptcha"
     };
     private loginRules = <User>{
       username: [{ required: true, trigger: "blur", validator: validateUsername }],
@@ -146,12 +148,12 @@
       this.refreshCaptcha();
     }
 
-    private beforeMount () {
+    private beforeMount() {
       setTimeout(() => {
-        if (!! this.authState.isLogin) {
+        if (!!this.authState.isLogin) {
           this.$router.push({
             name: "/"
-          })
+          });
         }
       }, 1000);
     }
@@ -216,7 +218,6 @@
       this.loginForm.captcha = `/kaptcha?t=${new Date().getTime()}`;
     }
   }
-
 </script>
 
 <style lang="scss" scoped>
