@@ -21,9 +21,7 @@
     @Prop({
       type: Array,
       required: true,
-      default() {
-        return [];
-      }
+      default: () => []
     })
     private itemList!: any;
 

@@ -28,9 +28,7 @@
     @Prop({
       type: Array,
       required: true,
-      default() {
-        return [];
-      }
+      default: () => []
     })
     private menuData!: any;
 
@@ -60,7 +58,7 @@
 
 <style lang="scss" scoped>
   .sider-menu {
-    width: 220px;
+    width: 80px;
     background-color: #444;
     overflow-x: hidden;
     overflow-y: auto;
@@ -75,15 +73,12 @@
         align-items: center;
         width: auto;
         height: 48px;
-        padding: 0;
+        padding: 0 !important;
         &.is-active,
         &:hover {
           background-color: #1ec6df;
         }
       }
-    }
-    &-item {
-      paddingleft: 0;
     }
   }
 </style>

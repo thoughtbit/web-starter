@@ -268,12 +268,13 @@ export default {
       throw new Error(`HttpService ${error.message}`);
     }
   },
-  async upload({ url, payload, config }: RestAPI): Promise<any> {
+  async upload({ url, payload, config, callback }: RestAPI): Promise<any> {
     try {
       const _config = extendConfig(config);
       const _headers = _config.headers;
       let _conf = {
         ..._config,
+        onUploadProgress: callback,
         headers: {
           ..._headers,
           "Content-Type": "multipart/form-data"
@@ -284,11 +285,12 @@ export default {
       throw new Error(`HttpService ${error.message}`);
     }
   },
-  async download({ url, payload, config }: RestAPI): Promise<any> {
+  async download({ url, payload, config, callback }: RestAPI): Promise<any> {
     try {
       const _config = extendConfig(config);
       let _conf = {
         ..._config,
+        onDownloadProgress: callback,
         responseType: "blob"
       };
       return await instance.post(url, payload, _conf);

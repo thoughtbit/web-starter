@@ -80,5 +80,5 @@ export const routesMap = {
   // 其它
   about: "views/containers/about",
 
-  workplaceIndex: 'views/containers/workplace',
+  workplaceIndex: "views/containers/workplace",
 };

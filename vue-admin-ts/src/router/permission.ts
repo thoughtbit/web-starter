@@ -3,7 +3,6 @@ import store from "@/store";
 import { SET_LOGIN_STATUS, SET_TOKEN } from "@/store/mutation-types";
 import StorageManager from "@/utils/storage-manager";
 import NProgress from "nprogress";
-import "nprogress/nprogress.css";
 
 NProgress.configure({
   showSpinner: false

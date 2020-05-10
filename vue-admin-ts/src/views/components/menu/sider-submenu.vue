@@ -1,32 +1,32 @@
 <template>
-  <aside :width="collapsed ? '0' : '180px'" class="sider-sub-menu scrollbar">
+  <aside :width="collapsed ? '0' : '200px'" class="sider-sub-menu scrollbar">
     <div class="title">{{ menuTitle }}</div>
     <el-menu
-        :default-active="activeMenu"
-        class="el-menu-vertical"
-        @select="onSelect"
-        v-for="(menu, index) in menuData"
-        :key="index"
+      :default-active="activeMenu"
+      class="el-menu-vertical"
+      @select="onSelect"
+      v-for="(menu, index) in menuData"
+      :key="index"
     >
       <template v-for="(item, index) in menu.children">
         <div
-            v-show="menuPath.startsWith(menu.path) && !filterMenus.includes(item.name)"
-            class="menu-item-wrap"
-            :key="index"
+          v-show="menuPath.startsWith(menu.path) && !filterMenus.includes(item.name)"
+          class="menu-item-wrap"
+          :key="index"
         >
           <el-submenu
-              class="sider-sub-menu-item"
-              :index="item.path"
-              v-if="item.children && item.children.filter((c) => !c.hidden).length"
+            class="sider-sub-menu-item"
+            :index="item.path"
+            v-if="item.children && item.children.filter((c) => !c.hidden).length"
           >
             <template slot="title">
               <span>{{ item.hidden ? "" : item.name }}</span>
             </template>
             <el-menu-item
-                class="sider-sub-menu-item"
-                :index="subItem.path"
-                v-for="(subItem, index) in item.children"
-                :key="index"
+              class="sider-sub-menu-item"
+              :index="subItem.path"
+              v-for="(subItem, index) in item.children"
+              :key="index"
             >
               <div class="dot"></div>
               <span slot="title">{{ subItem.name }}</span>
@@ -55,9 +55,7 @@
     @Prop({
       type: Array,
       required: true,
-      default() {
-        return [];
-      }
+      default: () => []
     })
     private menuData!: any;
 

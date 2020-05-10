@@ -2,8 +2,9 @@ const path = require("path");
 const webpack = require("webpack");
 const WebpackBar = require("webpackbar");
 const FileManagerPlugin = require("filemanager-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const dayjs = require("dayjs");
-
 const pkg = require("./package.json");
 
 function resolve(dir) {
@@ -15,6 +16,8 @@ const name = "大数据统一管理平台";
 
 const date = dayjs().format("YYYY-MM-DD HH:mm:ss");
 const dateFormat = dayjs().format("YYYY.MM.DD");
+
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   pwa: {
@@ -56,39 +59,74 @@ module.exports = {
     },
     disableHostCheck: true
   },
-  configureWebpack: {
-    name: name,
-    resolve: {
-      alias: {
-        "@": resolve("src")
-      }
-    },
-    plugins: [
-      // 自动全局加载库
-      // new webpack.ProvidePlugin({
-      //   $: "jquery",
-      //   jQuery: "jquery",
-      //   "windows.jQuery": "jquery",
-      //   echarts: "echarts",
-      //   "window.echarts": "echarts",
-      // }),
-      new webpack.DefinePlugin({
-        "process.env.VUE_APP_UPDATE_TIME": date
-      }),
-      new WebpackBar({
-        name: `\u5f00\u59cb\u6784\u5efa[${pkg.name}]`
-      })
-    ],
-    // Webpack 的性能提示
-    performance: {
+  configureWebpack(config) {
+    const plugins = [];
+    config.resolve.alias["@"] = resolve("src");
+    // 取消Webpack警告的性能提示
+    config.performance = {
       hints: "warning",
       // 入口起点的最大体积
-      maxEntrypointSize: 50000000,
+      maxEntrypointSize: 1000 * 5000,
       // 生成文件的最大体积
-      maxAssetSize: 30000000,
+      maxAssetSize: 1000 * 3000,
       // 只给出 js 文件的性能提示
       assetFilter: (assetFilename) => assetFilename.endsWith(".js")
+    };
+
+    // plugins.push(
+    //   // 自动全局加载库
+    //   new webpack.ProvidePlugin({
+    //     $: "jquery",
+    //     jQuery: "jquery",
+    //     "windows.jQuery": "jquery",
+    //     echarts: "echarts",
+    //     "window.echarts": "echarts"
+    //   })
+    // );
+
+    // 用于根据模块的相对路径生成 hash 作为模块 id, 一般用于生产环境
+    if (isProduction) {
+      plugins.push(
+        new webpack.DefinePlugin({
+          "process.env.VUE_APP_UPDATE_TIME": date
+        })
+      );
+
+      plugins.push(
+        new WebpackBar({
+          name: `\u5f00\u59cb\u6784\u5efa[${pkg.name}]`
+        })
+      );
+      plugins.push(
+        new webpack.HashedModuleIdsPlugin({
+          hashFunction: "sha256",
+          hashDigest: "hex",
+          hashDigestLength: 20
+        })
+      );
+      // 服务器也要相应开启gzip
+      plugins.push(
+        new CompressionWebpackPlugin({
+          algorithm: "gzip",
+          test: /\.(js|css)$/, // 匹配文件名
+          threshold: 10000, // 对超过10k的数据压缩
+          deleteOriginalAssets: false, // 不删除源文件
+          minRatio: 0.8 // 压缩比
+        })
+      );
+
+      // 依赖分析
+      plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: "static",
+          openAnalyzer: false
+        })
+      );
     }
+
+    return {
+      plugins
+    };
   },
   chainWebpack(config) {
     // provide the app's title in webpack's name field, so that
@@ -96,7 +134,10 @@ module.exports = {
     config.set("name", name);
 
     // 自定义, 可以配置的全局常量
-    config.plugin("__VERSION__").use(new webpack.DefinePlugin({ __VERSION__: JSON.stringify(pkg.version) })).end();
+    config
+      .plugin("__VERSION__")
+      .use(new webpack.DefinePlugin({ __VERSION__: JSON.stringify(pkg.version) }))
+      .end();
 
     config.when(process.env.NODE_ENV === "development", (config) => config.devtool("source-map"));
 
@@ -122,10 +163,9 @@ module.exports = {
         }
       });
       config.optimization.runtimeChunk("single");
-      config.plugin("banner")
-        .use(webpack.BannerPlugin, [
-          `[${pkg.name}]\nversion:${pkg.version}\nauthor: ${pkg.author}\ntime: ${date}`,
-        ])
+      config
+        .plugin("banner")
+        .use(webpack.BannerPlugin, [`[${pkg.name}]\nversion:${pkg.version}\nauthor: ${pkg.author}\ntime: ${date}`])
         .end();
 
       config
@@ -149,14 +189,15 @@ module.exports = {
     // use cdn start
     // ------------------------------------------------------
     const externals = {
-      "vue": "Vue",
+      vue: "Vue",
       "vue-router": "VueRouter",
-      "vuex": "Vuex",
-      "axios": "axios",
+      vuex: "Vuex",
+      axios: "axios",
       "element-ui": "ELEMENT",
       "echarts/lib/echarts": "echarts",
+      nprogress: "NProgress",
       // lodash: '_',
-      "dayjs": "dayjs",
+      dayjs: "dayjs",
       "crypto-js": "CryptoJS"
     };
 
@@ -165,7 +206,8 @@ module.exports = {
 
     const cdn = {
       css: [
-        "./cdn/element-ui/2.13.0/theme-chalk/index.css"
+        "./cdn/element-ui/2.13.0/theme-chalk/index.css",
+        "./cdn/nprogress/0.2.0/nprogress.min.css"
       ],
       js: [
         "./cdn/vue/2.6.11/vue.min.js",
@@ -174,10 +216,12 @@ module.exports = {
         "./cdn/axios/0.18.1/axios.min.js",
         "./cdn/element-ui/2.13.0/index.js",
         "./cdn/echarts/4.7.0/echarts.min.js",
+        "./cdn/nprogress/0.2.0/nprogress.min.js",
         "./cdn/dayjs/1.8.24/dayjs.min.js",
         "./cdn/crypto-js/4.0.0/crypto-js.min.js"
       ]
     };
+
     config.plugin("html").tap((args) => {
       args[0].cdn = cdn;
       return args;
@@ -195,6 +239,15 @@ module.exports = {
         }
       ])
       .end();
+
+
+    // 压缩图片
+    config.module
+      .rule("images")
+      .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+      .use("image-webpack-loader")
+      .loader("image-webpack-loader")
+      .options({ bypassOnDebug: true });
 
     // set svg-sprite-loader
     config.module

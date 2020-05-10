@@ -45,10 +45,15 @@ export interface AuthorizationHeaders {
   Authorization: string;
 }
 
+export interface Callback {
+  (name: string): void;
+}
+
 export interface RestAPI {
   config: ExtendConfig;
   url: string;
   payload: object;
+  callback? : Callback;
 }
 
 export interface ExtendConfig {
