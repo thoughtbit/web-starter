@@ -56,9 +56,9 @@ export const routesConfig = Object.freeze<RoutesConfig>({
     hidden: true
   },
 
-  workplace: {
-    name: "workplace",
-    path: "/workplace/index",
+  dashboard: {
+    name: "dashboard",
+    path: "/dashboard/workplace",
     hidden: true
   }
 });
@@ -80,5 +80,12 @@ export const routesMap = {
   // 其它
   about: "views/containers/about",
 
-  workplaceIndex: "views/containers/workplace",
+
+  // 控制台
+  dashboardIndex: "views/containers/dashboard/workplace",
+  dashboardMonitor: "views/containers/dashboard/monitor",
+  dashboardAnalysis: "views/containers/dashboard/analysis"
+
+  // 系统
+  
 };

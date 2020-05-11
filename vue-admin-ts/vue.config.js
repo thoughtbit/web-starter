@@ -32,8 +32,8 @@ module.exports = {
   // 是否开启eslint保存检测，有效值：ture | false | 'error'
   lintOnSave: process.env.NODE_ENV === "development",
   // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
-  productionSourceMap: false,
-
+  productionSourceMap: !isProduction,
+  parallel: require("os").cpus().length > 1,
   css: {
     sourceMap: true
   },
@@ -114,14 +114,6 @@ module.exports = {
           minRatio: 0.8 // 压缩比
         })
       );
-
-      // 依赖分析
-      plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: "static",
-          openAnalyzer: false
-        })
-      );
     }
 
     return {
@@ -132,6 +124,9 @@ module.exports = {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
     config.set("name", name);
+
+    // 修复HMR
+    config.resolve.symlinks(true);
 
     // 自定义, 可以配置的全局常量
     config
@@ -240,14 +235,27 @@ module.exports = {
       ])
       .end();
 
+    if (isProduction) {
+      // 打包分析
+      config.plugin("webpack-report").use(BundleAnalyzerPlugin, [{
+        analyzerMode: "static",
+        openAnalyzer: false
+      }]);
 
-    // 压缩图片
-    config.module
-      .rule("images")
-      .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
-      .use("image-webpack-loader")
-      .loader("image-webpack-loader")
-      .options({ bypassOnDebug: true });
+      // 压缩图片
+      config.module
+        .rule("images")
+        .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+        .use("image-webpack-loader")
+        .loader("image-webpack-loader")
+        .options({
+          bypassOnDebug: true,
+          mozjpeg: { progressive: true, quality: 65 },
+          optipng: { enabled: false },
+          pngquant: { quality: [0.65, 0.90], speed: 4 },
+          gifsicle: { interlaced: false }
+        });
+    }
 
     // set svg-sprite-loader
     config.module

@@ -127,7 +127,7 @@
     }
 
     private removeTab(key: string) {
-      if (key.startsWith("/workplace/index")) {
+      if (key.startsWith("/dashboard/workplace")) {
         this.$message("工作台不能关闭");
         return;
         // const pageName = this.pageList[0].name
@@ -211,16 +211,16 @@
       //   if (i !== index) this.AddExcludes(d.name)
       // })
       // @ts-ignore
-      const workplaceIndex = this.pageList.find((d) => d.name === "workplaceIndex");
+      const dashboardIndex = this.pageList.find((d) => d.name === "dashboardIndex");
 
       this.linkList = this.linkList.slice(index, index + 1);
       this.pageList = this.pageList.slice(index, index + 1);
       let idx = 0;
       // @ts-ignore
-      if (workplaceIndex && !this.pageList.find((d) => d.name === "workplaceIndex")) {
+      if (dashboardIndex && !this.pageList.find((d) => d.name === "dashboardIndex")) {
         // @ts-ignore
-        this.linkList.splice(0, 0, workplaceIndex.fullPath);
-        this.pageList.splice(0, 0, workplaceIndex);
+        this.linkList.splice(0, 0, dashboardIndex.fullPath);
+        this.pageList.splice(0, 0, dashboardIndex);
         idx = 1;
       }
       this.activePage = this.linkList[idx];
@@ -232,12 +232,12 @@
       //   this.addExcludes(d.name)
       // })
       // @ts-ignore
-      const workplaceIndex = this.pageList.find((d) => d.name === "workplaceIndex");
+      const dashboardIndex = this.pageList.find((d) => d.name === "dashboardIndex");
       // @ts-ignore
-      this.linkList = workplaceIndex ? [workplaceIndex.fullPath] : [];
-      this.pageList = workplaceIndex ? [workplaceIndex] : [];
+      this.linkList = dashboardIndex ? [dashboardIndex.fullPath] : [];
+      this.pageList = dashboardIndex ? [dashboardIndex] : [];
       // @ts-ignore
-      this.activePage = workplaceIndex ? workplaceIndex.fullPath : "/workplace/index";
+      this.activePage = dashboardIndex ? dashboardIndex.fullPath : "/dashboard/workplace";
     }
 
     // 关闭左侧页

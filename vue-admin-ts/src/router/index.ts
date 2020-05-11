@@ -118,9 +118,9 @@ const router = createRouter([
     ...rootRoute,
     children: [
       {
-        name: "workplace",
-        path: "/workplace",
-        component: () => import("@/views/containers/workplace.vue")
+        name: "dashboard",
+        path: "/dashboard",
+        component: () => import("@/views/containers/dashboard/workplace.vue")
       }
     ]
   },

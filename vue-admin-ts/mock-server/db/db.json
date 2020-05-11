@@ -58,13 +58,37 @@
         "children": [
           {
             "children": [],
-            "component": "views/containers/workplace",
-            "hidden": true,
+            "component": "views/containers/dashboard/workplace",
+            "hidden": false,
             "icon": "",
             "id": 654,
-            "menuName": "工作台首页",
-            "name": "workplaceIndex",
-            "path": "/workplace/index",
+            "menuName": "工作台",
+            "name": "dashboardIndex",
+            "path": "/dashboard/workplace",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/containers/dashboard/monitor",
+            "hidden": false,
+            "icon": "",
+            "id": 654,
+            "menuName": "监控",
+            "name": "dashboardMonitor",
+            "path": "/dashboard/monitor",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/containers/dashboard/analysis",
+            "hidden": false,
+            "icon": "",
+            "id": 654,
+            "menuName": "分析",
+            "name": "dashboardAnalysis",
+            "path": "/dashboard/analysis",
             "redirect": "",
             "sortNum": 1
           }
@@ -73,10 +97,23 @@
         "hidden": false,
         "icon": "gongzuotai",
         "id": 653,
-        "menuName": "工作台",
-        "name": "workplace",
-        "path": "/workplace",
-        "redirect": "/workplace/index",
+        "menuName": "控制台",
+        "name": "dashboard",
+        "path": "/dashboard",
+        "redirect": "/dashboard/workplace",
+        "sortNum": 1
+      },
+      {
+        "children": [
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "gongzuotai",
+        "id": 653,
+        "menuName": "权限管理",
+        "name": "auth",
+        "path": "/auth",
+        "redirect": "/auth/user",
         "sortNum": 1
       },
       {
@@ -319,7 +356,7 @@
         "hidden": false,
         "icon": "xitong",
         "id": 655,
-        "menuName": "系统",
+        "menuName": "系统管理",
         "name": "system",
         "path": "/system",
         "redirect": "/system/organize",

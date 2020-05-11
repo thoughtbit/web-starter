@@ -61,7 +61,7 @@
         }
       }
       this.collapsed = !this.collapsed;
-      // const closeMenus = ['workplaceIndex', 'columnIndex', 'contentIndex']
+      // const closeMenus = ['dashboardIndex', 'columnIndex', 'contentIndex']
       // this.collapsed = closeMenus.includes(this.$route.name) || !this.collapsed
     }
     private onMenuSelect(path: string, collapsed: boolean) {

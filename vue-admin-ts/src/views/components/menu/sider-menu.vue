@@ -1,6 +1,6 @@
 <template>
   <!-- 侧栏导航 -->
-  <aside class="sider-menu scrollbar">
+  <el-aside width="80px" class="sider-menu scrollbar">
     <el-menu
       :default-active="activeMenu"
       class="el-menu-vertical"
@@ -17,7 +17,7 @@
         <span slot="title">{{ item.menuName }}</span>
       </el-menu-item>
     </el-menu>
-  </aside>
+  </el-aside>
 </template>
 
 <script lang="ts">

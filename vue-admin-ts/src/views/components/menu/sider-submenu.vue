@@ -1,5 +1,5 @@
 <template>
-  <aside :width="collapsed ? '0' : '200px'" class="sider-sub-menu scrollbar">
+  <el-aside :width="collapsed ? '0' : '220px'" class="sider-sub-menu scrollbar">
     <div class="title">{{ menuTitle }}</div>
     <el-menu
       :default-active="activeMenu"
@@ -38,7 +38,7 @@
         </div>
       </template>
     </el-menu>
-  </aside>
+  </el-aside>
 </template>
 
 <script lang="ts">
