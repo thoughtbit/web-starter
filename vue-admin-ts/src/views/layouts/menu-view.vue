@@ -1,26 +1,20 @@
 <template>
   <layout>
-    <!-- 标签页容器 -->
-    <div class="view-tabs">
-      <!-- 标签上的右键菜单 -->
-      <ContextMenu ref="contextMenu" :itemList="menuItemList" :visible.sync="menuVisible" @select="onMenuSelect" />
-      <!-- tabs -->
-      <el-tabs
-        class="menus-tabs-container"
-        type="card"
-        closable
-        v-model="activePage"
-        @tab-click="changePage"
-        @tab-remove="removeTab"
-        @contextmenu.native="onContextMenu"
-      >
-        <el-tab-pane v-for="page in pageList" :key="page.fullPath" :name="page.fullPath" :label="$t('menus.'+page.name)" />
-      </el-tabs>
-    </div>
+    <!-- 标签上的右键菜单 -->
+    <ContextMenu ref="contextMenu" :itemList="menuItemList" :visible.sync="menuVisible" @select="onMenuSelect" />
+    <!-- 视图选项卡 -->
+    <el-tabs
+      class="view-tabs-container"
+      type="card"
+      closable
+      v-model="activePage"
+      @tab-click="changePage"
+      @tab-remove="removeTab"
+      @contextmenu.native="onContextMenu">
+      <el-tab-pane v-for="page in pageList" :key="page.fullPath" :name="page.fullPath" :label="$t('menus.'+page.name)" />
+    </el-tabs>
     <!-- 路由页面 -->
-    <div class="menu-view-container">
-      <router-view />
-    </div>
+    <route-view />
   </layout>
 </template>
 
@@ -28,11 +22,13 @@
   import { Component, Provide, Vue, Watch } from "vue-property-decorator";
   import { Action } from "vuex-class";
   import Layout from "@/views/layouts/layout.vue";
+  import RouteView from "@/views/layouts/route-view.vue";
   import ContextMenu from "@/views/components/menu/context-menu.vue";
 
   @Component({
     components: {
       Layout,
+      RouteView,
       ContextMenu
     }
   })
@@ -127,8 +123,8 @@
     }
 
     private removeTab(key: string) {
-      if (key.startsWith("/dashboard/workplace")) {
-        this.$message("工作台不能关闭");
+      if (key.startsWith("/index")) {
+        this.$message("总览不能关闭");
         return;
         // const pageName = this.pageList[0].name
         // this.addExcludes(pageName)
@@ -211,16 +207,16 @@
       //   if (i !== index) this.AddExcludes(d.name)
       // })
       // @ts-ignore
-      const dashboardIndex = this.pageList.find((d) => d.name === "dashboardIndex");
+      const overview = this.pageList.find((d) => d.name === "overview");
 
       this.linkList = this.linkList.slice(index, index + 1);
       this.pageList = this.pageList.slice(index, index + 1);
       let idx = 0;
       // @ts-ignore
-      if (dashboardIndex && !this.pageList.find((d) => d.name === "dashboardIndex")) {
+      if (overview && !this.pageList.find((d) => d.name === "overview")) {
         // @ts-ignore
-        this.linkList.splice(0, 0, dashboardIndex.fullPath);
-        this.pageList.splice(0, 0, dashboardIndex);
+        this.linkList.splice(0, 0, overview.fullPath);
+        this.pageList.splice(0, 0, overview);
         idx = 1;
       }
       this.activePage = this.linkList[idx];
@@ -232,12 +228,12 @@
       //   this.addExcludes(d.name)
       // })
       // @ts-ignore
-      const dashboardIndex = this.pageList.find((d) => d.name === "dashboardIndex");
+      const overview = this.pageList.find((d) => d.name === "overview");
       // @ts-ignore
-      this.linkList = dashboardIndex ? [dashboardIndex.fullPath] : [];
-      this.pageList = dashboardIndex ? [dashboardIndex] : [];
+      this.linkList = overview ? [overview.fullPath] : [];
+      this.pageList = overview ? [overview] : [];
       // @ts-ignore
-      this.activePage = dashboardIndex ? dashboardIndex.fullPath : "/dashboard/workplace";
+      this.activePage = overview ? overview.fullPath : "/index";
     }
 
     // 关闭左侧页
@@ -280,65 +276,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-  .view-tabs {
-    height: 42px;
-  }
-
-  .menus-tabs-container {
-    background-color: #f5f5f5;
-    /*padding-top: 8px;*/
-    /*padding-bottom: 1px;*/
-    .el-tabs__header {
-      margin-bottom: 0 !important;
-      border-bottom: 0;
-      margin-left: 10px;
-      .el-tabs__nav-wrap {
-        .el-tabs__nav {
-          border: 0;
-          .el-tabs__item {
-            background-color: #e6e6e6;
-            border: 1px solid rgba(225, 225, 225, 1);
-            border-bottom: 0;
-            border-radius: 4px 4px 0px 0px;
-            margin-right: 4px;
-            font-size: 14px;
-            color: #666666;
-            line-height: 34px;
-            height: 34px;
-            padding: 0 10px 0 26px;
-            .el-icon-close {
-              margin-left: 25px;
-              width: 14px;
-            }
-            &.is-active,
-            &:hover {
-              background-color: #ffffff;
-            }
-
-            &:first-child {
-              .el-icon-close {
-                display: none !important;
-              }
-            }
-          }
-        }
-        .el-tabs__nav-prev,
-        .el-tabs__nav-next {
-          line-height: 34px;
-        }
-      }
-    }
-    .el-tabs__content {
-      height: 0;
-    }
-  }
-
-  .menu-view-container {
-    flex: 1;
-    height: calc(100vh - 42px);
-    overflow: auto;
-    padding: 20px;
-  }
-</style>

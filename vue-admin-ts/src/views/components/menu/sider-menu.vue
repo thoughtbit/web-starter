@@ -14,7 +14,7 @@
         v-for="(item, index) in menuData.filter((m) => !m.hidden)"
         :key="index"
       >
-        <span slot="title">{{ item.menuName }}</span>
+        <span slot="title">{{$t('menus.'+item.name)}}</span>
       </el-menu-item>
     </el-menu>
   </el-aside>
@@ -61,7 +61,7 @@
     width: 80px;
     background-color: #444;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: overlay;
     .el-menu-vertical {
       border-right: 0;
       text-align: center;

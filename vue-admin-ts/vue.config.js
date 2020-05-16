@@ -65,9 +65,9 @@ module.exports = {
     // 取消Webpack警告的性能提示
     config.performance = {
       hints: "warning",
-      // 入口起点的最大体积
+      // 入口起点的最大体积,（以字节为单位 500k）
       maxEntrypointSize: 1000 * 5000,
-      // 生成文件的最大体积
+      // 生成文件的最大体积,（以字节为单位 300k）
       maxAssetSize: 1000 * 3000,
       // 只给出 js 文件的性能提示
       assetFilter: (assetFilename) => assetFilename.endsWith(".js")
@@ -126,7 +126,7 @@ module.exports = {
     config.set("name", name);
 
     // 修复HMR
-    config.resolve.symlinks(true);
+    config.resolve.symlinks(false);
 
     // 自定义, 可以配置的全局常量
     config
@@ -200,10 +200,7 @@ module.exports = {
     config.externals(externals);
 
     const cdn = {
-      css: [
-        "./cdn/element-ui/2.13.0/theme-chalk/index.css",
-        "./cdn/nprogress/0.2.0/nprogress.min.css"
-      ],
+      css: ["./cdn/element-ui/2.13.0/theme-chalk/index.css", "./cdn/nprogress/0.2.0/nprogress.min.css"],
       js: [
         "./cdn/vue/2.6.11/vue.min.js",
         "./cdn/vuex/3.1.3/vuex.min.js",
@@ -237,10 +234,12 @@ module.exports = {
 
     if (isProduction) {
       // 打包分析
-      config.plugin("webpack-report").use(BundleAnalyzerPlugin, [{
-        analyzerMode: "static",
-        openAnalyzer: false
-      }]);
+      config.plugin("webpack-report").use(BundleAnalyzerPlugin, [
+        {
+          analyzerMode: "static",
+          openAnalyzer: false
+        }
+      ]);
 
       // 压缩图片
       config.module
@@ -252,7 +251,7 @@ module.exports = {
           bypassOnDebug: true,
           mozjpeg: { progressive: true, quality: 65 },
           optipng: { enabled: false },
-          pngquant: { quality: [0.65, 0.90], speed: 4 },
+          pngquant: { quality: [0.65, 0.9], speed: 4 },
           gifsicle: { interlaced: false }
         });
     }

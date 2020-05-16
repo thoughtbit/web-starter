@@ -27,7 +27,7 @@ async function authStatusCheck(cb: (authCheck: boolean) => void) {
   }
 }
 
-const whiteList = ["/login", "/register"];
+const whiteList = ["/login", "/register", "/about"];
 
 router.beforeEach(async (to, from, next) => {
   // console.log("路由切换：", from.path, "===>", to.path);
@@ -67,7 +67,7 @@ router.beforeEach(async (to, from, next) => {
           // console.log('已加载过动态路由')
           if (to.path === "/") {
             next({
-              path: "/dashboard/workplace",
+              path: "/index",
               replace: true
             });
           } else {

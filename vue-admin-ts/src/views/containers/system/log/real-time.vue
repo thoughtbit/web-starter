@@ -1,12 +1,12 @@
 <template>
-  <div class="page">菜单管理</div>
+  <div class="page">实时日志</div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from "vue-property-decorator";
 
   @Component
-  export default class Menu extends Vue {}
+  export default class LogRealTime extends Vue {}
 </script>
 
 <style lang="scss" scoped>

@@ -28,6 +28,6 @@
     overflow-x: hidden;
     overflow-y: auto;
     box-sizing: border-box;
-    padding: 30px 30px 0;
+    padding: 20px;
   }
 </style>

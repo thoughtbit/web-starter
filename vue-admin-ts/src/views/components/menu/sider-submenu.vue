@@ -1,6 +1,6 @@
 <template>
-  <el-aside :width="collapsed ? '0' : '220px'" class="sider-sub-menu scrollbar">
-    <div class="title">{{ menuTitle }}</div>
+  <el-aside :width="collapsed ? '0' : '202px'" class="sider-sub-menu scrollbar">
+    <div class="el-menu-title">{{$t('menus.'+menuTitle)}}</div>
     <el-menu
       :default-active="activeMenu"
       class="el-menu-vertical"
@@ -20,7 +20,7 @@
             v-if="item.children && item.children.filter((c) => !c.hidden).length"
           >
             <template slot="title">
-              <span>{{ item.hidden ? "" : item.name }}</span>
+              <span class="title">{{item.hidden ? '':$t('menus.'+item.name)}}</span>
             </template>
             <el-menu-item
               class="sider-sub-menu-item"
@@ -29,11 +29,11 @@
               :key="index"
             >
               <div class="dot"></div>
-              <span slot="title">{{ subItem.name }}</span>
+              <span class="title" slot="title">{{$t('menus.'+subItem.name)}}</span>
             </el-menu-item>
           </el-submenu>
           <el-menu-item class="sider-sub-menu-item" v-else-if="item" :index="item.path">
-            <span slot="title">{{ item.hidden ? "" : item.name }}</span>
+            <span class="title" slot="title">{{item.hidden ? '':$t('menus.'+item.name)}}</span>
           </el-menu-item>
         </div>
       </template>
@@ -108,13 +108,12 @@
     background-color: #eceff1;
     transition: width ease-out 400ms;
     overflow-x: hidden;
-    overflow-y: auto;
-    .title {
+    overflow-y: overlay;
+    .el-menu-title {
       color: #666666;
       font-size: 20px;
       line-height: 20px;
-      padding: 23px 0 25px 0;
-      margin-left: 19px;
+      padding: 20px 10px 20px 19px;
       border-bottom: 1px solid #dde3e6;
       white-space: nowrap;
     }
@@ -124,14 +123,14 @@
         height: auto;
         background-color: #eceff1;
         // color: #333333;
-        span {
+        .title {
           line-height: 50px;
           font-size: 16px;
           display: block;
         }
         &.is-active,
         &:hover {
-          // color: #1EC6DF;
+          color: #1EC6DF;
           background-color: #ffffff;
         }
       }
@@ -143,7 +142,7 @@
             background-color: #eceff1;
           }
           &:hover {
-            // color: #1EC6DF;
+            color: #1EC6DF;
             background-color: #ffffff;
           }
         }
@@ -152,14 +151,14 @@
           justify-content: flex-start;
           align-items: center;
           height: 40px;
-          span {
+          .title {
             line-height: 40px;
             font-size: 14px;
           }
 
           .dot {
-            width: 3px;
-            height: 3px;
+            width: 4px;
+            height: 4px;
             border-radius: 50%;
             background-color: #666666;
             margin-right: 10px;

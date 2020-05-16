@@ -55,15 +55,27 @@
   "menus": {
     "menus": [
       {
+        "children": [],
+        "component": "views/containers/overview/index",
+        "hidden": false,
+        "icon": "menu",
+        "id": 100,
+        "menuName": "总览",
+        "name": "overview",
+        "path": "/index",
+        "redirect": "",
+        "sortNum": 1
+      },
+      {
         "children": [
           {
             "children": [],
             "component": "views/containers/dashboard/workplace",
             "hidden": false,
             "icon": "",
-            "id": 654,
+            "id": 201,
             "menuName": "工作台",
-            "name": "dashboardIndex",
+            "name": "workplace",
             "path": "/dashboard/workplace",
             "redirect": "",
             "sortNum": 1
@@ -73,9 +85,9 @@
             "component": "views/containers/dashboard/monitor",
             "hidden": false,
             "icon": "",
-            "id": 654,
+            "id": 202,
             "menuName": "监控",
-            "name": "dashboardMonitor",
+            "name": "monitor",
             "path": "/dashboard/monitor",
             "redirect": "",
             "sortNum": 1
@@ -85,9 +97,9 @@
             "component": "views/containers/dashboard/analysis",
             "hidden": false,
             "icon": "",
-            "id": 654,
+            "id": 203,
             "menuName": "分析",
-            "name": "dashboardAnalysis",
+            "name": "analysis",
             "path": "/dashboard/analysis",
             "redirect": "",
             "sortNum": 1
@@ -95,37 +107,123 @@
         ],
         "component": "views/layouts/route-view",
         "hidden": false,
-        "icon": "gongzuotai",
-        "id": 653,
+        "icon": "menu",
+        "id": 200,
         "menuName": "控制台",
         "name": "dashboard",
         "path": "/dashboard",
         "redirect": "/dashboard/workplace",
-        "sortNum": 1
+        "sortNum": 2
       },
       {
         "children": [
+          {
+            "children": [],
+            "component": "views/containers/auth/role/index",
+            "hidden": false,
+            "icon": "",
+            "id": 301,
+            "menuName": "角色管理",
+            "name": "authRole",
+            "path": "/auth/role",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/containers/auth/menus/apis/index",
+                "hidden": false,
+                "icon": "",
+                "id": 321,
+                "menuName": "接口权限",
+                "name": "authMenusApis",
+                "path": "/auth/menus/apis",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/containers/auth/menus/menu/index",
+                "hidden": false,
+                "icon": "",
+                "id": 322,
+                "menuName": "菜单权限",
+                "name": "authMenusMenu",
+                "path": "/auth/menus/menu",
+                "redirect": "",
+                "sortNum": 2
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 302,
+            "menuName": "菜单管理",
+            "name": "authMenus",
+            "path": "/auth/menus",
+            "redirect": "/auth/menus/apis",
+            "sortNum": 2
+          }
         ],
         "component": "views/layouts/route-view",
         "hidden": false,
-        "icon": "gongzuotai",
-        "id": 653,
+        "icon": "menu",
+        "id": 300,
         "menuName": "权限管理",
         "name": "auth",
         "path": "/auth",
-        "redirect": "/auth/user",
+        "redirect": "/auth/role",
         "sortNum": 1
       },
       {
         "children": [
           {
             "children": [
+							{
+								"children": [],
+								"component": "views/containers/system/user/index",
+								"hidden": true,
+								"icon": "",
+								"id": 667,
+								"menuName": "列表",
+								"name": "userIndex",
+								"path": "/system/user/index",
+								"redirect": "",
+								"sortNum": 1
+							}
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 401,
+            "menuName": "用户管理",
+            "name": "user",
+            "path": "/system/user",
+            "redirect": "/system/user/index",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/containers/system/station/index",
+            "hidden": false,
+            "icon": "",
+            "id": 402,
+            "menuName": "岗位管理",
+            "name": "station",
+            "path": "/system/station",
+            "redirect": "",
+            "sortNum": 2
+          },
+          {
+            "children": [
               {
                 "children": [],
-                "component": "views/System/Organize/Index",
+                "component": "views/containers/system/organize/index",
                 "hidden": true,
                 "icon": "",
-                "id": 657,
+                "id": 431,
                 "menuName": "列表",
                 "name": "organizeIndex",
                 "path": "/system/organize/index",
@@ -134,10 +232,10 @@
               },
               {
                 "children": [],
-                "component": "views/System/Organize/Detail",
+                "component": "views/containers/system/organize/detail",
                 "hidden": true,
                 "icon": "",
-                "id": 658,
+                "id": 432,
                 "menuName": "详情",
                 "name": "organizeDetail",
                 "path": "/system/organize/detail",
@@ -146,221 +244,760 @@
               },
               {
                 "children": [],
-                "component": "views/System/Organize/Member",
+                "component": "views/containers/system/organize/member",
                 "hidden": true,
                 "icon": "",
-                "id": 659,
+                "id": 433,
                 "menuName": "成员列表",
                 "name": "organizeMember",
                 "path": "/system/organize/member",
                 "redirect": "",
-                "sortNum": 6
-              },
-              {
-                "children": [],
-                "component": "views/System/Organize/Permission",
-                "hidden": true,
-                "icon": "",
-                "id": 660,
-                "menuName": "权限列表",
-                "name": "organizePermission",
-                "path": "/system/organize/permission",
-                "redirect": "",
-                "sortNum": 9
+                "sortNum": 3
               }
             ],
-            "component": "views/layouts/page-view",
+            "component": "component",
             "hidden": false,
             "icon": "",
-            "id": 656,
+            "id": 403,
             "menuName": "组织管理",
             "name": "organize",
             "path": "/system/organize",
             "redirect": "/system/organize/index",
+            "sortNum": 3
+          },
+          {
+            "children": [],
+            "component": "views/containers/system/tenant/index",
+            "hidden": false,
+            "icon": "",
+            "id": 404,
+            "menuName": "租户管理",
+            "name": "tenant",
+            "path": "/system/tenant",
+            "redirect": "",
+            "sortNum": 4
+          },
+          {
+            "children": [],
+            "component": "views/containers/system/app/index",
+            "hidden": false,
+            "icon": "",
+            "id": 405,
+            "menuName": "应用管理",
+            "name": "app",
+            "path": "/system/app",
+            "redirect": "",
+            "sortNum": 5
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 400,
+        "menuName": "系统管理",
+        "name": "system",
+        "path": "/system",
+        "redirect": "/system/organize",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/containers/basic-config/system-info",
+            "hidden": false,
+            "icon": "",
+            "id": 501,
+            "menuName": "系统信息",
+            "name": "systemInfoBasicConfig",
+            "path": "/basic-config/system-info",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/containers/basic-config/system-setting",
+            "hidden": false,
+            "icon": "",
+            "id": 501,
+            "menuName": "系统设置",
+            "name": "systemSettingBasicConfig",
+            "path": "/basic-config/system-setting",
+            "redirect": "",
+            "sortNum": 2
+          },
+          {
+            "children": [],
+            "component": "views/containers/basic-config/disc",
+            "hidden": false,
+            "icon": "",
+            "id": 502,
+            "menuName": "数据字典",
+            "name": "discBasicConfig",
+            "path": "/basic-config/disc",
+            "redirect": "",
+            "sortNum": 3
+          },
+          {
+            "children": [],
+            "component": "views/containers/basic-config/area",
+            "hidden": false,
+            "icon": "",
+            "id": 503,
+            "menuName": "地区字典",
+            "name": "areaBasicConfig",
+            "path": "/basic-config/area",
+            "redirect": "",
+            "sortNum": 4
+          },
+          {
+            "children": [],
+            "component": "views/containers/basic-config/parameter",
+            "hidden": false,
+            "icon": "",
+            "id": 504,
+            "menuName": "参数配置",
+            "name": "parameterBasicConfig",
+            "path": "/basic-config/parameter",
+            "redirect": "",
+            "sortNum": 5
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 500,
+        "menuName": "基础配置",
+        "name": "basicConfig",
+        "path": "/basic-config",
+        "redirect": "/basic-config/disc",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/containers/monitor/performance/service",
+                "hidden": false,
+                "icon": "",
+                "id": 602,
+                "menuName": "服务监控",
+                "name": "serviceMonitor",
+                "path": "/monitor/performance/service",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "component": "views/containers/monitor/performance/cache/redis",
+                    "hidden": true,
+                    "icon": "",
+                    "id": 610,
+                    "menuName": "Redis监控",
+                    "name": "redisCacheMonitor",
+                    "path": "/monitor/performance/cache/redis",
+                    "redirect": "",
+                    "sortNum": 1
+                  }
+                ],
+                "component": "component",
+                "hidden": false,
+                "icon": "",
+                "id": 602,
+                "menuName": "缓存监控",
+                "name": "cacheMonitor",
+                "path": "/monitor/performance/cache",
+                "redirect": "/monitor/performance/cache/redis",
+                "sortNum": 2
+              },
+              {
+                "children": [],
+                "component": "views/containers/monitor/performance/tp",
+                "hidden": false,
+                "icon": "",
+                "id": 603,
+                "menuName": "事务监控",
+                "name": "tpMonitor",
+                "path": "/monitor/performance/tp",
+                "redirect": "",
+                "sortNum": 3
+              },
+              {
+                "children": [],
+                "component": "views/containers/monitor/performance/ht",
+                "hidden": false,
+                "icon": "",
+                "id": 604,
+                "menuName": "请求追踪",
+                "name": "httpTraceMonitor",
+                "path": "/monitor/performance/ht",
+                "redirect": "",
+                "sortNum": 4
+              }
+            ],
+            "component": "component",
+            "hidden": false,
+            "icon": "",
+            "id": 601,
+            "menuName": "性能监控",
+            "name": "performanceMonitor",
+            "path": "/monitor/performance/service",
+            "redirect": "",
             "sortNum": 1
           },
           {
             "children": [
               {
                 "children": [],
-                "component": "views/System/Role/Index",
-                "hidden": true,
+                "component": "views/containers/monitor/log/login",
+                "hidden": false,
                 "icon": "",
-                "id": 662,
-                "menuName": "列表",
-                "name": "roleIndex",
-                "path": "/system/role/index",
+                "id": 610,
+                "menuName": "登录日志",
+                "name": "loginLogMonitor",
+                "path": "/monitor/log/login",
                 "redirect": "",
                 "sortNum": 1
               },
               {
                 "children": [],
-                "component": "views/System/Role/Edit",
-                "hidden": true,
+                "component": "views/containers/monitor/log/operate",
+                "hidden": false,
                 "icon": "",
-                "id": 663,
-                "menuName": "详情",
-                "name": "roleEdit",
-                "path": "/system/role/edit",
+                "id": 612,
+                "menuName": "操作日志",
+                "name": "operateLogMonitor",
+                "path": "/monitor/log/operate",
                 "redirect": "",
-                "sortNum": 2
-              },
-              {
-                "children": [],
-                "component": "views/System/Role/Membership",
-                "hidden": true,
-                "icon": "",
-                "id": 664,
-                "menuName": "成员列表",
-                "name": "roleMember",
-                "path": "/system/role/member",
-                "redirect": "",
-                "sortNum": 6
-              },
-              {
-                "children": [],
-                "component": "views/System/Role/Permission",
-                "hidden": true,
-                "icon": "",
-                "id": 665,
-                "menuName": "权限列表",
-                "name": "rolePermission",
-                "path": "/system/role/permission",
-                "redirect": "",
-                "sortNum": 9
+                "sortNum": 1
               }
-            ],
-            "component": "views/layouts/page-view",
+            ], 
+            "component": "component",
             "hidden": false,
             "icon": "",
-            "id": 661,
-            "menuName": "角色管理",
-            "name": "role",
-            "path": "/system/role",
-            "redirect": "/system/role/index",
+            "id": 602,
+            "menuName": "日志监控",
+            "name": "logMonitor",
+            "path": "/monitor/log",
+            "redirect": "/monitor/log/login",
             "sortNum": 2
           },
           {
-            "children": [
-              {
-                "children": [
-                  {
-                    "children": [],
-                    "component": "views/System/Menus/Apis/Index",
-                    "hidden": true,
-                    "icon": "",
-                    "id": 726,
-                    "menuName": "列表",
-                    "name": "menusApisIndex",
-                    "path": "/system/menus/apis/index",
-                    "redirect": "",
-                    "sortNum": 1
-                  },
-                  {
-                    "children": [],
-                    "component": "views/System/Menus/Apis/Detail",
-                    "hidden": true,
-                    "icon": "",
-                    "id": 727,
-                    "menuName": "详情",
-                    "name": "menusApisDetail",
-                    "path": "/system/menus/apis/detail",
-                    "redirect": "",
-                    "sortNum": 2
-                  }
-                ],
-                "component": "layouts/RouteView",
-                "hidden": false,
-                "icon": "",
-                "id": 725,
-                "menuName": "接口管理",
-                "name": "menusApis",
-                "path": "/system/menus/apis",
-                "redirect": "/system/menus/apis/index",
-                "sortNum": 1
-              },
-              {
-                "children": [
-                  {
-                    "children": [],
-                    "component": "views/System/Menus/Menus/Index",
-                    "hidden": true,
-                    "icon": "",
-                    "id": 729,
-                    "menuName": "列表",
-                    "name": "menusMenusIndex",
-                    "path": "/system/menus/menus/index",
-                    "redirect": "",
-                    "sortNum": 1
-                  },
-                  {
-                    "children": [],
-                    "component": "views/System/Menus/Menus/Detail",
-                    "hidden": true,
-                    "icon": "",
-                    "id": 730,
-                    "menuName": "详情",
-                    "name": "menusMenusDetail",
-                    "path": "/system/menus/menus/detail",
-                    "redirect": "",
-                    "sortNum": 2
-                  },
-                  {
-                    "children": [],
-                    "component": "views/System/Menus/Menus/Create",
-                    "hidden": true,
-                    "icon": "",
-                    "id": 731,
-                    "menuName": "新增",
-                    "name": "menusMenusCreate",
-                    "path": "/system/menus/menus/create",
-                    "redirect": "",
-                    "sortNum": 3
-                  }
-                ],
-                "component": "layouts/RouteView",
-                "hidden": false,
-                "icon": "",
-                "id": 728,
-                "menuName": "菜单管理",
-                "name": "menusMenus",
-                "path": "/system/menus/menus",
-                "redirect": "/system/menus/menus/index",
-                "sortNum": 2
-              }
-            ],
-            "component": "layouts/PageView",
-            "hidden": false,
-            "icon": "",
-            "id": 724,
-            "menuName": "菜单管理",
-            "name": "menus",
-            "path": "/system/menus",
-            "redirect": "/system/menus/apis",
-            "sortNum": 18
-          },
-          {
             "children": [],
-            "component": "views/layouts/page-view",
+            "component": "views/containers/monitor/db/index",
             "hidden": false,
             "icon": "",
-            "id": 732,
-            "menuName": "系统信息",
-            "name": "systemInfo",
-            "path": "/system/systemInfo",
-            "redirect": "/system/systemInfo/index",
-            "sortNum": 21
+            "id": 603,
+            "menuName": "数据库监控",
+            "name": "dbMonitor",
+            "path": "/monitor/db",
+            "redirect": "",
+            "sortNum": 3
           }
         ],
         "component": "views/layouts/route-view",
         "hidden": false,
-        "icon": "xitong",
-        "id": 655,
-        "menuName": "系统管理",
-        "name": "system",
-        "path": "/system",
-        "redirect": "/system/organize",
-        "sortNum": 9
+        "icon": "menu",
+        "id": 600,
+        "menuName": "系统监控",
+        "name": "systemMonitor",
+        "path": "/monitor",
+        "redirect": "/monitor/service",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 802,
+            "menuName": "菜单设置",
+            "name": "wechatMenu",
+            "path": "/page/wechat/menu",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 802,
+            "menuName": "账号管理",
+            "name": "wechatAuth",
+            "path": "/page/wechat/auth",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 802,
+            "menuName": "粉丝管理",
+            "name": "wechatFans",
+            "path": "/page/wechat/fans",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 802,
+            "menuName": "消息管理",
+            "name": "wechatMessages",
+            "path": "/page/wechat/messages",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 802,
+            "menuName": "留言管理",
+            "name": "wechatComment",
+            "path": "/page/wechat/comment",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 802,
+            "menuName": "运营数据",
+            "name": "wechatAnalysis",
+            "path": "/page/wechat/analysis",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 802,
+            "menuName": "小程序管理",
+            "name": "wechatMiniProgram",
+            "path": "/page/wechat/mini-program",
+            "redirect": "",
+            "sortNum": 1
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 700,
+        "menuName": "微信管理",
+        "name": "wechat",
+        "path": "/wechat",
+        "redirect": "/page/wechat/menu",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 801,
+            "menuName": "短信管理",
+            "name": "listSms",
+            "path": "/page/sms/index",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 802,
+            "menuName": "账号配置",
+            "name": "templateSms",
+            "path": "/page/sms/template",
+            "redirect": "",
+            "sortNum": 1
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 800,
+        "menuName": "短信中心",
+        "name": "sms",
+        "path": "/sms",
+        "redirect": "/page/sms/index",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "",
+            "hidden": false,
+            "icon": "",
+            "id": 901,
+            "menuName": "账号配置",
+            "name": "configEmail",
+            "path": "/page/email/config",
+            "redirect": "",
+            "sortNum": 1
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 900,
+        "menuName": "邮件管理",
+        "name": "email",
+        "path": "/email",
+        "redirect": "/page/email/index",
+        "sortNum": 1
+      },
+      {
+        "children": [],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 653,
+        "menuName": "组件",
+        "name": "component",
+        "path": "/component",
+        "redirect": "/component/index",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 401,
+            "menuName": "基础表单",
+            "name": "basicForm",
+            "path": "/page/form/basic-form",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 402,
+            "menuName": "高级表单",
+            "name": "advancedForm",
+            "path": "/page/form/advanced-form",
+            "redirect": "",
+            "sortNum": 2
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 403,
+            "menuName": "分步表单",
+            "name": "stepForm",
+            "path": "/page/form/step-form",
+            "redirect": "",
+            "sortNum": 2
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 404,
+            "menuName": "表单详情",
+            "name": "detail",
+            "path": "/page/form/detail",
+            "redirect": "",
+            "sortNum": 2
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 653,
+        "menuName": "表单",
+        "name": "form",
+        "path": "/form",
+        "redirect": "/page/index",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 401,
+            "menuName": "基础列表",
+            "name": "basicList",
+            "path": "/page/form/basic-list",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "component": "views/layouts/route-view",
+                "hidden": false,
+                "icon": "",
+                "id": 726,
+                "menuName": "搜索列表(用户)",
+                "name": "usersList",
+                "path": "/page/list/search-list/users",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/layouts/route-view",
+                "hidden": false,
+                "icon": "",
+                "id": 726,
+                "menuName": "搜索列表(文章)",
+                "name": "articlesList",
+                "path": "/page/list/search-list/articles",
+                "redirect": "",
+                "sortNum": 1
+              },
+              {
+                "children": [],
+                "component": "views/layouts/route-view",
+                "hidden": false,
+                "icon": "",
+                "id": 726,
+                "menuName": "搜索列表(应用)",
+                "name": "applicationsList",
+                "path": "/page/list/search-list/applications",
+                "redirect": "",
+                "sortNum": 1
+              }
+            ],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 401,
+            "menuName": "查询列表",
+            "name": "searchList",
+            "path": "/page/list/search-list",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 402,
+            "menuName": "查询表格",
+            "name": "tableList",
+            "path": "/page/list/table-list",
+            "redirect": "",
+            "sortNum": 2
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 403,
+            "menuName": "卡片列表",
+            "name": "card-list",
+            "path": "/page/list/card-list",
+            "redirect": "",
+            "sortNum": 2
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 653,
+        "menuName": "列表",
+        "name": "list",
+        "path": "/list",
+        "redirect": "/page/index",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 501,
+            "menuName": "基础详情页",
+            "name": "basicProfile",
+            "path": "/page/profile/basic",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 502,
+            "menuName": "高级详情页",
+            "name": "advancedProfile",
+            "path": "/page/profile/advanced",
+            "redirect": "",
+            "sortNum": 1
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 653,
+        "menuName": "详情页",
+        "name": "profile",
+        "path": "/profile",
+        "redirect": "/page/profile/basic",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 601,
+            "menuName": "成功页",
+            "name": "successResult",
+            "path": "/page/result/success",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 602,
+            "menuName": "失败页",
+            "name": "failResult",
+            "path": "/page/result/fail",
+            "redirect": "",
+            "sortNum": 1
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 654,
+        "menuName": "结果页",
+        "name": "result",
+        "path": "/result",
+        "redirect": "/page/result/success",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 601,
+            "menuName": "403",
+            "name": "403",
+            "path": "/page/exception/403",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 602,
+            "menuName": "404",
+            "name": "404",
+            "path": "/page/exception/404",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 602,
+            "menuName": "505",
+            "name": "505",
+            "path": "/page/exception/505",
+            "redirect": "",
+            "sortNum": 1
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 664,
+        "menuName": "异常页",
+        "name": "exception",
+        "path": "/exception",
+        "redirect": "/page/exception/403",
+        "sortNum": 1
+      },
+      {
+        "children": [
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 601,
+            "menuName": "个人中心",
+            "name": "userSetting",
+            "path": "/page/setting/user",
+            "redirect": "",
+            "sortNum": 1
+          },
+          {
+            "children": [],
+            "component": "views/layouts/route-view",
+            "hidden": false,
+            "icon": "",
+            "id": 602,
+            "menuName": "个人设置",
+            "name": "accountSetting",
+            "path": "/page/setting/account",
+            "redirect": "",
+            "sortNum": 1
+          }
+        ],
+        "component": "views/layouts/route-view",
+        "hidden": false,
+        "icon": "menu",
+        "id": 674,
+        "menuName": "页面设置",
+        "name": "setting",
+        "path": "/setting",
+        "redirect": "/page/setting/user",
+        "sortNum": 1
       }
     ],
     "routings": [
@@ -4094,9 +4731,7 @@
           "position": 0,
           "visible": true,
           "variation": false,
-          "options": [
-            "埃塞俄比亚赛"
-          ]
+          "options": ["埃塞俄比亚赛"]
         },
         {
           "id": 2,
@@ -4104,9 +4739,7 @@
           "position": 1,
           "visible": true,
           "variation": false,
-          "options": [
-            "Starbucks / 星巴克"
-          ]
+          "options": ["Starbucks / 星巴克"]
         }
       ]
     },
@@ -4155,9 +4788,7 @@
           "position": 0,
           "visible": true,
           "variation": false,
-          "options": [
-            "埃塞俄比亚赛"
-          ]
+          "options": ["埃塞俄比亚赛"]
         },
         {
           "id": 2,
@@ -4165,9 +4796,7 @@
           "position": 1,
           "visible": true,
           "variation": false,
-          "options": [
-            "Starbucks / 星巴克"
-          ]
+          "options": ["Starbucks / 星巴克"]
         }
       ]
     },
@@ -4216,9 +4845,7 @@
           "position": 0,
           "visible": true,
           "variation": false,
-          "options": [
-            "埃塞俄比亚赛"
-          ]
+          "options": ["埃塞俄比亚赛"]
         },
         {
           "id": 2,
@@ -4226,9 +4853,7 @@
           "position": 1,
           "visible": true,
           "variation": false,
-          "options": [
-            "Starbucks / 星巴克"
-          ]
+          "options": ["Starbucks / 星巴克"]
         }
       ]
     },
@@ -4283,9 +4908,7 @@
           "position": 0,
           "visible": true,
           "variation": false,
-          "options": [
-            "埃塞俄比亚赛"
-          ]
+          "options": ["埃塞俄比亚赛"]
         },
         {
           "id": 2,
@@ -4293,9 +4916,7 @@
           "position": 1,
           "visible": true,
           "variation": false,
-          "options": [
-            "Starbucks / 星巴克"
-          ]
+          "options": ["Starbucks / 星巴克"]
         }
       ]
     }

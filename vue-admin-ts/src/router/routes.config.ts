@@ -3,89 +3,59 @@ import { RouteConfig } from "vue-router";
 
 export type RoutesConfig = { [key: string]: RouteConfig };
 
-// 正式路由配置
+// 路由配置
 export const routesConfig = Object.freeze<RoutesConfig>({
   // 登录
   login: {
     path: "/login",
     name: "login",
+    component: "views/containers/login", 
     hidden: true
   },
   // 注册
   register: {
     path: "/register",
     name: "register",
+    component: "views/containers/register",
+    hidden: true
+  },
+  // 关于我们
+  about: {
+    name: "about",
+    path: "/about",
+    component: "views/containers/about",
     hidden: true
   },
   callback: {
-    path: "/callback",
     name: "callback",
-    hidden: true
-  },
-  layout: {
-    path: "/layout",
-    name: "layout",
+    path: "/callback",
+    component: "views/containers/exception/callback",
     hidden: true
   },
   // 主框架
   index: {
     path: "/",
     name: "index",
+    component: "views/layouts/menu-view",
     hidden: true
   },
   // 异常
   unauthorized: {
     name: "unauthorized",
     path: "/401",
+    component: "views/containers/exception/401",
     hidden: true
   },
   notFound: {
     name: "notFound",
     path: "*",
+    component: "views/containers/exception/404",
     hidden: true
   },
   error: {
     name: "error",
     path: "/error",
+    component: "views/containers/exception/error",
     hidden: true
   },
-
-  about: {
-    name: "about",
-    path: "/about",
-    hidden: true
-  },
-
-  dashboard: {
-    name: "dashboard",
-    path: "/dashboard/workplace",
-    hidden: true
-  }
 });
-
-export const routesMap = {
-  // 登录
-  login: "views/containers/login",
-  // 注册
-  register: "views/containers/register",
-
-  // 主框架
-  index: "views/layouts/menu-view",
-
-  // 异常
-  error: "views/containers/error",
-  notFound: "views/containers/404",
-  unauthorized: "views/containers/401",
-
-  // 其它
-  about: "views/containers/about",
-
-
-  // 控制台
-  dashboardIndex: "views/containers/dashboard/workplace",
-  dashboardMonitor: "views/containers/dashboard/monitor",
-  dashboardAnalysis: "views/containers/dashboard/analysis"
-
-  // 系统
-  
-};

@@ -1,14 +1,22 @@
 <template>
-  <div class="layout">
-    <layout-header />
-    <div class="layout-body">
+  <!-- 最大布局容器 -->
+  <el-container class="ui-layout">
+    <!-- 头部布局 -->
+    <el-header height="64px">
+      <layout-header />
+    </el-header>
+    <!-- 头部以下主体布局 -->
+    <el-container class="ui-layout-body">
+      <!-- 侧栏一级导航布局 -->
       <sider-menu :menuData="menuData" :activeMenu="activeMenu" @menuSelect="onMenuSelect" />
+      <!-- 侧栏一级导航布局 -->
       <sider-sub-menu :menuData="menuData" :collapsed="collapsed" :menuPath="activeMenu" :menuTitle="menuTitle" />
-      <main class="content">
+      <!-- 右侧页面区 -->
+      <el-main class="ui-layout-content">
         <slot></slot>
-      </main>
-    </div>
-  </div>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script lang="ts">
@@ -89,23 +97,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-  .layout {
-    flex-direction: column;
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    &-body {
-      display: flex;
-      height: calc(100vh - 64px);
-      width: 100%;
-      .content {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        width: 100%;
-      }
-    }
-  }
-</style>

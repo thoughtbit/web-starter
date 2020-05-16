@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import { PositionResult } from "vue-router/types/router";
 import store from "@/store";
-import { routesConfig, routesMap } from "@/router/routes.config";
+import { routesConfig } from "@/router/routes.config";
 import { Logger } from "@/utils/logger";
 
 // 修复 Uncaught (in promise) undefined 问题
@@ -29,10 +29,10 @@ export function filterAsyncRoutes(routes: RouteConfig[]) {
           };
         }
         // @ts-ignore
-        const routePath = routesMap[rt.name];
-        // console.log("routePath:", routePath);
-        if (routePath) {
-          rt.component = () => import(/* webpackChunkName: "page" */ `@/${routePath}.vue`);
+        const component = rt.component;
+        // console.log("component:", component);
+        if (component && component != "component") {
+          rt.component = () => import(`@/${component}.vue`);
         }
         if (children instanceof Array && children.length) {
           const subMenus = children.filter((c) => c.menuType !== 2);
@@ -68,9 +68,6 @@ export const commonRoutes = [
   },
   {
     ...routesConfig.callback
-  },
-  {
-    ...routesConfig.layout
   }
 ];
 

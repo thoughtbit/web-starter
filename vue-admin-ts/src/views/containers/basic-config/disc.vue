@@ -1,16 +1,16 @@
 <template>
-  <div class="page">令牌管理</div>
+  <div class="page">数据字典</div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from "vue-property-decorator";
 
   @Component
-  export default class Token extends Vue {}
+  export default class DiscBasicConfig extends Vue {}
 </script>
 
 <style lang="scss" scoped>
   .page {
-    height: 2000px;
+    height: 100%;
   }
 </style>

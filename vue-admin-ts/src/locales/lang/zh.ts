@@ -1,18 +1,54 @@
 export default {
   menus: {
     // 公共
-    index: '首页',
+    overview: "总览",
     // 一级
-    dashboard: '控制台',
+    dashboard: "控制台",
+    auth: "权限管理",
+    system: "系统管理",
+    basicConfig: "基础配置",
+    systemMonitor: "系统监控",
+    wechat: "微信管理",
+    sms: "短信中心",
+    email: "邮件管理",
+    component: "组件",
+    form: "表单",
+    list: "列表",
+    profile: "详情页",
+    result: "结果页",
+    exception: "异常页",
+    setting: "页面设置",
     // 二级
-    dashboardIndex: '工作台',
-    // 系统
-    organize: '组织管理',
-    role: '角色管理',
-    user: '用户管理',
+    workplace: "工作台",
+    monitor: "监控",
+    analysis: "分析",
+    authMenus: "菜单管理",
+    authRole: "角色管理",
+    user: "用户管理",
+    station: "岗位管理",
+    organize: "组织管理",
+    tenant: "租户管理",
+    app: "应用管理",
+    systemSettingBasicConfig: "系统设置",
+    systemInfoBasicConfig: "系统信息",
+    discBasicConfig: "数据字典",
+    areaBasicConfig: "地区字典",
+    parameterBasicConfig: "参数管理",
+    serviceMonitor: "系统监控",
+    cacheMonitor: "缓存监控",
+    tpMonitor: "事务监控",
+    httpTraceMonitor: "请求追踪",
+    performanceMonitor: "性能监控",
+    logMonitor: "日志监控",
+    dbMonitor: "数据库监控",
     // 三级
-    // 系统
-    organizeIndex: '组织管理'
+    authMenusApis: "接口权限",
+    authMenusMenu: "菜单权限",
+    userIndex: "用户管理-列表",
+    organizeIndex: "组织管理-列表",
+    loginLogMonitor: "登录日志",
+    operateLogMonitor: "操作日志",
+    redisCacheMonitor: "缓存监控 Redis"
   },
   route: {
     dashboard: "首页",

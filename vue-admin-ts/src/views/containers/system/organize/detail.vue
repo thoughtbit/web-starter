@@ -1,16 +1,16 @@
 <template>
-  <div class="page">日志管理</div>
+  <div class="page">机构管理-详情</div>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from "vue-property-decorator";
 
   @Component
-  export default class Log extends Vue {}
+  export default class OrganizeDetail extends Vue {}
 </script>
 
 <style lang="scss" scoped>
   .page {
-    height: 2000px;
+    height: 100%;
   }
 </style>

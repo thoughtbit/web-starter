@@ -1,9 +1,14 @@
 <template>
-  <header class="layout-header">
-    <button class="guide-button">菜单</button>
-    <div class="header-logo">
-      <h1 class="logo">某某平台</h1>
-    </div>
+  <div class="ui-layout-header">
+    <h1 class="header-logo">
+      <router-link class="logo" to="/"><!--九色鹿-->未来智能云</router-link>
+    </h1>
+    <nav class="header-service">
+      <div class="nav-overview">
+        <router-link class="nav-link" to="/">总览</router-link>
+      </div>
+      <div class="nav-service">产品与服务</div>
+    </nav>
     <div class="searchbox">
       <form action="/" method="post" class="search-form">
         <input type="text" name="" id="" class="s-ipt" />
@@ -11,14 +16,11 @@
       </form>
     </div>
     <nav class="quick-menu">
-      <router-link class="nav-link" to="/">首页</router-link>
-      <router-link class="nav-link" to="/login">登录</router-link>
-      <router-link class="nav-link" to="/about">关于</router-link>
-      <button type="button" class="quick-menu-button">消息</button>
-      <button type="button" class="quick-menu-button">我的</button>
+      <el-button type="primary" class="quick-menu-button">消息</el-button>
+      <el-button type="primary" class="quick-menu-button">我的</el-button>
       <el-button type="primary" @click.native.prevent="logout">退出登录</el-button>
     </nav>
-  </header>
+  </div>
 </template>
 
 <script lang="ts">
@@ -47,15 +49,22 @@
 </script>
 
 <style lang="scss" scoped>
-  .layout-header {
+  .ui-layout-header {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 64px;
-    background-color: #f2f3f4;
-    border-bottom: 1px solid #ddd;
+    background-color: #262F3E;
+  }
+  .header-logo {
+    width: 220px;
+    padding: 0 10px 0 15px;
+    .logo {
+      font-size: 24px;
+      color: #fff;
+    }
   }
   .searchbox {
     display: flex;
@@ -69,12 +78,14 @@
       .s-ipt {
         flex: 1;
         height: 42px;
+        padding: 10px;
+        line-height: 22px;
       }
       .s-btn {
         width: 100px;
         height: 42px;
-        border: 1px solid #000;
-        background-color: red;
+        background-color: #ccc;
+        color: #1890ff;
       }
     }
   }
@@ -82,5 +93,27 @@
     align-items: center;
     justify-content: flex-end;
     display: flex;
+    .nav-link {
+      color: #fff;
+    }
+
+    margin-right: 15px;
+  }
+  .header-service {
+    align-items: center;
+    display: flex;
+    color: #ffff;
+    .nav-overview,
+    .nav-service {
+      a {
+        display: block;
+      }
+      border: 1px dashed #fff;
+      padding: 4px 8px;
+      line-height: 22px;
+    }
+    .nav-overview {
+      margin-right: 10px;
+    }
   }
 </style>

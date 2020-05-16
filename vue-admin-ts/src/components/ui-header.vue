@@ -4,7 +4,6 @@
       <h1 class="logo">{{ msg }}</h1>
     </div>
     <nav class="quick-menu">
-      <router-link class="nav-link" to="/">首页</router-link>
       <router-link class="nav-link" to="/login">登录</router-link>
       <router-link class="nav-link" to="/register">注册</router-link>
       <router-link class="nav-link" to="/about">关于</router-link>
