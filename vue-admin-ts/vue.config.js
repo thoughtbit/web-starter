@@ -146,12 +146,12 @@ module.exports = {
             name: "chunk-vendors",
             test: /[\\/]node_modules[\\/]/,
             priority: 10,
-            chunks: "initial" // only package third parties that are initially dependent
+            chunks: 'initial' // 只打包初始时依赖的第三方
           },
           commons: {
             name: "chunk-commons",
             test: path.resolve(__dirname, "src/components"),
-            minChunks: 3, //  minimum common number
+            minChunks: 3, // 最小公用次数
             priority: 5,
             reuseExistingChunk: true
           }
@@ -193,24 +193,26 @@ module.exports = {
       nprogress: "NProgress",
       // lodash: '_',
       dayjs: "dayjs",
-      "crypto-js": "CryptoJS"
+      "crypto-js": "CryptoJS",
+      clipboard: "ClipboardJS"
     };
 
     // 忽略的打包文件
     config.externals(externals);
 
     const cdn = {
-      css: ["./cdn/element-ui/2.13.0/theme-chalk/index.css", "./cdn/nprogress/0.2.0/nprogress.min.css"],
+      css: ["./cdn/element-ui/2.13.1/theme-chalk/index.css", "./cdn/nprogress/0.2.0/nprogress.min.css"],
       js: [
         "./cdn/vue/2.6.11/vue.min.js",
         "./cdn/vuex/3.1.3/vuex.min.js",
         "./cdn/vue-router/3.1.6/vue-router.min.js",
         "./cdn/axios/0.18.1/axios.min.js",
-        "./cdn/element-ui/2.13.0/index.js",
+        "./cdn/element-ui/2.13.1/index.js",
         "./cdn/echarts/4.7.0/echarts.min.js",
         "./cdn/nprogress/0.2.0/nprogress.min.js",
         "./cdn/dayjs/1.8.24/dayjs.min.js",
-        "./cdn/crypto-js/4.0.0/crypto-js.min.js"
+        "./cdn/crypto-js/4.0.0/crypto-js.min.js",
+        "./cdn/clipboard/2.0.6/clipboard.min.js"
       ]
     };
 
@@ -244,7 +246,7 @@ module.exports = {
       // 压缩图片
       config.module
         .rule("images")
-        .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+        .test(/\.(png|jpe?g|gif)(\?.*)?$/)
         .use("image-webpack-loader")
         .loader("image-webpack-loader")
         .options({

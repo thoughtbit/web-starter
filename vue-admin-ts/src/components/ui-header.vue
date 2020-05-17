@@ -1,12 +1,14 @@
 <template>
   <header class="header">
     <div class="header-logo">
-      <h1 class="logo">{{ msg }}</h1>
+      <h1 class="logo">{{ msg }} <ui-icon icon-class="account-book-outlined" class="lg" @click="showDialog" /></h1>
     </div>
     <nav class="quick-menu">
       <router-link class="nav-link" to="/login">登录</router-link>
       <router-link class="nav-link" to="/register">注册</router-link>
-      <router-link class="nav-link" to="/about">关于</router-link>
+      <router-link class="nav-link" to="/about">
+        关于
+      </router-link>
     </nav>
   </header>
 </template>
@@ -17,6 +19,10 @@
   @Component
   export default class Header extends Vue {
     @Prop() private msg!: string;
+
+    showDialog() {
+      alert("ok");
+    }
   }
 </script>
 

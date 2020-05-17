@@ -55,3 +55,9 @@ env PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn add puppeteer
 ```
 PUPPETEER_DOWNLOAD_HOST=https://storage.googleapis.com.cnpmjs.org npm install puppeteer
 ```
+
+## 工具
+```shell
+for var in *.svg; do mv "$var" "${var%.svg}-outlined.svg"; done;
+for var in *.svg; do mv "$var" "${var%.svg}-twotone.svg"; done;
+```
