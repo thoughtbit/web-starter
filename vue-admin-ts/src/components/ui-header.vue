@@ -1,13 +1,12 @@
 <template>
-  <header class="header">
-    <div class="header-logo">
-      <h1 class="logo">{{ msg }} <ui-icon icon-class="account-book-outlined" class="lg" @click="showDialog" /></h1>
-    </div>
+  <header class="header" :class="className">
+    <h1 class="header-logo">九色鹿数字云</h1>
     <nav class="quick-menu">
-      <router-link class="nav-link" to="/login">登录</router-link>
-      <router-link class="nav-link" to="/register">注册</router-link>
-      <router-link class="nav-link" to="/about">
-        关于
+      <router-link class="nav-link" to="/index">
+        我的控制台
+      </router-link>
+       <router-link class="nav-link" to="/about">
+        中文 / 英文
       </router-link>
     </nav>
   </header>
@@ -18,11 +17,7 @@
 
   @Component
   export default class Header extends Vue {
-    @Prop() private msg!: string;
-
-    showDialog() {
-      alert("ok");
-    }
+    @Prop({ type: String, default: "" }) private className!: string;
   }
 </script>
 
@@ -34,11 +29,23 @@
     align-items: center;
     width: 100%;
     height: 64px;
-    background-color: #f2f3f4;
+    padding: 8px 60px;
+    background-color: #2468f2;
+    &-logo {
+      width: 275px;
+      height: 48px;
+      text-indent: -999em;
+      background: url(../assets/images/logo_w.png) no-repeat 0 50%;
+    }
   }
+
   .quick-menu {
     align-items: center;
     justify-content: flex-end;
     display: flex;
+    a {
+      margin-left: 20px;
+      color: #fff;
+    }
   }
 </style>

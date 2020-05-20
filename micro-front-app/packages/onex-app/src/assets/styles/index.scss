@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+/*
+ * @title           网站样式
+ * @author          moocss
+ * @email           moocss@gmail.com
+ * @version         1.0
+ * @update          $Date: 2019-03-30 $
+ */
+
+/* --------------------------------------------------------------
+  primary styles
+-------------------------------------------------------------- */
+// 默认滚动条样式修改
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 4px solid rgba(255, 255, 255, 0);
+  background-clip: content-box;
+  border-radius: 12px;
+  &:hover {
+    background-color:rgba(0, 0, 0, 0.4);
+  }
+  &:vertical,
+  &:horizontal {
+    background-color:rgba(0, 0, 0, 0.4);
+  }
+}
+
+::-webkit-scrollbar-corner {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.scrollbar:hover {
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+html,
+body,
+.oenx-app-container {
+  height: 100%;
+}
+.oenx-app-container {
+  // 容器
+  .el-container,
+  .el-header,
+  .el-main {
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .el-container,
+  .el-main {
+    height: 100%;
+  }
+}

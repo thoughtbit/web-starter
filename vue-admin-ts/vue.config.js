@@ -139,6 +139,13 @@ module.exports = {
     // https://webpack.js.org/configuration/devtool/#development
     config.when(process.env.NODE_ENV !== "development", (config) => config.devtool("cheap-source-map"));
     config.when(process.env.NODE_ENV !== "development", (config) => {
+      config.devtool("none");
+      config
+        .plugin("ScriptExtHtmlWebpackPlugin")
+        .after("html")
+        .use("script-ext-html-Webpack-plugin", [{ inline: /runtime\..*\.js$/ }])
+        .end();
+
       config.optimization.splitChunks({
         chunks: "all",
         cacheGroups: {
@@ -146,7 +153,7 @@ module.exports = {
             name: "chunk-vendors",
             test: /[\\/]node_modules[\\/]/,
             priority: 10,
-            chunks: 'initial' // 只打包初始时依赖的第三方
+            chunks: "initial" // 只打包初始时依赖的第三方
           },
           commons: {
             name: "chunk-commons",
@@ -158,6 +165,7 @@ module.exports = {
         }
       });
       config.optimization.runtimeChunk("single");
+
       config
         .plugin("banner")
         .use(webpack.BannerPlugin, [`[${pkg.name}]\nversion:${pkg.version}\nauthor: ${pkg.author}\ntime: ${date}`])
@@ -222,17 +230,6 @@ module.exports = {
     });
     // use cdn end
     // ------------------------------------------------------
-
-    config
-      .plugin("ScriptExtHtmlWebpackPlugin")
-      .after("html")
-      .use("script-ext-html-webpack-plugin", [
-        {
-          // `runtime` must same as runtimeChunk name. default is `runtime`
-          inline: /runtime\..*\.js$/
-        }
-      ])
-      .end();
 
     if (isProduction) {
       // 打包分析

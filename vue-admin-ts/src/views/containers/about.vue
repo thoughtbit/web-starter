@@ -1,6 +1,7 @@
 <template>
-  <div class="about">
+  <div class="page-about">
     <ui-header msg="关于我们" />
+    <h1 class="logo"><ui-icon icon-class="account-book-outlined" class="lg" @click="showDialog" /></h1>
     <ui-chart :options="polar" />
     <ui-footer />
   </div>
@@ -56,6 +57,11 @@
           animationDuration: 2000
         }
       };
+    },
+    methods: {
+      showDialog() {
+        alert("ok");
+      }
     }
   };
 </script>

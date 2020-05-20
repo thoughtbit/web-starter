@@ -1,9 +1,8 @@
 import Vue from "vue";
-import ElementUI from "element-ui";
 import App from "@/App.vue";
-import i18n from "@/locales";
 import router from "@/router";
 import store from "@/store";
+import i18n from "@/locales";
 import SentryHelper from "@/utils/sentry-helper";
 
 // PWA
@@ -40,11 +39,6 @@ if (process.env.NODE_ENV === "production" && process.env.VUE_APP_SENTRY_ENABLED)
 
 // 鉴权和路由守卫
 import "@/router/permission";
-
-// 注册 element-ui
-Vue.use(ElementUI, {
-  i18n: (key: string, value: string) => i18n.t(key, value)
-});
 
 // 插件集合
 import "@/plugins";

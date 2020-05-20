@@ -1,0 +1,26 @@
+{
+  "name": "root",
+  "private": true,
+  "description": "前端微服务框架",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "start": "lerna run serve",
+    "build": "lerna run build",
+    "start:onex": "lerna run --scope onex-app serve",
+    "start:app1": "lerna run --scope sub-app1 serve",
+    "start:app2": "lerna run --scope sub-app2 serve",
+    "build:onex": "lerna run --scope onex-app build",
+    "build:app1": "lerna run --scope sub-app1 build",
+    "build:app2": "lerna run --scope sub-app2 build",
+    "clean": "lerna clean --yes && rm -rf ./packages/**/yarn.lock && rm -rf node_modules",
+    "packages:changed": "lerna changed",
+    "packages:diff": "lerna diff",
+    "packages:list": "lerna ls -l"
+  },
+  "devDependencies": {
+    "lerna": "3.21.0"
+  },
+  "engines": {
+    "node": ">= 10"
+  }
+}

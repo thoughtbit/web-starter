@@ -3,7 +3,7 @@
   <svg
     v-else
     class="ui-icon"
-    :class="[{ sm: size === 'sm', lg: size === 'lg', loading: loading }, svgClass]"
+    :class="[{ sm: size === 'sm', lg: size === 'lg', xl: size === 'xl', loading: loading }, svgClass]"
     aria-hidden="true"
     v-on="$listeners"
   >
@@ -67,6 +67,11 @@
       width: 18px;
       height: 18px;
       font-size: 18px;
+    }
+    &.xl {
+      width: 22px;
+      height: 22px;
+      font-size: 22px;
     }
     &.loading {
       animation: loading 1.5s linear infinite;

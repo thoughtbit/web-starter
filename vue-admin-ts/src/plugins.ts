@@ -1,11 +1,18 @@
 import Vue, { DirectiveOptions } from "vue";
+import ElementUI from "element-ui";
 import VueMeta from "vue-meta";
 import VueEcharts from "@/plugins/vue-echarts";
 import * as directives from "@/directives";
 import * as filters from "@/filters";
+import i18n from "@/locales";
 import EventBus from "@/utils/event-bus";
 import Responsive from "@/utils/responsive";
 import GlobalUtils from "@/utils/global";
+
+// 注册 element-ui
+Vue.use(ElementUI, {
+  i18n: (key: string, value: string) => i18n.t(key, value)
+});
 
 // 注册事件中心
 Vue.use(EventBus);

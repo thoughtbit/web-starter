@@ -1,0 +1,43 @@
+import Vue from "vue";
+import App from "@/App.vue";
+import router from "@/router";
+import store from "@/store";
+
+// hash 模式,项目路由用的是hash模式会用到该函数
+export function hashPrefix(path: string) {
+  return (location: Location) => location.hash.startsWith(`#${path}`)
+}
+
+// history 模式，项目路由用的是history模式会用到该函数
+export function pathPrefix(path: string) {
+  return (location: Location) => location.pathname.startsWith(`${path}`)
+}
+
+function VueRender({ appContent, loading }: any = {}) {
+  return new Vue({
+    el: "#app",
+    router,
+    store,
+    data() {
+      // @ts-ignore
+      return { appContent: this.appContent, loading: this.loading };
+    },
+    render(h) {
+      return h(App, {
+        // @ts-ignore
+        props: { appContent: this.appContent, loading: this.loading }
+      });
+    }
+  });
+}
+
+let app: any = null;
+
+export default function render({ appContent, loading }: any = {}) {
+  if (!app) {
+    app = VueRender({ appContent, loading });
+  } else {
+    app.appContent = appContent;
+    app.loading = loading;
+  }
+}

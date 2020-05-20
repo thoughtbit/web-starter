@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container">
+  <div class="register-page">
     <ui-header msg="注册" />
     <div class="register-box">
       <div class="box-hd">

@@ -1,7 +1,7 @@
 <template>
   <div class="ui-layout-header">
     <h1 class="header-logo">
-      <router-link class="logo" to="/"><!--九色鹿-->未来智能云</router-link>
+      <router-link class="logo" to="/">九色鹿数字云</router-link>
     </h1>
     <nav class="header-service">
       <div class="nav-overview">

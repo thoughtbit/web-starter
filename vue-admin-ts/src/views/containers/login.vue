@@ -1,81 +1,125 @@
 <template>
-  <div class="login-container">
-    <ui-header msg="登录" />
-    <div class="login-box">
-      <div class="box-hd">
-        <h2 class="title">用户登录</h2>
+  <div class="login-page h-full flex flex-col">
+    <ui-header msg="未来智能云" class="login-header" />
+    <main class="container mx-auto flex flex-1 items-center">
+      <div class="flex-1">
+        <div class="brand ">
+          <h2>数字改变未来, 数据驱动生活</h2>
+          <ul>
+            <li>开放, 方便的数据共享</li>
+            <li>安全, 可靠的数字管家</li>
+            <li>先进, 快速的服务保障</li>
+          </ul>
+          <div class="divider"></div>
+          <div class="banner">
+
+          </div>
+          <div class="copyright">Copyright &copy; 2020-2022 moocss.com 版权所有</div>
+        </div>
       </div>
-      <!--/.box-hd -->
-      <div class="box-bd">
-        <el-form
-          ref="loginForm"
-          :model="loginForm"
-          :rules="loginRules"
-          class="login-form"
-          autocomplete="on"
-          label-position="left"
-        >
-          <el-form-item prop="username">
-            <span class="svg-container">
-              <i class="ui-icon icon-user"></i>
-            </span>
-            <el-input
-              ref="username"
-              v-model="loginForm.username"
-              placeholder="用户名"
-              name="username"
-              type="text"
-              tabindex="1"
-              autocomplete="on"
-            />
-          </el-form-item>
-          <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
-            <el-form-item prop="password">
+      <div class="login-box">
+        <div class="box-bd">
+           <el-tabs>
+            <el-tab-pane label="密码登录" name="first">密码登录</el-tab-pane>
+            <el-tab-pane label="扫码登录" name="second">密码登录</el-tab-pane>
+          </el-tabs>
+          <el-form
+            ref="loginForm"
+            :model="loginForm"
+            :rules="loginRules"
+            class="login-form"
+            autocomplete="on"
+            label-position="left"
+          >
+            <el-form-item prop="username">
               <span class="svg-container">
-                <i class="ui-class icon-password" />
+                <i class="ui-icon icon-user"></i>
               </span>
               <el-input
-                :key="passwordType"
-                ref="password"
-                v-model="loginForm.password"
-                :type="passwordType"
-                placeholder="密码"
-                name="password"
-                tabindex="2"
+                ref="username"
+                v-model="loginForm.username"
+                placeholder="用户名"
+                name="username"
+                type="text"
+                tabindex="1"
                 autocomplete="on"
-                @keyup.native="checkCapslock"
-                @blur="capsTooltip = false"
-                @keyup.enter.native="handleLogin"
               />
-              <span class="show-pwd" @click="showPwd">
-                <i class="ui-icon" :class="passwordType === 'password' ? 'eye' : 'eye-open'"></i>
-              </span>
             </el-form-item>
-          </el-tooltip>
-          <el-form-item prop="captcha">
-            <span class="svg-container">
-              <i class="ui-icon icon-captcha"></i>
-            </span>
-            <el-input
-              ref="captcha"
-              v-model="loginForm.verifiy"
-              placeholder="验证码"
-              name="verifiy"
-              type="text"
-              tabindex="1"
-              autocomplete="on"
-            />
-            <img :src="loginForm.captcha" alt="" @click="refreshCaptcha" height="40" width="128" />
-          </el-form-item>
-          <el-button :loading="loading" type="primary" class="login-btn" @click.native.prevent="handleLogin"
-            >Login</el-button
-          >
-        </el-form>
-      </div>
-      <!-- /.box-bd -->
-    </div>
-    <!-- /.box -->
-    <ui-footer />
+            <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
+              <el-form-item prop="password">
+                <span class="svg-container">
+                  <i class="ui-class icon-password" />
+                </span>
+                <el-input
+                  :key="passwordType"
+                  ref="password"
+                  v-model="loginForm.password"
+                  :type="passwordType"
+                  placeholder="密码"
+                  name="password"
+                  tabindex="2"
+                  autocomplete="on"
+                  @keyup.native="checkCapslock"
+                  @blur="capsTooltip = false"
+                  @keyup.enter.native="handleLogin"
+                />
+                <span class="show-pwd" @click="showPwd">
+                  <i class="ui-icon" :class="passwordType === 'password' ? 'eye' : 'eye-open'"></i>
+                </span>
+              </el-form-item>
+            </el-tooltip>
+            <el-form-item prop="captcha">
+              <span class="svg-container">
+                <i class="ui-icon icon-captcha"></i>
+              </span>
+              <el-input
+                ref="captcha"
+                v-model="loginForm.verifiy"
+                placeholder="验证码"
+                name="verifiy"
+                type="text"
+                tabindex="1"
+                autocomplete="on"
+              />
+              <img :src="loginForm.captcha" alt="" @click="refreshCaptcha" height="40" width="128" />
+            </el-form-item>
+            <el-button :loading="loading" type="primary" class="login-btn" @click.native.prevent="handleLogin"
+              >Login</el-button
+            >
+          </el-form>
+        </div><!-- /.box-bd -->
+        <div class="box-ft">
+          <ul>
+            <li>
+              <router-link class="nav-link" to="/">忘记密码</router-link>
+            </li>
+            <li>
+              <router-link class="nav-link" to="/register">立即注册</router-link>
+            </li>
+            <li>
+              <router-link class="nav-link" to="/">短信快捷登录</router-link>
+            </li>
+            <li>
+              <router-link class="nav-link" to="/">子用户登录</router-link>
+            </li>
+          </ul>
+
+          <dl>
+            <dt>其他登录方式</dt>
+            <dt>
+              <router-link class="nav-link" to="/">微信</router-link>
+              <router-link class="nav-link" to="/">QQ</router-link>
+              <router-link class="nav-link" to="/">邮箱</router-link>
+            </dt>
+          </dl>  
+
+          <dl>
+            <dt>温馨提示：</dt>
+            <dd>我们不会公开的你的敏感信息</dd>
+          </dl>
+        </div>
+      </div><!-- /.box -->      
+    </main>
   </div>
 </template>
 
@@ -220,17 +264,149 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+  .login-page {
+    background-color: #f5f5f8;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 18%;
+      background-color: #2468f2;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 16.5%;
+        background-color: #2468f2;
+        z-index: 1;
+      }
+    }
+    .header,
+    .footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 8;
+    }
+
+    .footer {
+      bottom: 0;
+    }
+    .login-header {
+      background-color: transparent;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 400px;
+        background-color: rgba(0, 132, 255, 0.1);
+        border-radius: 0 0 64px 0;
+        z-index: -1;
+      }
+      .header-logo {
+        background: url(../../assets/images/logo_b.png) no-repeat 0 50%;
+      }
+    }
+
+    .banner {
+      background-color: #2468f2;
+      width: 368px;
+      height: 140px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .brand {
+      width: 368px;
+      margin-left: 120px;
+      h2 {
+        margin-bottom: 10px;
+        font-size: 28px;
+      }
+
+      ul {
+        padding: 20px 0;
+        li {
+          position: relative;
+          line-height: 22px;
+          padding: 8px 0 8px 20px;
+          color: #717a92;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #aaa;
+            margin-top: -2.5px;
+          }
+        }
+      }
+    }
+
+    .divider {
+      border-bottom: 1px solid #bbbbbb;
+      margin: 20px 0 50px;
+    }
+
+    .copyright {
+      padding: 20px 0;
+      color: #999;
+      font-size: 14px;
+    }
+  }
   .login-box {
-    width: 480px;
-    margin: 0 auto;
-    padding: 20px 0;
+    position: relative;
+    z-index: 88;
+    height: 540px;
+    width: 426px;
+    padding: 30px;
+    overflow: hidden;
+    background-color: #FFF;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px 0px rgba(0, 0, 0, .1);
+    border: 1px solid #f5f5f5;
     .box-hd {
     }
     .box-bd {
     }
     .login-btn {
       width: 100%;
+    }
+  }
+
+
+  @media (min-width: 1024px) {
+    .login-page {
+      .container {
+        &::before {
+          width: 20.5%;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .login-page {
+      .container {
+        &::before {
+          width: 16.5%;
+        }
+      }
     }
   }
 </style>
