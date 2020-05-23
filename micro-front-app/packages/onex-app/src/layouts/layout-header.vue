@@ -3,6 +3,10 @@
     <h1 class="header-logo">
       <router-link class="logo" to="/">九色鹿数字云</router-link>
     </h1>
+    <nav class="quick-nav">
+      <a @click="onChangePage('/app1')">应用1</a>
+      <a @click="onChangePage('/app2')">应用2</a>
+    </nav>
   </div>
 </template>
 
@@ -10,7 +14,16 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
-export default class LayoutHeader extends Vue {}
+export default class LayoutHeader extends Vue {
+  onChangePage(url: string) {
+    console.log(url);
+    this.routerGo(url, "子应用");
+  }
+
+  routerGo(href = "/", title = "", stateObj = {}) {
+    window.history.pushState(stateObj, title, href);
+  }
+}
 </script>
 
 <style lang="scss" scoped>

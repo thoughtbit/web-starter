@@ -9,7 +9,7 @@ export const routesConfig = Object.freeze<RoutesConfig>({
   login: {
     path: "/login",
     name: "login",
-    component: "views/containers/login", 
+    component: "views/containers/login/index",
     hidden: true
   },
   // 注册

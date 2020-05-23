@@ -1,5 +1,5 @@
 <template>
-  <div class="home">index page</div>
+  <div class="home">app2 首页</div>
 </template>
 
 <script lang="ts">

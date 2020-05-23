@@ -34,7 +34,7 @@ if (!__qiankun__) {
   render();
 }
 
-function storeTest(props: any) {
+function initStore(props: any) {
   props.onGlobalStateChange &&
   props.onGlobalStateChange(
     (value: any, prev: any) => console.log(`[onGlobalStateChange - ${props.name}]:`, value, prev),
@@ -55,7 +55,7 @@ export async function bootstrap() {
 
 export async function mount(props: any) {
   console.log('[vue] props from main framework', props);
-  storeTest(props);
+  initStore(props);
   render(props);
 }
 

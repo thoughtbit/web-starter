@@ -6,7 +6,6 @@ function resolve(dir) {
 }
 
 const port = 9000;
-const name = "onex-app";
 const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
@@ -36,7 +35,7 @@ module.exports = {
   },
   configureWebpack(config) {
     const plugins = [];
-    config.name = name;
+    config.name = pkg.name;
     config.resolve.alias["@"] = resolve("src");
   }
 };

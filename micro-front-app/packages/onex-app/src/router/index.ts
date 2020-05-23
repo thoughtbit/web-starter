@@ -12,12 +12,13 @@ const routes: Array<RouteConfig> = [
   {
     path: "/home",
     name: "Home",
-    component: () => import(/* webpackChunkName: "home" */ "@/views/Home.vue")
+    component: () => import(/* webpackChunkName: "home" */ "@/views/home.vue")
   },
   {
-    path: "/about",
-    name: "About",
-    component: () => import(/* webpackChunkName: "about" */ "@/views/About.vue")
+    path: "/login",
+    name: "Login",
+    meta: { withoutLayout: true },
+    component: () => import(/* webpackChunkName: "about" */ "@/views/login.vue")
   }
 ];
 

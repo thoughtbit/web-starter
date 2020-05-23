@@ -16,6 +16,8 @@
 </script>
 <style lang="scss">
   .app-container {
+    margin: 0 auto;
+    min-width: 1200px;
     height: 100vh !important;
   }
 </style>

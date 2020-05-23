@@ -19,10 +19,11 @@
       </div>
       <div class="login-box">
         <div class="box-bd">
-           <el-tabs>
-            <el-tab-pane label="密码登录" name="first">密码登录</el-tab-pane>
-            <el-tab-pane label="扫码登录" name="second">密码登录</el-tab-pane>
-          </el-tabs>
+          <nav class="login-nav">
+            <a @click.stop="activeName='user'">{{ $t('login.userLogin') }}</a>
+            <a @click.stop="activeName='code'">{{ $t('login.phoneLogin') }}</a>
+          </nav>
+
           <el-form
             ref="loginForm"
             :model="loginForm"
@@ -97,7 +98,7 @@
               <router-link class="nav-link" to="/register">立即注册</router-link>
             </li>
             <li>
-              <router-link class="nav-link" to="/">短信快捷登录</router-link>
+              <router-link class="nav-link" to="/">扫码登录</router-link>
             </li>
             <li>
               <router-link class="nav-link" to="/">子用户登录</router-link>
@@ -111,14 +112,14 @@
               <router-link class="nav-link" to="/">QQ</router-link>
               <router-link class="nav-link" to="/">邮箱</router-link>
             </dt>
-          </dl>  
+          </dl>
 
           <dl>
             <dt>温馨提示：</dt>
             <dd>我们不会公开的你的敏感信息</dd>
           </dl>
         </div>
-      </div><!-- /.box -->      
+      </div><!-- /.box -->
     </main>
   </div>
 </template>
@@ -268,6 +269,10 @@
   .login-page {
     background-color: #f5f5f8;
     position: relative;
+    margin: 0 auto;
+    overflow-x: auto;
+    min-width: 1200px;
+    min-height: 720px;
     &::before {
       content: "";
       position: absolute;
@@ -305,17 +310,6 @@
     }
     .login-header {
       background-color: transparent;
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 400px;
-        background-color: rgba(0, 132, 255, 0.1);
-        border-radius: 0 0 64px 0;
-        z-index: -1;
-      }
       .header-logo {
         background: url(../../assets/images/logo_b.png) no-repeat 0 50%;
       }
