@@ -6,76 +6,52 @@ import {
   addGlobalUncaughtErrorHandler, // 添加全局未捕获异常处理器
   initGlobalState, // 官方应用间通信
 } from "qiankun";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 
-// 导入主应用
-import render, { pathPrefix } from "@/micro/vue-render";
+import getApps from "@/micro/apps";
+import render from "@/micro/vue-render";
+import shared from "@/shared";
 
-/**
- * Step1 初始化应用
- */
 // @ts-ignore
 render({ loading: true });
 
 // @ts-ignore
 const loader = loading => render({ loading });
 
-let msg = {
-  data: "来在基座发出的消息"
+const props = {
+  shared
 }
-
-/**
- * Step2 注册子应用
- */
-const apps = [
-  {
-    name: 'app1',
-    entry: '//localhost:9001',
-    container: '#subapp-viewport',
-    loader,
-    activeRule: pathPrefix('/app1'),
-    props: msg,
+const apps = getApps(props, loader);
+registerMicroApps(apps, {
+  // 挂载前的回调
+  beforeLoad: (app: any) => {
+    NProgress.start();
+    console.log('[LifeCycle] before load %c%s', 'color: green;', app.name);
+    return Promise.resolve();
   },
-  {
-    name: 'app2',
-    entry: '//localhost:9002',
-    container: '#subapp-viewport',
-    loader,
-    activeRule: pathPrefix('/app2'),
-    props: msg,
-  }
-];
-registerMicroApps(
-  apps,
-  {
-    // 挂载前的回调
-    beforeLoad: [
-      // @ts-ignore
-      app => {
-        console.log('[LifeCycle] before load %c%s', 'color: green;', app.name);
-      },
-    ],
-    // 挂载后的回调
-    beforeMount: [
-      // @ts-ignore
-      app => {
-        console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name);
-      },
-    ],
-    // 卸载后的回调
-    afterUnmount: [
-      // @ts-ignore
-      app => {
-        console.log('[LifeCycle] after unmount %c%s', 'color: green;', app.name);
-      },
-    ],
-  }
-);
+  // 挂载后的回调
+  beforeMount: [
+    // @ts-ignore
+    app => {
+      console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name);
+    },
+  ],
+  // 卸载后的回调
+  afterMount: (app: any) => {
+    NProgress.done();
+    console.log('[LifeCycle] after unmount %c%s', 'color: green;', app.name);
+    return Promise.resolve();
+  },
+});
 
+// 初始化全局状态
 const { onGlobalStateChange, setGlobalState } = initGlobalState({
   user: 'qiankun',
 });
 
-onGlobalStateChange((value, prev) => console.log('[onGlobalStateChange - master]:', value, prev));
+onGlobalStateChange((value, prev) =>
+  console.log('[onGlobalStateChange - master]:', value, prev));
 
 setGlobalState({
   ignore: 'master',
@@ -84,18 +60,9 @@ setGlobalState({
   },
 });
 
-/**
- * Step3 设置默认进入的子应用
- */
-setDefaultMountApp('/app1');
+// setDefaultMountApp('/app1');
 
-/**
- * Step4 启动微服务
- */
-start({
-  // 渲染模式由 render 模式 改为 container
-  sandbox: { strictStyleIsolation: true }
-})
+start();
 
 // 第一个子应用加载完毕回调
 runAfterFirstMounted(() => {

@@ -5,7 +5,6 @@
     </h1>
     <nav class="quick-nav">
       <a @click="onChangePage('/app1')">应用1</a>
-      <a @click="onChangePage('/app2')">应用2</a>
     </nav>
   </div>
 </template>
@@ -44,4 +43,10 @@ export default class LayoutHeader extends Vue {
     color: #fff;
   }
 }
+  .quick-nav {
+    margin-right: 15px;
+    a {
+      color: #fff;
+    }
+  }
 </style>

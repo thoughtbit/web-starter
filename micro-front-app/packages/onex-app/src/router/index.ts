@@ -4,13 +4,13 @@ import VueRouter, { RouteConfig } from "vue-router";
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
+  // {
+  //   name: "Layout",
+  //   path: "/",
+  //   component: () => import(/* webpackChunkName: "layout" */ '@/layouts/layout.vue')
+  // },
   {
-    name: "Layout",
     path: "/",
-    component: () => import(/* webpackChunkName: "layout" */ '@/layouts/layout.vue')
-  },
-  {
-    path: "/home",
     name: "Home",
     component: () => import(/* webpackChunkName: "home" */ "@/views/home.vue")
   },

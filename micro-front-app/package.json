@@ -3,22 +3,46 @@
   "private": true,
   "description": "前端微服务框架",
   "scripts": {
+    "mock-server": "cd mock-server && ts-node-dev --respawn --transpileOnly server.ts",
+
+    "apps:start": "npm-run-all --parallel start:*",
+    "apps:build": "npm-run-all --parallel build:*",
+    "start:main": "cd packages/onex-app && yarn serve",
+    "start:vue-ts": "cd packages/micro-app-vue-ts && yarn serve",
+    "start:react": "cd packages/micro-app-react && yarn start",
+    "start:vue": "cd packages/micro-app-vue && yarn serve",
+
     "bootstrap": "lerna bootstrap",
     "start": "lerna run serve",
     "build": "lerna run build",
     "start:onex": "lerna run --scope onex-app serve",
-    "start:app1": "lerna run --scope sub-app1 serve",
-    "start:app2": "lerna run --scope sub-app2 serve",
     "build:onex": "lerna run --scope onex-app build",
-    "build:app1": "lerna run --scope sub-app1 build",
-    "build:app2": "lerna run --scope sub-app2 build",
     "clean": "lerna clean --yes && rm -rf ./packages/**/yarn.lock && rm -rf node_modules",
     "packages:changed": "lerna changed",
     "packages:diff": "lerna diff",
     "packages:list": "lerna ls -l"
   },
   "devDependencies": {
-    "lerna": "3.21.0"
+    "lerna": "3.21.0",
+    "npm-run-all": "^4.1.5",
+    "@types/bcrypt": "^3.0.0",
+    "@types/http-proxy-middleware": "^0.19.3",
+    "@types/json-server": "^0.14.2",
+    "@types/jsonwebtoken": "^8.3.8",
+    "@types/lodash": "^4.14.149",
+    "@types/lowdb": "^1.0.9",
+    "@types/node": "^13.9.3",
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.3",
+    "json-server": "^0.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "lowdb": "^1.0.0",
+    "mockjs": "^1.1.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "~3.7.5",
+    "consola": "^2.12.1",
+    "svg-captcha": "^1.4.0"
   },
   "engines": {
     "node": ">= 10"

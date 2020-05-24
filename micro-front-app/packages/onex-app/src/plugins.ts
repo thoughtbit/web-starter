@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { Button, Menu, Submenu, MenuItem, MenuItemGroup, Container, Header, Main } from "element-ui";
+import { Button, Menu, Submenu, MenuItem, MenuItemGroup, Container, Header, Main, Aside } from "element-ui";
 
 Vue.config.productionTip = false;
 
@@ -11,3 +11,4 @@ Vue.use(MenuItemGroup);
 Vue.use(Container);
 Vue.use(Header);
 Vue.use(Main);
+Vue.use(Aside);

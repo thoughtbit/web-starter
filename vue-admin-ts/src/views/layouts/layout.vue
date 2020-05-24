@@ -25,14 +25,14 @@
   import { Route } from "vue-router";
 
   import LayoutHeader from "@/views/layouts/layout-header.vue";
-  import SiderMenu from "@/views/components/menu/sider-menu.vue";
-  import SiderSubMenu from "@/views/components/menu/sider-submenu.vue";
+  // import SiderMenu from "@/views/components/menu/sider-menu.vue";
+  // import SiderSubMenu from "@/views/components/menu/sider-submenu.vue";
 
   @Component({
     components: {
       LayoutHeader,
-      SiderMenu,
-      SiderSubMenu
+      // SiderMenu,
+      // SiderSubMenu
     }
   })
   export default class Layout extends Vue {

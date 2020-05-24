@@ -23,13 +23,13 @@
   import { Action } from "vuex-class";
   import Layout from "@/views/layouts/layout.vue";
   import RouteView from "@/views/layouts/route-view.vue";
-  import ContextMenu from "@/views/components/menu/context-menu.vue";
+  // import ContextMenu from "@/views/components/menu/context-menu.vue";
 
   @Component({
     components: {
       Layout,
       RouteView,
-      ContextMenu
+      // ContextMenu
     }
   })
   export default class MenuView extends Vue {

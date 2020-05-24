@@ -31,6 +31,18 @@ module.exports = {
     open: true,
     headers: {
       "Access-Control-Allow-Origin": "*"
+    },
+    proxy: {
+      [process.env.VUE_APP_BASE_API_PREFIX]: {
+        target: process.env.VUE_APP_BASE_API,
+        changeOrigin: true, // needed for virtual hosted sites
+        // ws: true, // proxy websockets
+        autoRewrite: true,
+        // cookieDomainRewrite: true,
+        pathRewrite: {
+          [`^${process.env.VUE_APP_BASE_API_PREFIX}`]: ""
+        }
+      }
     }
   },
   configureWebpack(config) {

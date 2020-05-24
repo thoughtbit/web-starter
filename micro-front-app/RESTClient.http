@@ -1,0 +1,33 @@
+### 用户查询
+GET https://localhost:3000/user HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTU5MDI4OTc1MiwiZXhwIjoxNTkwMzc2MTUyfQ.LW6KBMiA-OI_y7bnxSF2riAFzecqgH4P_QC4Ol7ELdVjFHrJBcx8B_Vp0JdGf-XFlfxcauK0CLOpN9x7ml8QGPxzjgxkjUwEdYzZ5IZ4OsyGdkBJ_biuZLhWn-LqDM8v-Wk-r4eaawx3wUajfh9iiWbkFIzkhQLGRi0CvOme8imoUyRpDDorxghDMdnZEbD8Lv9ORudY2vYxk3o74L8Vt1AlIFzPSLAPOzYITzjJlPjhpisWYXlGfIRi9RZkQuhNFJ0LrZjSOTjstfls51j9nZNqSt25Lcsd6HmnrVhcE9SgYNnytWPpPmr5iuoy_9fLNyHmFI-vem0sJqqo_X_fUA
+
+
+### 用户登录
+POST https://localhost:3000/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "123456"
+}
+
+
+### 用户注册
+POST https://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "totot",
+    "password": "123456"
+}
+
+### 角色列表
+POST https://localhost:3000/roles HTTP/1.1
+content-type: application/json
+
+### 验证 JWT
+POST https://localhost:3000/token/validate HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTU4Nzk3NDQwNiwiZXhwIjoxNTg4MDYwODA2fQ.sPDFq0iEu9FdMBFLU3rml1VoxcPDKdArOEllK4nLdFUzbS0Yr-7dUDaoPMLY7LnoAuwIKNd-vk8DJ-zZ5hm6VcRF28SZgtro4hJGKd7VIZqOSc7Gyl_p4o3aSxx7NeAE0hK0JCWB7cvD7uHQeUCW9YOMefWkQ3eT3UAqgacUY4lH5f-pUtMzDY9IrkNYjRLWIVYJekicMb4I24jBAd2JcNVRbhfSHr4KcXZUAvhTGy-hH16OFqgVGQj7W7rZbFxHZGqW5omXjZFMe7EmQJ8ZlvfHAxP202Bgiz5lUTpZaQewU5DKA9fPVcqEyp7EzCRC6JinpJuxq6xT5TG_t67CnA
