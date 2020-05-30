@@ -1,9 +1,3 @@
-function isValidUsername(str: string) {
-  // const validMap = ["admin", "editor"];
-  // return validMap.indexOf(str.trim()) >= 0;
-  return str.length > 3;
-}
-
 /**
  * @param {string} path
  * @returns {Boolean}
@@ -68,8 +62,79 @@ function validNumber(value: number) {
   return re.test(String(value));
 }
 
+function validMobile(phone: string) {
+  const re = /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-7|9])|(?:5[0-3|5-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[1|8|9]))\d{8}$/;
+  return re.test(phone);
+}
+
+/**
+ * 判断邮箱地址是否正确
+ */
+function isValidateEmail(email: string) {
+  const list = [];
+  let result = true;
+  let msg = '';
+  if (!validateNull(email)) {
+    if (!validEmail(email)) {
+      msg = '邮箱格式不正确'
+    } else {
+      result = false
+    }
+  } else {
+    msg = '邮箱地址不能为空'
+  }
+  list.push(result);
+  list.push(msg);
+  return list;
+}
+
+/**
+ * 判断手机号码是否正确
+ */
+function isValidateMobile(phone: string) {
+  const list = [];
+  let result = true;
+  let msg = '';
+  if (!validateNull(phone)) {
+    if (phone.length >= 11) {
+      if (!validMobile(phone)) {
+        msg = '手机号码格式不正确'
+      } else {
+        result = false
+      }
+    } else {
+      msg = '手机号码长度不为11位'
+    }
+  } else {
+    msg = '手机号码不能为空'
+  }
+  list.push(result);
+  list.push(msg);
+  return list;
+}
+
+/**
+ * 判断是否为空
+ */
+function validateNull(val: any) {
+  if (typeof val === "boolean") {
+    return false;
+  }
+  if (typeof val === "number") {
+    return false;
+  }
+  if (val instanceof Array) {
+    if (val.length === 0) return true;
+  } else if (val instanceof Object) {
+    if (JSON.stringify(val) === '{}') return true;
+  } else {
+    if (val === 'null' || val == null || val === 'undefined' || val === undefined || val === '') return true;
+    return false;
+  }
+  return false;
+}
+
 export {
-  isValidUsername,
   isExternal,
   validURL,
   validateLowerCase,
@@ -77,5 +142,9 @@ export {
   isArray,
   validEmail,
   isString,
-  validNumber
+  validNumber,
+  validateNull,
+  isValidateMobile,
+  validMobile,
+  isValidateEmail
 };

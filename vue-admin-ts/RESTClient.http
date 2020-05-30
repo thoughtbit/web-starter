@@ -9,7 +9,7 @@ content-type: application/json
 
 {
     "username": "admin",
-    "password": "123456"
+    "password": "12345678"
 }
 
 
@@ -18,8 +18,12 @@ POST https://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "username": "totot",
-    "password": "123456"
+    "username": "admin",
+    "password": "12345678",
+    "repassword": "12345678",
+    "phone": "13484903848",
+    "code": "123456",
+    "isAgree": true
 }
 
 ### 角色列表
@@ -30,3 +34,8 @@ content-type: application/json
 POST https://localhost:3000/token/validate HTTP/1.1
 content-type: application/json
 Authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTU4Nzk3NDQwNiwiZXhwIjoxNTg4MDYwODA2fQ.sPDFq0iEu9FdMBFLU3rml1VoxcPDKdArOEllK4nLdFUzbS0Yr-7dUDaoPMLY7LnoAuwIKNd-vk8DJ-zZ5hm6VcRF28SZgtro4hJGKd7VIZqOSc7Gyl_p4o3aSxx7NeAE0hK0JCWB7cvD7uHQeUCW9YOMefWkQ3eT3UAqgacUY4lH5f-pUtMzDY9IrkNYjRLWIVYJekicMb4I24jBAd2JcNVRbhfSHr4KcXZUAvhTGy-hH16OFqgVGQj7W7rZbFxHZGqW5omXjZFMe7EmQJ8ZlvfHAxP202Bgiz5lUTpZaQewU5DKA9fPVcqEyp7EzCRC6JinpJuxq6xT5TG_t67CnA
+
+
+### 获取短信验证码
+GET https://localhost:3000/sns/13584903846 HTTP/1.1
+content-type: application/json

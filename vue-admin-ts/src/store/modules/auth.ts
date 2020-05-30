@@ -83,6 +83,21 @@ const actions = {
     });
   },
 
+  async loginByMobile(
+    context: { commit: Commit },
+    params: { phone: string; code: string }
+  ): Promise<void> {
+    // @ts-ignore
+    await SERVICE["loginByMobile"](params).then((res) => {
+      Logger.info("手机登录", "AuthStore", res)();
+
+      StorageManager.setToken(res.data);
+
+      context.commit(types.SET_TOKEN, res.data);
+      context.commit(types.SET_LOGIN_STATUS, true);
+    });
+  },
+
   async logout(context: { commit: Commit, dispatch: Dispatch }) {
     // @ts-ignore
     await SERVICE["logout"]().then(() => {
@@ -110,8 +125,7 @@ const actions = {
   },
   resetPassword() {
 
-  },
-
+  }
 };
 
 export default {

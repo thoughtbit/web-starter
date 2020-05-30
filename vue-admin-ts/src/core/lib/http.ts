@@ -30,7 +30,7 @@ const instance: AxiosInstance = axios.create(defaultConfig);
 
 // 默认错误处理方式
 const onError = (error: AxiosResponse | any) => {
-  Logger.info("onError", "网络请求", error)();
+  // Logger.info("onError", "网络请求", error)();
   let errorMessage = error?.message ?? "未知异常";
   const response = error?.response;
   const status = error?.status ?? -1000;

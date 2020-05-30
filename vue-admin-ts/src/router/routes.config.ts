@@ -12,11 +12,32 @@ export const routesConfig = Object.freeze<RoutesConfig>({
     component: "views/containers/login/index",
     hidden: true
   },
+  // 子用户登录
+  sublogin: {
+    path: "/sublogin",
+    name: "sublogin",
+    component: "views/containers/login/sub-login",
+    hidden: true
+  },
+  // 扫描二维码登录
+  qrcodelogin: {
+    path: "/qrcodelogin",
+    name: "qrcodelogin",
+    component: "views/containers/login/qrcode-login",
+    hidden: true
+  },
+  // 忘记密码
+  forgot: {
+    path: "/forgot",
+    name: "forgot",
+    component: "views/containers/forgot/index",
+    hidden: true
+  },
   // 注册
   register: {
     path: "/register",
     name: "register",
-    component: "views/containers/register",
+    component: "views/containers/register/index",
     hidden: true
   },
   // 关于我们

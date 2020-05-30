@@ -3,20 +3,35 @@
     <ui-header msg="子用户登录" />
     <div class="sub-login-box">
       <div class="box-hd">
-        <h2 class="title">{{$t('subLogin.title')}}</h2>
+        <h2 class="title">{{$t('sublogin.title')}}</h2>
       </div><!--/.box-hd -->
       <div class="box-bd">
-        <el-form ref="subAccountLoginForm" :model="subAccountLoginForm" :rules="subAccountLoginRules" class="register-form" label-position="left">
+        <el-form ref="subLoginForm" :model="subLoginForm" :rules="subLoginRules" class="sub-login-form" label-position="left">
+          <el-form-item prop="owner">
+            <el-input
+                clearable
+                ref="owner"
+                v-model="subLoginForm.owner"
+                :placeholder="$t('sublogin.owner')"
+                name="owner"
+                type="text"
+                tabindex="1"
+                maxlength="20"
+                prefix-icon="el-icon-postcard"
+                autocomplete="off"
+                @keyup.enter.native="handleLogin"
+            />
+          </el-form-item>
           <el-form-item prop="username">
             <el-input
                 clearable
                 ref="username"
-                v-model="loginForm.username"
-                :placeholder="$t('login.username')"
+                v-model="subLoginForm.username"
+                :placeholder="$t('sublogin.username')"
                 name="username"
                 type="text"
-                tabindex="1"
-                maxlength="20"
+                tabindex="2"
+                maxlength="16"
                 prefix-icon="el-icon-user"
                 autocomplete="off"
                 @keyup.enter.native="handleLogin"
@@ -26,40 +41,24 @@
             <el-input
                 clearable
                 ref="password"
-                v-model="loginForm.password"
-                :placeholder="$t('login.password')"
+                v-model="subLoginForm.password"
+                :placeholder="$t('sublogin.password')"
                 :show-password="true"
                 name="password"
                 type="password"
-                maxlength="20"
-                tabindex="2"
+                maxlength="16"
+                minlength="8"
+                tabindex="3"
                 autocomplete="off"
                 prefix-icon="el-icon-key"
                 @keyup.enter.native="handleLogin"
             />
           </el-form-item>
-          <el-form-item class="captcha-wrapper" prop="code">
-            <el-input
-                clearable
-                ref="code"
-                v-model="loginForm.code"
-                :placeholder="$t('login.code')"
-                name="code"
-                type="text"
-                maxlength="5"
-                tabindex="3"
-                prefix-icon="el-icon-lock"
-                autocomplete="off"
-                @keyup.enter.native="handleLogin"
-                class="el-input-code"
-            />
-            <img :src="captcha.src" alt="" @click="refreshCaptcha" height="40" width="128" class="captcha" />
-            <a href="javascript:;" class="captcha-btn" @click="refreshCaptcha">换一张</a>
-          </el-form-item>
-          <el-form-item class="login-action">
+          <el-form-item class="sub-login-action">
             <el-button :loading="loading" type="primary" tabindex="4" class="login-btn" @click.native.prevent="handleLogin">{{
-              $t("subLogin.sumbitBtn")
+              $t("sublogin.sumbitBtn")
               }}</el-button>
+            <router-link to="/login" class="goto-login-link"><ui-icon icon-class="arrow-left-outlined" class="xl" />切换其他账号</router-link>
           </el-form-item>
         </el-form>
       </div><!-- /.box-bd -->
@@ -73,37 +72,31 @@
   import { State } from "vuex-class";
   import { Route } from "vue-router";
   interface User {
+    owner: string | any[];
     username: string | any[];
     password: string | any[];
-    code: string | any[];
   }
 
   @Component({})
-  export default class SubAccountLogin extends Vue {
-    private subAccountLoginForm = <User>{
-      username: "admin",
-      password: "123456",
-      code: ""
+  export default class SubLogin extends Vue {
+    private subLoginForm = <User>{
+      owner: "",
+      username: "",
+      password: ""
     };
-    private subAccountLoginRules = <User>{
+    private subLoginRules = <User>{
+      owner: [
+        { required: true, trigger: "blur", message: "请输入子用户登录" },
+        { min: 2, message: '子用户名长度最少为2位', trigger: 'blur' }
+      ],
       username: [
         { required: true, trigger: "blur", message: "请输入用户名" },
         { min: 2, message: '用户名长度最少为2位', trigger: 'blur' }
       ],
       password: [
         { required: true, trigger: "blur",  message: "请输入密码" },
-        { min: 6, message: '密码长度最少为6位', trigger: 'blur' }
-      ],
-      code: [
-        { required: true, trigger: "blur",  message: "请输入验证码" },
-        { min: 5, message: '验证码长度最少为5位', trigger: 'blur' }
+        { min: 8, max: 16, message: '密码长度最少为8位, 最多16位', trigger: 'blur' }
       ]
-    };
-
-    private captcha = {
-      src: "/kaptcha",
-      value: "",
-      length: "5"
     };
 
     private loading: boolean = false;
@@ -133,9 +126,7 @@
       }
     }
 
-    private created() {
-      this.refreshCaptcha();
-    }
+    private created() {}
 
     private beforeMount() {
       setTimeout(() => {
@@ -148,25 +139,25 @@
     }
 
     private mounted() {
-      if (this.subAccountLoginForm.username === "") {
+      if (this.subLoginForm.owner === "") {
+        // @ts-ignore
+        this.$refs.owner.focus();
+      } else if (this.subLoginForm.username === "") {
         // @ts-ignore
         this.$refs.username.focus();
-      } else if (this.subAccountLoginForm.password === "") {
+      } else if (this.subLoginForm.password === "") {
         // @ts-ignore
         this.$refs.password.focus();
-      } else if (this.subAccountLoginForm.code === "") {
-        // @ts-ignore
-        this.$refs.code.focus();
       }
     }
 
     private handleLogin(): void {
       // @ts-ignore
-      this.$refs.loginForm.validate((valid) => {
+      this.$refs.subLoginForm.validate((valid) => {
         if (valid) {
           this.loading = true;
           this.$store
-            .dispatch("auth/login", this.subAccountLoginForm)
+            .dispatch("auth/login", this.subLoginForm)
             .then(() => {
               this.$router.push({ path: this.redirect || "/", query: this.otherQuery });
               this.loading = false;
@@ -181,10 +172,6 @@
       });
     }
 
-    private refreshCaptcha(): void {
-      this.captcha.src = `/kaptcha?t=${new Date().getTime()}`;
-    }
-
     private getOtherQuery(query: any) {
       return Object.keys(query).reduce((acc: any, cur: any) => {
         if (cur !== 'redirect') {
@@ -197,7 +184,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .register-page {
+  .sub-login-page {
     background-color: #f5f5f8;
     position: relative;
     margin: 0 auto;
@@ -206,7 +193,7 @@
     min-height: 720px;
     height: 100%;
   }
-  .register-box {
+  .sub-login-box {
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 4px 40px 0px rgba(0, 0, 0, .15);
@@ -238,12 +225,26 @@
       }
     }
   }
-  .register-action {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .el-button {
-      flex: 1;
+  .sub-login-action {
+    .login-btn {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+  }
+  .goto-login-link {
+    display: block;
+    color: #409eff;
+    line-height: 22px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    .ui-icon {
+      vertical-align: top;
+      margin-right: 5px;
+    }
+    &:hover {
+      color: #0587f8;
     }
   }
 </style>

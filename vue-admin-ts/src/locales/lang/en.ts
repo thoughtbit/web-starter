@@ -1,4 +1,13 @@
 export default {
+  login: {
+    title: "System Login",
+    username: "User Name",
+    password: "Password",
+    code: "Code",
+    phone: "Phone",
+    userLogin: "User Login",
+    phoneLogin: "Phone Login"
+  },
   menus: {
     // 公共
     index: 'Index',

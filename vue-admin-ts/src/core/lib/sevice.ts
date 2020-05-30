@@ -5,9 +5,16 @@ function serve({ serviceName = "", serviceArguments = {}, config = {}}): Promise
   // @ts-ignore
   const { method, endpoint } = API[serviceName];
 
+  // resetful api replace params
+  let url = endpoint.replace(/:([\w]+)/g, (word: string, $1: any) => {
+    // @ts-ignore
+    return serviceArguments[$1] ? serviceArguments[$1] : word;
+  });
+
+
   // @ts-ignore
   return HttpClient[method.toLocaleLowerCase()]({
-    url: endpoint,
+    url,
     payload: serviceArguments,
     config: config
   });

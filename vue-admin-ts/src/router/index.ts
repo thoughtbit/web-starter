@@ -61,7 +61,16 @@ export const commonRoutes = [
     ...routesConfig.login
   },
   {
+    ...routesConfig.sublogin
+  },
+  {
+    ...routesConfig.qrcodelogin
+  },
+  {
     ...routesConfig.register
+  },
+  {
+    ...routesConfig.forgot
   },
   {
     ...routesConfig.about

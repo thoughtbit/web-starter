@@ -19,7 +19,7 @@
       </div>
       <div class="login-box">
         <div class="box-bd">
-          <nav class="login-nav">
+          <nav class="login-nav" v-show="activeName==='user' || activeName==='code'">
             <a @click.stop="activeName='user'" class="item" :class="{active:activeName==='user'}">{{ $t('login.userLogin') }}</a>
             <a @click.stop="activeName='code'" class="item" :class="{active:activeName==='code'}">{{ $t('login.phoneLogin') }}</a>
           </nav>
@@ -27,31 +27,34 @@
           <code-login v-else-if="activeName==='code'"></code-login>
         </div><!-- /.box-bd -->
         <div class="box-ft">
-          <ul>
-            <li>
-              <router-link class="nav-link" to="/">忘记密码</router-link>
+          <ul class="login-quick-nav">
+            <li class="item">
+              <router-link class="nav-link" to="/forgot">忘记密码</router-link>
             </li>
-            <li>
+            <li class="item">
               <router-link class="nav-link" to="/register">立即注册</router-link>
             </li>
-            <li>
-              <router-link class="nav-link" to="/">扫码登录</router-link>
+            <li class="item">
+              <router-link class="nav-link" to="/qrcodelogin">扫码登录</router-link>
             </li>
-            <li>
-              <router-link class="nav-link" to="/">子用户登录</router-link>
+            <li class="item">
+              <router-link class="nav-link" to="/sublogin">子用户登录</router-link>
             </li>
           </ul>
 
-          <dl>
+          <dl class="login-other-nav">
             <dt>其他登录方式</dt>
-            <dt>
-              <router-link class="nav-link" to="/">微信</router-link>
-              <router-link class="nav-link" to="/">QQ</router-link>
-              <router-link class="nav-link" to="/">邮箱</router-link>
-            </dt>
+            <dd>
+              <a href="javascript:;" class="nav-link" @click.native.stop="">
+                <ui-icon icon-class="wechat-outlined" class="xl" />
+              </a>
+              <a href="javascript:;" class="nav-link" @click.native.stop="">
+                <ui-icon icon-class="qq-outlined" class="xl" />
+              </a>
+            </dd>
           </dl>
 
-          <dl>
+          <dl class="login-hint">
             <dt>温馨提示：</dt>
             <dd>我们不会公开的你的敏感信息</dd>
           </dl>
@@ -62,34 +65,12 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue, Watch } from "vue-property-decorator";
-  import { State, Mutation } from "vuex-class";
-  import { Route } from "vue-router";
-  import { isValidUsername } from "@/utils/validation";
+  import { Component, Vue } from "vue-property-decorator";
+  import { State } from "vuex-class";
 
   import UserLogin from "@/views/containers/login/user-login.vue";
   import CodeLogin from "@/views/containers/login/code-login.vue";
 
-  interface User {
-    username: string | any[];
-    password: string | any[];
-    captcha: string | any[];
-  }
-
-  const validateUsername = (rule: any, value: string, callback: any): void => {
-    if (!isValidUsername(value)) {
-      callback(new Error("请输入正确的用户名"));
-    } else {
-      callback();
-    }
-  };
-  const validatePassword = (rule: any, value: string, callback: any): void => {
-    if (value.length < 6) {
-      callback(new Error("密码不能少于6位"));
-    } else {
-      callback();
-    }
-  };
 
   @Component({
     components: {
@@ -98,116 +79,13 @@
     }
   })
   export default class Login extends Vue {
-    private loginForm = <User>{
-      username: "",
-      password: "",
-      verifiy: "",
-      captcha: "/kaptcha"
-    };
-    private loginRules = <User>{
-      username: [{ required: true, trigger: "blur", validator: validateUsername }],
-      password: [{ required: true, trigger: "blur", validator: validatePassword }]
-    };
-
     private activeName: string = "user";
-
-    private passwordType: string = "password";
-    private capsTooltip: boolean = false;
-    private loading: boolean = false;
-    private redirect: any = null;
-    private otherQuery: any = {};
-
-    private checkLoginStatus = false;
 
     @State("auth")
     private authState: any;
 
     get loginStatus(): boolean {
       return this.authState.isLogin;
-    }
-
-    @Watch("loginStatus")
-    change() {
-      this.checkLoginStatus = this.loginStatus;
-    }
-
-    @Watch("$route", { immediate: true })
-    private onRouteChange(route: Route) {
-      this.redirect = route.query && (route.query.redirect as string);
-    }
-
-    private created() {
-      this.refreshCaptcha();
-    }
-
-    private beforeMount() {
-      setTimeout(() => {
-        if (!!this.authState.isLogin) {
-          this.$router.push({
-            name: "/"
-          });
-        }
-      }, 1000);
-    }
-
-    private mounted() {
-      if (this.loginForm.username === "") {
-        // @ts-ignore
-        this.$refs.username.focus();
-      } else if (this.loginForm.password === "") {
-        // @ts-ignore
-        this.$refs.password.focus();
-      }
-    }
-
-    // private destroyed() {
-    //   console.log("===> destroyed");
-    // }
-
-    private checkCapslock({ shiftKey = "", key = "" } = {}) {
-      if (key && key.length === 1) {
-        if ((shiftKey && key >= "a" && key <= "z") || (!shiftKey && key >= "A" && key <= "Z")) {
-          this.capsTooltip = true;
-        } else {
-          this.capsTooltip = false;
-        }
-      }
-      if (key === "CapsLock" && this.capsTooltip === true) {
-        this.capsTooltip = false;
-      }
-    }
-
-    private showPwd(): void {
-      if (this.passwordType === "password") {
-        this.passwordType = "";
-      } else {
-        this.passwordType = "password";
-      }
-    }
-
-    private handleLogin(): void {
-      // @ts-ignore
-      this.$refs.loginForm.validate((valid) => {
-        if (valid) {
-          this.loading = true;
-          this.$store
-            .dispatch("auth/login", this.loginForm)
-            .then(() => {
-              this.$router.push({ path: this.redirect || "/", query: this.otherQuery });
-              this.loading = false;
-            })
-            .catch(() => {
-              this.loading = false;
-            });
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
-    }
-
-    private refreshCaptcha(): void {
-      this.loginForm.captcha = `/kaptcha?t=${new Date().getTime()}`;
     }
   }
 </script>
@@ -313,7 +191,7 @@
   .login-box {
     position: relative;
     z-index: 88;
-    height: 540px;
+    /*height: 540px;*/
     width: 426px;
     padding: 30px;
     overflow: hidden;
@@ -327,6 +205,9 @@
     }
     .login-btn {
       width: 100%;
+    }
+    .login-action {
+      margin-bottom: 20px;
     }
   }
 
@@ -362,7 +243,87 @@
         color: #2468f2;
       }
     }
+  }
 
+  .login-quick-nav {
+    font-size: 14px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    .item {
+      float: left;
+      width: 50%;
+      &:nth-child(2n) {
+        text-align: right;
+      }
+
+      margin-bottom: 10px;
+      .nav-link {
+        padding: 10px 0;
+        line-height: 22px;
+        color: #2468f2;
+        &:hover {
+          color: #409EFF;
+        }
+      }
+    }
+  }
+
+  .login-other-nav {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+    dt {
+      position: relative;
+      color: #999;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        border-bottom: 1px solid #DCDFE6;
+        width: 120px;
+        height: 0;
+        font-size: 0;
+      }
+
+      &:before {
+        left: 0;
+      }
+      &:after {
+        right: 0;
+      }
+    }
+    dd {
+      padding: 10px 0;
+      .nav-link {
+        display: inline-block;
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+        background-color: #eee;
+        border-radius: 50%;
+        margin: 0 10px;
+        .ui-icon {
+          vertical-align: middle;
+          color: #1890ff;
+        }
+        &:hover {
+          background-color: #1890ff;
+          .ui-icon {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .login-hint {
+    font-size: 14px;
+    color: #999;
+    dt {
+      line-height: 22px;
+      margin-bottom: 10px;
+    }
   }
 
 

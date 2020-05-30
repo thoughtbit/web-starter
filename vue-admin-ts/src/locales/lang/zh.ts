@@ -123,16 +123,49 @@ export default {
     size: "布局大小",
     profile: "个人中心"
   },
+  register: {
+    title: "用户注册",
+    email: "邮箱地址",
+    username: "用户名",
+    password: "登录密码",
+    repassword: "确认密码",
+    code: "验证码",
+    phone: "手机号码",
+    sumbitBtn: "注册",
+    userRegister: "用户注册",
+    emailRegister: "邮箱注册",
+  },
+  forgot: {
+    title: "找回密码",
+    email: "邮箱地址",
+    username: "用户名",
+    password: "新密码",
+    repassword: "确认密码",
+    code: "验证码",
+    phone: "手机号码",
+    sumbitBtn: "重置密码",
+    phoneForgot: "手机号找回密码",
+    emailForgot: "邮箱找回密码",
+  },
   login: {
     title: "系统登录",
-    logIn: "登录",
-    username: "账号",
-    password: "密码",
+    username: "用户名 / 邮箱地址",
+    password: "登录密码",
+    code: "验证码",
     phone: "手机号码",
-    thirdpartyLoign: "第三方登录",
-
     userLogin: "密码登录",
-    phoneLogin: "手机登录"
+    phoneLogin: "手机登录",
+    sumbitBtn: "登录"
+  },
+  sublogin: {
+    title: "子用户登录",
+    username: "子用户名",
+    password: "登录密码",
+    sumbitBtn: "登录",
+    owner: "主账号ID"
+  },
+  qrcodelogin: {
+    title: "扫码登录",
   },
   documentation: {
     documentation: "文档",

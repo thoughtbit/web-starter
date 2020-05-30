@@ -27,7 +27,7 @@ async function authStatusCheck(cb: (authCheck: boolean) => void) {
   }
 }
 
-const whiteList = ["/login", "/register", "/about"];
+const whiteList = ["/login", "/sublogin", "/qrcodelogin", "/forgot", "/register", "/about"];
 
 router.beforeEach(async (to, from, next) => {
   // console.log("路由切换：", from.path, "===>", to.path);

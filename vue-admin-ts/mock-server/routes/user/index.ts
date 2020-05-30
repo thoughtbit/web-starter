@@ -47,6 +47,14 @@ const getUserById = (id: number) => {
   return result;
 }
 
+const getUserByPhone = (phone: string) => {
+  const result = db.read().get("users")
+    .filter({ userinfo: { phone }  })
+    .first()
+    .value();
+
+  return result;
+};
 
 // 用户查询
 router.get("/user", (req, res) => {
@@ -98,17 +106,49 @@ router.get("/user", (req, res) => {
 
 // 用户注册
 router.post("/users", (req, res, next) => {
-  const { username, password } = req.body;
-  const user = getUserByName(username);
+  const {
+    username,
+    password,
+    repassword,
+    phone,
+    code,
+    isAgree
+  } = req.body;
 
-  if (user) {
+
+  const userPhone = getUserByPhone(phone);
+  if (userPhone) {
     res.status(409).send({
       code: 409,
-      message: "用户名被占用了！",
+      message: "手机号已被注册了",
       data: {}
     });
     return;
   }
+
+  const userName = getUserByName(username);
+  if (userName) {
+    res.status(409).send({
+      code: 409,
+      message: "此用户已被注册了！",
+      data: {}
+    });
+    return;
+  }
+
+  req.body.userinfo = {
+    "gender": 1,
+    "phone": phone,
+    "nickname": "客户",
+    "rolename": "editor",
+    "avatar_url": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
+    "isAgree": isAgree
+  }
+
+  delete req.body.repassword;
+  delete req.body.phone;
+  delete req.body.code;
+  delete req.body.isAgree;
 
   bcrypt.hash(password, 10)
     .then(passwordHash => {
@@ -225,5 +265,72 @@ router.get("/kaptcha",  (req, res) => {
   })
   res.status(200).send(captcha.data);
 })
+
+
+// 获取短信验证码
+router.get("/sns/:phone",  (req, res) => {
+  const { phone } = req.params;
+  // const whiteList = ["13484903846", "18066752060", "18088888888"];
+  // if (!phone) {
+  //   res.status(401).send({
+  //     code: 401,
+  //     message: "手机号无效",
+  //     data: {}
+  //   });
+  //   return;
+  // }
+  //
+  // if (whiteList.indexOf(phone) !== -1) {
+  //   res.status(409).send({
+  //     code: 409,
+  //     message: "此手机号已经注册",
+  //     data: {}
+  //   });
+  // }
+
+  res.status(200).send({
+    code: 200,
+    message: "获取验证码成功",
+    data: {}
+  });
+})
+
+// 用户登录
+router.post("/loginByMobile", (req, res) => {
+  const { phone, code } = req.body;
+  const user = getUserByPhone(phone);
+
+  if (!user) {
+    res.status(404).send({
+      code: 404,
+      message: "手机号不存在",
+      data: {}
+    });
+    return;
+  }
+
+  const password = "123456";
+
+  bcrypt.compare(password, user.password).then((result) => {
+    if (result) {
+      const { accessToken, refreshToken } = signToken(user);
+      res.status(200).send({
+        code: 200,
+        message: "success",
+        data: {
+          access_token: accessToken,
+          refresh_token: refreshToken,
+          expires_in: 3600
+        }
+      });
+    } else {
+      res.status(401).send({
+        code: 401,
+        message: "验证码无效",
+        data: {}
+      });
+    }
+  });
+});
 
 export default router;

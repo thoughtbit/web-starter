@@ -10,6 +10,10 @@
 
 // 全局样式
 @import "./tailwind.css";
+
+// 全局变量
+@import './variables';
+
 // 重写 ElementUI 样式
 @import "./element-ui";
 

@@ -6,6 +6,7 @@
       "password": "$2b$10$SvlC0V6kHLw9UbB9WM1yl.bILiC4fjSXulL7V.hov3zOfgXoXnu5W",
       "userinfo": {
         "gender": 1,
+        "phone": "13484903846",
         "nickname": "客户",
         "rolename": "editor",
         "avatar_url": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
@@ -14,38 +15,40 @@
     {
       "id": 2,
       "username": "admin",
-      "password": "$2b$10$mc1uRuJtMydg/1wQvCLV3uLf5AL8mGgWiIhmzZobcngt5GfnqVwpe",
+      "password": "$2b$10$AVAfBzz0KXluSQo4LdOo5uf/vYm6kyFg0oCrwRQkQkbujhxtDJmq.",
       "userinfo": {
         "gender": 1,
+        "phone": "13484903846",
         "nickname": "管理员",
         "rolename": "administrator",
         "avatar_url": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
       }
     },
     {
-      "username": "mimi",
-      "password": "$2b$10$1EJKtNA.e0E/Urg7mFWMZu1ZgBsa.KrZPbp/k.88HEYC1C4V3pFWy",
+      "username": "mama",
+      "password": "$2b$10$oeDHMQfmWaTZEuPutC7MnedguensRkyljgsDT3qbSVrkvOibA4MSC",
+      "userinfo": {
+        "gender": 1,
+        "phone": "18088888888",
+        "nickname": "客户",
+        "rolename": "editor",
+        "avatar_url": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
+        "isAgree": true
+      },
       "id": 3
     },
     {
-      "username": "kiki",
-      "password": "$2b$10$Y2LoG3Xxx1cfow72DO4u.OdiLAZxHJacqgYoInMF/X8IPYPmdLdoi",
-      "id": 4
-    },
-    {
-      "username": "mama",
-      "password": "$2b$10$pMm2wSboom7Zj/M2vzA.EOb/rWpwOCWBLl8x5XqUXq9rWGLasU6F6",
-      "id": 5
-    },
-    {
-      "username": "tata",
-      "password": "$2b$10$jfQzlfyrAeQLMgzu/mVLqOMgRST9h75Y6dSBIHXwu1T9dRXxQ9hiO",
-      "id": 6
-    },
-    {
       "username": "totot",
-      "password": "$2b$10$3zrxDbxmRnIubcE0QLy7fei8M43MljXEuSYpEWIYlDm2A/yMo5llu",
-      "id": 7
+      "password": "$2b$10$JcLwUsfv3L.axFuZIoaH3.1DVA1ZQmg4VejlmZepHx6sgJuNnGyrq",
+      "userinfo": {
+        "gender": 1,
+        "phone": "13484903848",
+        "nickname": "客户",
+        "rolename": "editor",
+        "avatar_url": "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
+        "isAgree": true
+      },
+      "id": 4
     }
   ],
   "captcha": {
@@ -181,18 +184,18 @@
         "children": [
           {
             "children": [
-							{
-								"children": [],
-								"component": "views/containers/system/user/index",
-								"hidden": true,
-								"icon": "",
-								"id": 667,
-								"menuName": "列表",
-								"name": "userIndex",
-								"path": "/system/user/index",
-								"redirect": "",
-								"sortNum": 1
-							}
+              {
+                "children": [],
+                "component": "views/containers/system/user/index",
+                "hidden": true,
+                "icon": "",
+                "id": 667,
+                "menuName": "列表",
+                "name": "userIndex",
+                "path": "/system/user/index",
+                "redirect": "",
+                "sortNum": 1
+              }
             ],
             "component": "component",
             "hidden": false,
@@ -475,7 +478,7 @@
                 "redirect": "",
                 "sortNum": 1
               }
-            ], 
+            ],
             "component": "component",
             "hidden": false,
             "icon": "",
@@ -4731,7 +4734,9 @@
           "position": 0,
           "visible": true,
           "variation": false,
-          "options": ["埃塞俄比亚赛"]
+          "options": [
+            "埃塞俄比亚赛"
+          ]
         },
         {
           "id": 2,
@@ -4739,7 +4744,9 @@
           "position": 1,
           "visible": true,
           "variation": false,
-          "options": ["Starbucks / 星巴克"]
+          "options": [
+            "Starbucks / 星巴克"
+          ]
         }
       ]
     },
@@ -4788,7 +4795,9 @@
           "position": 0,
           "visible": true,
           "variation": false,
-          "options": ["埃塞俄比亚赛"]
+          "options": [
+            "埃塞俄比亚赛"
+          ]
         },
         {
           "id": 2,
@@ -4796,7 +4805,9 @@
           "position": 1,
           "visible": true,
           "variation": false,
-          "options": ["Starbucks / 星巴克"]
+          "options": [
+            "Starbucks / 星巴克"
+          ]
         }
       ]
     },
@@ -4845,7 +4856,9 @@
           "position": 0,
           "visible": true,
           "variation": false,
-          "options": ["埃塞俄比亚赛"]
+          "options": [
+            "埃塞俄比亚赛"
+          ]
         },
         {
           "id": 2,
@@ -4853,7 +4866,9 @@
           "position": 1,
           "visible": true,
           "variation": false,
-          "options": ["Starbucks / 星巴克"]
+          "options": [
+            "Starbucks / 星巴克"
+          ]
         }
       ]
     },
@@ -4908,7 +4923,9 @@
           "position": 0,
           "visible": true,
           "variation": false,
-          "options": ["埃塞俄比亚赛"]
+          "options": [
+            "埃塞俄比亚赛"
+          ]
         },
         {
           "id": 2,
@@ -4916,7 +4933,9 @@
           "position": 1,
           "visible": true,
           "variation": false,
-          "options": ["Starbucks / 星巴克"]
+          "options": [
+            "Starbucks / 星巴克"
+          ]
         }
       ]
     }

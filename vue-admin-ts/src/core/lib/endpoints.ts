@@ -28,6 +28,11 @@ export const UserEndpoints: EndpointOptions = {
     method: "POST",
     endpoint: "/login"
   },
+  // 手机登录
+  loginByMobile: {
+    method: "POST",
+    endpoint: "/loginByMobile"
+  },
   // 退出登录
   logout: {
     method: "POST",
@@ -46,7 +51,7 @@ export const UserEndpoints: EndpointOptions = {
   // 用户注册
   signup: {
     method: "POST",
-    endpoint: "/signup"
+    endpoint: "/users"
   },
   // 查询用户
   getUser: {
@@ -57,6 +62,11 @@ export const UserEndpoints: EndpointOptions = {
   getCaptcha:{
     method: "GET",
     endpoint: "/kaptcha"
+  },
+  // 短信验证码
+  getSnsCode: {
+    method: "GET",
+    endpoint: "/sns/:phone"
   },
 
   /**
