@@ -1,6 +1,6 @@
 <template>
   <!-- 侧栏导航 -->
-  <el-aside width="80px" class="sider-menu scrollbar">
+  <el-aside width="80px" class="aside-menu scrollbar">
     <el-menu
       :default-active="activeMenu"
       class="el-menu-vertical"
@@ -9,7 +9,7 @@
       @select="onSelect"
     >
       <el-menu-item
-        class="sider-menu-item"
+        class="aside-menu-item"
         :index="item.path"
         v-for="(item, index) in menuData.filter((m) => !m.hidden)"
         :key="index"
@@ -24,7 +24,7 @@
   import { Vue, Component, Prop } from "vue-property-decorator";
 
   @Component
-  export default class SiderMenu extends Vue {
+  export default class SideMenu extends Vue {
     @Prop({
       type: Array,
       required: true,
@@ -57,7 +57,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .sider-menu {
+  .aside-menu {
     width: 80px;
     background-color: #444;
     overflow-x: hidden;
