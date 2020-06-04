@@ -67,8 +67,12 @@
 
 /* layout
 -------------------------------------------------------------- */
-.ui-layout {
+.app-container .ui-layout {
   flex-direction: column;
+  height: 100vh;
+}
+.app-container .ui-layout-body {
+  overflow: auto;
 }
 
 /* 框架选项卡

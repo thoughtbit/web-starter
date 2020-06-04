@@ -2,15 +2,13 @@
   <!-- 最大布局容器 -->
   <el-container class="ui-layout">
     <!-- 头部布局 -->
-    <el-header height="64px">
-      <layout-header />
-    </el-header>
+    <layout-header />
     <!-- 头部以下主体布局 -->
     <el-container class="ui-layout-body">
       <!-- 侧栏一级导航布局 -->
-      <sider-menu :menuData="menuData" :activeMenu="activeMenu" @menuSelect="onMenuSelect" />
+      <aside-menu :menuData="menuData" :activeMenu="activeMenu" @menuSelect="onMenuSelect" />
       <!-- 侧栏一级导航布局 -->
-      <sider-sub-menu :menuData="menuData" :collapsed="collapsed" :menuPath="activeMenu" :menuTitle="menuTitle" />
+      <aside-sub-menu :menuData="menuData" :collapsed="collapsed" :menuPath="activeMenu" :menuTitle="menuTitle" />
       <!-- 右侧页面区 -->
       <el-main class="ui-layout-content">
         <slot></slot>
@@ -25,14 +23,14 @@
   import { Route } from "vue-router";
 
   import LayoutHeader from "@/views/layouts/layout-header.vue";
-  import SiderMenu from "@/views/components/menu/sider-menu.vue";
-  import SiderSubMenu from "@/views/components/menu/sider-submenu.vue";
+  import AsideMenu from "@/views/components/menu/aside-menu.vue";
+  import AsideSubMenu from "@/views/components/menu/aside-submenu.vue";
 
   @Component({
     components: {
       LayoutHeader,
-      SiderMenu,
-      SiderSubMenu
+      AsideMenu,
+      AsideSubMenu
     }
   })
   export default class Layout extends Vue {

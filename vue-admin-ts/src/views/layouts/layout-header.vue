@@ -1,5 +1,6 @@
 <template>
-  <div class="ui-layout-header">
+  <!-- 头部布局 -->
+  <el-header class="ui-layout-header">
     <h1 class="header-logo">
       <router-link class="logo" to="/">九色鹿数字云</router-link>
     </h1>
@@ -20,7 +21,7 @@
       <el-button type="primary" class="quick-menu-button">我的</el-button>
       <el-button type="primary" @click.native.prevent="logout">退出登录</el-button>
     </nav>
-  </div>
+  </el-header>
 </template>
 
 <script lang="ts">
@@ -55,8 +56,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 64px;
-    background-color: #262F3E;
+    background-color: #262f3e;
   }
   .header-logo {
     width: 220px;

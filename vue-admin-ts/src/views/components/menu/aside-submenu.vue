@@ -1,5 +1,5 @@
 <template>
-  <el-aside :width="collapsed ? '0' : '202px'" class="sider-sub-menu scrollbar">
+  <el-aside :width="collapsed ? '0' : '202px'" class="aside-sub-menu scrollbar aside-expanded">
     <div class="el-menu-title">{{$t('menus.'+menuTitle)}}</div>
     <el-menu
       :default-active="activeMenu"
@@ -23,7 +23,7 @@
               <span class="title">{{item.hidden ? '':$t('menus.'+item.name)}}</span>
             </template>
             <el-menu-item
-              class="sider-sub-menu-item"
+              class="aside-sub-menu-item"
               :index="subItem.path"
               v-for="(subItem, index) in item.children"
               :key="index"
@@ -32,7 +32,7 @@
               <span class="title" slot="title">{{$t('menus.'+subItem.name)}}</span>
             </el-menu-item>
           </el-submenu>
-          <el-menu-item class="sider-sub-menu-item" v-else-if="item" :index="item.path">
+          <el-menu-item class="aside-sub-menu-item" v-else-if="item" :index="item.path">
             <span class="title" slot="title">{{item.hidden ? '':$t('menus.'+item.name)}}</span>
           </el-menu-item>
         </div>
@@ -46,7 +46,7 @@
   import { Getter } from "vuex-class";
 
   @Component
-  export default class SiderSubMenu extends Vue {
+  export default class AsideSubMenu extends Vue {
     @Getter private setting: any;
 
     @Prop({ type: Boolean, default: true })
@@ -103,7 +103,7 @@
 </script>
 
 <style lang="scss">
-  .sider-sub-menu {
+  .aside-sub-menu {
     width: 0;
     background-color: #eceff1;
     transition: width ease-out 400ms;
