@@ -54,6 +54,8 @@ env PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn add puppeteer
 在终端执行：
 ```
 PUPPETEER_DOWNLOAD_HOST=https://storage.googleapis.com.cnpmjs.org npm install puppeteer
+
+PUPPETEER_DOWNLOAD_HOST=https://storage.googleapis.com.cnpmjs.org yarn add puppeteer
 ```
 
 ## 工具

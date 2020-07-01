@@ -1,43 +1,46 @@
 <template>
-  <el-aside :width="collapsed ? '0' : '202px'" class="aside-sub-menu scrollbar aside-expanded">
-    <div class="el-menu-title">{{$t('menus.'+menuTitle)}}</div>
-    <el-menu
-      :default-active="activeMenu"
-      class="el-menu-vertical"
-      @select="onSelect"
-      v-for="(menu, index) in menuData"
-      :key="index"
-    >
-      <template v-for="(item, index) in menu.children">
-        <div
-          v-show="menuPath.startsWith(menu.path) && !filterMenus.includes(item.name)"
-          class="menu-item-wrap"
-          :key="index"
-        >
+  <el-aside :width="collapsed ? '0' : '200px'" class="aside-menu" :class="{ 'aside-collapsed': !collapsed }">
+    <div class="aside-menu-title">{{ $t("menus." + menuTitle) }}</div>
+    <div class="aside-menu-wrap scrollbar">
+      <el-menu
+        :default-active="activeMenu"
+        class="el-menu-vertical"
+        @select="onSelect"
+        v-for="(menu, index) in menuData"
+        :key="index"
+      >
+        <template v-for="(item, index) in menu.children">
           <el-submenu
-            class="sider-sub-menu-item"
+            class="aside-menu-item children"
+            :class="{ show: menuPath.startsWith(menu.path) && !filterMenus.includes(item.name) }"
             :index="item.path"
             v-if="item.children && item.children.filter((c) => !c.hidden).length"
           >
             <template slot="title">
-              <span class="title">{{item.hidden ? '':$t('menus.'+item.name)}}</span>
+              <span class="title">{{ item.hidden ? "" : $t("menus." + item.name) }}</span>
             </template>
             <el-menu-item
-              class="aside-sub-menu-item"
+              class="aside-menu-item"
               :index="subItem.path"
               v-for="(subItem, index) in item.children"
               :key="index"
             >
               <div class="dot"></div>
-              <span class="title" slot="title">{{$t('menus.'+subItem.name)}}</span>
+              <span class="title" slot="title">{{ $t("menus." + subItem.name) }}</span>
             </el-menu-item>
           </el-submenu>
-          <el-menu-item class="aside-sub-menu-item" v-else-if="item" :index="item.path">
-            <span class="title" slot="title">{{item.hidden ? '':$t('menus.'+item.name)}}</span>
+          <el-menu-item
+            class="aside-menu-item"
+            :class="{ show: menuPath.startsWith(menu.path) && !filterMenus.includes(item.name) }"
+            v-else-if="item"
+            :index="item.path"
+          >
+            <span class="title" slot="title">{{ item.hidden ? "" : $t("menus." + item.name) }}</span>
           </el-menu-item>
-        </div>
-      </template>
-    </el-menu>
+        </template>
+      </el-menu>
+    </div>
+    <a href="javascript:;" class="aside-trigger" @click.stop.prevent="toggleCollapse">折叠</a>
   </el-aside>
 </template>
 
@@ -77,6 +80,10 @@
       this.$routerLink(index);
     }
 
+    private toggleCollapse() {
+      this.$emit("toggleCollapse");
+    }
+
     private get memberRegisterExamine() {
       const { memberRegisterExamine } = this.setting.attrs || {};
       return memberRegisterExamine;
@@ -102,68 +109,112 @@
   }
 </script>
 
-<style lang="scss">
-  .aside-sub-menu {
+<style lang="scss" scoped>
+  .aside-menu {
+    position: relative;
     width: 0;
-    background-color: #eceff1;
+    overflow: hidden;
+    background-color: #f3f5f7;
     transition: width ease-out 400ms;
-    overflow-x: hidden;
-    overflow-y: overlay;
-    .el-menu-title {
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    &-title {
       color: #666666;
-      font-size: 20px;
-      line-height: 20px;
-      padding: 20px 10px 20px 19px;
+      font-size: 18px;
+      height: 48px;
+      line-height: 28px;
+      padding: 10px 20px;
       border-bottom: 1px solid #dde3e6;
       white-space: nowrap;
     }
-    .el-menu-vertical .menu-item-wrap {
-      border-right: 0;
+    &-wrap {
+      overflow-x: hidden;
+      overflow-y: overlay;
+      flex: 1;
+    }
+    &-item {
+      display: none;
+      &.show {
+        display: block;
+      }
+    }
+    .el-menu {
+      border: 0 none;
+      background-color: transparent;
+    }
+
+    .el-submenu {
       .el-menu-item {
-        height: auto;
-        background-color: #eceff1;
-        // color: #333333;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 40px;
         .title {
-          line-height: 50px;
-          font-size: 16px;
-          display: block;
+          line-height: 40px;
         }
-        &.is-active,
-        &:hover {
-          color: #1EC6DF;
-          background-color: #ffffff;
+
+        .dot {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: rgba(0, 0, 0, 0.4);
+          margin-right: 10px;
         }
       }
-      .el-submenu {
-        .el-submenu__title {
-          background-color: #eceff1;
-          font-size: 16px;
-          &.is-active {
-            background-color: #eceff1;
-          }
-          &:hover {
-            color: #1EC6DF;
-            background-color: #ffffff;
-          }
-        }
-        .el-menu-item {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          height: 40px;
-          .title {
-            line-height: 40px;
-            font-size: 14px;
-          }
+    }
+  }
 
-          .dot {
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background-color: #666666;
-            margin-right: 10px;
-          }
-        }
+  .aside-trigger {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    z-index: 880;
+    margin-top: -40px;
+    width: 15px;
+    height: 60px;
+    text-indent: -999em;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 30px 0 30px 60px;
+      border-color: transparent transparent transparent #999;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -6px;
+      margin-left: -5px;
+      margin-left: -4px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 6px 6px 0;
+      border-color: transparent #fff transparent transparent;
+    }
+
+    &:hover {
+      &:before {
+        border-color: transparent transparent transparent #1ec6df;
+      }
+    }
+  }
+
+  .aside-collapsed {
+    overflow: visible;
+    .aside-trigger {
+      &:after {
+        margin-left: -3px;
+        transform: rotate(180deg);
       }
     }
   }

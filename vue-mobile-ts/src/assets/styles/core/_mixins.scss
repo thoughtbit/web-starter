@@ -1,0 +1,158 @@
+@charset "utf-8";
+
+@import "./variables";
+
+/**
+ * Mixes a color with white. It's different from lighten()
+ *
+ * @param {color} $color
+ * @param {number (percentage)} $percent [The amout of white to be mixed in]
+ * @return {color}
+ *
+ * @example
+ *   .element {
+ *     background-color: tint(#6ecaa6 , 40%);
+ *   }
+ *
+ *   // CSS Output
+ *   .element {
+ *     background-color: #a8dfc9;
+ *   }
+ */
+@function tint($color, $percent) {
+  @return mix(#fff, $color, $percent);
+}
+
+/// 快捷设置元素width,height的方法
+@mixin size($size) {
+  @if length($size) == 1 {
+    width: $size;
+    height: $size;
+  } @else if length($size) == 2 {
+    width: nth($size, 1);
+    height: nth($size, 2);
+  }
+}
+
+/// 单行文本截取
+@mixin ellipsis($width: 100%) {
+  display: block;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+/// clear
+@mixin clear {
+  display: block;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  clear: both;
+}
+
+/**
+ * @example scss
+ *
+ * .element {
+ *   @include clearfix;
+ * }
+ */
+/// clearfix
+@mixin clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+  & {
+    zoom: 1;
+    display: flow-root;
+  }
+}
+
+/**
+ * 元素居中定位
+ */
+@mixin absolute-center($pos: absolute) {
+  position: $pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/**
+ * 修复小元素文本垂直居中
+ */
+@mixin alignhack($position: before, $margintop: 1px) {
+  &::#{$position} {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+    margin-top: $margintop;
+  }
+}
+
+/**
+ * flex 布局
+ * ================================================================
+ */
+@mixin display-flex {
+  display: flex;
+}
+
+@mixin flex-wrap($value: nowrap) {
+  flex-wrap: $value;
+}
+
+@mixin align-items($value: stretch) {
+  align-items: $value;
+  @if $value == flex-start {
+    -webkit-box-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+  } @else {
+    -webkit-box-align: $value;
+  }
+}
+
+@mixin align-content($value: flex-start) {
+  align-content: $value;
+}
+
+@mixin justify-content($value: flex-start) {
+  justify-content: $value;
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+  } @else {
+    -webkit-box-pack: $value;
+  }
+}
+
+/* Flex Item */
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+  flex: $fg $fs $fb;
+  -webkit-box-flex: $fg;
+}
+
+@mixin flex-order($n) {
+  order: $n;
+  -webkit-box-ordinal-group: $n;
+}
+
+@mixin align-self($value: auto) {
+  align-self: $value;
+}

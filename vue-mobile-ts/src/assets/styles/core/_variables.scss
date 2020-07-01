@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+/* default variables */
+$ns: ui !default; // namespace, class: `.#{$ns}-button`.
+
+/* theme color */
+$--color-primary: #1890ff;
+$--color-success: #13ce66;
+$--color-warning: #ffba00;
+$--color-danger: #ff4949;
+$--color-info: #1e1e1e;

@@ -5,47 +5,32 @@
       <router-link class="logo" to="/">九色鹿数字云</router-link>
     </h1>
     <nav class="header-service">
-      <div class="nav-overview">
-        <router-link class="nav-link" to="/">总览</router-link>
+      <div class="nav-service">
+        <i class="el-icon el-icon-menu"></i>
+        <span class="name">产品与服务</span>
+        <i class="el-icon-arrow-down"></i>
       </div>
-      <div class="nav-service">产品与服务</div>
     </nav>
     <div class="searchbox">
-      <form action="/" method="post" class="search-form">
-        <input type="text" name="" id="" class="s-ipt" />
-        <button type="button" class="s-btn">搜索</button>
-      </form>
+      <input type="text" name="" id="" class="s-ipt" />
+      <el-button size="medium" round icon="el-icon-search" class="s-btn"></el-button>
     </div>
-    <nav class="quick-menu">
-      <el-button type="primary" class="quick-menu-button">消息</el-button>
-      <el-button type="primary" class="quick-menu-button">我的</el-button>
-      <el-button type="primary" @click.native.prevent="logout">退出登录</el-button>
-    </nav>
+    <div class="header-content"></div>
+    <top-bar />
   </el-header>
 </template>
 
 <script lang="ts">
   import { Component, Vue } from "vue-property-decorator";
+  import TopBar from "@/views/components/topbar/index.vue";
 
-  @Component
-  export default class LayoutHeader extends Vue {
-    private logout() {
-      this.$confirm("是否退出系统, 是否继续?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning"
-      })
-        .then(async () => {
-          // @ts-ignore
-          await this.$store.dispatch("auth/logout").then(() => {
-            // @ts-ignore
-            this.$router.push({ path: `/login?redirect=${escape(this.$route.fullPath)}` });
-          });
-        })
-        .catch(() => {
-          return false;
-        });
+  @Component({
+    components: {
+      TopBar
     }
+  })
+  export default class LayoutHeader extends Vue {
+
   }
 </script>
 
@@ -66,51 +51,64 @@
       color: #fff;
     }
   }
+  .header-content {
+    flex: 1 1;
+    height: 60px;
+  }
   .searchbox {
+    position: relative;
     display: flex;
     flex: 1;
-    max-width: 640px;
+    max-width: 480px;
     margin: 0 auto;
-    .search-form {
-      display: flex;
-      flex: 1;
-      align-items: center;
-      .s-ipt {
-        flex: 1;
-        height: 42px;
-        padding: 10px;
-        line-height: 22px;
-      }
-      .s-btn {
-        width: 100px;
-        height: 42px;
-        background-color: #ccc;
-        color: #1890ff;
-      }
-    }
-  }
-  .quick-menu {
     align-items: center;
-    justify-content: flex-end;
-    display: flex;
-    .nav-link {
-      color: #fff;
+    .s-ipt {
+      flex: 1;
+      height: 36px;
+      padding: 5px 65px 5px 15px;
+      line-height: 22px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #1890ff;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      outline: none;
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
     }
-
-    margin-right: 15px;
+    .s-btn {
+      position: absolute;
+      right: 0;
+      width: 60px;
+      height: 36px;
+      outline: none;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #333;
+      }
+    }
   }
+
   .header-service {
     align-items: center;
     display: flex;
     color: #ffff;
+    font-size: 14px;
     .nav-overview,
     .nav-service {
-      a {
-        display: block;
-      }
       border: 1px dashed #fff;
-      padding: 4px 8px;
+      padding: 6px 12px;
       line-height: 22px;
+      border-radius: 20px;
+      .name {
+        margin: 0 10px;
+      }
+      &:hover {
+        background-color: #11151d;
+      }
     }
     .nav-overview {
       margin-right: 10px;

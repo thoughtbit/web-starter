@@ -190,7 +190,7 @@ export default {
     change: "Change Theme",
     documentation: "Theme documentation",
     tips:
-      "Tips: It is different from the theme-pick on the navbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details."
+      "Tips: It is different from the theme-pick on the topbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details."
   },
   tagsView: {
     refresh: "Refresh",

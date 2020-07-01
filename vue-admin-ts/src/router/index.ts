@@ -16,6 +16,8 @@ VueRouter.prototype.push = function push(location, onResolve, onReject) {
 
 Vue.use(VueRouter);
 
+export const loadView = (view: string): AsyncComponent => (resolve) => require([`@/${view}`], resolve);
+
 export function filterAsyncRoutes(routes: RouteConfig[]) {
   let routeList: RouteConfig[] = [];
   const loop = ({ routes, parentPath = "/" }: { routes: any; parentPath?: string }) => {
@@ -32,7 +34,7 @@ export function filterAsyncRoutes(routes: RouteConfig[]) {
         const component = rt.component;
         // console.log("component:", component);
         if (component && component != "component") {
-          rt.component = () => import(`@/${component}.vue`);
+          rt.component = loadView(component);
         }
         if (children instanceof Array && children.length) {
           const subMenus = children.filter((c) => c.menuType !== 2);

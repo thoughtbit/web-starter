@@ -276,3 +276,112 @@
     }
   }
 </script>
+<style lang="scss">
+  .view-tabs-container {
+    background-color: #f3f5f7;
+    padding: 10px 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    .el-tabs__header {
+      border: 0 none;
+      margin-bottom: 0;
+      .el-tabs__nav {
+        border: 0 none;
+        margin-left: 1px;
+        .el-tabs__item {
+          position: relative;
+          z-index: 1;
+          padding: 0 21px;
+          margin-left: -1px;
+          border: 1px solid transparent;
+          border-bottom: 0 none;
+          border-radius: 2px 12px 0 0;
+          color: #555;
+          line-height: 38px;
+          height: 38px;
+          user-select: none;
+          font-weight: normal;
+          .el-icon-close {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -7px;
+            font-size: 14px;
+          }
+          &:before,
+          &:after {
+            position: absolute;
+            top: 50%;
+            margin-top: -8px;
+            height: 16px;
+            content: "";
+          }
+          &:after {
+            right: -1px;
+            border-left: 1px solid rgba(0, 0, 0, 0.08);
+          }
+          &:before {
+            left: -1px;
+            border-left: 1px solid rgba(0, 0, 0, 0.08);
+          }
+
+          &.is-active,
+          &:hover {
+            z-index: 2;
+            padding: 0 35px 0 15px;
+            border-color: #dfe4ed;
+            background: #fff;
+            // background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 20%, rgba(255, 255, 255,1) 100%);
+            &:before,
+            &:after {
+              display: none;
+            }
+          }
+          &:hover {
+            border-color: rgba(0, 0, 0, 0.08);
+            background-color: #eee;
+          }
+          &.is-active {
+            &:hover {
+              background-color: #fff;
+            }
+          }
+          &:first-child {
+            &:before {
+              display: none;
+            }
+            padding-right: 15px;
+            .el-icon-close {
+              display: none;
+            }
+          }
+          &:last-child {
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .el-tabs__nav-wrap {
+      .el-tabs__nav-prev,
+      .el-tabs__nav-next {
+        height: 34px;
+        width: 18px;
+        text-align: center;
+        line-height: 34px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        background-color: #fff;
+        &:hover {
+          border-color: #1ec6df;
+          color: #1ec6df;
+        }
+      }
+    }
+
+    .el-tabs__content {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+</style>

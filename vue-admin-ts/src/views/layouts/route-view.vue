@@ -24,7 +24,7 @@
 </script>
 <style lang="scss" scoped>
   .route-view-container {
-    height: calc(100% - 42px);
+    height: calc(100% - 48px);
     overflow-x: hidden;
     overflow-y: auto;
     box-sizing: border-box;

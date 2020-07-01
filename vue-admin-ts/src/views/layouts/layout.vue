@@ -6,9 +6,9 @@
     <!-- 头部以下主体布局 -->
     <el-container class="ui-layout-body">
       <!-- 侧栏一级导航布局 -->
-      <aside-menu :menuData="menuData" :activeMenu="activeMenu" @menuSelect="onMenuSelect" />
-      <!-- 侧栏一级导航布局 -->
-      <aside-sub-menu :menuData="menuData" :collapsed="collapsed" :menuPath="activeMenu" :menuTitle="menuTitle" />
+      <aside-menu :menuData="menuData" :collapsed="folded" :activeMenu="activeMenu" @toggleCollapse="toggleFolded" @menuSelect="onMenuSelect" />
+      <!-- 侧栏二级导航布局 -->
+      <aside-sub-menu :menuData="menuData" :collapsed="collapsed" :menuPath="activeMenu" :menuTitle="menuTitle" @toggleCollapse="toggleCollapse" />
       <!-- 右侧页面区 -->
       <el-main class="ui-layout-content">
         <slot></slot>
@@ -34,6 +34,7 @@
     }
   })
   export default class Layout extends Vue {
+    private folded = false;
     private collapsed = true;
     private menuTitle = "";
     private activeMenu = "";
@@ -70,6 +71,12 @@
       // const closeMenus = ['dashboardIndex', 'columnIndex', 'contentIndex']
       // this.collapsed = closeMenus.includes(this.$route.name) || !this.collapsed
     }
+
+    // 点击收缩开关，主导航折叠
+    private toggleFolded() {
+      this.folded = !this.folded;
+    }
+
     private onMenuSelect(path: string, collapsed: boolean) {
       this.collapsed = collapsed;
       this.activeMenu = path;
