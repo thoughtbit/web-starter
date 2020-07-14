@@ -1,28 +1,44 @@
-import Vue from "vue";
+import Vue, { AsyncComponent } from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+import { PositionResult } from "vue-router/types/router";
+import { routesConfig } from "@/router/router.config";
 
+// 修复 Uncaught (in promise) undefined 问题
+const originalPush = VueRouter.prototype.push;
+// @ts-ignore
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject);
+  // @ts-ignore
+  return originalPush.call(this, location).catch(err => err);
+}
 Vue.use(VueRouter);
 
-const routes: Array<RouteConfig> = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
-];
+// 路由实例化
+export const createRouter = (): VueRouter => {
+  return new VueRouter({
+    // mode: "history",
+    base: process.env.BASE_URL,
+    linkActiveClass: "is-active",
+    scrollBehavior: (to, from, savedPosition): PositionResult => {
+      if (to.hash) {
+        return {
+          selector: to.hash
+        };
+      } else if (savedPosition) {
+        return savedPosition;
+      } else if (to.path !== from.path) {
+        return { x: 0, y: 0 }
+      }
+    },
+    routes: routesConfig
+  });
+};
 
-const router = new VueRouter({
-  routes
-});
+const router = createRouter();
+
+export function resetRouter() {
+  const newRouter = createRouter();
+  (router as any).matcher = (newRouter as any).matcher;
+}
 
 export default router;

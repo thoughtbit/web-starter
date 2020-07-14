@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-// const pxtorem = require("postcss-pxtorem");
 const path = require("path");
 const webpack = require("webpack");
 const WebpackBar = require("webpackbar");
@@ -7,6 +6,7 @@ const FileManagerPlugin = require("filemanager-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
+const VConsolePlugin = require("vconsole-webpack-plugin");
 const dayjs = require("dayjs");
 const pkg = require("./package.json");
 
@@ -59,7 +59,12 @@ module.exports = {
     disableHostCheck: true
   },
   configureWebpack(config) {
-    const plugins = [];
+    const plugins = [
+      // 在线调试器
+      new VConsolePlugin({
+        enable: !isProduction // 是否禁用
+      })
+    ];
     // 取消Webpack警告的性能提示
     config.performance = {
       hints: "warning",
@@ -158,6 +163,11 @@ module.exports = {
             minChunks: 3, // 最小公用次数
             priority: 5,
             reuseExistingChunk: true
+          },
+          vant: {
+            name: "chunk-vant", // 单独将 Vant 拆包
+            priority: 20, // 数字大权重到，满足多个 cacheGroups 的条件时候分到权重高的
+            test: /[\\/]node_modules[\\/]_?vant(.*)/
           }
         }
       });
@@ -279,15 +289,8 @@ module.exports = {
     sourceMap: true,
     loaderOptions: {
       scss: {
-        prependData: '@import "~@/assets/styles/core/_variables.scss";'
-      },
-      postcss: {
-        plugins: [
-          // pxtorem({
-          //   rootValue: 75,
-          //   propList: ["*"]
-          // })
-        ]
+        prependData:
+          '@import "~@/assets/styles/core/_variables.scss";@import "~@/assets/styles/core/_mixins.scss";'
       }
     }
   }

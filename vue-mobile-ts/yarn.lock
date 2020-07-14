@@ -1224,10 +1224,10 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
-"@vant/icons@1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npm.taobao.org/@vant/icons/download/@vant/icons-1.2.1.tgz#309fecb97a4989866f045ce676b545c454701c8f"
-  integrity sha1-MJ/suXpJiYZvBFzmdrVFxFRwHI8=
+"@vant/icons@1.2.3":
+  version "1.2.3"
+  resolved "https://registry.npm.taobao.org/@vant/icons/download/@vant/icons-1.2.3.tgz?cache=0&sync_timestamp=1593673299776&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vant%2Ficons%2Fdownload%2F%40vant%2Ficons-1.2.3.tgz#c46b7ddd32363f790944c3af974b73bda80df7a1"
+  integrity sha1-xGt93TI2P3kJRMOvl0tzvagN96E=
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.0.0":
   version "1.0.0"
@@ -2169,6 +2169,11 @@ babel-plugin-transform-es2015-modules-commonjs@^6.26.0, babel-plugin-transform-e
     babel-runtime "^6.26.0"
     babel-template "^6.26.0"
     babel-types "^6.26.0"
+
+babel-plugin-transform-remove-console@^6.9.4:
+  version "6.9.4"
+  resolved "https://registry.npm.taobao.org/babel-plugin-transform-remove-console/download/babel-plugin-transform-remove-console-6.9.4.tgz#b980360c067384e24b357a588d807d3c83527780"
+  integrity sha1-uYA2DAZzhOJLNXpYjYB9PINSd4A=
 
 babel-plugin-transform-strict-mode@^6.24.1:
   version "6.24.1"
@@ -10690,13 +10695,13 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vant@^2.8.7:
-  version "2.8.7"
-  resolved "https://registry.npm.taobao.org/vant/download/vant-2.8.7.tgz?cache=0&sync_timestamp=1592979163275&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvant%2Fdownload%2Fvant-2.8.7.tgz#24220a8aa6919bf34b774c3b1c1d051543453770"
-  integrity sha1-JCIKiqaRm/NLd0w7HB0FFUNFN3A=
+vant@^2.9.1:
+  version "2.9.1"
+  resolved "https://registry.npm.taobao.org/vant/download/vant-2.9.1.tgz#ab2f2d2ac29d5855dbd3524b1a15ca279394974e"
+  integrity sha1-qy8tKsKdWFXb01JLGhXKJ5OUl04=
   dependencies:
     "@babel/runtime" "7.x"
-    "@vant/icons" "1.2.1"
+    "@vant/icons" "1.2.3"
     "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0"
     vue-lazyload "1.2.3"
 
@@ -10704,6 +10709,18 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
+vconsole-webpack-plugin@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.npm.taobao.org/vconsole-webpack-plugin/download/vconsole-webpack-plugin-1.5.1.tgz#b3032b07d94f22697c4a0e00710bdae4915ed3a2"
+  integrity sha1-swMrB9lPIml8Sg4AcQva5JFe06I=
+  dependencies:
+    vconsole "^3.1.0"
+
+vconsole@^3.1.0:
+  version "3.3.4"
+  resolved "https://registry.npm.taobao.org/vconsole/download/vconsole-3.3.4.tgz#a7dacd8887b3d3e902e8d18425cda56c34e77f51"
+  integrity sha1-p9rNiIez0+kC6NGEJc2lbDTnf1E=
 
 vendors@^1.0.0:
   version "1.0.4"

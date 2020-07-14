@@ -15,6 +15,7 @@ export default class Header extends Vue {
 
 <style scoped lang="scss">
 .ui-header {
+  display: flex;
   height: 48px;
   line-height: 48px;
   background-color: #f5f5f5;

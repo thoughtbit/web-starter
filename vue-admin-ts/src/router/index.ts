@@ -1,4 +1,4 @@
-import Vue from "vue";
+import Vue, { AsyncComponent } from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import { PositionResult } from "vue-router/types/router";
 import store from "@/store";

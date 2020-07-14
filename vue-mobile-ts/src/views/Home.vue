@@ -1,7 +1,28 @@
 <template>
   <div class="home">
     <Header msg="头部" />
-    <ui-icon icon-class="account-book-outlined" class="lg" />
+    <ui-icon icon-class="shouye" class="lg" />
+    <ui-icon icon-class="shouye-o" class="lg" />
+
+    <ui-icon icon-class="zhishi" class="lg" />
+    <ui-icon icon-class="zhishi-o" class="lg" />
+
+    <ui-icon icon-class="shezhi" class="lg" />
+    <ui-icon icon-class="shezhi-o" class="lg" />
+
+    <ui-icon icon-class="shaoma" class="lg" />
+    <ui-icon icon-class="shaoma-o" class="lg" />
+
+    <ui-icon icon-class="fenglei" class="lg" />
+    <ui-icon icon-class="fenglei-o" class="lg" />
+
+
+      <router-link :to="{ name: 'login', params: { userId: 123 }}">Login</router-link>
+
+      <!-- 带查询参数，下面的结果为 /register?plan=private -->
+      <router-link :to="{ path: 'register', query: { plan: 'private' }}"
+        >Register</router-link
+      >
     <van-row class="shop-nav">
       <van-col span="6">
         <van-icon name="pending-payment" />

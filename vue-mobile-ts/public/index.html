@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"/>
     <link rel="shortcut icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <!-- 使用CDN加速的CSS 和 JS 文件 -->
@@ -25,6 +25,64 @@
       .launch__title{color:#333;font-size:16px;margin-bottom:10px}
       .launch__sub-title{color:#999;font-size:14px}
     </style>
+    <script>
+    ;(function (win, lib, maxWidth, designWidth) {
+      var flexible = lib.flexible || (lib.flexible = {});
+      var doc = win.document;
+      var docEl = doc.documentElement;
+      var remStyleEl = doc.createElement('style');
+      var tid;
+      // 基准像素
+      var baseFontSize = 100;
+      // 像素比
+      var dpr = win.devicePixelRatio || 1;
+      var rem = 50;
+
+      function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        maxWidth = maxWidth || 540;
+        width>maxWidth && (width=maxWidth);
+        rem = width * baseFontSize / designWidth;
+        remStyleEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+      }
+
+      if (docEl.firstElementChild) {
+        docEl.firstElementChild.appendChild(remStyleEl);
+      } else {
+        var wrap = doc.createElement('div');
+        wrap.appendChild(remStyleEl);
+        doc.write(wrap.innerHTML);
+        wrap = null;
+      }
+
+      refreshRem();
+
+      win.addEventListener('resize', function() {
+        // 防止执行两次
+        clearTimeout(tid);
+        tid = setTimeout(refreshRem, 300);
+      }, false);
+
+      win.addEventListener('pageshow', function(e) {
+        // 浏览器后退的时候重新计算
+        if (e.persisted) {
+          clearTimeout(tid);
+          tid = setTimeout(refreshRem, 300);
+        }
+      }, false);
+
+      if (doc.readyState === 'complete') {
+        doc.body.style.fontSize = '16px';
+      } else {
+        doc.addEventListener('DOMContentLoaded', function(e) {
+          doc.body.style.fontSize = '16px';
+        }, false);
+      }
+
+      flexible.dpr = win.dpr = dpr;
+      flexible.rem = win.rem = rem;
+    })(window, window.lib || (window.lib = {}), 750, 750);
+    </script>
   </head>
   <body>
     <noscript>
@@ -38,7 +96,7 @@
             正在加载资源
           </div>
           <div class="launch__sub-title">
-            初次加载资源可能需要较多时间,请耐心等待...
+            请耐心等待...
           </div>
         </div>
         <div class="launch__footer">
