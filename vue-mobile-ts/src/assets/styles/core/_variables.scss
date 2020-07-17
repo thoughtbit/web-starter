@@ -3,9 +3,62 @@
 /* default variables */
 $ns: ui !default; // namespace, class: `.#{$ns}-button`.
 
-/* theme color */
+/* Theme Color */
 $--color-primary: #1890ff;
 $--color-success: #13ce66;
 $--color-warning: #ffba00;
 $--color-danger: #ff4949;
 $--color-info: #1e1e1e;
+
+// Color Palette
+$--color-black: #000;
+$--color-white: #fff;
+$--color-gray-1: #f7f8fa;
+$--color-gray-2: #f2f3f5;
+$--color-gray-3: #ebedf0;
+$--color-gray-4: #dcdee0;
+$--color-gray-5: #c8c9cc;
+$--color-gray-6: #969799;
+$--color-gray-7: #646566;
+$--color-gray-8: #323233;
+$--color-red: #ee0a24;
+$--color-blue: #1989fa;
+$--color-orange: #ff976a;
+$--color-orange-dark: #ed6a0c;
+$--color-orange-light: #fffbe8;
+$--color-green: #07c160;
+
+
+// Component Colors
+$--text-color: $--color-gray-8;
+$--active-color: $--color-gray-2;
+$--active-opacity: 0.7;
+$--disabled-opacity: 0.5;
+$--background-color: $--color-gray-1;
+$--background-color-light: #fafafa;
+$--text-link-color: #576b95;
+
+// Font
+$--font-size-xs: 10px;
+$--font-size-sm: 12px;
+$--font-size-md: 14px;
+$--font-size-lg: 16px;
+
+// Padding
+$--padding-base: 4px;
+$--padding-xs: $--padding-base * 2;
+$--padding-sm: $--padding-base * 3;
+$--padding-md: $--padding-base * 4;
+$--padding-lg: $--padding-base * 6;
+$--padding-xl: $--padding-base * 8;
+
+// NavBar
+$--nav-bar-height: 46px;
+$--nav-bar-background-color: $--color-white;
+$--nav-bar-arrow-size: 16px;
+$--nav-bar-icon-color: $--color-blue;
+$--nav-bar-text-color: $--color-blue;
+$--nav-bar-title-font-size: $--font-size-lg;
+$--nav-bar-title-text-color: $--text-color;
+$--nav-bar-z-index: 99999;
+

@@ -82,9 +82,9 @@ export default class Icon extends Vue {
     font-size: 18px;
   }
   &.xl {
-    width: 22px;
-    height: 22px;
-    font-size: 22px;
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
   }
   &.loading {
     animation: loading 1.5s linear infinite;

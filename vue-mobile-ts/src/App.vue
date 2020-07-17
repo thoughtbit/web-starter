@@ -64,6 +64,7 @@ export default {
 <style lang="scss">
 .app-container {
   height: 100vh !important;
+  background-color: #f2f2f2;
   // push 页面时：新页面的进入动画
   .fold-left-enter-active {
     animation-name: fold-left-in;

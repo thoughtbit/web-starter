@@ -1,59 +1,53 @@
 <template>
-  <van-tabbar fixed v-model="active" @change="handleChange">
+  <van-tabbar fixed v-model="active" @change="onChange">
     <van-tabbar-item v-for="(item, index) in data" :key="index">
       <template #icon="props">
-        <ui-icon :icon-class="props.active ? item.icon.active : item.icon.inactive" class="lg" />
+        <ui-icon
+          :icon-class="props.active ? item.icon.active : item.icon.inactive"
+          class="lg"
+        />
       </template>
       {{ item.title }}
     </van-tabbar-item>
   </van-tabbar>
 </template>
-<script>
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
 import { Tabbar, TabbarItem } from "vant";
 
-export default {
-  name: "TabBar",
+@Component({
   components: {
     [Tabbar.name]: Tabbar,
     [TabbarItem.name]: TabbarItem
-  },
-  props: {
-    defaultActive: {
-      type: Number,
-      default: 0
-    },
-    data: {
-      type: Array,
-      default: () => {
-        return [];
-      }
-    }
-  },
-  data() {
-    return {
-      active: this.defaultActive
-    };
-  },
-  methods: {
-    handleChange(index) {
-      this.$emit("onChangeFragment", index);
-    }
   }
-};
+})
+export default class TabBar extends Vue {
+  @Prop({
+    type: Number,
+    default: 0
+  })
+  private defaultActive!: number;
+
+  @Prop({
+    type: Array,
+    required: true,
+    default: () => []
+  })
+  private data!: any;
+
+  private active = this.defaultActive;
+
+  private onChange(index: number) {
+    this.$emit("onChangeFragment", index);
+  }
+
+  /**
+   * 指定切换的 tab 页
+   */
+  private onChangeComponent(index: number) {
+    // 调用 onChange 切换对应的 tab
+    this.onChange(index);
+  }
+}
 </script>
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style scoped lang="scss"></style>
