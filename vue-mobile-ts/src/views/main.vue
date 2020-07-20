@@ -30,7 +30,8 @@ interface Tabbar {
   components: {
     home: loadView("views/home.vue"),
     about: loadView("views/about.vue"),
-    setting: loadView("views/setting.vue")
+    setting: loadView("views/setting.vue"),
+    projects: loadView("views/projects.vue")
   }
 })
 export default class Main extends Vue {
@@ -42,6 +43,14 @@ export default class Main extends Vue {
       icon: {
         active: "shouye",
         inactive: "shouye-o"
+      }
+    },
+    {
+      title: "项目",
+      name: "projects",
+      icon: {
+        active: "zhishi",
+        inactive: "zhishi-o"
       }
     },
     {
@@ -92,8 +101,5 @@ export default class Main extends Vue {
   width: 100%;
   display: flex;
   flex-direction: column;
-}
-.ui-tabbar-placeholder {
-  height: 52px;
 }
 </style>

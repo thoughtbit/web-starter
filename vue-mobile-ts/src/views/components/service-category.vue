@@ -31,11 +31,11 @@ export default class ServiceCategory extends Vue {
 <style lang="scss">
 .sc-tabs {
   .van-tab__pane-body {
-    height: 480px;
+    height: 1000px;
     background-color: #fff;
   }
   .van-sticky--fixed {
-    top: 46px !important;
+    top: 68px !important;
   }
 }
 </style>

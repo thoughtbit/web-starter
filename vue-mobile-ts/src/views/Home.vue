@@ -1,56 +1,71 @@
 <template>
   <div class="page-container page-home" @scroll="onScrollChange" ref="home">
-    <ui-navbar
-      :isShowBack="false"
-      @click-left="onClickLeft"
-      @click-right="onClickRight"
-      :navBarStyle="navBarStyle"
+    <van-pull-refresh
+      v-model="isLoading"
+      success-text="刷新成功"
+      @refresh="onRefresh"
     >
-      <template #left>
-        <img :src="navBarCurrentSlotStyle.leftIcon" alt="菜单" />
-      </template>
-      <template #center>
-        <van-search
-          v-model="searchText"
-          placeholder="请输入搜索关键词"
-          shape="round"
-          :background="navBarCurrentSlotStyle.search.bgColor"
-        >
-        </van-search>
-      </template>
-      <template #right>
-        <img :src="navBarCurrentSlotStyle.rightIcon" alt="消息" />
-      </template>
-    </ui-navbar>
-    <home-swiper :swiperImgs="images" height="218px" />
-    <ui-whitespace />
-    <van-notice-bar left-icon="volume-o" :scrollable="false" mode="link">
-      <van-swipe
-        vertical
-        class="notice-swipe"
-        :autoplay="3000"
-        :show-indicators="false"
+      <ui-navbar
+        :isShowBack="false"
+        @click-left="onClickLeft"
+        @click-right="onClickRight"
+        :navBarStyle="navBarStyle"
       >
-        <van-swipe-item>1. 技术是开发它的人的共同灵魂技术是开发它的人的共同灵魂</van-swipe-item>
-        <van-swipe-item>2. 技术是开发它的人的共同灵魂技术是开发它的人的共同灵魂</van-swipe-item>
-        <van-swipe-item>3. 技术是开发它的人的共同灵魂技术是开发它的人的共同灵魂</van-swipe-item>
-      </van-swipe>
-    </van-notice-bar>
-    <ui-whitespace />
-    <van-notice-bar left-icon="volume-o" mode="link">
-      技术是开发它的人的共同灵魂技术是开发它的人的共同灵魂
-    </van-notice-bar>
-    <ui-whitespace />
-    <service-nav />
-    <ui-whitespace />
-    <service-category />
-    <ui-whitespace />
+        <template #left>
+          <img :src="navBarCurrentSlotStyle.leftIcon" alt="菜单" />
+        </template>
+        <template #center>
+          <van-search
+            v-model="searchText"
+            placeholder="请输入搜索关键词"
+            shape="round"
+            :background="navBarCurrentSlotStyle.search.bgColor"
+          >
+          </van-search>
+        </template>
+        <template #right>
+          <img :src="navBarCurrentSlotStyle.rightIcon" alt="消息" />
+        </template>
+      </ui-navbar>
+      <home-swiper :swiperImgs="images" height="218px" />
+      <ui-whitespace />
+      <van-notice-bar left-icon="volume-o" :scrollable="false" mode="link">
+        <van-swipe
+          vertical
+          class="notice-swipe"
+          :autoplay="3000"
+          :show-indicators="false"
+        >
+          <van-swipe-item
+            >1.
+            技术是开发它的人的共同灵魂技术是开发它的人的共同灵魂</van-swipe-item
+          >
+          <van-swipe-item
+            >2.
+            技术是开发它的人的共同灵魂技术是开发它的人的共同灵魂</van-swipe-item
+          >
+          <van-swipe-item
+            >3.
+            技术是开发它的人的共同灵魂技术是开发它的人的共同灵魂</van-swipe-item
+          >
+        </van-swipe>
+      </van-notice-bar>
+      <ui-whitespace />
+      <van-notice-bar left-icon="volume-o" mode="link">
+        技术是开发它的人的共同灵魂技术是开发它的人的共同灵魂
+      </van-notice-bar>
+      <ui-whitespace />
+      <service-nav />
+      <ui-whitespace />
+      <service-category />
+      <ui-whitespace />
+    </van-pull-refresh>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import { Search, NoticeBar, Swipe, SwipeItem } from "vant";
+import {Component, Vue} from "vue-property-decorator";
+import {Search, NoticeBar, Swipe, SwipeItem, PullRefresh} from "vant";
 import Header from "@/components/ui-header.vue";
 import HomeSwiper from "@/views/components/swiper/home-swiper.vue";
 import ServiceNav from "@/views/components/service-nav.vue";
@@ -62,6 +77,7 @@ import ServiceCategory from "@/views/components/service-category.vue";
     Header,
     ServiceNav,
     ServiceCategory,
+    [PullRefresh.name]: PullRefresh,
     [Search.name]: Search,
     [NoticeBar.name]: NoticeBar,
     [Swipe.name]: Swipe,
@@ -69,6 +85,7 @@ import ServiceCategory from "@/views/components/service-category.vue";
   }
 })
 export default class extends Vue {
+  private isLoading = false;
   private searchText = "";
 
   // NavBar 插槽的样式数据，包含页面未开始滑动的时候插槽的样式 (默认样式)
@@ -174,6 +191,12 @@ export default class extends Vue {
   }
   private onClickRight() {
     this.$toast("Button");
+  }
+
+  private onRefresh() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
   }
 }
 </script>

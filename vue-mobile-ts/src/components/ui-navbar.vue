@@ -70,6 +70,8 @@ export default {
   line-height: 1.5;
   text-align: center;
   user-select: none;
+  padding-top: 22px;
+  box-sizing: content-box;
   &__left,
   &__right {
     display: flex;
