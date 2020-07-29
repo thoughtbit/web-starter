@@ -15,5 +15,15 @@ export const routesConfig = [
     path: "/register",
     name: "register",
     component: () => import(/* webpackChunkName: "register" */ "@/views/register.vue"),
+  },
+  {
+    path: "/setting",
+    name: "setting",
+    component: () => import(/* webpackChunkName: "setting" */ "@/views/setting.vue"),
+  },
+  {
+    path: "/message",
+    name: "message",
+    component: () => import(/* webpackChunkName: "message" */ "@/views/message.vue"),
   }
 ];

@@ -30,7 +30,7 @@ interface Tabbar {
   components: {
     home: loadView("views/home.vue"),
     about: loadView("views/about.vue"),
-    setting: loadView("views/setting.vue"),
+    my: loadView("views/my.vue"),
     projects: loadView("views/projects.vue")
   }
 })
@@ -62,8 +62,8 @@ export default class Main extends Vue {
       }
     },
     {
-      title: "设置",
-      name: "setting",
+      title: "我的",
+      name: "my",
       icon: {
         active: "shezhi",
         inactive: "shezhi-o"

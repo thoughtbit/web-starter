@@ -1,23 +1,38 @@
 <template>
-  <van-tabs v-model="active" sticky class="sc-tabs">
-    <van-tab v-for="index in 8" :title="'选项 ' + index">
-      <div class="van-tab__pane-body">内容 {{ index }}</div>
-    </van-tab>
-  </van-tabs>
+
+    <van-tabs
+      sticky
+      offset-top="42px"
+      color="#dd1a21"
+      title-active-color="#dd1a21"
+      line-height="2px"
+      title-inactive-color="#333333"
+      v-model="active"
+      class="sc-tabs"
+    >
+      <van-tab :title="item" v-for="(item, index) in tabArray" :key="index">
+        <Recommend v-if="item === '推荐'"></Recommend>
+        <div v-else>{{ item }}</div>
+      </van-tab>
+    </van-tabs>
 </template>
 
 <script lang="ts">
 import {Component, Vue, Prop} from "vue-property-decorator";
-import {Tab, Tabs, Sticky} from "vant";
+import {State} from "vuex-class";
+import {Tab, Tabs} from "vant";
+import Recommend from "@/views/components/recommend.vue";
 
 @Component({
   components: {
+    Recommend,
     [Tab.name]: Tab,
-    [Tabs.name]: Tabs,
-    [Sticky.name]: Sticky
+    [Tabs.name]: Tabs
   }
 })
 export default class ServiceCategory extends Vue {
+  @State('tabArray') private tabArray: any;
+
   @Prop({
     type: Array,
     required: true,
@@ -25,7 +40,7 @@ export default class ServiceCategory extends Vue {
   })
   private list!: any;
 
-  private active = 2;
+  private active = 0;
 }
 </script>
 <style lang="scss">

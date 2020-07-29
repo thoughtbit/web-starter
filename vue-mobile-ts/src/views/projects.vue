@@ -1,11 +1,10 @@
 <template>
   <div class="page-container page-projects">
-    <van-nav-bar title="标题" fixed>
+    <van-nav-bar title="标题" fixed placeholder>
       <template #right>
         <ui-icon icon-class="menu" class="xl" />
       </template>
     </van-nav-bar>
-    <div class="ui-navbar-placeholder"></div>
     <van-pull-refresh
       v-model="refreshing"
       success-text="刷新成功"
@@ -84,7 +83,6 @@ export default class Projects extends Vue {
 </script>
 <style scoped lang="scss">
 .page-projects {
-  overflow: hidden;
-  overflow-y: auto;
+
 }
 </style>

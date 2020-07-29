@@ -84,7 +84,7 @@ import ServiceCategory from "@/views/components/service-category.vue";
     [SwipeItem.name]: SwipeItem
   }
 })
-export default class extends Vue {
+export default class extends Vue {  
   private isLoading = false;
   private searchText = "";
 

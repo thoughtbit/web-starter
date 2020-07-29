@@ -1,21 +1,19 @@
 <template>
-  <div class="page-container page-login">
-    <van-nav-bar
-      left-text="返回"
-      left-arrow
-      @click-left="onClickLeft"
-      title="登录"
-      fixed
-      placeholder
-    >
+  <div class="page-container page-my">
+    <van-nav-bar title="我的" fixed placeholder>
+      <template #right>
+        <ui-icon icon-class="message" class="xl" @click="onMessageClick"/>
+      </template>
     </van-nav-bar>
     <van-pull-refresh
       v-model="refreshing"
       success-text="刷新成功"
       @refresh="onRefresh"
     >
-
-      <van-cell title="注册" is-link @click="onRegisterClick" />
+      <van-cell-group>
+        <van-cell title="登录" is-link @click="onLoginClick" />
+        <van-cell title="设置" is-link @click="onSettingsClick" />
+      </van-cell-group>
     </van-pull-refresh>
   </div>
 </template>
@@ -31,7 +29,7 @@ import {PullRefresh, Cell, CellGroup} from "vant";
     [CellGroup.name]: CellGroup
   }
 })
-export default class Login extends Vue {
+export default class My extends Vue {
   @Prop({type: Boolean, default: false})
   private refreshing: boolean | undefined;
 
@@ -41,13 +39,26 @@ export default class Login extends Vue {
     }, 1000);
   }
 
-  private onClickLeft() {
-    this.$router.go(-1);
+  private onSettingsClick() {
+    this.$router.push({
+      name: "setting",
+      params: {
+        routerType: "push"
+      }
+    });
   }
 
-  private onRegisterClick() {
+  private onLoginClick() {
     this.$router.push({
-      name: "register",
+      name: "login",
+      params: {
+        routerType: "push"
+      }
+    });
+  }
+  private onMessageClick() {
+    this.$router.push({
+      name: "message",
       params: {
         routerType: "push"
       }
@@ -56,6 +67,6 @@ export default class Login extends Vue {
 }
 </script>
 <style scoped lang="scss">
-.page-login {
+.page-my {
 }
 </style>

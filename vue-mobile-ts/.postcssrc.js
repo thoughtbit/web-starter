@@ -10,7 +10,7 @@ module.exports = {
       ]
     },
     "postcss-pxtorem": {
-      rootValue: 50, // 换算的基数
+      rootValue: 37.5, // 换算的基数
       propList: ["*"],
       // selectorBlackList: [".van"], // 要忽略的选择器并保留为px。
       // minPixelValue: 2 // 设置要替换的最小像素值。
