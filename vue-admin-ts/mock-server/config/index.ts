@@ -12,7 +12,7 @@ let privateKey = fs.readFileSync(path.join(__dirname, "./", "cert", "private_key
 // 数据模拟服务
 const serverConfig = {
   port: 3000, // default: 3000
-  host: "0.0.0.0" // default: localhost,
+  host: "localhost" // default: localhost,
 };
 
 export { publicKey, privateKey, serverCert, serverKey, serverConfig };

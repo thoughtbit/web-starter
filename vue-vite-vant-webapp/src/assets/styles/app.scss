@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+@import "./core/reset";
+@import "./core/common";
+
+/* ------------------------------------------------------------------------------
+  primary styles
+------------------------------------------------------------------------------ */
+
+/* bug
+------------------------------------------------------------------------------ */
+// 防止图片拉伸或挤压
+.img {
+  object-fit: cover;
+}
+// 让滚动效果更丝滑
+html {
+  scroll-behavior: smooth;
+}
+// 100vh 不能与 vh 单位很好的配合
+body {
+  height: 100vh;
+}
+@supports (-webkit-touch-callout: none) {
+  body {
+      height: -webkit-fill-available;
+  }
+}
+
+/* root font-size
+------------------------------------------------------------------------------ */
+/* for 1080+ px width screen */
+@media only screen and (min-device-width: 1080px), only screen and (min-width: 1080px) {
+  html {
+    font-size: 170px;
+  }
+}
+
+/* for 1080 px width screen */
+@media only screen and (max-device-width: 1080px), only screen and (max-width: 1080px) {
+  html {
+    font-size: 144px;
+  }
+}
+
+/* for 800 px width screen */
+@media only screen and (max-device-width: 800px), only screen and (max-width: 800px) {
+  html {
+    font-size: 107px;
+  }
+}
+
+/* for 720 px width screen */
+@media only screen and (max-device-width: 720px), only screen and (max-width: 720px) {
+  html {
+    font-size: 96px;
+  }
+}
+
+/* for 640 px width screen */
+@media only screen and (max-device-width: 640px), only screen and (max-width: 640px) {
+  html {
+    font-size: 85px;
+  }
+}
+
+/* for 540 px width screen */
+@media only screen and (max-device-width: 540px), only screen and (max-width: 540px) {
+  html {
+    font-size: 72px;
+  }
+}
+
+/* for 480 px width screen */
+@media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
+  html {
+    font-size: 64px;
+  }
+}
+
+/* for 414 px width screen */
+@media only screen and (max-width: 414px), only screen and (max-device-width: 414px) {
+  html {
+    font-size: 55.2px;
+  }
+}
+
+/* for 375 px width screen */
+@media only screen and (max-width: 375px), only screen and (max-device-width: 375px) {
+  html {
+    font-size: 50px;
+  }
+}
+
+/* for 320 px width screen */
+@media only screen and (max-width: 320px), only screen and (max-device-width: 320px) {
+  html {
+    font-size: 42.7px;
+  }
+}
+
+/* layout styles
+------------------------------------------------------------------------------ */
+html,
+body {
+  height: 100%;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.page {
+  margin-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+  margin-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
+}
+
+.toastify {
+  border-radius: 40px;
+  padding: 8px 20px;
+  .toast-close {
+    margin-left: 10px;
+  }
+}
+
+/* page styles
+------------------------------------------------------------------------------ */

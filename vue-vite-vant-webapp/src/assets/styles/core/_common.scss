@@ -1,0 +1,454 @@
+@charset "utf-8";
+
+/* ------------------------------------------------------------------------------
+    common styles
+------------------------------------------------------------------------------ */
+
+/**
+ * clearfix
+ */
+.clearfix:before,
+.clearfix:after,
+.layout:before,
+.layout:after,
+.group:before,
+.group:after,
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after,
+.layout:after,
+.group:after,
+.container:after,
+.row:after {
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+.clearfix,
+.layout,
+.group,
+.container,
+.row {
+  zoom: 1;
+  display: flow-root;
+}
+
+/**
+  * clear
+  */
+
+.clear {
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+}
+
+/**
+  * text align
+  */
+
+.tc {
+  text-align: center;
+}
+
+.tr {
+  text-align: right;
+}
+
+.tj {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+/* float */
+.pull-left,
+.fl {
+  float: left;
+}
+
+.pull-right,
+.fr {
+  float: right;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* 连续字符换行 */
+.wrap {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+/* 连续字符不换行 */
+.nowrap {
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+/* 文字溢出显示省略号 */
+.ellipsis {
+  display: block;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+/* hr */
+.hr {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-top: 1px solid #888;
+    transform: scaleY(0.5);
+  }
+}
+
+/* hide text */
+.hide-text,
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* disabled */
+.disabled {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: default;
+  -ms-pointer-events: none;
+  pointer-events: none;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* trans */
+.trans {
+  transition: all 0.4s ease;
+  backface-visibility: hidden;
+  &:hover {
+    transform: scale(1.04, 1.04);
+    opacity: 0.8;
+  }
+}
+
+/* Sizing */
+.h-100 {
+  height: 100px;
+}
+.h-200 {
+  height: 200px;
+}
+.h-300 {
+  height: 300px;
+}
+.h-400 {
+  height: 400px;
+}
+.h-500 {
+  height: 500px;
+}
+.h-600 {
+  height: 600px;
+}
+
+/* Spacing */
+.mx-10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.mx-15 {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.mx-20 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.-mx-15 {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.px-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.px-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.px-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* grid layout styles
+------------------------------------------------------------------------------ */
+.row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.row,
+.row:after,
+.row:before {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.row-wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.row-no-wrap {
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+.row-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.row-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.row-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.row-space-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.row-space-around {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.row-top {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.row-middle {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.row-bottom {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.col {
+  position: relative;
+  max-width: 100%;
+}
+
+.col-24 {
+  display: block;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.col-23 {
+  display: block;
+  flex: 0 0 95.83333333%;
+  max-width: 95.83333333%;
+}
+
+.col-22 {
+  display: block;
+  flex: 0 0 91.66666667%;
+  max-width: 91.66666667%;
+}
+
+.col-21 {
+  display: block;
+  flex: 0 0 87.5%;
+  max-width: 87.5%;
+}
+
+.col-20 {
+  display: block;
+  flex: 0 0 83.33333333%;
+  max-width: 83.33333333%;
+}
+
+.col-19 {
+  display: block;
+  flex: 0 0 79.16666667%;
+  max-width: 79.16666667%;
+}
+
+.col-18 {
+  display: block;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.col-17 {
+  display: block;
+  flex: 0 0 70.83333333%;
+  max-width: 70.83333333%;
+}
+
+.col-16 {
+  display: block;
+  flex: 0 0 66.66666667%;
+  max-width: 66.66666667%;
+}
+
+.col-15 {
+  display: block;
+  flex: 0 0 62.5%;
+  max-width: 62.5%;
+}
+
+.col-14 {
+  display: block;
+  flex: 0 0 58.33333333%;
+  max-width: 58.33333333%;
+}
+
+.col-13 {
+  display: block;
+  flex: 0 0 54.16666667%;
+  max-width: 54.16666667%;
+}
+
+.col-12 {
+  display: block;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-11 {
+  display: block;
+  flex: 0 0 45.83333333%;
+  max-width: 45.83333333%;
+}
+
+.col-10 {
+  display: block;
+  flex: 0 0 41.66666667%;
+  max-width: 41.66666667%;
+}
+
+.col-9 {
+  display: block;
+  flex: 0 0 37.5%;
+  max-width: 37.5%;
+}
+
+.col-8 {
+  display: block;
+  flex: 0 0 33.33333333%;
+  max-width: 33.33333333%;
+}
+
+.col-7 {
+  display: block;
+  flex: 0 0 29.16666667%;
+  max-width: 29.16666667%;
+}
+
+.col-6 {
+  display: block;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.col-5 {
+  display: block;
+  flex: 0 0 20.83333333%;
+  max-width: 20.83333333%;
+}
+
+.col-4 {
+  display: block;
+  flex: 0 0 16.66666667%;
+  max-width: 16.66666667%;
+}
+
+.col-3 {
+  display: block;
+  flex: 0 0 12.5%;
+  max-width: 12.5%;
+}
+
+.col-2 {
+  display: block;
+  flex: 0 0 8.33333333%;
+  max-width: 8.33333333%;
+}
+
+.col-1 {
+  display: block;
+  flex: 0 0 4.16666667%;
+  max-width: 4.16666667%;
+}

@@ -26,7 +26,7 @@ server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
 // 注册反向代理
-// server.use('/api/v1', apiProxy);
+server.use('/api/v1', apiProxy);
 // https://localhost:4000/api/v1/users
 
 // All routes for the server

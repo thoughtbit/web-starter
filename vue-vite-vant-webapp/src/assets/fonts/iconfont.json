@@ -1,0 +1,121 @@
+{
+  "id": "3026357",
+  "name": "康养之都",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "14076191",
+      "name": "跑步",
+      "font_class": "paobu",
+      "unicode": "e6d4",
+      "unicode_decimal": 59092
+    },
+    {
+      "icon_id": "1228",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "586841",
+      "name": "diagnosis",
+      "font_class": "tingzhenqi",
+      "unicode": "e6fb",
+      "unicode_decimal": 59131
+    },
+    {
+      "icon_id": "657311",
+      "name": "分期－教育",
+      "font_class": "jiaoyu",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "981556",
+      "name": "五星",
+      "font_class": "wujiaoxing",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "1220845",
+      "name": "员工渠道APP-养老规划",
+      "font_class": "yanglaoguihua",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "1411085",
+      "name": "2医院",
+      "font_class": "yiyuan",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "5302982",
+      "name": "发送",
+      "font_class": "zhifeiji",
+      "unicode": "e6a0",
+      "unicode_decimal": 59040
+    },
+    {
+      "icon_id": "7270473",
+      "name": "劳动",
+      "font_class": "laodonggaizao",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "7519872",
+      "name": "幼儿出勤",
+      "font_class": "youerchuqin",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "10123559",
+      "name": "医药箱",
+      "font_class": "yiyaoxiang",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "10562165",
+      "name": "Heart, pulse",
+      "font_class": "xindiantu",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "11299510",
+      "name": "水果",
+      "font_class": "shuiguo",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "12005109",
+      "name": "游泳",
+      "font_class": "huwaiyouyong",
+      "unicode": "e6d7",
+      "unicode_decimal": 59095
+    },
+    {
+      "icon_id": "22612161",
+      "name": "侧边导航(16)_养老规划",
+      "font_class": "yanglaodanwei",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "24698759",
+      "name": "文体教育",
+      "font_class": "wentijiaoyu",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    }
+  ]
+}
