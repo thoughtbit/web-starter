@@ -129,6 +129,7 @@ export default [
         return {
           code: 0,
           message: "用户登录成功",
+          token: "123456"
         };
       }
       return {
@@ -137,11 +138,11 @@ export default [
       };
     },
   },
-  // 无权限
+  // 退出
   {
     url: "/api/user/logout",
     method: "post",
-    statusCode: 401,
+    statusCode: 200,
     response: () => {
       return resultError();
     },

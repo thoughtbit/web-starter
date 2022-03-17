@@ -44,8 +44,14 @@ export default defineComponent({
   setup() {
     const { t } = useI18n();
     const { user } = useStore();
+
+    // const token = computed(() => {
+    //   return user.token;
+    // })
+
     // const { token } = user; // TODO: 静态对象,  使用 storeToRefs 包裹转换成 响应式对象, 推荐使用storeToRefs转换
     const { token } = storeToRefs(user);
+
     const { data, loading } = useRequest(api.getUsers());
 
     const handleChangeState = () => {

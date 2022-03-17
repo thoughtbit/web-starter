@@ -1,11 +1,11 @@
 import axios from "axios";
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import Toastify from "toastify-js";
-import { APP_BASE_URL, MODE } from "@/constants";
+import { APP_API_URL, MODE } from "@/constants";
 
 const env = MODE || "development";
 
-const API_HOST: any = env === "mock" ? "/" : APP_BASE_URL; // 如果是mock模式 就不配置host 会走本地Mock拦截
+const API_HOST: any = env === "mock" ? "/" : APP_API_URL; // 如果是mock模式 就不配置host 会走本地Mock拦截
 
 const CODE = {
   REQUEST_SUCCESS: 0,
@@ -116,7 +116,7 @@ const onError = (error: AxiosResponse | any) => {
 
   // 全局 Toast 提示
   if (error.message) {
-    showMessage(error.message);
+    showMessage(errorMessage);
   }
 
   return {

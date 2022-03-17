@@ -1,4 +1,5 @@
 export * from "./bus";
+export * from "./auth";
 export * from "./is";
 export * from "./dom";
 export * from "./withInstall";

@@ -22,3 +22,9 @@ export function setupStore(app: App<Element>) {
 export function useStore() {
   return store;
 }
+export {
+  useAppStore, 
+  useUserStore
+}
+
+export default pinia;

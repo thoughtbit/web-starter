@@ -1,79 +1,64 @@
-import { useState, useCallback, useEffect } from "react";
-import { useDarkMode, useFetch } from "usehooks-ts";
-import { MODE, APP_VERSION } from "@/constants";
+import { BrowserRouter as Router, Routes, Route, Outlet, Link } from 'react-router-dom';
+import NiceModal from '@ebay/nice-modal-react';
+import { Navbar, LazyLoad } from './components';
+import { useCounter } from './hooks/useCounter';
 
-type Data = {
-  id: number;
-  name: string;
-  avatar: string;
-  createdAt: string;
-};
+const About = LazyLoad(() => import('./pages/about'));
+const Dashboard = LazyLoad(() => import('./pages/dashboard'));
 
-function UserList() {
-  const { data, error } = useFetch<Data[]>("/reviews");
-
-  if (error) return <p>There is an error. {error}</p>;
-  if (!data) return <p>Loading...</p>;
-
+function App() {
   return (
-    <div className="box">
-      <div className="box-hd">例子1</div>
-      <div className="box-bd">
-        <ul className="list">
-          {data.map((item, index) => {
-            return (
-              <li className="item item-hairline" key={item.id}>
-                <img src={item.avatar} className="avatar" />
-                {item.name}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+    <Router>
+      <NiceModal.Provider>
+        <p>Hello Vite + React!</p>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="dashboard/*" element={<Dashboard />} />
+            <Route path="*" element={<NoMatch />} />
+          </Route>
+        </Routes>
+      </NiceModal.Provider>
+    </Router>
+  );
+}
+
+function Layout() {
+  return (
+    <main>
+      <header>
+        <Navbar />
+      </header>
+
+      <hr />
+
+      <Outlet />
+    </main>
+  );
+}
+
+function Home() {
+  const { count, increment } = useCounter();
+  return (
+    <div>
+      <h2>Home</h2>
+      <p>
+        <button type="button" onClick={increment} className="btn">
+          count is: {count}
+        </button>
+      </p>
     </div>
   );
 }
 
-function App() {
-  const [count, setCount] = useState(0);
-  const { isDarkMode, toggle } = useDarkMode();
-
-  // const onChanged = useCallback(() => {
-  //   const el = window?.document.querySelector("html");
-  //   el?.classList.toggle("dark", isDarkMode);
-  // }, [isDarkMode]);
-
-  useEffect(() => {
-    // document.documentElement.dataset.theme = isDarkMode ? 'dark' : '';
-    const el = window?.document.querySelector("html");
-    el?.classList.toggle("dark", isDarkMode);
-  }, [isDarkMode]);
-
+function NoMatch() {
   return (
-    <div className="page">
-      <header className="">
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p className="text-base">
-          当前环境: {MODE}, {APP_VERSION}
-        </p>
-      </header>
-      <main>
-        <p className="flex flex-col">
-          <button
-            className="btn"
-            onClick={() => {
-              toggle();
-            }}
-          >
-            {isDarkMode ? "🌛" : "🌞"}
-          </button>
-        </p>
-        <UserList />
-      </main>
+    <div>
+      <h2>Nothing to see here!</h2>
+      <p>
+        <Link to="/">Go to the home page</Link>
+      </p>
     </div>
   );
 }

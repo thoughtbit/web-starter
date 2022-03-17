@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory, createWebHistory } from "vue-router
 import type { RouterOptions, RouteRecordRaw } from "vue-router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import { DEBUG } from "@/constants";
+import { DEBUG, APP_BASE_URL } from "@/constants";
 import { PageView } from "@/layouts";
 
 NProgress.configure({
@@ -45,7 +45,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const routerConfig: RouterOptions = {
-  history: createWebHistory(),
+  history: createWebHistory(APP_BASE_URL),
   routes,
   scrollBehavior() {
     return {
@@ -57,7 +57,7 @@ const routerConfig: RouterOptions = {
 };
 
 if (!DEBUG) {
-  routerConfig.history = createWebHashHistory();
+  routerConfig.history = createWebHashHistory(APP_BASE_URL);
 }
 
 const router = createRouter(routerConfig);

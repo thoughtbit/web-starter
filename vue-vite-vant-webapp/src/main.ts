@@ -1,16 +1,16 @@
 import { createApp } from "vue";
+import Harlem from '@harlem/core'
 import App from "./App.vue";
 import router, { setupRouter } from "./router";
 import { setupStore } from "./store";
 import { registerGlobalComponents, globalProperties, globalError } from "./plugins";
-import i18n from './locales';
+import i18n from "./locales";
 
 import "toastify-js/src/toastify.css";
 import "./assets/styles/app.scss";
 
 (async () => {
   const app = createApp(App);
-
 
   // 注册路由
   setupRouter(app);
@@ -30,8 +30,6 @@ import "./assets/styles/app.scss";
   // Mount when the route is ready
   // https://next.router.vuejs.org/api/#isready
   await router.isReady();
-
-
 
   app.mount("#app");
 })();

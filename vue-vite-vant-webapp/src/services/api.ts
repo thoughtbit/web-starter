@@ -61,6 +61,12 @@ const UserApiService = {
       data: data,
     });
   },
+  logout: () => {
+    return request({
+      url: "/api/user/logout",
+      method: "post",
+    });
+  },
 };
 
 const CommonApiService = {};
