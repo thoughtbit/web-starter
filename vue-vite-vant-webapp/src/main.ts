@@ -1,5 +1,4 @@
 import { createApp } from "vue";
-import Harlem from '@harlem/core'
 import App from "./App.vue";
 import router, { setupRouter } from "./router";
 import { setupStore } from "./store";

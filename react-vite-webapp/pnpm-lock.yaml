@@ -10,7 +10,6 @@ specifiers:
   '@types/node': ^17.0.21
   '@types/react': ^17.0.33
   '@types/react-dom': ^17.0.10
-  '@types/react-loadable': ^5.5.6
   '@types/toastify-js': ^1.11.0
   '@vitejs/plugin-legacy': ^1.7.1
   '@vitejs/plugin-react': ^1.2.0
@@ -27,7 +26,6 @@ specifiers:
   miragejs: ^0.1.43
   react: ^17.0.2
   react-dom: ^17.0.2
-  react-loadable: ^5.5.0
   react-router: ^6.2.2
   react-router-dom: ^6.2.2
   rollup-plugin-visualizer: ^5.6.0
@@ -37,6 +35,7 @@ specifiers:
   typescript: ^4.5.4
   vite: latest
   vite-plugin-html: ^3.2.0
+  vite-plugin-inspect: ^0.4.3
   vite-plugin-windicss: ^1.6.3
   vite-svg-loader: ^3.1.2
   vitest: latest
@@ -54,7 +53,6 @@ dependencies:
   lodash-es: registry.npmmirror.com/lodash-es/4.17.21
   react: registry.npmmirror.com/react/17.0.2
   react-dom: registry.npmmirror.com/react-dom/17.0.2_react@17.0.2
-  react-loadable: registry.npmmirror.com/react-loadable/5.5.0_react@17.0.2
   react-router: registry.npmmirror.com/react-router/6.2.2_react@17.0.2
   react-router-dom: registry.npmmirror.com/react-router-dom/6.2.2_react-dom@17.0.2+react@17.0.2
   store2: registry.npmmirror.com/store2/2.13.1
@@ -70,11 +68,10 @@ devDependencies:
   '@types/node': registry.npmmirror.com/@types/node/17.0.21
   '@types/react': registry.npmmirror.com/@types/react/17.0.40
   '@types/react-dom': registry.npmmirror.com/@types/react-dom/17.0.13
-  '@types/react-loadable': registry.npmmirror.com/@types/react-loadable/5.5.6
   '@types/toastify-js': registry.npmmirror.com/@types/toastify-js/1.11.0
   '@vitejs/plugin-legacy': registry.npmmirror.com/@vitejs/plugin-legacy/1.7.1_vite@2.8.6
   '@vitejs/plugin-react': registry.npmmirror.com/@vitejs/plugin-react/1.2.0
-  '@vitest/ui': registry.npmmirror.com/@vitest/ui/0.6.1
+  '@vitest/ui': registry.npmmirror.com/@vitest/ui/0.7.4
   faker: registry.npmmirror.com/faker/5.5.3
   jsdom: registry.npmmirror.com/jsdom/19.0.0
   miragejs: registry.npmmirror.com/miragejs/0.1.43
@@ -83,9 +80,10 @@ devDependencies:
   typescript: registry.npmmirror.com/typescript/4.6.2
   vite: registry.npmmirror.com/vite/2.8.6_sass@1.49.9
   vite-plugin-html: registry.npmmirror.com/vite-plugin-html/3.2.0_vite@2.8.6
+  vite-plugin-inspect: registry.npmmirror.com/vite-plugin-inspect/0.4.3_vite@2.8.6
   vite-plugin-windicss: registry.npmmirror.com/vite-plugin-windicss/1.8.3_vite@2.8.6
   vite-svg-loader: registry.npmmirror.com/vite-svg-loader/3.1.2
-  vitest: registry.npmmirror.com/vitest/0.6.1_1e9bc955327b6033901c79c166d7215d
+  vitest: registry.npmmirror.com/vitest/0.7.4_eccb410bcba6890ab8134621991bd0f7
   vue-tsc: registry.npmmirror.com/vue-tsc/0.33.2-patch.1_typescript@4.6.2
   windicss: registry.npmmirror.com/windicss/3.5.1
   windicss-analysis: registry.npmmirror.com/windicss-analysis/0.3.5
@@ -778,15 +776,6 @@ packages:
       '@types/react': registry.npmmirror.com/@types/react/17.0.40
     dev: true
 
-  registry.npmmirror.com/@types/react-loadable/5.5.6:
-    resolution: {integrity: sha512-2M7xH/wawZxNybbs/a76JkpUsMk4z6AxBh92cUtIBy2vK7EYYuitQbC4laY0hGz0e05R+mQ44YeHMtH2U+gMsw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react-loadable/-/react-loadable-5.5.6.tgz}
-    name: '@types/react-loadable'
-    version: 5.5.6
-    dependencies:
-      '@types/react': registry.npmmirror.com/@types/react/17.0.40
-      '@types/webpack': registry.npmmirror.com/@types/webpack/4.41.32
-    dev: true
-
   registry.npmmirror.com/@types/react-test-renderer/17.0.1:
     resolution: {integrity: sha512-3Fi2O6Zzq/f3QR9dRnlnHso9bMl7weKCviFmfF6B4LS1Uat6Hkm15k0ZAQuDz+UBq6B3+g+NM6IT2nr5QgPzCw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react-test-renderer/-/react-test-renderer-17.0.1.tgz}
     name: '@types/react-test-renderer'
@@ -817,18 +806,6 @@ packages:
     version: 0.16.2
     dev: true
 
-  registry.npmmirror.com/@types/source-list-map/0.1.2:
-    resolution: {integrity: sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/source-list-map/-/source-list-map-0.1.2.tgz}
-    name: '@types/source-list-map'
-    version: 0.1.2
-    dev: true
-
-  registry.npmmirror.com/@types/tapable/1.0.8:
-    resolution: {integrity: sha512-ipixuVrh2OdNmauvtT51o3d8z12p6LtFW9in7U79der/kwejjdNchQC5UMn5u/KxNoM7VHHOs/l8KS8uHxhODQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/tapable/-/tapable-1.0.8.tgz}
-    name: '@types/tapable'
-    version: 1.0.8
-    dev: true
-
   registry.npmmirror.com/@types/testing-library__jest-dom/5.14.3:
     resolution: {integrity: sha512-oKZe+Mf4ioWlMuzVBaXQ9WDnEm1+umLx0InILg+yvZVBBDmzV5KfZyLrCvadtWcx8+916jLmHafcmqqffl+iIw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/testing-library__jest-dom/-/testing-library__jest-dom-5.14.3.tgz}
     name: '@types/testing-library__jest-dom'
@@ -841,37 +818,6 @@ packages:
     resolution: {integrity: sha512-ifVUCImUYrnX1SraZrBS8GDXhWTwuTXZYRbftqrKHiwe6TVUO8mp441A4fYG8LXdyuiEavCdcgdLw3QBerK6oQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/toastify-js/-/toastify-js-1.11.0.tgz}
     name: '@types/toastify-js'
     version: 1.11.0
-    dev: true
-
-  registry.npmmirror.com/@types/uglify-js/3.13.1:
-    resolution: {integrity: sha512-O3MmRAk6ZuAKa9CHgg0Pr0+lUOqoMLpc9AS4R8ano2auvsg7IE8syF3Xh/NPr26TWklxYcqoEEFdzLLs1fV9PQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/uglify-js/-/uglify-js-3.13.1.tgz}
-    name: '@types/uglify-js'
-    version: 3.13.1
-    dependencies:
-      source-map: registry.npmmirror.com/source-map/0.6.1
-    dev: true
-
-  registry.npmmirror.com/@types/webpack-sources/3.2.0:
-    resolution: {integrity: sha512-Ft7YH3lEVRQ6ls8k4Ff1oB4jN6oy/XmU6tQISKdhfh+1mR+viZFphS6WL0IrtDOzvefmJg5a0s7ZQoRXwqTEFg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/webpack-sources/-/webpack-sources-3.2.0.tgz}
-    name: '@types/webpack-sources'
-    version: 3.2.0
-    dependencies:
-      '@types/node': registry.npmmirror.com/@types/node/17.0.21
-      '@types/source-list-map': registry.npmmirror.com/@types/source-list-map/0.1.2
-      source-map: registry.npmmirror.com/source-map/0.7.3
-    dev: true
-
-  registry.npmmirror.com/@types/webpack/4.41.32:
-    resolution: {integrity: sha512-cb+0ioil/7oz5//7tZUSwbrSAN/NWHrQylz5cW8G0dWTcF/g+/dSdMlKVZspBYuMAN1+WnwHrkxiRrLcwd0Heg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/webpack/-/webpack-4.41.32.tgz}
-    name: '@types/webpack'
-    version: 4.41.32
-    dependencies:
-      '@types/node': registry.npmmirror.com/@types/node/17.0.21
-      '@types/tapable': registry.npmmirror.com/@types/tapable/1.0.8
-      '@types/uglify-js': registry.npmmirror.com/@types/uglify-js/3.13.1
-      '@types/webpack-sources': registry.npmmirror.com/@types/webpack-sources/3.2.0
-      anymatch: registry.npmmirror.com/anymatch/3.1.2
-      source-map: registry.npmmirror.com/source-map/0.6.1
     dev: true
 
   registry.npmmirror.com/@use-gesture/core/10.2.10:
@@ -927,10 +873,10 @@ packages:
       - supports-color
     dev: true
 
-  registry.npmmirror.com/@vitest/ui/0.6.1:
-    resolution: {integrity: sha512-eBquWSP0C1InsHY34PktjL9cKCKO28q4HNhJEwa8rrPaXGYL3/abQuqJRqNH+ApUAUQd/q2RDAfzBdNoKWvAKg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vitest/ui/-/ui-0.6.1.tgz}
+  registry.npmmirror.com/@vitest/ui/0.7.4:
+    resolution: {integrity: sha512-FfUU1um8o+Cic44fTWxbGXv6sPMSiZxTysPxbR+2/K8t9+d0DzWsSa3lUjTRgiJQ1tiQpRP2sT4kkM/UO8XdzQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vitest/ui/-/ui-0.7.4.tgz}
     name: '@vitest/ui'
-    version: 0.6.1
+    version: 0.7.4
     dependencies:
       sirv: registry.npmmirror.com/sirv/2.0.2
     dev: true
@@ -3374,16 +3320,6 @@ packages:
       react-is: registry.npmmirror.com/react-is/17.0.2
     dev: true
 
-  registry.npmmirror.com/prop-types/15.8.1:
-    resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prop-types/-/prop-types-15.8.1.tgz}
-    name: prop-types
-    version: 15.8.1
-    dependencies:
-      loose-envify: registry.npmmirror.com/loose-envify/1.4.0
-      object-assign: registry.npmmirror.com/object-assign/4.1.1
-      react-is: registry.npmmirror.com/react-is/16.13.1
-    dev: false
-
   registry.npmmirror.com/psl/1.8.0:
     resolution: {integrity: sha512-RIdOzyoavK+hA18OGGWDqUTsCLhtA7IcZ/6NCs4fFJaHBDab+pDDmDIByWFRQJq2Cd7r1OoQxBGKOaztq+hjIQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/psl/-/psl-1.8.0.tgz}
     name: psl
@@ -3498,18 +3434,6 @@ packages:
     name: react-is
     version: 17.0.2
     dev: true
-
-  registry.npmmirror.com/react-loadable/5.5.0_react@17.0.2:
-    resolution: {integrity: sha512-C8Aui0ZpMd4KokxRdVAm2bQtI03k2RMRNzOB+IipV3yxFTSVICv7WoUr5L9ALB5BmKO1iHgZtWM8EvYG83otdg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-loadable/-/react-loadable-5.5.0.tgz}
-    id: registry.npmmirror.com/react-loadable/5.5.0
-    name: react-loadable
-    version: 5.5.0
-    peerDependencies:
-      react: '*'
-    dependencies:
-      prop-types: registry.npmmirror.com/prop-types/15.8.1
-      react: registry.npmmirror.com/react/17.0.2
-    dev: false
 
   registry.npmmirror.com/react-refresh/0.11.0:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-refresh/-/react-refresh-0.11.0.tgz}
@@ -4033,6 +3957,12 @@ packages:
     hasBin: true
     dev: true
 
+  registry.npmmirror.com/ufo/0.7.11:
+    resolution: {integrity: sha512-IT3q0lPvtkqQ8toHQN/BkOi4VIqoqheqM1FnkNWT9y0G8B3xJhwnoKBu5OHx8zHDOvveQzfKuFowJ0VSARiIDg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ufo/-/ufo-0.7.11.tgz}
+    name: ufo
+    version: 0.7.11
+    dev: true
+
   registry.npmmirror.com/universalify/0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/universalify/-/universalify-0.1.2.tgz}
     name: universalify
@@ -4091,6 +4021,25 @@ packages:
       vite: registry.npmmirror.com/vite/2.8.6_sass@1.49.9
     dev: true
 
+  registry.npmmirror.com/vite-plugin-inspect/0.4.3_vite@2.8.6:
+    resolution: {integrity: sha512-lj3oWnReRUwMHB7k8ZD8o6E27/OSn+8ua+tOftxuS39aM6Z9MG7m5r1CMlxMwEwdTM/wnQr0aH22Y2IX3e+++w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-plugin-inspect/-/vite-plugin-inspect-0.4.3.tgz}
+    id: registry.npmmirror.com/vite-plugin-inspect/0.4.3
+    name: vite-plugin-inspect
+    version: 0.4.3
+    engines: {node: '>=14'}
+    peerDependencies:
+      vite: ^2.0.0
+    dependencies:
+      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils/4.2.0
+      debug: registry.npmmirror.com/debug/4.3.3
+      kolorist: registry.npmmirror.com/kolorist/1.5.1
+      sirv: registry.npmmirror.com/sirv/2.0.2
+      ufo: registry.npmmirror.com/ufo/0.7.11
+      vite: registry.npmmirror.com/vite/2.8.6_sass@1.49.9
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   registry.npmmirror.com/vite-plugin-windicss/1.8.3_vite@2.8.6:
     resolution: {integrity: sha512-RIw2GD6H6cKNE8wZXVOBs4L1uTicVS0FaAkeqXvy1oyuXLC4SXmvnzEuoK0+qFuWJjW0ECNwE8eU+ZZhzNQKUg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-plugin-windicss/-/vite-plugin-windicss-1.8.3.tgz}
     id: registry.npmmirror.com/vite-plugin-windicss/1.8.3
@@ -4145,11 +4094,11 @@ packages:
       fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
-  registry.npmmirror.com/vitest/0.6.1_1e9bc955327b6033901c79c166d7215d:
-    resolution: {integrity: sha512-rgHgTO3xHCrbgmqYdUz4ViO0g2ekHeOfV60J6+1c6Ypzk1EqCE2sN8IpF4TDGs6BOvWIsVd/ob5c6U4Ozzu92g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vitest/-/vitest-0.6.1.tgz}
-    id: registry.npmmirror.com/vitest/0.6.1
+  registry.npmmirror.com/vitest/0.7.4_eccb410bcba6890ab8134621991bd0f7:
+    resolution: {integrity: sha512-6kyJ/YZJFVj/zEVVHFyvLvAZlbg05yAyJrk7oP+FOCFanGRYK7bBEz4qsIpNHxX+dlf5vRkbBDjpdXzGL7udeA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vitest/-/vitest-0.7.4.tgz}
+    id: registry.npmmirror.com/vitest/0.7.4
     name: vitest
-    version: 0.6.1
+    version: 0.7.4
     engines: {node: '>=14.14.0'}
     hasBin: true
     peerDependencies:
@@ -4169,7 +4118,7 @@ packages:
     dependencies:
       '@types/chai': registry.npmmirror.com/@types/chai/4.3.0
       '@types/chai-subset': registry.npmmirror.com/@types/chai-subset/1.3.3
-      '@vitest/ui': registry.npmmirror.com/@vitest/ui/0.6.1
+      '@vitest/ui': registry.npmmirror.com/@vitest/ui/0.7.4
       chai: registry.npmmirror.com/chai/4.3.6
       jsdom: registry.npmmirror.com/jsdom/19.0.0
       local-pkg: registry.npmmirror.com/local-pkg/0.4.1

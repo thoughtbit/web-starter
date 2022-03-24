@@ -3,7 +3,7 @@ import type { UserConfig, ConfigEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import legacy from "@vitejs/plugin-legacy";
-import { createHtmlPlugin } from 'vite-plugin-html';
+import { createHtmlPlugin } from "vite-plugin-html";
 import svgLoader from "vite-svg-loader";
 import styleImport from "vite-plugin-style-import";
 import { visualizer } from "rollup-plugin-visualizer";
@@ -56,19 +56,19 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
          * After writing entry here, you will not need to add script tags in `index.html`, the original tags need to be deleted
          * @default src/main.tsx
          */
-        entry: '/src/main.ts',
+        entry: "/src/main.ts",
         /**
          * If you want to store `index.html` in the specified folder, you can modify it, otherwise no configuration is required
          * @default index.html
          */
-        template: 'public/index.html',
+        template: "public/index.html",
 
         /**
          * Data that needs to be injected into the index.html ejs template
          */
         inject: {
           data: {
-            title: 'index',
+            title: "index",
             appName: viteEnv.VITE_APP_NAME,
             // injectScript: `<script src="./inject.js"></script>`,
           },
@@ -127,6 +127,12 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
       rollupOptions: {
         output: {
           banner,
+          manualChunks(id) {
+            // 将pinia的全局库实例打包进vendor, 避免和页面一起打包造成资源重复引入
+            if (id.includes(resolve(__dirname, "/src/store/index.ts"))) {
+              return "vendor";
+            }
+          },
         },
       },
     },

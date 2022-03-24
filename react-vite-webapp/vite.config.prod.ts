@@ -89,7 +89,7 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.mjs'],
     },
     esbuild: {
-      pure: viteEnv.VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : [],
+      pure: viteEnv.VITE_APP_DROP_CONSOLE ? ['console.log', 'debugger'] : [],
     },
     // 生产环境打包配置
     build: {

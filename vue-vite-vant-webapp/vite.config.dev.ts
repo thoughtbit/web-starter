@@ -7,7 +7,8 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import legacy from "@vitejs/plugin-legacy";
 import svgLoader from "vite-svg-loader";
 import styleImport from "vite-plugin-style-import";
-import { createHtmlPlugin } from 'vite-plugin-html';
+import { createHtmlPlugin } from "vite-plugin-html";
+import inspect from "vite-plugin-inspect";
 import dayjs from "dayjs";
 import { resolve } from "path";
 import pkg from "./package.json";
@@ -33,7 +34,8 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         targets: ["ie >= 11"],
         additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
       }),
-
+      // 调试工具, 默认是 enabled: true
+      inspect(),
       // 修改vant皮肤
       styleImport({
         libs: [
@@ -51,19 +53,19 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
          * After writing entry here, you will not need to add script tags in `index.html`, the original tags need to be deleted
          * @default src/main.tsx
          */
-        entry: '/src/main.ts',
+        entry: "/src/main.ts",
         /**
          * If you want to store `index.html` in the specified folder, you can modify it, otherwise no configuration is required
          * @default index.html
          */
-        template: 'public/index.html',
+        template: "public/index.html",
 
         /**
          * Data that needs to be injected into the index.html ejs template
          */
         inject: {
           data: {
-            title: 'index',
+            title: "index",
             appName: viteEnv.VITE_APP_NAME,
             // injectScript: `<script src="./inject.js"></script>`,
           },
@@ -90,12 +92,12 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
           replacement: resolve(__dirname, "src"),
         },
         {
-          find: 'vue-i18n',
-          replacement: 'vue-i18n/dist/vue-i18n.cjs.js', // Resolve the i18n warning issue
+          find: "vue-i18n",
+          replacement: "vue-i18n/dist/vue-i18n.cjs.js", // Resolve the i18n warning issue
         },
         {
-          find: 'vue',
-          replacement: 'vue/dist/vue.esm-bundler.js', // compile template. you can remove it, if you don't need.
+          find: "vue",
+          replacement: "vue/dist/vue.esm-bundler.js", // compile template. you can remove it, if you don't need.
         },
       ],
       // 可以忽略的后缀
@@ -130,9 +132,9 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
       // 设置服务启动时是否自动打开浏览器
       open: true,
       // 服务器监听的 IP 地址，默认 0.0.0.0 监听全部的
-      host: '0.0.0.0',
+      host: "0.0.0.0",
       // 设置服务启动端口号
-      port: 9000,
+      port: 3000,
       // 允许跨域
       cors: true,
       // 是否开启 https
@@ -140,8 +142,8 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
       // 设置代理，根据项目实际情况配置
       proxy: {
         // 选项写法
-        '/api': {
-          target: 'http://jsonplaceholder.typicode.com',
+        "/api": {
+          target: "http://jsonplaceholder.typicode.com",
           changeOrigin: true,
           secure: false,
           rewrite: (path) => path.replace(/^\/api/, ""),
@@ -160,7 +162,7 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         //     // proxy 是 'http-proxy' 的实例
         //   },
         // },
-      }
+      },
     },
     test: {
       globals: true,

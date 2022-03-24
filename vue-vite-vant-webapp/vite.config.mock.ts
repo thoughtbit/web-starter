@@ -5,9 +5,10 @@ import type { UserConfig, ConfigEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { viteMockServe } from "vite-plugin-mock";
-import { createHtmlPlugin } from 'vite-plugin-html';
+import { createHtmlPlugin } from "vite-plugin-html";
 import svgLoader from "vite-svg-loader";
 import styleImport from "vite-plugin-style-import";
+import inspect from "vite-plugin-inspect";
 import dayjs from "dayjs";
 import { resolve } from "path";
 import pkg from "./package.json";
@@ -17,7 +18,6 @@ const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version },
   lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss"),
 };
-
 
 // https://vitejs.dev/config/
 export default defineConfig((config: ConfigEnv): UserConfig => {
@@ -30,6 +30,8 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
     plugins: [
       vue(),
       vueJsx(),
+      // 调试工具, 默认是 enabled: true
+      inspect(),
       // 修改vant皮肤
       styleImport({
         libs: [
@@ -58,19 +60,19 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
          * After writing entry here, you will not need to add script tags in `index.html`, the original tags need to be deleted
          * @default src/main.tsx
          */
-        entry: '/src/main.ts',
+        entry: "/src/main.ts",
         /**
          * If you want to store `index.html` in the specified folder, you can modify it, otherwise no configuration is required
          * @default index.html
          */
-        template: 'public/index.html',
+        template: "public/index.html",
 
         /**
          * Data that needs to be injected into the index.html ejs template
          */
         inject: {
           data: {
-            title: 'index',
+            title: "index",
             appName: viteEnv.VITE_APP_NAME,
             // injectScript: `<script src="./inject.js"></script>`,
           },

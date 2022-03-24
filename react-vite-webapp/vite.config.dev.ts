@@ -7,6 +7,7 @@ import legacy from '@vitejs/plugin-legacy';
 import windiCSS from 'vite-plugin-windicss';
 import svgLoader from 'vite-svg-loader';
 import { createHtmlPlugin } from 'vite-plugin-html';
+import inspect from 'vite-plugin-inspect';
 import dayjs from 'dayjs';
 import { resolve } from 'path';
 import pkg from './package.json';
@@ -29,6 +30,8 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         targets: ['ie >= 11'],
         additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
       }),
+      // 调试工具, 默认是 enabled: true
+      inspect(),
       windiCSS(),
       svgLoader({ svgoConfig: {} }),
       createHtmlPlugin({
