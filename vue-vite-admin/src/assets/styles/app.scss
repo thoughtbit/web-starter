@@ -1,0 +1,11 @@
+html.dark {
+	background-color: #121212;
+}
+
+body {
+	@apply font-sans;
+}
+
+.page {
+	@apply container mx-auto;
+}
