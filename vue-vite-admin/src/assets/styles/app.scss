@@ -9,3 +9,13 @@ body {
 .page {
 	@apply container mx-auto;
 }
+
+.minimap {
+	position: absolute;
+	right: -1px;
+	bottom: -1px;
+}
+.g6-minimap-viewport {
+
+	border: 1px solid #3165f5;
+}

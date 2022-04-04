@@ -1,0 +1,20 @@
+html.dark {
+	background-color: #121212;
+}
+
+body {
+	@apply font-sans;
+}
+
+a {
+  color: var(--el-color-primary);
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+}
+
+.page {
+	@apply container mx-auto;
+}

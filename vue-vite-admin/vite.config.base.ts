@@ -23,7 +23,12 @@ export default (config: ConfigEnv) => {
     base: viteEnv.VITE_APP_BASE_URL,
     root: cmd,
     plugins: [
-      vue(),
+      vue({
+        // https://vuejs.org/guide/extras/reactivity-transform.html
+        // 开启 Reactivity 转换 [$, $ref, $computed, $toRef 等], 实验阶段.
+        // 使用 vue/macros 类库, 可按需引入 import { $, $ref, $computed, $toRef } from 'vue/macros';
+        reactivityTransform: true,
+      }),
       vueJsx(),
       legacy({
         targets: ["ie >= 11"],

@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-
 import { defineConfig } from "vite";
 import type { ConfigEnv } from "vite";
 import eslint from "vite-plugin-eslint";
@@ -52,12 +50,5 @@ export default (config: ConfigEnv) => {
         cache: false,
       }),
     ],
-    test: {
-      globals: true,
-      environment: "happy-dom",
-      transformMode: {
-        web: [/.[tj]sx$/, /.vue$/],
-      },
-    },
   });
 };
