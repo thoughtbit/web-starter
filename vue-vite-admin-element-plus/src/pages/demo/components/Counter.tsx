@@ -1,5 +1,6 @@
 import { defineComponent } from "vue";
 import { useStore } from "@/context/CountProvider";
+
 export default defineComponent({
   name: "Counter",
 
@@ -14,16 +15,23 @@ export default defineComponent({
       dispatch("decrement");
     };
 
-
     return () => {
       return (
         <div class="md:container md:mx-auto">
           <p>
-            <button class="px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50"
-             onClick={increment}>+</button>
+            <button
+              class="px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50"
+              onClick={increment}
+            >
+              +
+            </button>
             {state.count}
-            <button class="px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50"
-             onClick={decrement}>-</button>
+            <button
+              class="px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50"
+              onClick={decrement}
+            >
+              -
+            </button>
           </p>
         </div>
       );

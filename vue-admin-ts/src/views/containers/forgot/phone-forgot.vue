@@ -98,7 +98,7 @@
 
 <script lang="ts">
   import { Component, Vue } from "vue-property-decorator";
-  import SERVICE from "@/core/lib/sevice";
+  import SERVICE from "@/core/lib/service";
   import { isValidateMobile, isValidateEmail,  validMobile } from "@/utils/validation";
 
   interface User {

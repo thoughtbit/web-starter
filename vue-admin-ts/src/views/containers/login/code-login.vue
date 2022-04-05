@@ -53,7 +53,7 @@
 
 <script lang="ts">
   import { Component, Vue, Watch } from "vue-property-decorator";
-  import SERVICE from "@/core/lib/sevice";
+  import SERVICE from "@/core/lib/service";
   import { isValidateMobile, validMobile } from "@/utils/validation";
   import { Route } from "vue-router";
   import { State } from "vuex-class";

@@ -1,7 +1,7 @@
 import { Commit } from "vuex";
 import * as types from '@/store/mutation-types';
 import { dateFormat } from "@/utils/common";
-import SERVICE from "@/core/lib/sevice";
+import SERVICE from "@/core/lib/service";
 
 export interface State {
   logsList: any;

@@ -1,7 +1,7 @@
 import { Commit, Dispatch } from "vuex";
 import StorageManager from "@/utils/storage-manager";
 import * as types from "@/store/mutation-types";
-import SERVICE from "@/core/lib/sevice";
+import SERVICE from "@/core/lib/service";
 import { IUserModel, ITokenModel } from "@/types/user";
 import { Logger } from "@/utils/logger";
 

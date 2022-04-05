@@ -1,6 +1,6 @@
 import { Commit, Dispatch } from "vuex";
 import router, { exceptionRoutes, filterAsyncRoutes, rootRoute } from "@/router";
-import SERVICE from "@/core/lib/sevice";
+import SERVICE from "@/core/lib/service";
 import * as types from "@/store/mutation-types";
 // import { Logger } from "@/utils/logger";
 

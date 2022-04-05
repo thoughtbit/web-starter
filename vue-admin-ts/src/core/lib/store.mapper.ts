@@ -1,5 +1,5 @@
 import { Commit } from "vuex";
-import SERVICE from "./sevice";
+import SERVICE from "./service";
 
 // 命名导出同构action映射器
 export const mapActions = (API: Array<string>) => {
