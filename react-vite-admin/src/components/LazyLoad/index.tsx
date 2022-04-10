@@ -1,6 +1,6 @@
 import loadable from '@loadable/component';
 import { Spin } from 'antd';
-import styles from './index.styles.scss';
+import styles from './index.module.scss';
 
 // https://github.com/gregberge/loadable-components/pull/226
 function load(fn: any, options: any) {

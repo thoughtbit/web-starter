@@ -6,6 +6,10 @@ import plugin from "windicss/plugin";
 export default defineConfig({
   preflight: true,
   attributify: true,
+  // 常见的类名集合
+  shortcuts: {
+    "flex-c": "flex justify-center items-center",
+  },
   extract: {
     include: ["index.html", "src/**/*.{vue,jsx,tsx}"],
   },

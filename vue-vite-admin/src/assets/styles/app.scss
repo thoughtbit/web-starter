@@ -1,3 +1,7 @@
+:root {
+  --main-bg-color: #ff233b;
+}
+
 html.dark {
 	background-color: #121212;
 }
@@ -18,4 +22,8 @@ body {
 .g6-minimap-viewport {
 
 	border: 1px solid #3165f5;
+}
+
+.box {
+  background-color: var(--main-bg-color);
 }

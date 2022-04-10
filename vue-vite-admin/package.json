@@ -15,12 +15,16 @@
     "report": "cross-env REPORT=true pnpm build",
     "prettier": "npx prettier --write .",
     "lint": "eslint ./src --ext .vue,.js,.ts,.tsx",
-    "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts,.tsx",
+    "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts,.tsx --ignore-path .gitignore",
     "lint-staged": "pnpx lint-staged",
+    "lint:style": "stylelint --fix \"src/**/*.{css,scss}\"",
+    "commit:comment": "引导设置规范化的提交信息",
+    "commit": "git-cz",
     "coverage": "vitest run --coverage",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "i": "pnpm install"
+    "i": "pnpm install",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@antv/g6": "^4.6.4",
@@ -44,7 +48,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^12.0.1",
+    "@commitlint/config-conventional": "^12.1.4",
     "@types/echarts": "^4.9.12",
     "@types/lodash-es": "^4.17.6",
     "@types/nanoid": "^3.0.0",
@@ -59,7 +63,11 @@
     "@vitest/ui": "^0.8.4",
     "@vue/test-utils": "^2.0.0-rc.17",
     "@vueuse/core": "^8.1.2",
+    "commitizen": "^4.2.4",
+    "commitlint-config-cz": "^0.13.3",
     "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
     "eslint": "^8.12.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -96,7 +104,7 @@
     "windicss-analysis": "^0.3.5"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx}": [
+    "*.{js,ts,jsx,tsx,json}": [
       "prettier --write",
       "eslint --fix"
     ],
@@ -109,6 +117,11 @@
       "stylelint --fix",
       "prettier --write"
     ]
+  },
+  "config": {
+    "commitizen": {
+        "path": "node_modules/cz-customizable"
+    }
   },
   "engines": {
     "node": ">=14.0.0"

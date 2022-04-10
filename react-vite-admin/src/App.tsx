@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Outlet, Link } from 'react-router-dom';
 import NiceModal from '@ebay/nice-modal-react';
-import { Navbar, LazyLoad } from './components';
+import { Navbar, LazyLoad, Footer } from './components';
 import { useCounter } from './hooks/useCounter';
 
 const About = LazyLoad(() => import('./pages/about'));
@@ -48,6 +48,7 @@ function Home() {
           count is: {count}
         </button>
       </p>
+      <Footer><p>版权 &copy; 2022 </p></Footer>
     </div>
   );
 }

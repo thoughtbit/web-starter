@@ -19,7 +19,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "prettier"],
   extends: [
     // Airbnb JavaScript Style Guide https://github.com/airbnb/javascript
     "airbnb-base",
@@ -27,6 +27,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:vue/vue3-recommended",
+    "prettier", // 接入 prettier 规则
     "plugin:prettier/recommended",
   ],
   settings: {
@@ -38,6 +39,7 @@ module.exports = {
     },
   },
   rules: {
+    // 启 prettier 自动修复的功能
     "prettier/prettier": 1,
 
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",

@@ -63,6 +63,7 @@ export default (config: ConfigEnv) => {
       preprocessorOptions: {
         scss: {
           charset: false,
+          // additionalData 的内容会在每个 scss 文件的开头自动注入
           additionalData: `@use "@/assets/styles/element/index.scss" as *;`,
         },
       },

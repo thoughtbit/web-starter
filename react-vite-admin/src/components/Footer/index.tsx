@@ -1,7 +1,7 @@
 import React from 'react';
 
 import cs from 'classnames';
-import styles from './index.styles.scss';
+import styles from './index.module.scss';
 
 type FooterProps = {
   children?: React.ReactNode;

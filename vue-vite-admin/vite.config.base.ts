@@ -93,7 +93,11 @@ export default (config: ConfigEnv) => {
       __APP_INFO__: JSON.stringify(APP_INFO),
     },
     css: {
+      // 例如: 后缀为index.module.scss的样式文件自动应用 CSS Modules
+      // 使用: import styles from './index.module.scss';
       modules: {
+        // generateScopedName 属性来对生成的类名进行自定义; 其中，name 表示当前文件名，local 表示类名
+        generateScopedName: "[name]__[local]___[hash:base64:5]",
         localsConvention: "camelCaseOnly",
       },
       preprocessorOptions: {
