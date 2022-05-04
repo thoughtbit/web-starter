@@ -2,6 +2,7 @@
 import Vue from "vue";
 import type { VNode } from "vue";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 declare interface Window {
   // extend the window
 }
@@ -9,6 +10,7 @@ declare interface Window {
 // vue
 declare module "*.vue" {
   import type { DefineComponent } from "vue";
+
   const component: DefineComponent<{}, {}, any>;
   export default component;
 }

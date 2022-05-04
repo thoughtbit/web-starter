@@ -7,7 +7,7 @@ const userInfo = {
   userId: uuid,
   salary: "@natural(10, 500),000,000",
   name: "@cname()",
-  email: "wangliqun@email.com",
+  email: "moocss@email.com",
   password: "",
   "status|1": "@natural(0, 4)",
   company: "@city()信息技术有限公司",
@@ -129,7 +129,7 @@ export default [
         return {
           code: 0,
           message: "用户登录成功",
-          token: "123456"
+          token: "123456",
         };
       }
       return {

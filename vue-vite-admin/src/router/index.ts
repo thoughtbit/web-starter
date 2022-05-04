@@ -30,9 +30,93 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "index",
         name: "index",
-        component: () => import("@/pages/demo/demo.vue"),
+        component: () => import("@/pages/demo/index"),
         meta: {
           title: "演示",
+          icon: "icon-demo",
+          display: "all",
+          requiresAuth: false,
+        },
+      },
+    ],
+  },
+  {
+    path: "/todo",
+    name: "todo",
+    component: () => import("@/pages/todo/index.vue"),
+    meta: {
+      title: "Todo例子",
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/features",
+    name: "features",
+    component: PageView,
+    redirect: { name: "index" },
+    children: [
+      {
+        path: "index",
+        name: "index",
+        component: () => import("@/pages/features/index.vue"),
+        meta: {
+          title: "新特征和高级用法",
+          icon: "icon-demo",
+          display: "all",
+          requiresAuth: false,
+        },
+      },
+      {
+        path: "player",
+        name: "player",
+        component: () => import("@/pages/features/teleport-player.vue"),
+        meta: {
+          title: "Teleport 悬浮视频播放器",
+          icon: "icon-demo",
+          display: "all",
+          requiresAuth: false,
+        },
+      },
+      {
+        path: "async-component",
+        name: "async-component",
+        component: () => import("@/pages/features/async-component.vue"),
+        meta: {
+          title: "defineAsyncComponent 异步组件按需加载",
+          icon: "icon-demo",
+          display: "all",
+          requiresAuth: false,
+        },
+      },
+      {
+        path: "dynamic-component",
+        name: "dynamic-component",
+        component: () => import("@/pages/features/dynamic-component.vue"),
+        meta: {
+          title: "defineAsyncComponent 动态组件加载",
+          icon: "icon-demo",
+          display: "all",
+          requiresAuth: false,
+        },
+      },
+
+      {
+        path: "suspense",
+        name: "suspense",
+        component: () => import("@/pages/features/suspense-skeleton.vue"),
+        meta: {
+          title: "Suspense 实现骨架屏加载",
+          icon: "icon-demo",
+          display: "all",
+          requiresAuth: false,
+        },
+      },
+      {
+        path: "custom-ref",
+        name: "custom-ref",
+        component: () => import("@/pages/features/custom-ref.vue"),
+        meta: {
+          title: "customRef 实现敏感词替换",
           icon: "icon-demo",
           display: "all",
           requiresAuth: false,

@@ -176,7 +176,7 @@ instance.interceptors.request.use(
   (config: AxiosRequestConfig) => config,
   (error: any) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 instance.interceptors.response.use(
@@ -185,7 +185,7 @@ instance.interceptors.response.use(
   },
   (error) => {
     return Promise.reject(onError(error));
-  }
+  },
 );
 
 export default instance;

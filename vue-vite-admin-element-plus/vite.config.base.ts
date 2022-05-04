@@ -6,9 +6,9 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import legacy from "@vitejs/plugin-legacy";
 import windiCss from "vite-plugin-windicss";
 import svgLoader from "vite-svg-loader";
+import dayjs from "dayjs";
 import configElementPlusResolverPlugin from "./build/plugins/element-plus-resolver";
 
-import dayjs from "dayjs";
 import pkg from "./package.json";
 
 const { dependencies, devDependencies, name, version } = pkg;

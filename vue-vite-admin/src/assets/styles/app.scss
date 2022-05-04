@@ -1,6 +1,9 @@
 :root {
   --main-bg-color: #ff233b;
 }
+html, body {
+  height: 100%;
+}
 
 html.dark {
 	background-color: #121212;
@@ -9,7 +12,9 @@ html.dark {
 body {
 	@apply font-sans;
 }
-
+.app {
+  height: 100%;
+}
 .page {
 	@apply container mx-auto;
 }

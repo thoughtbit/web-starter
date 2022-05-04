@@ -1,0 +1,10 @@
+$design_width: 1920;
+$design_height: 1080;
+
+@function cvh($px) {
+  @return $px/$design_height * 100vh;
+}
+
+@function cvw($px) {
+  @return $px/$design_width * 100vw;
+}

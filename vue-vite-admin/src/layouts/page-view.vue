@@ -1,5 +1,5 @@
 <template>
-  <header>头部</header>
+  <header class="text-center py-10">头部</header>
   <router-view />
 </template>
 

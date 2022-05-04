@@ -1,7 +1,7 @@
 import { defineComponent, inject, provide, reactive, readonly } from "vue";
 import type { InjectionKey, Ref } from "vue";
 
-export const userStoreKey: InjectionKey<Ref<any>> = Symbol("User");
+export const userStoreKey = Symbol("User") as InjectionKey<Ref<any>>;
 
 export const UserProvider = defineComponent({
   name: "UserProvider",

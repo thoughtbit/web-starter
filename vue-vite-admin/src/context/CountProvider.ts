@@ -1,6 +1,7 @@
 import { defineComponent, provide, inject, reactive, readonly } from "vue";
+import type { InjectionKey, Ref } from "vue";
 
-const countStoreKey = Symbol("CountStoreKey");
+const countStoreKey = Symbol("CountStoreKey") as InjectionKey<Ref<any>>;
 
 export const CountProvider = defineComponent({
   name: "CountProvider",
@@ -29,7 +30,7 @@ export const CountProvider = defineComponent({
       },
     };
 
-    const store = {
+    const store: any = {
       state,
       dispatch(name: string, ...rest: any[]) {
         actions[name](...rest);

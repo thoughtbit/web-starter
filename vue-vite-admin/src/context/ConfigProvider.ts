@@ -1,9 +1,9 @@
 import { defineComponent, provide, ref } from "vue";
 import type { InjectionKey, Ref } from "vue";
 
-export const ConfigInjectionKey: InjectionKey<Ref<any>> = Symbol("Config");
+export const ConfigInjectionKey = Symbol("Config") as InjectionKey<Ref<any>>;
 
-export const UpdateConfigModeInjectionKey: InjectionKey<(mode: any) => void> = Symbol("Config");
+export const UpdateConfigModeInjectionKey = Symbol("Config") as InjectionKey<(mode: any) => void>;
 
 export default defineComponent({
   name: "ConfigProvider",

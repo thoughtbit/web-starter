@@ -1,4 +1,5 @@
-import { Ref, ref } from "vue";
+import { ref, readonly } from "vue";
+import type { Ref } from "vue";
 
 export function useState<T>(defaultValue?: T): [Ref<T>, (newValue: T) => void] {
   const value = ref(defaultValue) as Ref<T>;
@@ -6,5 +7,5 @@ export function useState<T>(defaultValue?: T): [Ref<T>, (newValue: T) => void] {
     value.value = newValue;
   };
 
-  return [value, setValue];
+  return [readonly(value) as Ref<T>, setValue];
 }
