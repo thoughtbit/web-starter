@@ -6,7 +6,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="演示" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -48,6 +48,8 @@ nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
+  color: #fff;
+  font-size: 20px;
 }
 
 nav a:first-of-type {

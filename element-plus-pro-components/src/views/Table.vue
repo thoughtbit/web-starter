@@ -58,6 +58,7 @@ function useData() {
   };
 }
 
+
 export default defineComponent({
   name: "TableDemo",
   props: {},
@@ -133,6 +134,32 @@ export default defineComponent({
         tableData.value = data.value;
       });
     };
+
+    // const data = ref([]);
+    // const pagination = ref({
+    //   defaultPageSize: 20,
+    //   total: 100,
+    //   defaultCurrent: 1,
+    // });
+    // const dataLoading = ref(false);
+    // const fetchData = async () => {
+    //   dataLoading.value = true;
+    //   try {
+    //     const res = await request.get('/api/get-list');
+    //     if (res.code === 0) {
+    //       const { list = [] } = res.data;
+    //       data.value = list;
+    //       pagination.value = {
+    //         ...pagination.value,
+    //         total: list.length,
+    //       };
+    //     }
+    //   } catch (e) {
+    //     console.log(e);
+    //   } finally {
+    //     dataLoading.value = false;
+    //   }
+    // };
 
     onMounted(() => {
       getData();

@@ -1,32 +1,41 @@
 <template>
-  <div class="modal">
-    <p>登录 {{username}}, {{modelValue}}</p>
+  <div ref="modalRef" class="modal">
+    <p>登录 {{ username }}, {{ modelValue }}</p>
     <p><button type="button" class="close-btn" @click="onClose">关闭</button></p>
   </div>
 </template>
 
 <script lang="ts">
 import { ref, defineComponent } from "vue";
+import { onClickOutside } from "@vueuse/core";
 
 export default defineComponent({
   props: {
     modelValue: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
+    const modalRef = ref(null);
+
     const username = ref("kami");
 
     const onClose = () => {
       emit("update:modelValue", false);
-    }
+    };
+
+    onClickOutside(modalRef, (event) => {
+      console.log(event);
+      emit("update:modelValue", false);
+    });
 
     return {
       username,
-      onClose
-    }
+      onClose,
+      modalRef,
+    };
   },
 });
 </script>
@@ -44,7 +53,6 @@ export default defineComponent({
   background-color: #fff;
   color: #000;
   .close-btn {
-    
   }
 }
 </style>

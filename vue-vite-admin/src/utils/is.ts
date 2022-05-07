@@ -96,3 +96,8 @@ export function isDayjs(time: any): time is Dayjs {
     "$s" in time
   );
 }
+
+// 驼峰命名
+export function toCamel(str: string): string {
+  return str.replace(/^\S/, (m) => m.toUpperCase());
+}
