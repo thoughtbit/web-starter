@@ -4,6 +4,7 @@ overrides:
   bin-wrapper: npm:bin-wrapper-china
 
 specifiers:
+  '@element-plus/icons-vue': ^1.1.4
   '@rushstack/eslint-patch': ^1.1.0
   '@types/axios': ^0.14.0
   '@types/jsdom': ^16.2.14
@@ -40,6 +41,7 @@ specifiers:
   vue-tsc: ^0.34.11
 
 dependencies:
+  '@element-plus/icons-vue': 1.1.4_vue@3.2.33
   '@vueuse/core': 8.3.1_vue@3.2.33
   axios: 0.27.2
   element-plus: 2.1.11_vue@3.2.33

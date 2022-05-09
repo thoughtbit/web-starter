@@ -1,5 +1,5 @@
 import type { ComponentPublicInstance, VNodeNormalizedChildren } from "vue";
-import { VNode } from "vue";
+import type { VNode } from "vue";
 
 const opt = Object.prototype.toString;
 

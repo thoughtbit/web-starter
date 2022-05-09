@@ -19,6 +19,7 @@
   <ui-table
     :options="options"
     :data="tableData"
+    loadingText="加载中..."
     isPagination
     stripe
     border
@@ -29,11 +30,65 @@
     @current-change="handleCurrentChange"
     style="width: 100%"
   >
+    <template #action="scope">
+      <el-button size="small" type="primary" @click="view(scope.scope)">查看</el-button>
+    </template>
+  </ui-table>
+
+  <hr />
+
+  <ui-table
+    :options="options2"
+    :data="tableData"
+    loadingText="加载中..."
+    isEditRow
+    isPagination
+    stripe
+    border
+    :total="total"
+    :currentPage="current"
+    :pageSize="pageSize"
+    :editRowIndex="editRowIndex"
+    @confirm="confirm"
+    @size-change="handleSizeChange"
+    @current-change="handleCurrentChange"
+    style="width: 100%"
+  >
+    <template #name="{ scope }">
+      <el-popover effect="light" trigger="hover" placement="top">
+        <template #default>
+          <p>姓名: {{ scope.row.name }}</p>
+          <p>邮箱: {{ scope.row.email }}</p>
+        </template>
+        <template #reference>
+          <div class="name-wrapper">
+            <el-tag size="medium">{{ scope.row.name }}</el-tag>
+          </div>
+        </template>
+      </el-popover>
+    </template>
+    <template #email="{ scope }">
+      <el-icon><user /></el-icon>
+      <span style="margin-left: 10px">{{ scope.row.email }}</span>
+    </template>
+    <template #age="{ scope }">
+      {{ scope.row.age }}
+    </template>
+
+    <template #editRow="scope">
+      <el-button size="small" type="primary" @click="sure(scope.scope)">确认</el-button>
+      <el-button size="small" type="danger">取消</el-button>
+    </template>
+    <template #action="scope">
+      <el-button size="small" type="primary" @click="edit(scope.scope)">编辑</el-button>
+      <el-button size="small" type="danger">删除</el-button>
+    </template>
   </ui-table>
 </template>
 
 <script lang="ts">
 import { ref, defineComponent, getCurrentInstance, nextTick, onMounted } from "vue";
+import { User } from "@element-plus/icons-vue";
 import type { TableOptions } from "@/components/Table/types";
 import { useState } from "@/hooks/use-state";
 import { createAsyncProcess } from "@/utils/create-async-process";
@@ -58,10 +113,11 @@ function useData() {
   };
 }
 
-
 export default defineComponent({
   name: "TableDemo",
-  props: {},
+  components: {
+    User,
+  },
   setup() {
     const { proxy } = getCurrentInstance() as any;
 
@@ -102,7 +158,46 @@ export default defineComponent({
       },
     ];
 
+    const options2: TableOptions[] = [
+      {
+        prop: "id",
+        label: "编号",
+        width: 100,
+        align: "center",
+      },
+      {
+        prop: "name",
+        label: "姓名",
+        width: 120,
+        align: "center",
+        slot: "name",
+      },
+      {
+        prop: "email",
+        label: "邮箱",
+        width: 240,
+        align: "center",
+        slot: "email",
+        editable: true,
+      },
+      {
+        prop: "age",
+        label: "年龄",
+        width: 200,
+        align: "center",
+        slot: "age",
+        editable: true,
+      },
+
+      {
+        label: "操作",
+        action: true,
+        align: "center",
+      },
+    ];
+
     const tableData = ref<any[]>([]);
+    const editRowIndex = ref<string>("");
 
     const arraySpanMethod = () => {
       nextTick(() => {
@@ -125,6 +220,21 @@ export default defineComponent({
     const handleCurrentChange = (val: number) => {
       console.log("handleCurrentChange:", val);
       // current.value = val;
+    };
+
+    const view = (scope: any) => {
+      // console.log(scope)
+    };
+
+    const edit = (scope: any) => {
+      // console.log(scope)
+      editRowIndex.value = "edit";
+    };
+    const sure = (scope: any) => {
+      console.log(scope);
+    };
+    const confirm = (scope: any) => {
+      // console.log(scope)
     };
 
     const getData = () => {
@@ -167,6 +277,7 @@ export default defineComponent({
 
     return {
       options,
+      options2,
       tableData,
       current,
       total,
@@ -174,6 +285,12 @@ export default defineComponent({
       arraySpanMethod,
       handleSizeChange,
       handleCurrentChange,
+
+      editRowIndex,
+      edit,
+      sure,
+      confirm,
+      view,
     };
   },
 });
