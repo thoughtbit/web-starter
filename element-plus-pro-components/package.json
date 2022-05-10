@@ -12,14 +12,16 @@
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.4",
     "@vueuse/core": "^8.3.1",
+    "async-validator": "^4.1.1",
     "axios": "^0.27.2",
     "element-plus": "^2.1.11",
     "lodash": "^4.17.21",
     "nanoid": "^3.3.3",
     "pinia": "^2.0.13",
     "toastify-js": "^1.11.2",
-    "vue": "^3.2.31",
-    "vue-router": "^4.0.14"
+    "vue": "^3.2.33",
+    "vue-router": "^4.0.14",
+    "@wangeditor/editor": "^5.0.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",

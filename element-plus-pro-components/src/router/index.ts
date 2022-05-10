@@ -26,7 +26,12 @@ const router = createRouter({
       path: "/search",
       name: "search",
       component: () => import("@/views/Search.vue"),
-    }
+    },
+    {
+      path: "/form",
+      name: "form",
+      component: () => import("@/views/Form.vue"),
+    },
   ],
 });
 
