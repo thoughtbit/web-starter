@@ -19,16 +19,16 @@ const nav = ref([
     title: "defineAsyncComponent 异步组件按需加载",
   },
   {
-    name: "dynamic-component",
-    title: "动态加载组件",
-  },
-  {
     name: "suspense",
     title: "Suspense 实现骨架屏加载",
   },
   {
     name: "custom-ref",
     title: "customRef 实现敏感词替换",
+  },
+  {
+    name: "v-memo",
+    title: "v-memo 渲染视图缓存",
   },
 ]);
 </script>

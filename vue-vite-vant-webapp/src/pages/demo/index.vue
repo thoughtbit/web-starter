@@ -1,6 +1,7 @@
 <template>
   <main class="page page-home" role="main">
     <h2 class="title">{{ title }}</h2>
+    <svg-icon name="user" color="#fa233b" />
     {{ token }}
     <div class="row row-center">
       <div class="col-12">22</div>

@@ -2,7 +2,7 @@
   <ui-form ref="form" label-width="100px" :options="options">
     <template #action="scope">
       <el-button type="primary" @click="submitForm(scope)">提交</el-button>
-      <el-button @click="resetForm()">重置</el-button>
+      <el-button @click="resetForm(form)">重置</el-button>
     </template>
   </ui-form>
 </template>
@@ -192,17 +192,11 @@ const submitForm = (scope: Scope) => {
   });
 };
 
-const resetForm = () => {
-  form.value?.resetFields();
+const resetForm = (form: any) => {
+  form.resetFields();
 };
 </script>
 
 <style scoped lang="scss">
-:deep(.ui-dialog) {
-  margin: 40px auto;
 
-  .el-dialog__body {
-    height: calc(100vh - 192px);
-  }
-}
 </style>

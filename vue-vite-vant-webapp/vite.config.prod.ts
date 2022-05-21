@@ -4,9 +4,10 @@ import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import legacy from "@vitejs/plugin-legacy";
 import { createHtmlPlugin } from "vite-plugin-html";
-import svgLoader from "vite-svg-loader";
-import styleImport from "vite-plugin-style-import";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import { createStyleImportPlugin, VantResolve } from "vite-plugin-style-import";
 import { visualizer } from "rollup-plugin-visualizer";
+
 import dayjs from "dayjs";
 import { resolve } from "path";
 import pkg from "./package.json";
@@ -38,10 +39,10 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         targets: ["ie >= 11"],
         additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
       }),
-
-      // 修改vant皮肤
-      styleImport({
+      createStyleImportPlugin({
+        resolves: [VantResolve()],
         libs: [
+          // If you don’t have the resolve you need, you can write it directly in the lib, or you can provide us with PR
           {
             libraryName: "vant",
             esModule: true,
@@ -49,7 +50,13 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
           },
         ],
       }),
-      svgLoader({ svgoConfig: {} }),
+      createSvgIconsPlugin({
+        iconDirs: [resolve(process.cwd(), "src/assets/icons/svgs")],
+        symbolId: "icon-[dir]-[name]",
+        // 'body-last' | 'body-first'
+        inject: "body-first",
+        svgoOptions: true,
+      }),
       createHtmlPlugin({
         minify: false,
         /**
@@ -97,14 +104,6 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         {
           find: "@",
           replacement: resolve(__dirname, "src"),
-        },
-        {
-          find: "vue-i18n",
-          replacement: "vue-i18n/dist/vue-i18n.cjs.js", // Resolve the i18n warning issue
-        },
-        {
-          find: "vue",
-          replacement: "vue/dist/vue.esm-bundler.js", // compile template. you can remove it, if you don't need.
         },
       ],
       // 可以忽略的后缀

@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, onMounted, watch, defineExpose, nextTick } from "vue";
+import { ref, defineComponent, onMounted, watch, nextTick } from "vue";
 import type { PropType } from "vue";
 import type { FormInstance, FormOptions } from "./types/types";
 import cloneDeep from "lodash/cloneDeep";
@@ -59,11 +59,11 @@ export default defineComponent({
   setup(props, { expose }) {
     const model = ref<any>(null);
     const rules = ref<any>(null);
-    const form = ref<FormInstance | null>(null);
+    const form = ref<FormInstance>();
     const edit = ref(null);
 
     // 初始化 富文本编辑器
-    const initEditor = (defaultValue, cb) => {
+    const initEditor = (defaultValue: any, cb: any) => {
       const editorConfig: Partial<IEditorConfig> = {};
       editorConfig.placeholder = "请输入内容";
       editorConfig.onChange = (editor: IDomEditor) => {
@@ -103,7 +103,7 @@ export default defineComponent({
             // 初始化富文本
             nextTick(() => {
               if (document.getElementById("editor-container") && document.getElementById("toolbar-container")) {
-                initEditor(item.value, (newHtml) => {
+                initEditor(item.value, (newHtml: any) => {
                   model.value[item.prop!] = newHtml;
                 });
               }
@@ -118,14 +118,14 @@ export default defineComponent({
     // 重置表单
     const resetFields = () => {
       // 重置element-plus的表单
-      form.value!.resetFields();
+      form.value.resetFields();
 
       // 重置富文本编辑器的内容
       // 获取到富文本的配置项
       if (props.options && props.options.length) {
         const editorItem = props.options.find((item) => item.type === "editor")!;
-        console.log("------>", editorItem.value);
-        edit.value.dangerouslyInsertHtml(editorItem.value);
+        // console.log("------>", editorItem.value);
+        editorItem && edit.value.dangerouslyInsertHtml(editorItem.value);
       }
     };
 

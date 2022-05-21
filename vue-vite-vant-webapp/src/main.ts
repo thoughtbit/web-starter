@@ -5,6 +5,7 @@ import { setupStore } from "./store";
 import { registerGlobalComponents, globalProperties, globalError } from "./plugins";
 import i18n from "./locales";
 
+import "virtual:svg-icons-register";
 import "toastify-js/src/toastify.css";
 import "./assets/styles/app.scss";
 

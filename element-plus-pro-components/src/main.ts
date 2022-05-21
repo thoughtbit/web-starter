@@ -8,7 +8,7 @@ import "toastify-js/src/toastify.css";
 import "element-plus/dist/index.css";
 import "virtual:svg-icons-register";
 
-import { SvgIcon, Table, Dialog, Form } from "./components";
+import { SvgIcon, Table, Dialog, Form, Menu } from "./components";
 
 import App from "./App.vue";
 import router from "./router";
@@ -19,6 +19,7 @@ app.use(SvgIcon);
 app.use(Table);
 app.use(Dialog);
 app.use(Form);
+app.use(Menu);
 
 // 使用element-plus 并且设置全局的大小
 app.use(ElementPlus, {

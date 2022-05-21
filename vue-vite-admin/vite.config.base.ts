@@ -17,11 +17,11 @@ const APP_INFO = {
 };
 
 export default (config: ConfigEnv) => {
-  const cmd = process.cwd();
-  const viteEnv = loadEnv(config.mode, `.env.${config.mode}`);
+  const root = process.cwd();
+  const viteEnv = loadEnv(config.mode, root);
+
   return defineConfig({
     base: viteEnv.VITE_APP_BASE_URL,
-    root: cmd,
     plugins: [
       vue({
         // https://vuejs.org/guide/extras/reactivity-transform.html

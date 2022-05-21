@@ -6,7 +6,6 @@ import configImageminPlugin from "./build/plugins/imagemin";
 import { configPwaConfig } from "./build/plugins/pwa";
 import pkg from "./package.json";
 
-
 const { name, version } = pkg;
 const banner = `/*!
 * ${name} v${version} ${new Date()}
@@ -15,7 +14,9 @@ const banner = `/*!
 */`;
 
 export default (config: ConfigEnv) => {
-  const viteEnv = loadEnv(config.mode, `.env.${config.mode}`);
+  const root = process.cwd();
+  const viteEnv = loadEnv(config.mode, root);
+
   return defineConfig({
     mode: "production",
     plugins: [configCompressPlugin("gzip"), configVisualizerPlugin(), configImageminPlugin(), configPwaConfig(viteEnv)],

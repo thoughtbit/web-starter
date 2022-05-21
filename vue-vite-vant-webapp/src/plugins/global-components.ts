@@ -1,8 +1,10 @@
+// @ts-nocheck
 import type { App } from "vue";
-import { AppLink } from "@/components/app-link";
-import { Chart } from "@/components/chart";
+import { AppLink, SvgIcon, Chart, Result } from "@/components";
 
 export default function registerGlobalComponents(app: App): void {
-  app.component("app-link", AppLink);
-  app.component("chart", Chart);
+  app.use(AppLink);
+  app.use(SvgIcon);
+  app.use(Chart);
+  app.use(Result);
 }

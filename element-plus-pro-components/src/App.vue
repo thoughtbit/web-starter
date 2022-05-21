@@ -13,6 +13,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/table">表格</RouterLink>
         <RouterLink to="/form">Form</RouterLink>
+        <RouterLink to="/menu">Menu</RouterLink>
       </nav>
     </div>
   </header>
@@ -20,7 +21,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
   <RouterView />
 </template>
 
-<style>
+<style lang="scss">
 @import "@/assets/styles/app.scss";
 
 #app {
@@ -56,5 +57,4 @@ nav a {
 nav a:first-of-type {
   border: 0;
 }
-
 </style>

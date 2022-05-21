@@ -13,17 +13,17 @@
 .img {
   object-fit: cover;
 }
-// 让滚动效果更丝滑
+
 html {
+  // 让滚动效果更丝滑
   scroll-behavior: smooth;
+  // 避免 300ms 的点击延迟
+  touch-action: manipulation;
 }
-// 100vh 不能与 vh 单位很好的配合
-body {
-  height: 100vh;
-}
+
 @supports (-webkit-touch-callout: none) {
   body {
-      height: -webkit-fill-available;
+    height: -webkit-fill-available;
   }
 }
 
@@ -39,63 +39,63 @@ body {
 /* for 1080 px width screen */
 @media only screen and (max-device-width: 1080px), only screen and (max-width: 1080px) {
   html {
-    font-size: 144px;
+    font-size: 108PX;
   }
 }
 
 /* for 800 px width screen */
 @media only screen and (max-device-width: 800px), only screen and (max-width: 800px) {
   html {
-    font-size: 107px;
+    font-size: 80PX;
   }
 }
 
 /* for 720 px width screen */
 @media only screen and (max-device-width: 720px), only screen and (max-width: 720px) {
   html {
-    font-size: 96px;
+    font-size: 72PX;
   }
 }
 
 /* for 640 px width screen */
 @media only screen and (max-device-width: 640px), only screen and (max-width: 640px) {
   html {
-    font-size: 85px;
+    font-size: 64PX;
   }
 }
 
 /* for 540 px width screen */
 @media only screen and (max-device-width: 540px), only screen and (max-width: 540px) {
   html {
-    font-size: 72px;
+    font-size: 54PX;
   }
 }
 
 /* for 480 px width screen */
 @media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
   html {
-    font-size: 64px;
+    font-size: 48PX;
   }
 }
 
 /* for 414 px width screen */
 @media only screen and (max-width: 414px), only screen and (max-device-width: 414px) {
   html {
-    font-size: 55.2px;
+    font-size: 41.4PX;
   }
 }
 
 /* for 375 px width screen */
 @media only screen and (max-width: 375px), only screen and (max-device-width: 375px) {
   html {
-    font-size: 50px;
+    font-size: 37.5PX;
   }
 }
 
 /* for 320 px width screen */
 @media only screen and (max-width: 320px), only screen and (max-device-width: 320px) {
   html {
-    font-size: 42.7px;
+    font-size: 32PX;
   }
 }
 

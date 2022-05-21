@@ -1,18 +1,14 @@
 <template>
-  <v-chart
-    v-if="renderChart"
-    :option="options"
-    :autoresize="autoresize"
-    :style="{ width, height }"
-  />
+  <v-chart v-if="renderChart" :option="options" :autoresize="autoresize" :style="{ width, height }" />
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, nextTick } from 'vue';
-import VueECharts from 'vue-echarts';
-import Props from '@/utils/props';
+import { defineComponent, ref, nextTick } from "vue";
+import VueECharts from "vue-echarts";
+import Props from "@/utils/props";
 
 export default defineComponent({
+  name: "chart",
   components: {
     VChart: VueECharts,
   },
@@ -34,5 +30,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped lang="less"></style>

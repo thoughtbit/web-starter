@@ -1,14 +1,13 @@
-/// <reference types="vitest" />
-
 import { defineConfig, loadEnv } from "vite";
 import type { UserConfig, ConfigEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { viteMockServe } from "vite-plugin-mock";
 import { createHtmlPlugin } from "vite-plugin-html";
-import svgLoader from "vite-svg-loader";
-import styleImport from "vite-plugin-style-import";
-import inspect from "vite-plugin-inspect";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import { viteVConsole } from "vite-plugin-vconsole";
+import { createStyleImportPlugin, VantResolve } from "vite-plugin-style-import";
+
 import dayjs from "dayjs";
 import { resolve } from "path";
 import pkg from "./package.json";
@@ -30,11 +29,10 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
     plugins: [
       vue(),
       vueJsx(),
-      // 调试工具, 默认是 enabled: true
-      inspect(),
-      // 修改vant皮肤
-      styleImport({
+      createStyleImportPlugin({
+        resolves: [VantResolve()],
         libs: [
+          // If you don’t have the resolve you need, you can write it directly in the lib, or you can provide us with PR
           {
             libraryName: "vant",
             esModule: true,
@@ -53,7 +51,13 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
           setupProdMockServer();
         `,
       }),
-      svgLoader({ svgoConfig: {} }),
+      createSvgIconsPlugin({
+        iconDirs: [resolve(process.cwd(), "src/assets/icons/svgs")],
+        symbolId: "icon-[dir]-[name]",
+        // 'body-last' | 'body-first'
+        inject: "body-first",
+        svgoOptions: false,
+      }),
       createHtmlPlugin({
         minify: false,
         /**
@@ -87,6 +91,15 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
           // ],
         },
       }),
+      viteVConsole({
+        entry: resolve('src/main.ts'), // entry file
+        localEnabled: true, // dev environment
+        enabled: false, // build production
+        config: {
+          maxLogNumber: 1000,
+          theme: 'dark'
+        }
+      }),
     ],
     resolve: {
       alias: [
@@ -97,14 +110,6 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         {
           find: "@",
           replacement: resolve(__dirname, "src"),
-        },
-        {
-          find: "vue-i18n",
-          replacement: "vue-i18n/dist/vue-i18n.cjs.js", // Resolve the i18n warning issue
-        },
-        {
-          find: "vue",
-          replacement: "vue/dist/vue.esm-bundler.js", // compile template
         },
       ],
       // 可以忽略的后缀
@@ -133,13 +138,6 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         scss: {
           charset: false,
         },
-      },
-    },
-    test: {
-      globals: true,
-      environment: "happy-dom",
-      transformMode: {
-        web: [/.[tj]sx$/, /.vue$/],
       },
     },
   };

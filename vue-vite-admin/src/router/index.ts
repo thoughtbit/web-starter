@@ -89,18 +89,6 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
-        path: "dynamic-component",
-        name: "dynamic-component",
-        component: () => import("@/pages/features/dynamic-component.vue"),
-        meta: {
-          title: "defineAsyncComponent 动态组件加载",
-          icon: "icon-demo",
-          display: "all",
-          requiresAuth: false,
-        },
-      },
-
-      {
         path: "suspense",
         name: "suspense",
         component: () => import("@/pages/features/suspense-skeleton.vue"),
@@ -117,6 +105,18 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("@/pages/features/custom-ref.vue"),
         meta: {
           title: "customRef 实现敏感词替换",
+          icon: "icon-demo",
+          display: "all",
+          requiresAuth: false,
+        },
+      },
+
+      {
+        path: "v-memo",
+        name: "v-memo",
+        component: () => import("@/pages/features/v-memo.vue"),
+        meta: {
+          title: "v-memo 渲染视图缓存",
           icon: "icon-demo",
           display: "all",
           requiresAuth: false,

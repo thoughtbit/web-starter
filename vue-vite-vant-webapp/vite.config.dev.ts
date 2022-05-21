@@ -1,14 +1,13 @@
-/// <reference types="vitest" />
-
 import { defineConfig, loadEnv } from "vite";
 import type { UserConfig, ConfigEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import legacy from "@vitejs/plugin-legacy";
-import svgLoader from "vite-svg-loader";
-import styleImport from "vite-plugin-style-import";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { createHtmlPlugin } from "vite-plugin-html";
-import inspect from "vite-plugin-inspect";
+import { viteVConsole } from "vite-plugin-vconsole";
+import { createStyleImportPlugin, VantResolve } from "vite-plugin-style-import";
+
 import dayjs from "dayjs";
 import { resolve } from "path";
 import pkg from "./package.json";
@@ -34,11 +33,10 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         targets: ["ie >= 11"],
         additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
       }),
-      // 调试工具, 默认是 enabled: true
-      inspect(),
-      // 修改vant皮肤
-      styleImport({
+      createStyleImportPlugin({
+        resolves: [VantResolve()],
         libs: [
+          // If you don’t have the resolve you need, you can write it directly in the lib, or you can provide us with PR
           {
             libraryName: "vant",
             esModule: true,
@@ -46,7 +44,13 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
           },
         ],
       }),
-      svgLoader({ svgoConfig: {} }),
+      createSvgIconsPlugin({
+        iconDirs: [resolve(process.cwd(), "src/assets/icons/svgs")],
+        symbolId: "icon-[dir]-[name]",
+        // 'body-last' | 'body-first'
+        inject: "body-first",
+        svgoOptions: false,
+      }),
       createHtmlPlugin({
         minify: false,
         /**
@@ -80,6 +84,15 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
           // ],
         },
       }),
+      viteVConsole({
+        entry: resolve("src/main.ts"), // entry file
+        localEnabled: true, // dev environment
+        enabled: false, // build production
+        config: {
+          maxLogNumber: 1000,
+          theme: "dark",
+        },
+      }),
     ],
     resolve: {
       alias: [
@@ -90,14 +103,6 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         {
           find: "@",
           replacement: resolve(__dirname, "src"),
-        },
-        {
-          find: "vue-i18n",
-          replacement: "vue-i18n/dist/vue-i18n.cjs.js", // Resolve the i18n warning issue
-        },
-        {
-          find: "vue",
-          replacement: "vue/dist/vue.esm-bundler.js", // compile template. you can remove it, if you don't need.
         },
       ],
       // 可以忽略的后缀
@@ -148,12 +153,6 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
           secure: false,
           rewrite: (path) => path.replace(/^\/api/, ""),
         },
-        // 正则表达式写法
-        "^/fallback/.*": {
-          target: "http://jsonplaceholder.typicode.com",
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/fallback/, ""),
-        },
         // 使用 proxy 实例
         // "/api": {
         //   target: "http://jsonplaceholder.typicode.com",
@@ -162,13 +161,6 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
         //     // proxy 是 'http-proxy' 的实例
         //   },
         // },
-      },
-    },
-    test: {
-      globals: true,
-      environment: "happy-dom",
-      transformMode: {
-        web: [/.[tj]sx$/, /.vue$/],
       },
     },
   };
