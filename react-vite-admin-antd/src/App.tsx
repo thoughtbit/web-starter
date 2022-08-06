@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, NavLink, Outlet, Link } from "react-router-dom";
 import { LazyLoad } from "@/components";
 
-const Demo1 = LazyLoad(() => import('./features/demos/demo1'));
-const Demo2 = LazyLoad(() => import('./features/demos/demo2'));
-const Demo3 = LazyLoad(() => import('./features/demos/demo3'));
+const Demo1 = LazyLoad(() => import("./features/demos/demo1"));
+const Demo2 = LazyLoad(() => import("./features/demos/demo2"));
+const Demo3 = LazyLoad(() => import("./features/demos/demo3"));
+const Demo4 = LazyLoad(() => import("./features/demos/demo4"));
 
 function Navbar() {
   return (
@@ -25,9 +26,14 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <Link to="/demo3" className="nav-link">
+          <NavLink to="/demo3" className="nav-link">
             Demo3
-          </Link>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/demo4" className="nav-link">
+            Demo4
+          </NavLink>
         </li>
       </ul>
     </nav>
@@ -43,6 +49,7 @@ function App() {
           <Route path="/demo1" element={<Demo1 />} />
           <Route path="/demo2" element={<Demo2 />} />
           <Route path="/demo3" element={<Demo3 />} />
+          <Route path="/demo4" element={<Demo4 />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>

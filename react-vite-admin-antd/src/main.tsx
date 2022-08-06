@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import NiceModal from "@ebay/nice-modal-react";
 import App from "./App";
 
 import "virtual:windi.css";
@@ -12,6 +13,8 @@ const root = document.getElementById("root") as HTMLElement;
 if (!root) throw new Error("no root");
 createRoot(root).render(
   <React.StrictMode>
-    <App />
+    <NiceModal.Provider>
+      <App />
+    </NiceModal.Provider>
   </React.StrictMode>
 );

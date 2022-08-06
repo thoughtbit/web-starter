@@ -1,44 +1,10 @@
-import { useMemo, useEffect } from "react";
+import { useMemo } from "react";
 import _debounce from "lodash-es/debounce";
 import { useSearchParam } from "@/hooks";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { useRequest } from "ahooks";
 import { api } from "@/services";
-import user from "mocks/user";
 
-export default function Dashboard() {
-  return (
-    <Routes>
-      <Route path="/" element={<DashboardLayout />}>
-        <Route index element={<DashboardIndex />} />
-        <Route path="messages" element={<Messages />} />
-      </Route>
-    </Routes>
-  );
-}
-
-function DashboardLayout() {
-  return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/dashboard">Dashboard Home</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/messages">Messages</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <hr />
-
-      <Outlet />
-    </div>
-  );
-}
-
-function DashboardIndex() {
+ export default function Demo3() {
   const { data, error, loading, run } = useRequest(api.getUsers, {
     manual: true,
     throttleWait: 1000,
@@ -66,6 +32,7 @@ function DashboardIndex() {
         })
       }
       </ul>
+      <Messages />
     </>
   );
 }
