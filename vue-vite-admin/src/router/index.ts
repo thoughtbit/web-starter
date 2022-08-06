@@ -1,169 +1,20 @@
 import type { App } from "vue";
-import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
-import type { RouterOptions, RouteRecordRaw } from "vue-router";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
-import { DEBUG, APP_BASE_URL } from "@/constants";
-import { PageView } from "@/layouts";
-import { createRouteGuard } from "./guard";
-
-NProgress.configure({
-  showSpinner: false,
-});
-
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    name: "home",
-    component: () => import("@/pages/home/index.vue"),
-    meta: {
-      title: "首页",
-      requiresAuth: false,
-    },
-  },
-  {
-    path: "/demo",
-    name: "demo",
-    component: PageView,
-    redirect: { name: "index" },
-    children: [
-      {
-        path: "index",
-        name: "index",
-        component: () => import("@/pages/demo/index"),
-        meta: {
-          title: "演示",
-          icon: "icon-demo",
-          display: "all",
-          requiresAuth: false,
-        },
-      },
-    ],
-  },
-  {
-    path: "/todo",
-    name: "todo",
-    component: () => import("@/pages/todo/index.vue"),
-    meta: {
-      title: "Todo例子",
-      requiresAuth: false,
-    },
-  },
-  {
-    path: "/features",
-    name: "features",
-    component: PageView,
-    redirect: { name: "index" },
-    children: [
-      {
-        path: "index",
-        name: "index",
-        component: () => import("@/pages/features/index.vue"),
-        meta: {
-          title: "新特征和高级用法",
-          icon: "icon-demo",
-          display: "all",
-          requiresAuth: false,
-        },
-      },
-      {
-        path: "player",
-        name: "player",
-        component: () => import("@/pages/features/teleport-player.vue"),
-        meta: {
-          title: "Teleport 悬浮视频播放器",
-          icon: "icon-demo",
-          display: "all",
-          requiresAuth: false,
-        },
-      },
-      {
-        path: "async-component",
-        name: "async-component",
-        component: () => import("@/pages/features/async-component.vue"),
-        meta: {
-          title: "defineAsyncComponent 异步组件按需加载",
-          icon: "icon-demo",
-          display: "all",
-          requiresAuth: false,
-        },
-      },
-      {
-        path: "suspense",
-        name: "suspense",
-        component: () => import("@/pages/features/suspense-skeleton.vue"),
-        meta: {
-          title: "Suspense 实现骨架屏加载",
-          icon: "icon-demo",
-          display: "all",
-          requiresAuth: false,
-        },
-      },
-      {
-        path: "custom-ref",
-        name: "custom-ref",
-        component: () => import("@/pages/features/custom-ref.vue"),
-        meta: {
-          title: "customRef 实现敏感词替换",
-          icon: "icon-demo",
-          display: "all",
-          requiresAuth: false,
-        },
-      },
-
-      {
-        path: "v-memo",
-        name: "v-memo",
-        component: () => import("@/pages/features/v-memo.vue"),
-        meta: {
-          title: "v-memo 渲染视图缓存",
-          icon: "icon-demo",
-          display: "all",
-          requiresAuth: false,
-        },
-      },
-    ],
-  },
-  {
-    path: "/:path(.*)*",
-    name: "404",
-    component: () => import("@/pages/result/404.vue"),
-  },
-];
-
-const routerConfig: RouterOptions = {
-  history: createWebHistory(APP_BASE_URL),
-  routes,
-  scrollBehavior() {
-    return {
-      el: "#app",
-      top: 0,
-      behavior: "smooth",
-    };
-  },
-};
-
-if (!DEBUG) {
-  routerConfig.history = createWebHashHistory(APP_BASE_URL);
-}
+import { createRouter } from "vue-router";
+import { routerConfig } from "./router-config";
+import { createRouterGuard } from "./router-guard";
 
 const router = createRouter(routerConfig);
 
-// 全局前置守卫
-router.beforeEach((to: any, from: any, next: any) => {
-  NProgress.start();
-  next();
-});
-
-// 全局后置守卫
-router.afterEach(() => {
-  NProgress.done();
-});
-
-createRouteGuard(router);
-
-export function setupRouter(app: App<Element>) {
+export async function setupRouter(app: App<Element>) {
+  // 挂载路由
   app.use(router);
+
+  // 挂载路由守卫
+  createRouterGuard(router);
+
+  // Mount when the route is ready
+  // https://next.router.vuejs.org/api/#isready
+  await router.isReady();
 }
 
 export default router;

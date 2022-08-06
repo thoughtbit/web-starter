@@ -1,1 +1,1 @@
-export * from "./use-ttile";
+export * from "./use-title";

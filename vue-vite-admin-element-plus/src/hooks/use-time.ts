@@ -1,9 +1,9 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 /**
- * @description 获取本地时间
+ *  获取本地时间
  */
-export function useTime() {
+export const useTime = () => {
   let timer: any; // 定时器
   const year = ref(0); // 年份
   const month = ref(0); // 月份
@@ -11,7 +11,15 @@ export function useTime() {
   const day = ref(0); // 天数
   const hour = ref<number | string>(0); // 小时
   const minute = ref<number | string>(0); // 分钟
-  const second = ref(0); // 秒
+  const second = ref<number | string>(0); // 秒
+  const nowTime = ref<string>(""); // 当前时间
+
+  /*
+   * 格式化日期 补零
+   */
+  const format = (num: number): any => {
+    return num < 10 ? `0${num}` : num;
+  };
 
   // 更新时间
   const updateTime = () => {
@@ -20,25 +28,10 @@ export function useTime() {
     month.value = date.getMonth() + 1;
     week.value = "日一二三四五六".charAt(date.getDay());
     day.value = date.getDate();
-    hour.value =
-      (date.getHours() + "")?.padStart(2, "0") ||
-      new Intl.NumberFormat(undefined, { minimumIntegerDigits: 2 }).format(date.getHours());
-    minute.value =
-      (date.getMinutes() + "")?.padStart(2, "0") ||
-      new Intl.NumberFormat(undefined, { minimumIntegerDigits: 2 }).format(date.getMinutes());
-    second.value = date.getSeconds();
+    hour.value = format(date.getHours());
+    minute.value = format(date.getMinutes());
+    second.value = format(date.getSeconds());
   };
-
-  // 原生时间格式化
-  // new Intl.DateTimeFormat('zh', {
-  //     year: 'numeric',
-  //     month: '2-digit',
-  //     day: '2-digit',
-  //     hour: '2-digit',
-  //     minute: '2-digit',
-  //     second: '2-digit',
-  //     hour12: false
-  // }).format(new Date())
 
   updateTime();
 
@@ -51,5 +44,5 @@ export function useTime() {
     clearInterval(timer);
   });
 
-  return { month, day, hour, minute, second, week };
-}
+  return { year, month, day, hour, minute, second, week, nowTime };
+};

@@ -32,7 +32,7 @@ export default {
   object(d = {}) {
     return {
       type: Object,
-      default() {
+      default: function () {
         return d;
       },
     };
@@ -41,7 +41,7 @@ export default {
   array<T>(d?: Array<any>) {
     return {
       type: Array as PropType<T[]>,
-      default() {
+      default: function () {
         return d;
       },
     };
@@ -51,19 +51,20 @@ export default {
     if (d !== undefined) {
       return {
         type: Function,
-        default() {
+        default: function () {
           return d;
         },
       };
+    } else {
+      return {
+        type: Function,
+      };
     }
-    return {
-      type: Function,
-    };
   },
 
   oneOfType(list: Array<any>, d?: any) {
     const types = list.map((prop) => {
-      return prop.type;
+      return prop["type"];
     });
     return {
       type: types,
@@ -73,7 +74,7 @@ export default {
   // type:
   oneOfString(list: Array<any>, d?: any) {
     return {
-      validator(value: string) {
+      validator: function (value: string) {
         return list.indexOf(value) !== -1;
       },
       default: d,

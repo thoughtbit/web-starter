@@ -1,5 +1,4 @@
-import { ref } from "vue";
-import type { Ref } from "vue";
+import { Ref, ref } from "vue";
 
 interface CreateAsyncProcessReturn<T extends (...args: any[]) => any> {
   active: Ref<boolean>;

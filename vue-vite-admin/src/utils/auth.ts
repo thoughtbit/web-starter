@@ -1,7 +1,7 @@
 import StorageManager, { TOKEN_KEY } from "@/services/storage";
 
 const isLogin = () => {
-  return StorageManager.get(TOKEN_KEY);
+  return !!StorageManager.get(TOKEN_KEY);
 };
 
 const getToken = () => {

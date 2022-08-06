@@ -1,28 +1,24 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-
-import router, { setupRouter } from "./router";
+import { setupRouter } from "./router";
 import { setupStore } from "./store";
+import { setupI18n } from "./locales";
 import { registerGlobalComponents, globalProperties, globalError } from "./plugins";
-import i18n from "./locales";
 
-import "virtual:windi-base.css";
-import "virtual:windi-components.css";
-import "@/assets/styles/app.scss";
+import "virtual:svg-icons-register";
 import "toastify-js/src/toastify.css";
-import "virtual:windi-utilities.css";
-import "virtual:windi-devtools";
+import "./assets/styles/app.scss";
 
+// If you want to use ElMessage, import it.
+import "element-plus/theme-chalk/src/message.scss";
+
+const app = createApp(App);
 (async () => {
-  const app = createApp(App);
-
-  // 注册路由
-  setupRouter(app);
   // 注册全局状态
   setupStore(app);
 
   // 国际化
-  app.use(i18n);
+  setupI18n(app);
 
   // 错误日志收集
   globalError(app);
@@ -31,9 +27,9 @@ import "virtual:windi-devtools";
   // 全局属性
   globalProperties(app);
 
-  // Mount when the route is ready
-  // https://next.router.vuejs.org/api/#isready
-  await router.isReady();
+  // 挂载路由
+  await setupRouter(app);
 
+  // 路由准备就绪后挂载 App
   app.mount("#app");
 })();

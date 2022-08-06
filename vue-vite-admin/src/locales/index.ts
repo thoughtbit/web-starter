@@ -1,11 +1,8 @@
+import type { App } from "vue";
 import { createI18n } from "vue-i18n";
 import en from "./en-US";
 import cn from "./zh-CN";
 
-export const LOCALE_OPTIONS = [
-  { label: "中文", value: "zh-CN" },
-  { label: "English", value: "en-US" },
-];
 const defaultLocale = localStorage.getItem("locales") || "zh-CN";
 
 const i18n = createI18n({
@@ -17,4 +14,6 @@ const i18n = createI18n({
   },
 });
 
-export default i18n;
+export function setupI18n(app: App<Element>) {
+  app.use(i18n);
+}

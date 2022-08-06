@@ -62,7 +62,7 @@ export default [
         message: "ok",
         data: {
           userId: query.id,
-          userName: "admin",
+          username: "admin",
         },
       };
     },
@@ -102,39 +102,62 @@ export default [
         message: "ok",
         data: {
           userId: query.id,
-          userName: query.userName,
+          username: query.username,
         },
       };
     },
   },
   {
     url: "/api/user/login",
-    timeout: 1000,
     method: "post",
-    response: (params) => {
-      const { userName, password } = JSON.parse(params.body);
-      if (!userName) {
-        return {
-          code: 0,
-          message: "用户名不能为空",
-        };
-      }
-      if (!password) {
-        return {
-          code: 0,
-          message: "密码不能为空",
-        };
-      }
-      if (userName === "admin" && password === "admin") {
+    response: ({ body, query }) => {
+      console.log("body>>>>>>>>", body);
+      console.log("query>>>>>>>>", query);
+      const { password, username } = body;
+
+      if (username === "admin" && password === "Admin@2022") {
         return {
           code: 0,
           message: "用户登录成功",
-          token: "123456"
+          data: {
+            token: "o5w0hoYeIWzMsxxCXKMdkZfveu2BLRXY",
+            username: "admin",
+          },
+        };
+      } else {
+        return {
+          code: 401,
+          message: "账号或者密码错误",
+          data: {}
         };
       }
+    },
+  },
+  // 注册
+  {
+    url: "/api/user/register",
+    method: "post",
+    response: ({ body, query }) => {
+      console.log("body>>>>>>>>", body);
+      console.log("query>>>>>>>>", query);
       return {
         code: 0,
-        message: "账号或者密码错误",
+        message: "ok",
+        data: body,
+      };
+    },
+  },
+  // 找回密码
+  {
+    url: "/api/user/forget",
+    method: "post",
+    response: ({ body, query }) => {
+      console.log("body>>>>>>>>", body);
+      console.log("query>>>>>>>>", query);
+      return {
+        code: 0,
+        message: "ok",
+        data: body,
       };
     },
   },
@@ -144,7 +167,8 @@ export default [
     method: "post",
     statusCode: 200,
     response: () => {
-      return resultError();
+      const data = {};
+      return resultSuccess(data);
     },
   },
 ] as MockMethod[];

@@ -1,5 +1,5 @@
-import localeDemo from "@/pages/demo/locale/en-US";
+import localeDashboard from "@/pages/dashboard/locale/en-US";
 
 export default {
-  ...localeDemo,
+  ...localeDashboard
 };

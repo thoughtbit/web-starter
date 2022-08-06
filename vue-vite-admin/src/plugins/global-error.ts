@@ -2,7 +2,11 @@ import { nextTick } from "vue";
 import type { App, ComponentPublicInstance } from "vue";
 
 export default function globalError(app: App) {
-  app.config.errorHandler = (err: unknown, vm: ComponentPublicInstance | null, info: string) => {
+  app.config.errorHandler = (
+    err: unknown, 
+    vm: ComponentPublicInstance | null, 
+    info: string
+  ) => {
     // 上报日志
     // const store = userStore();
     // store.commit("logs/ADD_LOGS", {

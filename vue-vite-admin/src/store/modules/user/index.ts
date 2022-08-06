@@ -3,12 +3,12 @@ import StorageManager, { USER_INFO_KEY } from "@/services/storage";
 import { api } from "@/services";
 import { setToken, clearToken } from "@/utils/auth";
 import type { UserState, UserInfo } from "./types";
+import { removeRouteListener } from "@/utils/route-listener";
 
 export const useUserStore = defineStore("user", {
   state: (): UserState => ({
     users: [],
     userInfo: undefined,
-    token: undefined,
     role: "",
   }),
   getters: {
@@ -25,6 +25,12 @@ export const useUserStore = defineStore("user", {
     },
   },
   actions: {
+    switchRoles() {
+      return new Promise((resolve) => {
+        this.role = this.role === "user" ? "admin" : "user";
+        resolve(this.role);
+      });
+    },
     setToken(token: string | undefined) {
       this.token = token ?? "";
     },
@@ -34,24 +40,34 @@ export const useUserStore = defineStore("user", {
       this.$patch(partial);
     },
 
+    resetInfo() {
+      this.$reset();
+    },
+
     // setUserInfo(user: UserInfo | null) {
     //   this.userInfo = user;
     // },
     setUserInfo(partial: UserInfo) {
       // 批量更新
-      this.$patch((state: UserState) => {
+      this.$patch((state) => {
         state.userInfo = partial;
       });
     },
 
     async login(params: any): Promise<any> {
-      const data = api
+      return await api
         .login(params)
-        .then((res: any) => {
-          StorageManager.set(USER_INFO_KEY, res);
-          this.setUserInfo(res);
-          setToken(res.token);
-          this.setToken(res.token);
+        .then((result: any) => {
+          console.log("用户登录:", result);
+          const { code, data } = result;
+          if (code === 0) {
+            StorageManager.set(USER_INFO_KEY, data);
+            this.setUserInfo(data);
+            setToken(data.token);
+            return result;
+          } else {
+            return result;
+          }
         })
         .catch((error: any) => {
           clearToken();
@@ -60,41 +76,54 @@ export const useUserStore = defineStore("user", {
     },
 
     async getUsers() {
-      const data = await api
+      return await api
         .getUsers()
-        .then((response) => {
-          return response;
+        .then((result) => {
+          return result;
         })
         .catch((error) => {
           return error;
         });
-
-      return data;
     },
+
     async getUsersById(params: { id: number }) {
-      const data = await api
+      return await api
         .getUserById(params.id)
-        .then((response) => {
-          return response;
+        .then((result) => {
+          return result;
         })
         .catch((error) => {
           return error;
         });
-
-      return data;
     },
 
     async logout() {
-      await api.logout();
+      return await api.logout().then((result) => {
+        console.log("退出登录:", result);
+        // this.$patch({
+        //   users: [],
+        //   userInfo: null,
+        //   token: "",
+        // });
+        this.resetInfo();
 
-      // this.$patch({
-      //   users: [],
-      //   userInfo: null,
-      //   token: "",
-      // });
-      this.$reset();
+        clearToken();
+        StorageManager.remove(USER_INFO_KEY);
 
-      clearToken();
+        removeRouteListener();
+      });
+    },
+
+    async register(params: any): Promise<any> {
+      return await api
+        .register(params)
+        .then((result: any) => {
+          console.log("----register--->", result);
+          return result;
+        })
+        .catch((error: any) => {
+          return error;
+        });
     },
   },
 

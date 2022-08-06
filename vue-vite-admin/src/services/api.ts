@@ -1,14 +1,5 @@
-import { UserState } from "@/store/modules/user/types";
+import qs from "qs";
 import request from "./request";
-
-export interface LoginData {
-  username: string;
-  password: string;
-}
-
-export interface LoginRes {
-  token: string;
-}
 
 const UserApiService = {
   // 添加用户
@@ -16,7 +7,7 @@ const UserApiService = {
     return request({
       url: "/api/users",
       method: "post",
-      data,
+      data: data,
     });
   },
 
@@ -25,7 +16,7 @@ const UserApiService = {
     return request({
       url: `/api/users/${id}`,
       method: "put",
-      data,
+      data: data,
     });
   },
 
@@ -64,20 +55,51 @@ const UserApiService = {
       method: "get",
     });
   },
-  login: (data: LoginData) => {
-    return request.post<LoginRes>("/api/user/login", data);
+  login: (data: Recordable) => {
+    return request({
+      url: "/api/user/login",
+      method: "post",
+      data: data,
+    });
+  },
+  register: (data: Recordable) => {
+    return request({
+      url: "/api/user/register",
+      method: "post",
+      data: data,
+    });
+  },
+  forget: (data: Recordable) => {
+    return request({
+      url: "/api/user/forget",
+      method: "post",
+      data: data,
+    });
   },
   logout: () => {
-    return request.post<LoginRes>("/api/user/logout");
-  },
-  getUserInfo: () => {
-    return request.get<UserState>("/api/users/getUserInfo");
+    return request({
+      url: "/api/user/logout",
+      method: "post",
+    });
   },
 };
 
-const CommonApiService = {};
+const CommonApiService = {
+
+};
+
+const MenuApiService = {
+  getMenuList: (query: any) => {
+    return request({
+      url: "/api/menus",
+      method: "get",
+      params: query,
+    });
+  },
+};
 
 export default {
   ...UserApiService,
+  ...MenuApiService,
   ...CommonApiService,
 };

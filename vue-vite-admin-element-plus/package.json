@@ -25,7 +25,8 @@
   "dependencies": {
     "@antv/g6": "^4.6.4",
     "@element-plus/icons-vue": "^1.1.4",
-    "@vueuse/core": "^8.2.4",
+    "@vueuse/core": "^8.7.5",
+    "@vueuse/integrations": "8.7.5",
     "axios": "^0.26.1",
     "dayjs": "^1.11.0",
     "echarts": "^5.3.1",

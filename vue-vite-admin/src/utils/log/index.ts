@@ -2,7 +2,7 @@ import { Log } from "./types";
 
 const logSet = new Set();
 
-export const logger: Log = {
+const log: Log = {
   warn(componentName, message): void {
     console.warn(`App ${componentName} Warn: ${message}`);
   },
@@ -25,3 +25,5 @@ export const logger: Log = {
     console.info(`App ${componentName} Info: ${message}`);
   },
 };
+
+export default log;

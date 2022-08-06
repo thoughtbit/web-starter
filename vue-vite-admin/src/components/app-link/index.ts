@@ -1,3 +1,4 @@
-import AppLink from "./app-link.vue";
+import { withInstall } from "@/utils";
+import Component from "./app-link.vue";
 
-export { AppLink };
+export default withInstall<typeof Component>(Component);

@@ -4,12 +4,11 @@ import { useState } from "./use-state";
 
 export function useMergeState<T, E = T | undefined>(
   defaultValue: T,
-  props: { value: E },
+  props: { value: E }
 ): [ComputedRef<T>, (val: E) => void, Ref<T>] {
   const { value } = toRefs(props);
   const [localValue, setLocalValue] = useState(!isUndefined(value.value) ? value.value : defaultValue);
   watch(value, (newVal) => {
-    // eslint-disable-next-line no-unused-expressions
     isUndefined(newVal) && setLocalValue(undefined);
   });
 

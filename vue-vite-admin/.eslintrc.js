@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
   root: true,
   env: {
@@ -7,87 +5,100 @@ module.exports = {
     node: true,
     jest: true,
     es6: true,
-    "vue/setup-compiler-macros": true,
   },
-  parser: "vue-eslint-parser",
+  globals: {
+    "defineProps": "readonly",
+    "defineEmits": "readonly"
+  },
+  extends: [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "@vue/prettier",
+    "@vue/prettier/@typescript-eslint",
+  ],
   parserOptions: {
     parser: "@typescript-eslint/parser",
     sourceType: "module",
     allowImportExportEverywhere: true,
-    ecmaVersion: 2020,
     ecmaFeatures: {
       jsx: true,
     },
   },
-  plugins: ["@typescript-eslint", "prettier"],
-  extends: [
-    // Airbnb JavaScript Style Guide https://github.com/airbnb/javascript
-    "airbnb-base",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "plugin:vue/vue3-recommended",
-    "prettier", // 接入 prettier 规则
-    "plugin:prettier/recommended",
-  ],
   settings: {
     "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
-    "import/resolver": {
-      typescript: {
-        project: path.resolve(__dirname, "./tsconfig.json"),
-      },
-    },
   },
   rules: {
-    // 启 prettier 自动修复的功能
-    "prettier/prettier": 1,
-
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-continue": "off",
+    "no-restricted-syntax": "off",
+    "no-plusplus": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "guard-for-in": "off",
 
-    // Vue: Recommended rules to be closed or modify
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "import/first": "off", // https://github.com/vuejs/vue-eslint-parser/issues/58
+
+    "vue/first-attribute-linebreak": 0,
     "vue/no-deprecated-html-element-is": 0,
     "vue/no-multiple-template-root": 0,
-    "vue/require-default-prop": 0,
-    "vue/singleline-html-element-content-newline": 0,
-    "vue/max-attributes-per-line": 0,
-    // Vue: Add extra rules
-    "vue/custom-event-name-casing": [2, "camelCase"],
-    "vue/no-v-text": 1,
-    "vue/padding-line-between-blocks": 1,
-    "vue/require-direct-export": 1,
-    "vue/multi-word-component-names": 0,
-    "vue/component-definition-name-casing": 0,
 
     // typescript-eslint
-    "@typescript-eslint/no-non-null-assertion": 0,
-    "@typescript-eslint/no-unused-vars": 0,
     "@typescript-eslint/ban-types": 0,
     "@typescript-eslint/ban-ts-comment": 0,
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-empty-function": 0,
-    "@typescript-eslint/promise-function-async": 0,
-    "@typescript-eslint/strict-boolean-expressions": 0,
-    "import/extensions": [
-      2,
-      "ignorePackages",
-      {
-        js: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
-      },
-    ],
-    "import/prefer-default-export": 0,
-    "no-undef": 0,
-    "no-unused-vars": 0,
-    "no-param-reassign": 0,
-    "prefer-regex-literals": 0,
-    "import/no-unresolved": 0,
-    "import/no-extraneous-dependencies": 0,
-    "comma-dangle": [0, "always-multiline"],
-    "func-call-spacing": 0,
+
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "comma-dangle": ["off", "always-multiline"],
+    "func-call-spacing": "off",
+    "@typescript-eslint/promise-function-async": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-unused-vars": "off",
   },
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "rules": {
+        "vue/require-default-prop": 0,
+        "vue/multi-word-component-names": 0,
+        "vue/no-reserved-props": 0,
+        "vue/no-v-html": 0,
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"], // https://github.com/typescript-eslint eslint-recommended
+      "rules": {
+        "constructor-super": "off", // ts(2335) & ts(2377)
+        "getter-return": "off", // ts(2378)
+        "no-const-assign": "off", // ts(2588)
+        "no-dupe-args": "off", // ts(2300)
+        "no-dupe-class-members": "off", // ts(2393) & ts(2300)
+        "no-dupe-keys": "off", // ts(1117)
+        "no-func-assign": "off", // ts(2539)
+        "no-import-assign": "off", // ts(2539) & ts(2540)
+        "no-new-symbol": "off", // ts(2588)
+        "no-obj-calls": "off", // ts(2349)
+        "no-redeclare": "off", // ts(2451)
+        "no-setter-return": "off", // ts(2408)
+        "no-this-before-super": "off", // ts(2376)
+        "no-undef": "off", // ts(2304)
+        "no-unreachable": "off", // ts(7027)
+        "no-unsafe-negation": "off", // ts(2365) & ts(2360) & ts(2358)
+        "no-var": "error", // ts transpiles let/const to var, so no need for vars any more
+        "prefer-const": "error", // ts provides better types with const
+        "prefer-rest-params": "error", // ts provides better types with rest args over arguments
+        "prefer-spread": "error", // ts transpiles spread to apply, so no need for manual apply
+        "valid-typeof": "off" // ts(2367)
+      }
+    }
+  ]
 };
