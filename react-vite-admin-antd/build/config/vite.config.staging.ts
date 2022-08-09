@@ -14,12 +14,14 @@ export default (configEnv: ConfigEnv, _: Record<string, string>) => {
   * Released under the MIT License.
   */`;
 
+  const isBuild = command === "build";
+
   return defineConfig({
-    plugins: [createLegacy(), createMocks(command === "build"), createCompress("gzip"), createImagemin()],
+    plugins: [createLegacy(), createMocks(isBuild), createCompress("gzip"), createImagemin()],
     // 生产环境打包配置
     build: {
       minify: false,
-      // 去除 console debugger
+      // 去除 console debugger 
       terserOptions: {
         compress: {
           drop_console: true,
@@ -31,12 +33,6 @@ export default (configEnv: ConfigEnv, _: Record<string, string>) => {
       rollupOptions: {
         output: {
           banner,
-          manualChunks(id) {
-            // 将pinia的全局库实例打包进vendor, 避免和页面一起打包造成资源重复引入
-            if (id.includes(resolve(__dirname, "../../src/store/index.ts"))) {
-              return "vendor";
-            }
-          },
         },
       },
     },

@@ -1,6 +1,5 @@
 import { createProdMockServer } from "vite-plugin-mock/es/createProdMockServer";
 
-// @ts-ignore
 const modules = import.meta.glob("./**/*.ts", { eager: true });
 
 const mockModules: any[] = [];

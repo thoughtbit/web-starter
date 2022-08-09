@@ -4,11 +4,14 @@
  */
 import { VitePWA } from "vite-plugin-pwa";
 
-function createPwa(env) {
+function createPwa(env: Record<string, string>) {
   return VitePWA({
+    base: "/",
+    includeAssets: ["favicon.ico"],
     manifest: {
       name: env.VITE_APP_NAME,
       short_name: env.VITE_APP_SHORT_NAME,
+      theme_color: "#ffffff",
       icons: [
         {
           src: "./img/icons/pwa-192x192.png",

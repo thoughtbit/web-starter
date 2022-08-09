@@ -1,10 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, NavLink, Outlet, Link } from "react-router-dom";
+import { useEffect } from "react";
+import { HashRouter as Router, Routes, Route, NavLink, Outlet, Link } from "react-router-dom";
 import { LazyLoad } from "@/components";
+import Demo3 from "@/pages/demos/demo3";
 
-const Demo1 = LazyLoad(() => import("./features/demos/demo1"));
-const Demo2 = LazyLoad(() => import("./features/demos/demo2"));
-const Demo3 = LazyLoad(() => import("./features/demos/demo3"));
-const Demo4 = LazyLoad(() => import("./features/demos/demo4"));
+
+const Demo1 = LazyLoad(() => import("./pages/demos/demo1"));
+const Demo2 = LazyLoad(() => import("./pages/demos/demo2"));
+const Demo4 = LazyLoad(() => import("./pages/demos/demo4"));
+const Demo5 = LazyLoad(() => import("./pages/demos/demo5"));
 
 function Navbar() {
   return (
@@ -35,6 +38,11 @@ function Navbar() {
             Demo4
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/demo5" className="nav-link">
+            Demo5
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
@@ -50,6 +58,7 @@ function App() {
           <Route path="/demo2" element={<Demo2 />} />
           <Route path="/demo3" element={<Demo3 />} />
           <Route path="/demo4" element={<Demo4 />} />
+          <Route path="/demo5" element={<Demo5 />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>

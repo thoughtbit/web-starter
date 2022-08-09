@@ -7,7 +7,7 @@ declare module "*.scss";
 declare module "*.sass";
 declare module "lodash";
 
-declare module '*.svg' {
+declare module "*.svg" {
   export default src as string;
 }
 
@@ -15,6 +15,8 @@ declare module "*.json" {
   const value: any;
   export default value;
 }
+
+declare module "@loadable/component";
 
 declare type Nullable<T> = T | null;
 declare type NonNullable<T> = T extends null | undefined ? never : T;
