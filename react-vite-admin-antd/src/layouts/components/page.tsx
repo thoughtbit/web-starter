@@ -13,7 +13,7 @@ const Page = ({
   }
 
   return (
-    <Content>
+    <div className="page">
       {
         <Breadcrumb>
           {breadcrumbs?.map((item, index) => (
@@ -22,7 +22,7 @@ const Page = ({
         </Breadcrumb>
       }
       {children}
-    </Content>
+    </div>
   );
 };
 

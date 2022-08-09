@@ -5,7 +5,7 @@ import type { StoreState } from "./types";
 import { createAuthSlice } from "./modules/auth";
 import { createGlobalsSlice } from "./modules/global";
 
-const useStore = create<StoreState>()(
+export const useStore = create<StoreState>()(
   devtools(
     persist((...a) => ({
       ...createAuthSlice(...a),
@@ -13,7 +13,5 @@ const useStore = create<StoreState>()(
     }))
   )
 );
-
-export default useStore;
 
 // const login = useStore((state) => state.login);

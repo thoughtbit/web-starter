@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useStore } from "@/store";
 
 type Props = {
@@ -9,8 +9,9 @@ type Props = {
 const PrivateRoute: React.FC<Props> = ({ children }) => {
   // Replace with your auth condition
   const { isAuthenticated } = useStore((state) => state);
+  let location = useLocation();
 
-  return isAuthenticated ? children : <Navigate to="/login" />;
+  return isAuthenticated ? children : <Navigate to="/login" state={{location}} replace />;
 };
 
 export default PrivateRoute;

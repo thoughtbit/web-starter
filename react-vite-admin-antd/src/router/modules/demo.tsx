@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import type { RouteObject } from "../types";
 
+const Demos = lazy(() => import("@/pages/demos"))
 const Demo1 = lazy(() => import("@/pages/demos/demo1"))
 const Demo2 = lazy(() => import("@/pages/demos/demo2"))
 const Demo3 = lazy(() => import("@/pages/demos/demo3"))

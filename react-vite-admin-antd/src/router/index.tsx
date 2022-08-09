@@ -6,17 +6,18 @@ import type { RouteObject } from "./types";
 const modules = import.meta.glob("./modules/*.tsx", { eager: true });
 const appRouters = formatModules(modules, []);
 
-const Login = lazy(() => import("@/pages/login"));
-const Result403 = lazy(() => import("@/pages/result/403"));
-const Result404 = lazy(() => import("@/pages/result/404"));
-const Result500 = lazy(() => import("@/pages/result/500"));
+const BasicLayout = () => import("@/layouts/basic-layout")
+const Login = () => import("@/pages/login");
+const Result403 = () => import("@/pages/result/403");
+const Result404 = () => import("@/pages/result/404");
+const Result500 = () => import("@/pages/result/500");
 
 export const routers: RouteObject[] = [
   {
     path: "/login",
     name: "login",
-    element: <Login />,
-    component: Login,
+    element: Login,
+    component: lazy(Login),
     isFullPage: true,
     meta: {
       title: "登录页面",
@@ -26,6 +27,7 @@ export const routers: RouteObject[] = [
   },
   {
     path: "/",
+    element: BasicLayout,
     name: "workplace",
     redirect: "/dashboard/workplace",
   },
@@ -33,8 +35,8 @@ export const routers: RouteObject[] = [
   {
     path: "/403",
     name: "403",
-    element: <Result403 />,
-    component: Result403,
+    element: Result403,
+    component: lazy(Result403),
     meta: {
       title: "403 Forbidden",
       requiresAuth: false,
@@ -42,8 +44,8 @@ export const routers: RouteObject[] = [
   },
   {
     path: "/500",
-    element: <Result500 />,
-    component: Result500,
+    element: Result403,
+    component: lazy(Result500),
     meta: {
       title: "500 Internal Server Error",
       requiresAuth: false,
@@ -51,8 +53,8 @@ export const routers: RouteObject[] = [
   },
   {
     path: "*",
-    element: <Result404 />,
-    component: Result404,
+    element: Result403,
+    component: lazy(Result404),
     meta: {
       title: "404 Not Found",
       requiresAuth: false,
