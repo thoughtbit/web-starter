@@ -27,6 +27,8 @@ export function useValidatedState<T>(
   return [{ value, lastValidValue, valid }, onChange] as const;
 }
 
+export default useValidatedState;
+
 /* 
 const [{ lastValidValue, value, valid }, setValue] = useValidatedState(
   'valid',

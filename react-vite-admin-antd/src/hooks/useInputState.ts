@@ -28,6 +28,8 @@ export function useInputState<T>(initialState: T) {
   ];
 }
 
+export default useInputState;
+
 /*
 import { useState } from 'react';
 import { useInputState } from '@/hooks';

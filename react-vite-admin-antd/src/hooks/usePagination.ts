@@ -100,6 +100,8 @@ export function usePagination({
   };
 }
 
+export default usePagination;
+
 /*
 const pagination = usePagination({ total: 10, initialPage: 1 });
 

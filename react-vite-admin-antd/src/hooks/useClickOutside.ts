@@ -31,6 +31,8 @@ export function useClickOutside<T extends HTMLElement = any>(
   return ref;
 }
 
+export default useClickOutside;
+
 /*
 import { useState } from 'react';
 import { useClickOutside } from '@/hooks';

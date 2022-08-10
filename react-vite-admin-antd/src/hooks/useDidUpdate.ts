@@ -12,6 +12,8 @@ export function useDidUpdate(fn: EffectCallback, dependencies?: any[]) {
   }, dependencies);
 }
 
+export default useDidUpdate;
+
 /*
 // 钩子
 useDidUpdate(() => console.log("Won't be called when mounted"), [value]);

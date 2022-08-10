@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export function useQueue<T>({ initialValues = [], limit }: { initialValues?: T[]; limit: number }) {
   const [{ state, queue }, setState] = useState({
@@ -36,6 +36,8 @@ export function useQueue<T>({ initialValues = [], limit }: { initialValues?: T[]
     cleanQueue,
   };
 }
+
+export default useQueue;
 
 /*
 import { useQueue } from '@/hooks';

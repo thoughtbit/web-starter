@@ -14,6 +14,8 @@ export function useLogger(componentName: string, props: any[]) {
   return null;
 }
 
+export default useLogger;
+
 /*
 import { useState } from 'react';
 import { useLogger } from '@/hooks';

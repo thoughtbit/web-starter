@@ -1,6 +1,5 @@
 export type RouteObject = {
   path?: string;
-  name?: string;
   index?: boolean;
   element?: React.ReactNode;
   /**

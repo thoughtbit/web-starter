@@ -34,6 +34,8 @@ export function useUncontrolled<T>({
   return [uncontrolledValue as T, handleUncontrolledChange, false];
 }
 
+export default useUncontrolled;
+
 /*
 import { useUncontrolled } from '@/hooks';
 

@@ -10,6 +10,8 @@ export function useSetState<T extends Record<string, any>>(initialState: T) {
   return [state, setState] as const;
 }
 
+export default useSetState;
+
 /*
 const [state, setState] = useSetState({ name: 'John', age: 35, job: 'Engineer' });
 

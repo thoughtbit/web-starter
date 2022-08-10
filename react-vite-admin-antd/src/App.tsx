@@ -1,6 +1,6 @@
 import { Spin } from "antd";
 import { Suspense } from "react";
-import { useRouter } from "@/router";
+import { RenderRouter, useRouter } from "@/router";
 
 import Styles from "./app.module.scss";
 
@@ -15,6 +15,7 @@ function App() {
       }
     >
       {element}
+      {/* <RenderRouter /> */}
     </Suspense>
   );
 }
