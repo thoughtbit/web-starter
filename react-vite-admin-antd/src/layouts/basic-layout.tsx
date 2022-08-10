@@ -4,7 +4,7 @@ import { Layout } from "antd";
 
 const { Header, Sider, Content } = Layout;
 
-export default memo(() => (
+export default () => (
   <Layout>
     <Header>Header</Header>
     <Layout>
@@ -14,4 +14,4 @@ export default memo(() => (
       </Content>
     </Layout>
   </Layout>
-));
+);

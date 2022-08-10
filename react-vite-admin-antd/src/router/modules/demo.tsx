@@ -19,7 +19,6 @@ const demoRouter: RouteObject[] = [
       {
         path: "demo1",
         element: <Demo1/>,
-        component: Demo1,
         meta: {
           title: "例子1",
         },
@@ -27,7 +26,6 @@ const demoRouter: RouteObject[] = [
       {
         path: "demo2",
         element: <Demo2/>,
-        component: Demo2,
         meta: {
           title: "例子2",
         },
@@ -35,7 +33,6 @@ const demoRouter: RouteObject[] = [
       {
         path: "demo3",
         element: <Demo3/>,
-        component: Demo3,
         meta: {
           title: "例子3",
         },
@@ -43,7 +40,6 @@ const demoRouter: RouteObject[] = [
       {
         path: "demo4",
         element: <Demo4/>,
-        component: Demo4,
         meta: {
           title: "例子4",
         },
@@ -51,7 +47,6 @@ const demoRouter: RouteObject[] = [
       {
         path: "demo5",
         element: <Demo5/>,
-        component: Demo5,
         meta: {
           title: "例子5",
         },

@@ -14,7 +14,6 @@ const dashboardRouter: RouteObject[] = [
       {
         path: "workplace",
         element: <Dashboard />,
-        component: Dashboard,
         meta: {
           title: "概览仪表盘",
         },

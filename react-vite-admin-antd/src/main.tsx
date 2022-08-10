@@ -1,9 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { HashRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import NiceModal from "@ebay/nice-modal-react";
-import App from "./layouts";
+import App from "./App";
 
 import "virtual:windi.css";
 import "virtual:windi-devtools";

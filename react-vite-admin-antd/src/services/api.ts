@@ -98,8 +98,18 @@ const CommonApiService = {
 
 };
 
+const MenuApiService = {
+  getMenuList: () => {
+    return request({
+      url: "/api/menus",
+      method: "get",
+    });
+  },
+};
+
 
 export default {
   ...UserApiService,
+  ...MenuApiService,
   ...CommonApiService,
 };

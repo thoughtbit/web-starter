@@ -14,7 +14,6 @@ const userManageRouter: RouteObject[] = [
       {
         path: "index",
         element: <Users />,
-        component: Users,
         meta: {
           title: "个人中心",
         },

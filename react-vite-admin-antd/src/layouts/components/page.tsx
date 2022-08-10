@@ -1,7 +1,5 @@
 import { type PropsWithChildren, memo } from "react";
-import { Layout, Breadcrumb } from "antd";
-
-const { Content } = Layout;
+import { Breadcrumb } from "antd";
 
 const Page = ({
   children,

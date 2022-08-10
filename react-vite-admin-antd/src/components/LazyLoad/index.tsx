@@ -17,7 +17,7 @@ function LoadingComponent(props: { error: boolean; timedOut: boolean; pastDelay:
     return null;
   }
   return (
-    <div className={Styles.spin}>
+    <div className={Styles.loading}>
       <Spin />
     </div>
   );
