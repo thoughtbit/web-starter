@@ -49,22 +49,22 @@ const UserApiService = {
   //   });
   // },
 
-  // getUsers: (query: any) => {
-  //   return request({
-  //     url: "/api/users",
-  //     method: "get",
-  //     params: query,
-  //     paramsSerializer: (params: any) => {
-  //       return qs.stringify(params, { arrayFormat: "repeat" });
-  //     },
-  //   });
-  // },
-  getUsers: () => {
+  getUsers: (query: any) => {
     return request({
       url: "/api/users",
       method: "get",
+      params: query,
+      paramsSerializer: (params: any) => {
+        return qs.stringify(params, { arrayFormat: "repeat" });
+      },
     });
   },
+  // getUsers: () => {
+  //   return request({
+  //     url: "/api/users",
+  //     method: "get",
+  //   });
+  // },
   login: (data: Recordable) => {
     return request({
       url: "/api/user/login",

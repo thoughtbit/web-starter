@@ -1,9 +1,11 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import NiceModal from "@ebay/nice-modal-react";
 import App from "./App";
+import store from "./store";
 
 import "antd/dist/antd.css";
 import "toastify-js/src/toastify.css";
@@ -30,11 +32,13 @@ function renderApp() {
   app.render(
     <React.StrictMode>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <NiceModal.Provider>
-          <Router>
-            <App />
-          </Router>
-        </NiceModal.Provider>
+        <Provider store={store}>
+          <NiceModal.Provider>
+            <Router>
+              <App />
+            </Router>
+          </NiceModal.Provider>
+        </Provider>
       </ErrorBoundary>
     </React.StrictMode>
   );
