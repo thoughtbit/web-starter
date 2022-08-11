@@ -1,7 +1,7 @@
 export type MenuOptions = {
   path: string; // 路由地址
-  name?: string; // 路由名称
   title: string; // 标题
+  icon?: string; // 图标
   children?: MenuOptions[];
 };
 

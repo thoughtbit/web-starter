@@ -5,12 +5,15 @@ import type { StoreState } from "./types";
 import { createAuthSlice } from "./modules/auth";
 import { createGlobalsSlice } from "./modules/global";
 
+export { default as useCounterStore } from "./modules/counter";
 export const useStore = create<StoreState>()(
   devtools(
     persist((...a) => ({
       ...createAuthSlice(...a),
       ...createGlobalsSlice(...a),
-    }))
+    }),{
+      name: "zustand-storage",
+    })
   )
 );
 

@@ -7,11 +7,12 @@ const Counter = () => {
   const value = useStoreState("count");
   return (
     <div>
+      <h2>react-hooks-global-state</h2>
       <span>计数: {value}</span>
-      <button type="button" onClick={increment}>
+      <button className="btn" type="button" onClick={increment}>
         +
       </button>
-      <button type="button" onClick={decrement}>
+      <button className="btn" type="button" onClick={decrement}>
         -
       </button>
     </div>

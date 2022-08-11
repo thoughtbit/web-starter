@@ -9,25 +9,21 @@ const getMenuData = () => {
         "icon": "work",
         "title": "工作台",
         "path": "/dashboard",
-        "name": "home",
       },
       {
         "icon": "user",
         "title": "用户管理",
         "path": "/user-manage",
-        "name": "userManage",
         "children": [
           {
             "icon": "page",
             "title": "添加用户",
             "path": "/user-manage/add",
-            "name": "userManageAdd",
           },
           {
             "icon": "page",
             "title": "用户列表",
             "path": "/user-manage/list",
-            "name": "userManageList",
           },
         ],
       },
@@ -35,13 +31,11 @@ const getMenuData = () => {
       //   "icon": "qita",
       //   "title": "演示",
       //   "path": "/demo",
-      //   "name" : "demo",
       //   "children": [
       //     {
       //       "icon": "page",
       //       "title": "",
       //       "path": "",
-      //       "name": ""
       //     },
       //   ]
       // },

@@ -43,7 +43,7 @@ const Sidebar: React.FC<Props> = ({ style, collapsed }) => {
       onClick={handleClick}
       inlineCollapsed={collapsed}
       defaultSelectedKeys={[location.pathname]}
-      defaultOpenKeys={["sub1"]}
+      defaultOpenKeys={["index"]}
       items={items}
     />
   );

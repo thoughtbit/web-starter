@@ -10,7 +10,7 @@ export default () => (
     <Header>Header</Header>
     <Layout>
       <Sider>
-        <LayoutSidebar />
+        <LayoutSidebar collapsed={false}/>
       </Sider>
       <Content>
         <Outlet />

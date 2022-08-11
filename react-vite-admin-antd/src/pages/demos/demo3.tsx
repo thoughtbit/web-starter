@@ -1,10 +1,11 @@
 import { useMemo } from "react";
+import { useRequest } from "ahooks";
 import _debounce from "lodash-es/debounce";
 import { useSearchParam } from "@/hooks";
-import { useRequest } from "ahooks";
+
 import { api } from "@/services";
 
- export default function Demo3() {
+export default function Demo3() {
   const { data, error, loading, run } = useRequest(api.getUsers, {
     manual: true,
     throttleWait: 1000,
@@ -24,13 +25,16 @@ import { api } from "@/services";
           run
         </button>
       </p>
-    
+
       <ul>
-      {
-        users && users.map((user: any) =>{
-          return <li key={user.id}>{user.name} -- {user.email}</li>
-        })
-      }
+        {users &&
+          users.map((user: any) => {
+            return (
+              <li key={user.id}>
+                {user.name} -- {user.email}
+              </li>
+            );
+          })}
       </ul>
       <Messages />
     </>
