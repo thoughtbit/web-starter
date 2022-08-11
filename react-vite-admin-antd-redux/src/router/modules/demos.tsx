@@ -2,15 +2,12 @@ import { lazy } from "react";
 import BasicLayout from "@/layouts/basic-layout";
 import type { RouteObject } from "../types";
 
-
 const Demos = lazy(() => import("@/pages/demos"));
 const Demo1 = lazy(() => import("@/pages/demos/demo1"));
 const Demo2 = lazy(() => import("@/pages/demos/demo2"));
 const Demo3 = lazy(() => import("@/pages/demos/demo3"));
 const Demo4 = lazy(() => import("@/pages/demos/demo4"));
 const Demo5 = lazy(() => import("@/pages/demos/demo5"));
-const Demo6 = lazy(() => import("@/pages/demos/demo6"));
-const Demo7 = lazy(() => import("@/pages/demos/demo7"));
 
 const demoRouter: RouteObject[] = [
   {
@@ -69,20 +66,6 @@ const demoRouter: RouteObject[] = [
         element: <Demo5 />,
         meta: {
           title: "例子5",
-        },
-      },
-      {
-        path: "demo6",
-        element: <Demo6 />,
-        meta: {
-          title: "例子6",
-        },
-      },
-      {
-        path: "demo7",
-        element: <Demo7 />,
-        meta: {
-          title: "例子7",
         },
       },
     ],

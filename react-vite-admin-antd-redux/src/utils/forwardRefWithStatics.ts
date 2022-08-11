@@ -7,3 +7,4 @@ export default function forwardRefWithStatics<P, T = any, S = {}>(
 ): React.FunctionComponent<P & RefAttributes<T>> & S {
   return hoistNonReactStatics(forwardRef(component), statics as any) as any;
 }
+
