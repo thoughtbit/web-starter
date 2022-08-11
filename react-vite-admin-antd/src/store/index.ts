@@ -6,6 +6,7 @@ import { createAuthSlice } from "./modules/auth";
 import { createGlobalsSlice } from "./modules/global";
 
 export { default as useCounterStore } from "./modules/counter";
+
 export const useStore = create<StoreState>()(
   devtools(
     persist((...a) => ({
@@ -16,5 +17,3 @@ export const useStore = create<StoreState>()(
     })
   )
 );
-
-// const login = useStore((state) => state.login);

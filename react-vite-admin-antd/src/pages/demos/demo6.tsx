@@ -12,7 +12,7 @@ const Demo6 = () => {
     <ul>
       {menuList.map((item: any, index) => (
         <li key={index}>
-          {item.title} [{item.path}]
+          {index+1}. {item.title} [{item.path}]
         </li>
       ))}
     </ul>

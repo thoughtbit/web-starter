@@ -4,6 +4,7 @@ import { RenderRouter, useRouter } from "@/router";
 
 import Styles from "./app.module.scss";
 
+
 function App() {
   const element = useRouter();
   return (
@@ -14,7 +15,7 @@ function App() {
         </div>
       }
     >
-      {element}
+      { element }
       {/* <RenderRouter /> */}
     </Suspense>
   );

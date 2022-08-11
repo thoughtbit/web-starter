@@ -9,7 +9,7 @@ const Loadable = (Component: ComponentType) => (props: any) =>
     <Suspense
       fallback={
         <div className={Styles.loading}>
-          <Spin />
+          <Spin tip="Loading..." size="large" />
         </div>
       }
     >
@@ -20,5 +20,5 @@ const Loadable = (Component: ComponentType) => (props: any) =>
 export default Loadable;
 
 /*
-const User = Loadable(lazy(() => import('./pages/user')));
+const User = Loadable(lazy(() => import('@/pages/user')));
 */

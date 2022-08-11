@@ -5,11 +5,12 @@ import { ErrorBoundary } from "react-error-boundary";
 import NiceModal from "@ebay/nice-modal-react";
 import App from "./App";
 
+import "antd/dist/antd.css";
+import "toastify-js/src/toastify.css";
+import "./assets/styles/app.scss";
 import "virtual:windi.css";
 import "virtual:windi-devtools";
-import "toastify-js/src/toastify.css";
-import "antd/dist/antd.css";
-import "./assets/styles/app.scss";
+
 
 const ErrorFallback = () => {
   return (

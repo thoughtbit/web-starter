@@ -1,6 +1,6 @@
 import { FC, lazy } from "react";
 import { useRoutes, Navigate, Routes } from "react-router-dom";
-import { renderRoutes } from "@/components";
+import { Loadable, renderRoutes } from "@/components";
 import { formatModules } from "@/utils/formatModules";
 import type { RouteObject } from "./types";
 

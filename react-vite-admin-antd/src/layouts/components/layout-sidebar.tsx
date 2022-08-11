@@ -1,6 +1,5 @@
 import React from "react";
 import { Menu, type MenuProps } from "antd";
-import { useLocation, useNavigate } from "react-router-dom";
 import { MailOutlined } from "@ant-design/icons";
 import { useRoute } from "@/hooks";
 
@@ -30,7 +29,8 @@ const items: MenuItem[] = [
   },
 ];
 
-const Sidebar: React.FC<Props> = ({ style, collapsed }) => {
+const Sidebar: React.FC<Props> = (props) => {
+  const { style } = props;
   const { navigate, location } = useRoute();
   const handleClick: MenuProps["onClick"] = (e) => {
     console.log("click ", e);
@@ -41,7 +41,6 @@ const Sidebar: React.FC<Props> = ({ style, collapsed }) => {
       mode="inline"
       style={style}
       onClick={handleClick}
-      inlineCollapsed={collapsed}
       defaultSelectedKeys={[location.pathname]}
       defaultOpenKeys={["index"]}
       items={items}
