@@ -10,7 +10,7 @@ function App() {
     <Suspense
       fallback={
         <div className={Styles.loading}>
-          <Spin />
+          <Spin tip="Loading..." size="large" />
         </div>
       }
     >

@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Outlet } from "react-router-dom";
 import { Layout } from "antd";
+import LayoutSidebar from "./components/layout-sidebar";
 
 const { Header, Sider, Content } = Layout;
 
@@ -8,7 +9,9 @@ export default () => (
   <Layout>
     <Header>Header</Header>
     <Layout>
-      <Sider>Sider</Sider>
+      <Sider>
+        <LayoutSidebar />
+      </Sider>
       <Content>
         <Outlet />
       </Content>

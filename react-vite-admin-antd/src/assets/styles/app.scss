@@ -58,7 +58,7 @@ html.dark {
 	@apply text-black hover:text-red-600 p-2 inline-block;
 
 	&.active {
-		@apply text-red-600;
+		color: #fa233b;
 	}
 }
 
@@ -67,4 +67,11 @@ html.dark {
 	  bg-teal-600 text-white cursor-pointer
 	  hover:bg-teal-700
 	  disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;
+}
+
+.ant-layout-header {
+	background-color: #f5f5f5;
+}
+.ant-layout-sider-dark {
+	background-color: #f5f5f5;
 }
