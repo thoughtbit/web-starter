@@ -24,6 +24,8 @@ const userInfo = {
   isDelete: "@boolean",
 };
 
+const token = "o5w0hoYeIWzMsxxCXKMdkZfveu2BLRXY";
+
 // 用户相关模拟数据
 export default [
   {
@@ -44,8 +46,10 @@ export default [
     url: "/api/users/getUserInfo",
     timeout: 1000,
     method: "get",
-    response: ({ query }: any) => {
-      if (query.id === 1) {
+    response: ({ query, body }: any) => {
+      console.log("query>>>>>>>>", query);
+      console.log("body>>>>>>>>", body);
+      if (query.token == token) {
         return resultSuccess(userInfo);
       } else {
         return resultError();
@@ -120,7 +124,7 @@ export default [
           code: 0,
           message: "用户登录成功",
           data: {
-            token: "o5w0hoYeIWzMsxxCXKMdkZfveu2BLRXY",
+            token: token,
             username: "admin",
           },
         };

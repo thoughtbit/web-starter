@@ -65,6 +65,13 @@ const UserApiService = {
   //     method: "get",
   //   });
   // },
+  getUserInfo: (query: any) => {
+    return request({
+      url: "/api/users/getUserInfo",
+      method: "get",
+      params: query,
+    });
+  }, 
   login: (data: Recordable) => {
     return request({
       url: "/api/user/login",

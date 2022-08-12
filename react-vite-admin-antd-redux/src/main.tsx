@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import NiceModal from "@ebay/nice-modal-react";
 import App from "./App";
-import store from "./store";
+import { store } from "./store";
 
 import "antd/dist/antd.css";
 import "toastify-js/src/toastify.css";

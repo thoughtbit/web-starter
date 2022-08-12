@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk, type PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../";
-import { api } from "@/services";
+import { AsyncThunkConfig, RootState } from "../store";
 
 const namespace = "user/list";
 
@@ -28,22 +27,40 @@ const initialState: UserState = {
   userList: [],
 };
 
-export const getList = createAsyncThunk(
+// async actions
+// -----------------------------------------------------------------------
+
+export const getList = createAsyncThunk<any, any, AsyncThunkConfig>(
   `${namespace}/getUserList`,
-  async (params: { pageSize: number; current: number }) => {
+  async (params: { pageSize: number; current: number }, { extra }) => {
+    const { getUsers } = extra;
     const { pageSize, current } = params;
-    const result: any = await api.getUsers({
+    return await getUsers({
       pageSize,
       current,
-    });
-    return {
-      list: result?.list,
-      total: result?.total,
-      pageSize: params.pageSize,
-      current: params.current,
-    };
+    })
+      .then((result: Recordable) => {
+        console.log("查看当前用户详情:", result);
+        const { code, data, total } = result;
+        if (code === 0) {
+          return {
+            list: data,
+            total: total,
+            pageSize: params.pageSize,
+            current: params.current,
+          };
+        } else {
+          return result;
+        }
+      })
+      .catch((error) => {
+        return error;
+      });
   }
 );
+
+// reducers
+// -----------------------------------------------------------------------
 
 const listCardSlice = createSlice({
   name: namespace,
@@ -74,6 +91,6 @@ const listCardSlice = createSlice({
 
 export const { clearPageState, switchPageLoading } = listCardSlice.actions;
 
-export const selectUserList = (state: RootState) => state.userList;
+export const selectUserList = (state: RootState) => state.user.userList;
 
 export default listCardSlice.reducer;
