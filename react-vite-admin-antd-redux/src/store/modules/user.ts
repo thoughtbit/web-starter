@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, type PayloadAction } from "@reduxjs/toolkit";
-import { AsyncThunkConfig, RootState } from "../store";
+import { AppDispatch, AsyncThunkConfig, RootState } from "../store";
 
 const namespace = "user/list";
 
@@ -59,10 +59,14 @@ export const getList = createAsyncThunk<any, any, AsyncThunkConfig>(
   }
 );
 
+export const reset = () => (dispatch: AppDispatch) => {
+  dispatch(listUserSlice.actions.clearPageState());
+};
+
 // reducers
 // -----------------------------------------------------------------------
 
-const listCardSlice = createSlice({
+const listUserSlice = createSlice({
   name: namespace,
   initialState,
   reducers: {
@@ -89,8 +93,8 @@ const listCardSlice = createSlice({
   },
 });
 
-export const { clearPageState, switchPageLoading } = listCardSlice.actions;
+export const { clearPageState, switchPageLoading } = listUserSlice.actions;
 
 export const selectUserList = (state: RootState) => state.user.userList;
 
-export default listCardSlice.reducer;
+export default listUserSlice.reducer;

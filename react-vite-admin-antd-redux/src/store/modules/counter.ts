@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
+import type { AppDispatch, RootState } from "../store";
 
 const namespace = "counter";
 
@@ -10,6 +10,19 @@ export type CounterState = {
 const initialState: CounterState = {
   count: 0,
 };
+ 
+export const inc = (dispatch: AppDispatch) => {
+  dispatch(counterSlice.actions.increment);
+};
+
+export const dec = (dispatch: AppDispatch) => {
+  dispatch(counterSlice.actions.decrement);
+};
+
+export const clear = (dispatch: AppDispatch) => {
+  dispatch(counterSlice.actions.reset);
+};
+
 
 const counterSlice = createSlice({
   name: namespace,
