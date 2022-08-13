@@ -1,14 +1,13 @@
 import type { ReactElement } from "react";
 import { Navigate } from "react-router-dom";
-import { useStore } from "@/store";
+import { useAppSelector } from "@/store";
 
 type Props = {
   children: ReactElement;
-}
+};
 
 const PublicRoute: React.FC<Props> = ({ children }) => {
-  // Replace with your auth condition
-  const { isAuthenticated } = useStore((state) => state);
+  const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
 
   return isAuthenticated ? <Navigate to="/" /> : children;
 };

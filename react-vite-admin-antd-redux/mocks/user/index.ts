@@ -57,6 +57,22 @@ export default [
     },
   },
   {
+    url: "/api/user/getRoles",
+    method: "get",
+    response: ({ query }: any) => {
+      console.log("query>>>>>>>>", query);
+      if (query.token == token) {
+        return {
+          code: 0,
+          message: "ok",
+          data: ["admin", "user"],
+        };
+      } else {
+        return resultError();
+      }
+    },
+  },
+  {
     url: "/api/users/:id",
     method: "get",
     response: ({ query }: any) => {

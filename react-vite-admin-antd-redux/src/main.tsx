@@ -1,18 +1,17 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
-import { ErrorBoundary } from "react-error-boundary";
 import NiceModal from "@ebay/nice-modal-react";
-import App from "./App";
+import { ErrorBoundary } from "react-error-boundary";
+import { BrowserRouter as Router } from "react-router-dom";
 import { store } from "./store";
+import App from "./App";
 
 import "antd/dist/antd.css";
 import "toastify-js/src/toastify.css";
 import "./assets/styles/app.scss";
 import "virtual:windi.css";
 import "virtual:windi-devtools";
-
 
 const ErrorFallback = () => {
   return (

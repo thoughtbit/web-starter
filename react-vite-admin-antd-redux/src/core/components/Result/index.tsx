@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { Button } from "antd";
-import { useRoute } from "@/hooks";
+import { useRoute } from "~/hooks";
 
 import { ReactComponent as Light403Icon } from "@/assets/images/result/result-403.svg";
 import { ReactComponent as Light404Icon } from "@/assets/images/result/result-404.svg";

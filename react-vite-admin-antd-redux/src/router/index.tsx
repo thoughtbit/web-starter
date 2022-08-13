@@ -1,7 +1,7 @@
 import { FC, lazy } from "react";
 import { useRoutes, Navigate, Routes } from "react-router-dom";
-import { Loadable, renderRoutes } from "@/components";
-import { formatModules } from "@/utils/formatModules";
+import { Loadable, renderRoutes } from "@/core/components";
+import { formatModules } from "@/core/utils/formatModules";
 import type { RouteObject } from "./types";
 
 const modules = import.meta.glob("./modules/*.tsx", { eager: true });

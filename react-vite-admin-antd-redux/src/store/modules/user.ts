@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, type PayloadAction } from "@reduxjs/toolkit";
-import { AppDispatch, AsyncThunkConfig, RootState } from "../store";
+import type { AppDispatch, AsyncThunkConfig, RootState } from "../";
 
 const namespace = "user/list";
 
@@ -30,7 +30,7 @@ const initialState: UserState = {
 // async actions
 // -----------------------------------------------------------------------
 
-export const getList = createAsyncThunk<any, any, AsyncThunkConfig>(
+export const getUserList = createAsyncThunk<any, any, AsyncThunkConfig>(
   `${namespace}/getUserList`,
   async (params: { pageSize: number; current: number }, { extra }) => {
     const { getUsers } = extra;
@@ -77,17 +77,17 @@ const listUserSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getList.pending, (state) => {
+      .addCase(getUserList.pending, (state) => {
         state.loading = true;
       })
-      .addCase(getList.fulfilled, (state, action) => {
+      .addCase(getUserList.fulfilled, (state, action) => {
         state.loading = false;
         state.userList = action.payload?.list;
         state.total = action.payload?.total;
         state.pageSize = action.payload?.pageSize;
         state.current = action.payload?.current;
       })
-      .addCase(getList.rejected, (state) => {
+      .addCase(getUserList.rejected, (state) => {
         state.loading = false;
       });
   },

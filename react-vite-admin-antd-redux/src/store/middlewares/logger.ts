@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { DEBUG } from "@/constants";
+import { DEBUG } from "~/constants";
 
 export default () => next => action => {
     if (DEBUG) {

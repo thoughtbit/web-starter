@@ -1,5 +1,5 @@
 import * as React from "react";
-import { composeRefs } from "@/hooks/useComposedRefs";
+import { composeRefs } from "~/hooks/useComposedRefs";
 
 /* -------------------------------------------------------------------------------------------------
  * Slot

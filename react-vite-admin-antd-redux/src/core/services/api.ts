@@ -71,7 +71,16 @@ const UserApiService = {
       method: "get",
       params: query,
     });
-  }, 
+  },
+
+  getRoles: (query: any) => {
+    return request({
+      url: "/api/user/getRoles",
+      method: "get",
+      params: query,
+    });
+  },
+
   login: (data: Recordable) => {
     return request({
       url: "/api/user/login",
@@ -101,9 +110,7 @@ const UserApiService = {
   },
 };
 
-const CommonApiService = {
-
-};
+const CommonApiService = {};
 
 const MenuApiService = {
   getMenuList: () => {
@@ -113,7 +120,6 @@ const MenuApiService = {
     });
   },
 };
-
 
 export default {
   ...UserApiService,

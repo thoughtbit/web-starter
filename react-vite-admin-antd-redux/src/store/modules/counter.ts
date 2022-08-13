@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { AppDispatch, RootState } from "../store";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { AppDispatch, RootState, AppThunk } from "../";
 
 const namespace = "counter";
 
@@ -10,17 +10,21 @@ export type CounterState = {
 const initialState: CounterState = {
   count: 0,
 };
- 
-export const inc = (dispatch: AppDispatch) => {
-  dispatch(counterSlice.actions.increment);
+
+export const inc2: (step: number) => AppThunk = step => (dispatch) => {
+  dispatch(counterSlice.actions.increment(step));
 };
 
-export const dec = (dispatch: AppDispatch) => {
-  dispatch(counterSlice.actions.decrement);
+export const inc = (step: number) => (dispatch: AppDispatch) => {
+  dispatch(counterSlice.actions.increment(step));
 };
 
-export const clear = (dispatch: AppDispatch) => {
-  dispatch(counterSlice.actions.reset);
+export const dec = (step: number) => (dispatch: AppDispatch) => {
+  dispatch(counterSlice.actions.decrement(step));
+};
+
+export const clear = () => (dispatch: AppDispatch) => {
+  dispatch(counterSlice.actions.reset());
 };
 
 
@@ -28,12 +32,14 @@ const counterSlice = createSlice({
   name: namespace,
   initialState,
   reducers: {
-    increment: (state: CounterState) => {
-      state.count++;
+    increment: (state: CounterState, action: PayloadAction<number>) => {
+      // state.count++;
+      state.count = state.count + action.payload;
     },
 
-    decrement: (state: CounterState) => {
-      state.count--;
+    decrement: (state: CounterState, action: PayloadAction<number>) => {
+      // state.count--;
+      state.count = state.count - action.payload;
     },
 
     reset: (state: CounterState) => {

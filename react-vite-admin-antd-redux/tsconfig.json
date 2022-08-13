@@ -19,7 +19,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "~/*": ["./src/core/*"],
     }
   },
   "include": ["src/**/*", "build/**/*", "mocks/**/*"],

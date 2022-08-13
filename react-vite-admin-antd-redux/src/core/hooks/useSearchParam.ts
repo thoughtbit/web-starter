@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { off, on } from "@/utils/dom";
+import { off, on } from "~/utils/dom";
 
 const getValue = (search: string, param: string) => new URLSearchParams(search).get(param);
 

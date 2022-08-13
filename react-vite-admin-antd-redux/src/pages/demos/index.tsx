@@ -1,4 +1,4 @@
-import { useRoute } from "@/hooks";
+import { useRoute } from "~/hooks";
 import Styles from "./index.module.scss";
 
 
