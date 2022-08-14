@@ -1,4 +1,4 @@
-import { addListener, configureStore, createListenerMiddleware } from "@reduxjs/toolkit";
+import { addListener, createListenerMiddleware } from "@reduxjs/toolkit";
 import type {
   Action,
   AnyAction,
@@ -11,9 +11,12 @@ import type {
 } from "@reduxjs/toolkit";
 import { type TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { createLogger } from "redux-logger";
+import { persistStore } from "redux-persist";
 import errorMiddleware from "./middlewares/error";
 import { DEBUG } from "~/constants";
 import { api as ApiService } from "~/services";
+import createStore from "./createStore";
+import persistReducers from "./persistReducers";
 import rootReducer from "./reducer";
 
 const listenerMiddlewareInstance = createListenerMiddleware({
@@ -26,17 +29,9 @@ if (DEBUG) {
   middlewares.push(logger);
 }
 
-export const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      thunk: { extraArgument: ApiService },
-      immutableCheck: false,
-      serializableCheck: false,
-    })
-      .concat(middlewares)
-      .prepend(listenerMiddlewareInstance.middleware),
-  devTools: DEBUG,
+export const store = createStore(persistReducers(rootReducer), middlewares, listenerMiddlewareInstance.middleware);
+export const persistor = persistStore(store, {}, () => {
+  // console.log('persistor:', store.getState());
 });
 
 export type RootState = ReturnType<typeof store.getState>;
@@ -65,4 +60,5 @@ export const addAppListener = addListener as AppAddListener;
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
+export const useStore = () => store.getState();
 export default store;

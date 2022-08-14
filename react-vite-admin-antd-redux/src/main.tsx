@@ -4,7 +4,8 @@ import { Provider } from "react-redux";
 import NiceModal from "@ebay/nice-modal-react";
 import { ErrorBoundary } from "react-error-boundary";
 import { BrowserRouter as Router } from "react-router-dom";
-import { store } from "./store";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "./store";
 import App from "./App";
 
 import "antd/dist/antd.css";
@@ -33,9 +34,11 @@ function renderApp() {
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Provider store={store}>
           <NiceModal.Provider>
-            <Router>
-              <App />
-            </Router>
+            <PersistGate persistor={persistor} loading={null}>
+              <Router>
+                <App />
+              </Router>
+            </PersistGate>
           </NiceModal.Provider>
         </Provider>
       </ErrorBoundary>
