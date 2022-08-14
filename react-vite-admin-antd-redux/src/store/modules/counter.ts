@@ -11,7 +11,7 @@ const initialState: CounterState = {
   count: 0,
 };
 
-export const inc2: (step: number) => AppThunk = step => (dispatch) => {
+export const inc2: (step: number) => AppThunk = (step) => (dispatch) => {
   dispatch(counterSlice.actions.increment(step));
 };
 
@@ -27,19 +27,18 @@ export const clear = () => (dispatch: AppDispatch) => {
   dispatch(counterSlice.actions.reset());
 };
 
-
 const counterSlice = createSlice({
   name: namespace,
   initialState,
   reducers: {
     increment: (state: CounterState, action: PayloadAction<number>) => {
       // state.count++;
-      state.count = state.count + action.payload;
+      state.count += action.payload;
     },
 
     decrement: (state: CounterState, action: PayloadAction<number>) => {
       // state.count--;
-      state.count = state.count - action.payload;
+      state.count -= action.payload;
     },
 
     reset: (state: CounterState) => {
