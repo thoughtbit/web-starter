@@ -1,8 +1,6 @@
 import { memo } from "react";
-import type { BrowserRouterProps } from "react-router-dom";
+import Styles from "./index.module.scss";
 
-const Users: React.FC<BrowserRouterProps> = () => {
-  return <div>用户中心</div>;
-};
+export const Users = () => <div className={Styles["users-wrapper"]}>用户中心</div>;
 
 export default memo(Users);

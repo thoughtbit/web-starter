@@ -1,13 +1,13 @@
 import { useAppDispatch, useAppSelector } from "@/store";
-import { changeColorScheme, type ThemeState } from "@/store/modules/theme";
+import { changeColorScheme, type ThemeState, selectTheme } from "@/store/modules/theme";
 import type { ChangeEvent } from "react";
 
 function isChecked(theme: ThemeState): boolean {
   return theme.colorScheme === "light";
 }
 
-export function ThemeToggler() {
-  const theme = useAppSelector((state) => state.theme);
+export const ThemeToggler = () => {
+  const theme = useAppSelector(selectTheme);
   const dispatch = useAppDispatch();
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
@@ -24,8 +24,10 @@ export function ThemeToggler() {
           onChange={handleChange}
           type="checkbox"
         />
-        {theme.colorScheme === "light" ? <span>黑</span> : <span>白</span>}
+        {theme.colorScheme === "light" ? <span>亮</span> : <span>暗</span>}
       </label>
     </div>
   );
-}
+};
+
+export default ThemeToggler;

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { DEBUG } from "~/constants";
+import { DEBUG } from "@@/constants";
 
 const getErrorMessage = (errorData) => {
   let message = errorData.message;

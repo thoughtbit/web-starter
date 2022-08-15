@@ -1,16 +1,23 @@
-import Counter2 from "./components/Counter2";
-import User2 from "./components/User2";
+import { useTheme } from "./hooks";
 
-import Counter3 from "./components/Counter3";
+function isChecked(colorScheme: string): boolean {
+  return colorScheme === "light";
+}
 
 const Demo2 = () => {
+  const [theme, handleChange] = useTheme();
   return (
     <div>
-      <Counter2 />
-      <hr />
-      <Counter3 />
-      <hr />
-      <User2 />
+      <label htmlFor="theme-switch">
+        <input
+          checked={isChecked(theme)}
+          id="theme-switch"
+          name="theme-switch"
+          onChange={handleChange}
+          type="checkbox"
+        />
+        {theme === "light" ? (<span>亮</span>) : (<span>暗</span>)}
+      </label>
     </div>
   );
 };

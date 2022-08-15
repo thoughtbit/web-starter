@@ -1,10 +1,10 @@
 import { FC, lazy } from "react";
 import { useRoutes, Navigate, Routes } from "react-router-dom";
-import { renderRoutes } from "~/components";
+import { renderRoutes } from "@@/components";
 import BasicLayout from "@/layouts/basic-layout";
 import type { RouteObject } from "./types";
 
-const Login = lazy(() => import("@/pages/login"));
+const Login = lazy(() => import("@/pages/auth"));
 const Result404 = lazy(() => import("@/pages/result/404"));
 
 export const routers: RouteObject[] = [

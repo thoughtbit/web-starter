@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction, type Unsubscribe } from "@reduxjs/toolkit";
-import type { AppStartListening } from "..";
+import type { AppStartListening, RootState } from "@/store";
 
 export type ColorScheme = "light" | "dark";
 
@@ -19,6 +19,8 @@ export const ThemeSlice = createSlice({
     },
   },
 });
+
+export const selectTheme = (state: RootState) => state.theme;
 
 export const { changeColorScheme } = ThemeSlice.actions;
 

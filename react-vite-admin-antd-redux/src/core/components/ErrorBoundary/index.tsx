@@ -1,5 +1,5 @@
 import React from "react";
-import { MODE } from "~/constants";
+import { MODE } from "@@/constants";
 
 interface IErrorBoundaryProps {
   readonly children: React.ReactNode;

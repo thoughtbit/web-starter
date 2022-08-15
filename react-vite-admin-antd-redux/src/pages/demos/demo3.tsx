@@ -1,11 +1,18 @@
 import { useMemo } from "react";
 import { useRequest } from "ahooks";
 import _debounce from "lodash-es/debounce";
-import { useSearchParam } from "~/hooks";
-import { api } from "~/services";
+import { useSearchParam } from "@@/hooks";
+import request from "@@/services/request";
 
 export default function Demo3() {
-  const { data, error, loading, run } = useRequest(api.getUsers, {
+  const getUsers = async () => {
+    return await request({
+      url: "/api/users",
+      method: "get",
+    });
+  };
+
+  const { data, error, loading, run } = useRequest(getUsers, {
     manual: true,
     throttleWait: 1000,
     loadingDelay: 300,

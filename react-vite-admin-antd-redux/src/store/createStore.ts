@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import type { Reducer, Middleware } from "@reduxjs/toolkit";
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from "redux-persist";
-import { DEBUG } from "~/constants";
-import { api as ApiService } from "~/services";
+import { DEBUG } from "@@/constants";
+import { api as ApiService } from "@@/services";
 
 export default (
   rootReducer: Reducer,

@@ -28,7 +28,7 @@ export default (configEnv: ConfigEnv, viteEnv: Record<string, string>) => {
           replacement: resolve(__dirname, "../../src"),
         },
         {
-          find: "~",
+          find: "@@",
           replacement: resolve(__dirname, "../../src/core"),
         },
       ],

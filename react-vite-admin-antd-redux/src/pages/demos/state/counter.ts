@@ -8,8 +8,9 @@ const initialState: CounterState = {
   count: 0,
 };
 
-const increment = createAction<number>("counter/increment");
-const decrement = createAction<number>("counter/decrement");
+export const increment = createAction<number>("counter/increment");
+export const decrement = createAction<number>("counter/decrement");
+export const clear = createAction<void>("counter/clear");
 
 export default createReducer(initialState, (builder) =>
   builder
@@ -18,5 +19,8 @@ export default createReducer(initialState, (builder) =>
     })
     .addCase(decrement, (state, action) => {
       state.count -= action.payload;
+    })
+    .addCase(clear, (state) => {
+      state.count = 0;
     })
 );

@@ -1,7 +1,8 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import debounce from "lodash-es/debounce";
-import { api } from "~/services";
-import type { AppDispatch, ThunkResult } from "..";
+import type { AppDispatch, ThunkResult } from "@/store";
+import request from "@@/services/request";
+import qs from "qs";
 
 export type UserFilter = Record<string, string | boolean | any[]>;
 
@@ -43,11 +44,20 @@ export function fetchUsers(): ThunkResult<void> {
   return async (dispatch, getState) => {
     try {
       const { page, query, filters } = getState().demos;
-      const result = await api.getUsers({
-        page: page,
-        query: query,
-        filters: filters,
+
+      const result = await request({
+        url: "/api/users",
+        method: "get",
+        params: {
+          page: page,
+          query: query,
+          filters: filters,
+        },
+        paramsSerializer: (params: any) => {
+          return qs.stringify(params, { arrayFormat: "repeat" });
+        },
       });
+
       dispatch(usersFetched(result.data));
     } catch (error) {
       usersFetchEnd();
@@ -82,7 +92,7 @@ export function changePage(page: number): ThunkResult<void> {
   };
 }
 
-export const userListSlice = createSlice({
+export const userListSlice: any = createSlice({
   name: "userList",
   initialState,
   reducers: {

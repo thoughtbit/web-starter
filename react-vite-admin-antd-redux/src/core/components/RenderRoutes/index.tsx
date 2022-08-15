@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import { resolve } from "~/utils/path";
+import { resolve } from "@@/utils/path";
 import type { RouteObject } from "@/router/types";
 
 type TRenderRoutes = (routes: RouteObject[], parentPath?: string) => React.ReactNode[];

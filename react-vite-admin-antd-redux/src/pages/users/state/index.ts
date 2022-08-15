@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, type PayloadAction } from "@reduxjs/toolkit";
-import type { AppDispatch, AsyncThunkConfig, RootState } from "../";
+import type { AppDispatch, AsyncThunkConfig, RootState } from "@/store";
 
 const namespace = "user/list";
 

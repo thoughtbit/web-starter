@@ -1,8 +1,5 @@
 import store from "store2";
 
-export const TOKEN_KEY = "TOKEN";
-export const USER_INFO_KEY = "USER_INFO_KEY";
-
 type StoredData = {
   [key: string]: any;
 };

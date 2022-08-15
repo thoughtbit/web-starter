@@ -1,8 +1,8 @@
 import { type ReactElement } from "react";
 import { Navigate, type RouteProps } from "react-router-dom";
 import { useAppSelector } from "@/store";
-import { useRoute } from "~/hooks";
-import { ErrorBoundary } from "~/components";
+import { useRoute } from "@@/hooks";
+import { ErrorBoundary } from "@@/components";
 
 type OwnProps = {
   hasAnyAuthorities?: string[];

@@ -13,11 +13,11 @@ import { type TypedUseSelectorHook, useDispatch, useSelector } from "react-redux
 import { createLogger } from "redux-logger";
 import { persistStore } from "redux-persist";
 import errorMiddleware from "./middlewares/error";
-import { DEBUG } from "~/constants";
-import { api as ApiService } from "~/services";
+import { DEBUG } from "@@/constants";
+import { api as ApiService } from "@@/services";
 import createStore from "./createStore";
 import persistReducers from "./persistReducers";
-import rootReducer from "./reducer";
+import rootReducers from "./rootReducers";
 
 const listenerMiddlewareInstance = createListenerMiddleware({
   onError: () => console.error,
@@ -29,7 +29,7 @@ if (DEBUG) {
   middlewares.push(logger);
 }
 
-export const store = createStore(persistReducers(rootReducer), middlewares, listenerMiddlewareInstance.middleware);
+export const store = createStore(persistReducers(rootReducers), middlewares, listenerMiddlewareInstance.middleware);
 export const persistor = persistStore(store, {}, () => {
   // console.log('persistor:', store.getState());
 });

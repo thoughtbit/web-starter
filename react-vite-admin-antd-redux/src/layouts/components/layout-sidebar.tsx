@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu, type MenuProps } from "antd";
 import { MailOutlined } from "@ant-design/icons";
-import { useRoute } from "~/hooks";
+import { useRoute } from "@@/hooks";
 
 type Props = {
   style?: React.CSSProperties | undefined;

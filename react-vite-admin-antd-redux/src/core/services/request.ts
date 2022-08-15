@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import Toastify from "toastify-js";
-import { APP_API_URL, MODE } from "~/constants";
+import { APP_API_URL, MODE } from "@@/constants";
 
 const env = MODE || "development";
 

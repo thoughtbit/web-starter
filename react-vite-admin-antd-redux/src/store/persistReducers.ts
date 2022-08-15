@@ -2,7 +2,7 @@ import type { Reducer } from "@reduxjs/toolkit";
 import { type PersistConfig, persistReducer, createMigrate } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
-import { DEBUG } from "~/constants";
+import { DEBUG } from "@@/constants";
 
 export default (rootReducer: Reducer) => {
   const encryptor = encryptTransform({
@@ -30,7 +30,7 @@ export default (rootReducer: Reducer) => {
     },
   };
 
-  const PERSISTED_KEYS: string[] = ["app", "login", "user", "theme"];
+  const PERSISTED_KEYS: string[] = ["login", "user", "theme", "counter"];
   const persistConfig: PersistConfig<any> = {
     key: "root",
     version: 1,
