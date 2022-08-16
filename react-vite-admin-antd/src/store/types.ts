@@ -6,9 +6,10 @@ export type MenuOptions = {
 };
 
 export type AuthSlice = {
-  user: null;
+  userInfo: null;
   token: string | null;
   isAuthenticated: boolean;
+  authorities: string[],
   login: (params: any) => void;
   logout: () => void;
 };

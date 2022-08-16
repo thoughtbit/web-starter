@@ -8,11 +8,11 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./store";
 import App from "./App";
 
+import "virtual:windi.css";
+import "virtual:windi-devtools";
 import "antd/dist/antd.css";
 import "toastify-js/src/toastify.css";
 import "./assets/styles/app.scss";
-import "virtual:windi.css";
-import "virtual:windi-devtools";
 
 const ErrorFallback = () => {
   return (

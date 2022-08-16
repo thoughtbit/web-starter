@@ -1,10 +1,11 @@
 import type { StateCreator } from "zustand";
-import type { StoreState, AuthSlice } from "../types";
+import type { StoreState, AuthSlice } from "@/store/types";
 import { api } from "@/services";
 
 const initialState = {
-  user: null,
-  token: null,
+  userInfo: null,
+  token: "",
+  authorities: [],
   isAuthenticated: false,
 };
 
@@ -22,15 +23,15 @@ export const createAuthSlice: StateCreator<
         console.log("用户登录:", result);
         const { code, data } = result;
         if (code === 0) {
-          set({ token: data.token, user: data });
+          set({ token: data.token, userInfo: data });
           return result;
         } else {
-          set({ token: null, user: null });
+          set({ token: null, userInfo: null });
           return result;
         }
       })
       .catch((error: any) => {
-        set({ token: null, user: null });
+        set({ token: null, userInfo: null });
         return error;
       });
   },
@@ -41,11 +42,11 @@ export const createAuthSlice: StateCreator<
         console.log("退出登录:", result);
         set(() => ({
           token: null,
-          user: null,
+          userInfo: null,
         }));
       })
       .catch((error: any) => {
-        set({ token: null, user: null });
+        set({ token: null, userInfo: null });
         return error;
       });
   },

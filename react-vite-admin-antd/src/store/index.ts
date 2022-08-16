@@ -2,7 +2,7 @@
 import create from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import type { StoreState } from "./types";
-import { createAuthSlice } from "./modules/auth";
+import { createAuthSlice } from "@/pages/auth/state/auth";
 import { createGlobalsSlice } from "./modules/global";
 
 export { default as useCounterStore } from "./modules/counter";

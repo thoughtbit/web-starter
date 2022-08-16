@@ -7,7 +7,7 @@ import type { RouteObject } from "./types";
 const modules = import.meta.glob("./modules/*.tsx", { eager: true });
 const appRouters = formatModules(modules, []);
 
-const Login = lazy(() => import("@/pages/login"));
+const Login = lazy(() => import("@/pages/auth"));
 const Result403 = lazy(() => import("@/pages/result/403"));
 const Result404 = lazy(() => import("@/pages/result/404"));
 const Result500 = lazy(() => import("@/pages/result/500"));
