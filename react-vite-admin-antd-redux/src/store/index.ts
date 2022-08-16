@@ -13,8 +13,8 @@ import { type TypedUseSelectorHook, useDispatch, useSelector } from "react-redux
 import { createLogger } from "redux-logger";
 import { persistStore } from "redux-persist";
 import errorMiddleware from "./middlewares/error";
-import { DEBUG } from "@@/constants";
-import { api as ApiService } from "@@/services";
+import { DEBUG } from "@/constants";
+import { api as ApiService } from "@/services";
 import createStore from "./createStore";
 import persistReducers from "./persistReducers";
 import rootReducers from "./rootReducers";

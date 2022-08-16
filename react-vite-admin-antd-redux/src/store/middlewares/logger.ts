@@ -1,7 +1,8 @@
-// @ts-nocheck
-import { DEBUG } from "@@/constants";
+import type { AnyAction } from "@reduxjs/toolkit";
+import { DEBUG } from "@/constants";
 
-export default () => (next) => (action) => {
+
+export default () => (next: any) => (action: AnyAction) => {
   if (DEBUG) {
     const { type, payload, meta, error } = action;
 

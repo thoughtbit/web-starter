@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice, isFulfilled, isPending, isRejected } fro
 import type { AsyncThunkConfig, RootState } from "@/store";
 import { DataStatus } from "@/store/types";
 import { serializeAxiosError } from "@/store/utils";
-import StorageManager from "@@/services/storage";
-import request from "@@/services/request";
+import StorageManager from "@/services/storage";
+import request from "@/services/request";
 
 const TOKEN_KEY = "token";
 const namespace = "auth";

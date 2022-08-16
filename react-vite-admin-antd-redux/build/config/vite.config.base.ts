@@ -28,8 +28,8 @@ export default (configEnv: ConfigEnv, viteEnv: Record<string, string>) => {
           replacement: resolve(__dirname, "../../src"),
         },
         {
-          find: "@@",
-          replacement: resolve(__dirname, "../../src/core"),
+          find: "~",
+          replacement: resolve(__dirname, "../../"),
         },
       ],
       // 可以忽略的后缀

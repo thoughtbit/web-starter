@@ -1,5 +1,5 @@
 import { memo } from "react";
-import Result from "@@/components/Result";
+import Result from "@/components/Result";
 
 const NotFound = () => <Result code={404} />;
 

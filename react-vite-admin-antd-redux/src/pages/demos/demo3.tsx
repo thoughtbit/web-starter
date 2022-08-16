@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { useRequest } from "ahooks";
 import _debounce from "lodash-es/debounce";
-import { useSearchParam } from "@@/hooks";
-import request from "@@/services/request";
+import { useSearchParam } from "@/hooks";
+import request from "@/services/request";
 
 export default function Demo3() {
   const getUsers = async () => {

@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import debounce from "lodash-es/debounce";
 import type { AppDispatch, ThunkResult } from "@/store";
-import request from "@@/services/request";
+import request from "@/services/request";
 import qs from "qs";
 
 export type UserFilter = Record<string, string | boolean | any[]>;
