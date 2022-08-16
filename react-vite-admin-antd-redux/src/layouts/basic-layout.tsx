@@ -12,13 +12,13 @@ export default () => {
 
   return (
     <Layout>
-      <Header className="flex flex-row items-center justify-between px-20px ">
+      <Header className="" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
         {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
           className: "trigger",
           onClick: () => setCollapsed(!collapsed),
         })}
-        <h1 className="m-0 ml-20px">LOGO</h1>
-        <div className="ml-20px content-end">
+        <h1 className="">LOGO</h1>
+        <div className="">
           <ThemeToggler />
         </div>
       </Header>

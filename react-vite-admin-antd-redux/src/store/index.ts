@@ -1,5 +1,6 @@
 import { addListener, createListenerMiddleware } from "@reduxjs/toolkit";
 import type {
+  Middleware,
   Action,
   AnyAction,
   ThunkAction,
@@ -23,7 +24,7 @@ const listenerMiddlewareInstance = createListenerMiddleware({
   onError: () => console.error,
 });
 
-const middlewares: any[] = [errorMiddleware];
+const middlewares: Middleware[] = [errorMiddleware];
 if (DEBUG) {
   const logger = createLogger({ collapsed: true });
   middlewares.push(logger);

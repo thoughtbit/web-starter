@@ -5,7 +5,7 @@ import { useRoute } from "@/hooks";
 import { ReactComponent as Light403Icon } from "@/assets/images/result/result-403.svg";
 import { ReactComponent as Light404Icon } from "@/assets/images/result/result-404.svg";
 import { ReactComponent as Light500Icon } from "@/assets/images/result/result-500.svg";
-import Styles from "./index.module.scss";
+import styles from "./index.module.scss";
 
 enum ECode {
   forbidden = 403,
@@ -41,10 +41,10 @@ const ErrorPage: React.FC<IErrorPageProps> = (props) => {
   const { navigate } = useRoute();
   const info = errorInfo[props.code];
   return (
-    <div className={Styles["error-box"]}>
+    <div className={styles["error-box"]}>
       {info?.icon}
-      <div className={Styles["title"]}>{info?.title}</div>
-      <div className={Styles["description"]}>{info?.desc}</div>
+      <div className={styles["title"]}>{info?.title}</div>
+      <div className={styles["description"]}>{info?.desc}</div>
       <Button type="primary" onClick={()=>{ navigate("..", { replace: true }); }}>返回首页</Button>
     </div>
   );

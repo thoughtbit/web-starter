@@ -1,6 +1,6 @@
 import loadable from "@loadable/component";
 import { Spin } from "antd";
-import Styles from "./index.module.scss";
+import styles from "./index.module.scss";
 
 // https://github.com/gregberge/loadable-components/pull/226
 function load(fn: any, options: any) {
@@ -17,7 +17,7 @@ function LoadingComponent(props: { error: boolean; timedOut: boolean; pastDelay:
     return null;
   }
   return (
-    <div className={Styles.loading}>
+    <div className={styles.loading}>
       <Spin />
     </div>
   );

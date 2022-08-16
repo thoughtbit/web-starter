@@ -5,17 +5,15 @@ import { ErrorBoundary } from "react-error-boundary";
 import NiceModal from "@ebay/nice-modal-react";
 import App from "./App";
 
-import "virtual:windi.css";
-import "virtual:windi-devtools";
 import "antd/dist/antd.css";
 import "toastify-js/src/toastify.css";
 import "./assets/styles/app.scss";
 
 const ErrorFallback = () => {
   return (
-    <div className="text-red-500 w-screen h-screen flex flex-col justify-center items-center" role="alert">
-      <h2 className="text-lg font-semibold">哎呀，出问题了 :( </h2>
-      <button className="mt-4" onClick={() => window.location.assign(window.location.origin)}>
+    <div className="" role="alert">
+      <h2 className="">哎呀，出问题了 :( </h2>
+      <button className="" onClick={() => window.location.assign(window.location.origin)}>
         刷新
       </button>
     </div>

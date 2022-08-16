@@ -1,14 +1,14 @@
 import { Suspense } from "react";
 import type { BrowserRouterProps } from "react-router-dom";
 import { Spin } from "antd";
-import Styles from "./index.module.scss";
+import styles from "./index.module.scss";
 
 type ComponentType = React.FC<BrowserRouterProps> | (() => any);
 const Loadable = (Component: ComponentType) => (props: any) =>
   (
     <Suspense
       fallback={
-        <div className={Styles.loading}>
+        <div className={styles.loading}>
           <Spin tip="Loading..." size="large" />
         </div>
       }

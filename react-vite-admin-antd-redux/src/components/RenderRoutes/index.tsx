@@ -8,7 +8,7 @@ type TRenderRoutes = (routes: RouteObject[], parentPath?: string) => React.React
 const genRoute = (route: RouteObject, parentPath: string) => {
   const { element, children, index, path } = route;
   const currentPath = resolve(parentPath, path);
-  if (route.children?.length === 0) {
+  if (route.children && route.children.length) {
     return <Route key={currentPath} path={currentPath} index={index} element={element} />;
   } else {
     return (

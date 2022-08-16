@@ -6,7 +6,7 @@ import type { Unsubscribe } from "@reduxjs/toolkit";
 import { startAppListening, store } from "./store";
 import { setupThemeListeners, changeColorScheme } from "./store/modules/theme";
 
-import Styles from "./app.module.scss";
+import styles from "./app.module.scss";
 
 function App() {
   const element = useRouter();
@@ -23,7 +23,7 @@ function App() {
   return (
     <Suspense
       fallback={
-        <div className={Styles.loading}>
+        <div className={styles.loading}>
           <Spin tip="Loading..." size="large" />
         </div>
       }

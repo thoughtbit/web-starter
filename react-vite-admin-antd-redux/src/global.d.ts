@@ -3,8 +3,6 @@ declare module "*.gif";
 declare module "*.jpg";
 declare module "*.jpeg";
 declare module "*.css";
-declare module "*.scss";
-declare module "*.sass";
 declare module "lodash";
 
 declare module "*.svg" {
@@ -14,6 +12,11 @@ declare module "*.svg" {
 declare module "*.json" {
   const value: any;
   export default value;
+}
+
+declare module '*.scss' {
+  const classes: { [className: string]: string };
+  export default classes;
 }
 
 declare module "@loadable/component";

@@ -3,7 +3,6 @@ import type { ConfigEnv } from "vite";
 import dayjs from "dayjs";
 import { resolve } from "path";
 import react from "@vitejs/plugin-react";
-import windicss from "vite-plugin-windicss";
 import { createHtml, createSvgr } from "./../plugins";
 import pkg from "./../../package.json";
 
@@ -20,7 +19,7 @@ export default (configEnv: ConfigEnv, viteEnv: Record<string, string>) => {
   return defineConfig({
     base: VITE_APP_BASE_URL,
     root: cmd,
-    plugins: [react(), windicss(), createSvgr(), createHtml(VITE_APP_NAME)],
+    plugins: [react(), createSvgr(), createHtml(VITE_APP_NAME)],
     resolve: {
       alias: [
         {

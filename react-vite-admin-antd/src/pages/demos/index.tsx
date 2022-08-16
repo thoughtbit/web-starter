@@ -1,5 +1,5 @@
 import { useRoute } from "@/hooks";
-import Styles from "./index.module.scss";
+import styles from "./index.module.scss";
 
 
 function Demos() {
@@ -52,13 +52,13 @@ function Demos() {
             <li>
               <NavLink
                 to="/demos/1b234bk12b3"
-                className={({ isActive }) => (isActive ? Styles.btnHover : Styles.btn)}
+                className={({ isActive }) => (isActive ? styles.btnHover : styles.btn)}
               >
                 id: 1b234bk12b3
               </NavLink>
             </li>
             <li>
-              <NavLink to="/demos/list" className={({ isActive }) => (isActive ? Styles.btnHover : Styles.btn)}>
+              <NavLink to="/demos/list" className={({ isActive }) => (isActive ? styles.btnHover : styles.btn)}>
                 list
               </NavLink>
             </li>

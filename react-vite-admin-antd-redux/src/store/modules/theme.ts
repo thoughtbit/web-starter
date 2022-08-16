@@ -17,12 +17,15 @@ export const ThemeSlice = createSlice({
     changeColorScheme(state: ThemeState, action: PayloadAction<ColorScheme>) {
       state.colorScheme = action.payload;
     },
+    toggleTheme: (state: ThemeState) => {
+      state.colorScheme === "light" ? "dark" : "light";
+    },
   },
 });
 
 export const selectTheme = (state: RootState) => state.theme;
 
-export const { changeColorScheme } = ThemeSlice.actions;
+export const { changeColorScheme, toggleTheme } = ThemeSlice.actions;
 
 export default ThemeSlice.reducer;
 

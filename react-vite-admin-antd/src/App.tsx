@@ -2,7 +2,7 @@ import { Spin } from "antd";
 import { Suspense } from "react";
 import { RenderRouter, useRouter } from "@/router";
 
-import Styles from "./app.module.scss";
+import styles from "./app.module.scss";
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     <Suspense
       fallback={
-        <div className={Styles.loading}>
+        <div className={styles.loading}>
           <Spin tip="Loading..." size="large" />
         </div>
       }
