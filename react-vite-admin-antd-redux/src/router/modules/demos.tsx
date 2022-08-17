@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import BasicLayout from "@/layouts/basic-layout";
 import type { RouteObject } from "../types";
+import PrivateRoute from "../private-route";
 
 const Demos = lazy(() => import("@/pages/demos"));
 const Demo1 = lazy(() => import("@/pages/demos/demo1"));
@@ -12,7 +13,11 @@ const Demo5 = lazy(() => import("@/pages/demos/demo5"));
 const demoRouter: RouteObject[] = [
   {
     path: "/demos",
-    element: <BasicLayout />,
+    element: (
+      <PrivateRoute hasAnyAuthorities={["user"]}>
+        <BasicLayout />
+      </PrivateRoute>
+    ),
     meta: {
       title: "例子演示",
       icon: "",

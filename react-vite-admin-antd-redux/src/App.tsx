@@ -10,13 +10,13 @@ import styles from "./app.module.scss";
 
 function App() {
   const element = useRouter();
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    store.dispatch(changeColorScheme("dark"));
-  }
 
   useEffect(() => {
-    const subscriptions: Unsubscribe[] = [setupThemeListeners(startAppListening)];
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      store.dispatch(changeColorScheme("dark"));
+    }
 
+    const subscriptions: Unsubscribe[] = [setupThemeListeners(startAppListening)];
     return () => subscriptions.forEach((unsubscribe) => unsubscribe());
   }, []);
 
