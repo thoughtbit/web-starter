@@ -1,41 +1,20 @@
-import { useEffect } from 'react';
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./routes";
 
-import { GetUserList } from './services';
-import { useRequest } from './hooks';
-import './App.css'
-
+import "./App.css";
 
 function App() {
-  const {
-    data,
-    pagination,
-    loading,
-    reset,
-    run 
-  } = useRequest(GetUserList, {
-      loadingText: false,
-      onSuccess: () => {
-        console.log('获取用户成功')
-      },
-    });
-
-   useEffect(() => {
-    run();
-   }, []) 
+  // Any .tsx or .jsx files in /pages will become a route
+  // See documentation for <Routes /> for more info
+  const pages = import.meta.glob("./pages/**/!(*.test.[jt]sx)*.([jt]sx)", { eager: true });
 
   return (
     <div className="App">
-      <ul className="list">
-        {data&&data.map((item: any, index: number) => {
-          return (
-            <li className="item item-hairline" key={item.id}>
-              {item.name}
-            </li>
-          );
-        })}
-      </ul>
+      <BrowserRouter>
+        <Routes pages={pages} />
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

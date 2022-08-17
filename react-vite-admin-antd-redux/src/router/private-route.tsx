@@ -1,5 +1,6 @@
-import { type ReactElement } from "react";
+import { useEffect, type ReactElement } from "react";
 import { Navigate, type RouteProps } from "react-router-dom";
+import { Result } from "antd";
 import { useAppSelector } from "@/store";
 import { useRoute } from "@/hooks";
 import { ErrorBoundary } from "@/components";
@@ -11,9 +12,15 @@ type OwnProps = {
 
 const PrivateRoute: React.FC<OwnProps> = ({ children, hasAnyAuthorities = [], ...restProps }: OwnProps) => {
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
-  const user = useAppSelector((state) => state.auth.userInfo);
-  const isAuthorized = hasAnyAuthority(user.authorities, hasAnyAuthorities);
+  const authorities = useAppSelector((state) => state.auth.authorities);
+  const isAuthorized = hasAnyAuthority(authorities, hasAnyAuthorities);
   const { location } = useRoute();
+
+  useEffect(() => {
+    console.log("---isAuthenticated---->", isAuthenticated);
+    console.log("----authorities--->", authorities);
+    console.log("---isAuthorized---->", isAuthorized);
+  }, []);
 
   if (!children) {
     throw new Error(`A component needs to be specified for private route for path ${(restProps as any).path}`);
@@ -21,14 +28,10 @@ const PrivateRoute: React.FC<OwnProps> = ({ children, hasAnyAuthorities = [], ..
 
   if (isAuthenticated) {
     if (isAuthorized) {
-      return <ErrorBoundary>{children}</ErrorBoundary>;
+      return children;
     }
 
-    return (
-      <div className="insufficient-authority">
-        <div className="alert alert-danger">您没有权限访问此页面。</div>
-      </div>
-    );
+    return <Result status="403" title="403" subTitle="Sorry, you are not authorized to access this page." />;
   }
 
   return (

@@ -3,6 +3,8 @@ import { Button, Checkbox, Form, Input } from "antd";
 import type { CheckboxChangeEvent } from "antd/lib/checkbox";
 import { LockOutlined, OneToOneOutlined, UserOutlined } from "@ant-design/icons";
 import { useCountDown, useRoute } from "@/hooks";
+import { useAppDispatch } from "@/store";
+import { loginAction } from "@/pages/auth/state";
 
 import "./index.scss";
 
@@ -11,8 +13,10 @@ const Login: React.FC = () => {
   const [form] = Form.useForm();
   const { countdown, setupCountdown } = useCountDown(60);
   const [loginType, changeLoginType] = useState("password");
+  const dispatch = useAppDispatch();
 
   const onFinish = useCallback((values: any) => {
+    dispatch(loginAction(values));
     console.log("Submit: ", values);
     navigate("/dashboard");
   }, []);

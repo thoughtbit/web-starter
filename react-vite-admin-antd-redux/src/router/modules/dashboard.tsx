@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import BasicLayout from "@/layouts/basic-layout";
 import type { RouteObject } from "../types";
-
+import PrivateRoute from "../private-route";
 
 const Dashboard = lazy(() => import("@/pages/dashboard/workplace"));
 

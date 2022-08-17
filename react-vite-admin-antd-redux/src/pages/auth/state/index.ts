@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, isFulfilled, isPending, isRejected } from "@reduxjs/toolkit";
+import { message } from "antd";
 import type { AsyncThunkConfig, RootState } from "@/store";
 import { DataStatus } from "@/store/types";
 import { serializeAxiosError } from "@/store/utils";
@@ -40,23 +41,28 @@ const initialState: AuthState = {
 // -----------------------------------------------------------------------
 
 // login
-export const loginAction = createAsyncThunk<any, any, AsyncThunkConfig>(`${namespace}/login`, async (params, { extra }) => {
-  const { login } = extra;
-  return await login(params)
-    .then((result: Recordable) => {
-      console.log("用户登录:", result);
-      const { code, data } = result;
-      if (code === 0) {
-        StorageManager.set(TOKEN_KEY, data.token);
-        return result.data;
-      } else {
-        return result;
-      }
-    })
-    .catch((error) => {
-      return error;
-    });
-});
+export const loginAction = createAsyncThunk<any, any, AsyncThunkConfig>(
+  `${namespace}/login`,
+  async (params, { extra }) => {
+    const { login } = extra;
+    return await login(params)
+      .then((result: Recordable) => {
+        console.log("用户登录:", result);
+        const { code, data } = result;
+        if (code === 0) {
+          message.success("登录成功");
+          return data;
+        } else {
+          message.warning("登录失败, 请重试!");
+          // return result;
+        }
+      })
+      .catch((error) => {
+        message.error("登录服务异常");
+        return error;
+      });
+  }
+);
 
 // getUserInfo
 export const getUserInfoAction = createAsyncThunk<any, any, AsyncThunkConfig>(
@@ -136,12 +142,27 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loginAction.fulfilled, (state, action) => {
+      .addCase(loginAction.pending, (state) => {
+        state.dataStatus = DataStatus.PENDING;
+        state.loading = true;
+      })
+      .addCase(loginAction.fulfilled, (state, { payload }) => {
         state.dataStatus = DataStatus.FULFILLED;
-        StorageManager.set(TOKEN_KEY, action.payload);
+        state.loading = false;
 
-        state.token = action.payload;
-        state.isAuthenticated = true;
+        StorageManager.set(TOKEN_KEY, payload?.token);
+        state.token = payload?.token;
+        state.userInfo = payload?.username;
+        if (payload?.token) {
+          // 暂时测试使用
+          state.authorities = payload.roles;
+
+          state.isAuthenticated = true;
+        }
+      })
+      .addCase(loginAction.rejected, (state, action) => {
+        state.dataStatus = DataStatus.REJECTED;
+        state.loading = false;
       })
 
       .addCase(getRolesAction.fulfilled, (state, action) => {
@@ -170,12 +191,12 @@ const userSlice = createSlice({
         state.dataStatus = DataStatus.FULFILLED;
         state.loading = false;
       })
-      .addMatcher(isPending(loginAction, getUserInfoAction, getRolesAction), (state) => {
+      .addMatcher(isPending(getUserInfoAction, getRolesAction), (state) => {
         state.dataStatus = DataStatus.PENDING;
         state.errorMessage = null;
         state.loading = true;
       })
-      .addMatcher(isRejected(loginAction, getUserInfoAction, getRolesAction), (state, action) => {
+      .addMatcher(isRejected(getUserInfoAction, getRolesAction), (state, action) => {
         state.dataStatus = DataStatus.REJECTED;
         state.loading = false;
         state.errorMessage = action.error.message;

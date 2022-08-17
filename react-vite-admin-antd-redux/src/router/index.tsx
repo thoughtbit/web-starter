@@ -3,6 +3,7 @@ import { useRoutes, Navigate, Routes } from "react-router-dom";
 import { Loadable, renderRoutes } from "@/components";
 import { formatModules } from "@/utils/formatModules";
 import type { RouteObject } from "./types";
+import PrivateRoute from "./private-route";
 
 const modules = import.meta.glob("./modules/*.tsx", { eager: true });
 const appRouters = formatModules(modules, []);
@@ -15,7 +16,11 @@ const Result500 = lazy(() => import("@/pages/result/500"));
 export const routers: RouteObject[] = [
   {
     path: "/",
-    element: <Navigate to="/dashboard" />,
+    element: (
+      <PrivateRoute hasAnyAuthorities={["admin"]}>
+        <Navigate to="/dashboard" />
+      </PrivateRoute>
+    ),
     meta: {
       title: "首页",
     },

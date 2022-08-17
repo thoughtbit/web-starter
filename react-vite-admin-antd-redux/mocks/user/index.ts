@@ -130,6 +130,7 @@ export default [
   {
     url: "/api/user/login",
     method: "post",
+    statusCode: 200,
     response: ({ body, query }: any) => {
       console.log("body>>>>>>>>", body);
       console.log("query>>>>>>>>", query);
@@ -142,13 +143,24 @@ export default [
           data: {
             token: token,
             username: "admin",
+            roles: ["admin", "*"],
+          },
+        };
+      } else if (username === "test" && password === "123456") {
+        return {
+          code: 0,
+          message: "用户登录成功",
+          data: {
+            token: token,
+            username: "test",
+            roles: [],
           },
         };
       } else {
         return {
           code: 401,
           message: "账号或者密码错误",
-          data: {}
+          data: {},
         };
       }
     },
