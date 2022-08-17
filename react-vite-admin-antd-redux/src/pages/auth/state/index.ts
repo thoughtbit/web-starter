@@ -1,3 +1,4 @@
+import { user } from "@/pages/users/state";
 import { createAsyncThunk, createSlice, isFulfilled, isPending, isRejected } from "@reduxjs/toolkit";
 import { message } from "antd";
 import type { AsyncThunkConfig, RootState } from "@/store";
@@ -152,7 +153,9 @@ const userSlice = createSlice({
 
         StorageManager.set(TOKEN_KEY, payload?.token);
         state.token = payload?.token;
-        state.userInfo = payload?.username;
+        state.userInfo = {
+          username: payload?.username,
+        };
         if (payload?.token) {
           // 暂时测试使用
           state.authorities = payload.roles;

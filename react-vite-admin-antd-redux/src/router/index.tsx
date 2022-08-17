@@ -17,7 +17,7 @@ export const routers: RouteObject[] = [
   {
     path: "/",
     element: (
-      <PrivateRoute hasAnyAuthorities={["admin"]}>
+      <PrivateRoute hasAnyAuthorities={[]}>
         <Navigate to="/dashboard" />
       </PrivateRoute>
     ),

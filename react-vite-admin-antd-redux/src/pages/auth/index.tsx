@@ -1,7 +1,10 @@
 import { memo, useState } from "react";
 import classNames from "classnames";
+import { Navigate } from "react-router-dom";
+import { useRoute } from "@/hooks";
 import { useAppSelector } from "@/store";
 import { selectTheme } from "@/store/modules/theme";
+import { selectAuth } from "./state";
 import { APP_NAME } from "@/constants";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -9,11 +12,18 @@ import Register from "./components/Register";
 import "./index.scss";
 
 export default memo(() => {
+  const { location } = useRoute();
   const [type, setType] = useState("login");
   const { colorScheme } = useAppSelector(selectTheme);
+  const { isAuthenticated } = useAppSelector(selectAuth);
   const handleSwitchLoginType = () => {
     setType(type === "register" ? "login" : "register");
   };
+
+  const { from } = (location.state as any) || { from: { pathname: "/", search: location.search } };
+  if (isAuthenticated) {
+    return <Navigate to={from} replace />;
+  }
 
   return (
     <div

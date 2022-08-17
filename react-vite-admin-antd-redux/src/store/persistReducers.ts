@@ -30,7 +30,7 @@ export default (rootReducer: Reducer) => {
     },
   };
 
-  const PERSISTED_KEYS: string[] = ["login", "user", "theme", "counter"];
+  const PERSISTED_KEYS: string[] = ["auth", "user", "theme", "counter"];
   const persistConfig: PersistConfig<any> = {
     key: "root",
     version: 1,

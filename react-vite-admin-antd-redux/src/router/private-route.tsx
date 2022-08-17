@@ -1,9 +1,8 @@
-import { useEffect, type ReactElement } from "react";
+import  { type ReactElement, useEffect } from "react";
 import { Navigate, type RouteProps } from "react-router-dom";
 import { Result } from "antd";
 import { useAppSelector } from "@/store";
 import { useRoute } from "@/hooks";
-import { ErrorBoundary } from "@/components";
 
 type OwnProps = {
   hasAnyAuthorities?: string[];
@@ -19,6 +18,7 @@ const PrivateRoute: React.FC<OwnProps> = ({ children, hasAnyAuthorities = [], ..
   useEffect(() => {
     console.log("---isAuthenticated---->", isAuthenticated);
     console.log("----authorities--->", authorities);
+    console.log("----hasAnyAuthorities--->", hasAnyAuthorities);
     console.log("---isAuthorized---->", isAuthorized);
   }, []);
 
@@ -31,7 +31,7 @@ const PrivateRoute: React.FC<OwnProps> = ({ children, hasAnyAuthorities = [], ..
       return children;
     }
 
-    return <Result status="403" title="403" subTitle="Sorry, you are not authorized to access this page." />;
+    return <Result status="403" title="403" subTitle="抱歉，您无权限访问此页面." />;
   }
 
   return (

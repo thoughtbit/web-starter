@@ -1,5 +1,6 @@
 export { default as Footer } from "./Footer";
 export { default as Input } from "./Input";
+export { default as Image } from "./Image";
 export { default as LazyLoad } from "./LazyLoad";
 export { default as Loadable } from "./Loadable";
 export { default as renderRoutes } from "./RenderRoutes";
