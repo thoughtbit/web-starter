@@ -1,5 +1,5 @@
-import isBrowser from '../../../utils/isBrowser';
-import isDocumentVisible from './isDocumentVisible';
+import isDocumentVisible from "./isDocumentVisible";
+import isBrowser from "./isBrowser";
 
 const listeners: any[] = [];
 
@@ -19,7 +19,7 @@ if (isBrowser) {
       listener();
     }
   };
-  window.addEventListener('visibilitychange', revalidate, false);
+  window.addEventListener("visibilitychange", revalidate, false);
 }
 
 export default subscribe;

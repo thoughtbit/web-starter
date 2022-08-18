@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import debounce from "lodash-es/debounce";
+import debounce from "lodash/debounce";
 import type { AppDispatch, ThunkResult } from "@/store";
 import request from "@/services/request";
 import qs from "qs";

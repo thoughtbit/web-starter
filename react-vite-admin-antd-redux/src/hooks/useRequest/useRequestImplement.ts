@@ -1,9 +1,9 @@
-import useCreation from "./hooks/useCreation";
-import useLatest from "./hooks/useLatest";
-import useMemoizedFn from "./hooks/useMemoizedFn";
-import useMount from "./hooks/useMount";
-import useUnmount from "./hooks/useUnmount";
-import useUpdate from "./hooks/useUpdate";
+import useCreation from "./plugins/useCreation";
+import useLatest from "./plugins/useLatest";
+import useMemoizedFn from "./plugins/useMemoizedFn";
+import useMount from "./plugins/useMount";
+import useUnmount from "./plugins/useUnmount";
+import useUpdate from "./plugins/useUpdate";
 
 import Fetch from "./Fetch";
 import type { Options, Plugin, Result, Service } from "./types";

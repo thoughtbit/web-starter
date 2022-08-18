@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import useUnmount from '../../../useUnmount';
+import useUnmount from './useUnmount';
 import type { Plugin } from '../types';
 import limit from '../utils/limit';
 import subscribeFocus from '../utils/subscribeFocus';

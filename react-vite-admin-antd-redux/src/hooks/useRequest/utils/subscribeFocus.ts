@@ -1,7 +1,7 @@
-// from swr
-import isBrowser from '../../../utils/isBrowser';
-import isDocumentVisible from './isDocumentVisible';
-import isOnline from './isOnline';
+import isDocumentVisible from "./isDocumentVisible";
+import isOnline from "./isOnline";
+
+const isBrowser = typeof window !== "undefined";
 
 const listeners: any[] = [];
 
@@ -21,8 +21,8 @@ if (isBrowser) {
       listener();
     }
   };
-  window.addEventListener('visibilitychange', revalidate, false);
-  window.addEventListener('focus', revalidate, false);
+  window.addEventListener("visibilitychange", revalidate, false);
+  window.addEventListener("focus", revalidate, false);
 }
 
 export default subscribe;

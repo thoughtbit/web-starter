@@ -11,7 +11,7 @@ specifiers:
   '@types/echarts': ^4.9.12
   '@types/hoist-non-react-statics': ^3.3.1
   '@types/loadable__component': ^5.13.4
-  '@types/lodash-es': ^4.17.6
+  '@types/lodash': ^4.14.183
   '@types/mockjs': ^1.0.6
   '@types/node': ^18.6.4
   '@types/qs': ^6.9.7
@@ -24,7 +24,6 @@ specifiers:
   '@typescript-eslint/parser': ^5.32.0
   '@vitejs/plugin-legacy': ^2.0.0
   '@vitejs/plugin-react': ^2.0.0
-  ahooks: ^3.7.0
   antd: ^4.22.3
   antd-form-builder: ^2.1.4
   axios: ^0.27.2
@@ -39,7 +38,7 @@ specifiers:
   eslint-plugin-react: ^7.30.1
   eslint-plugin-react-hooks: ^4.6.0
   hoist-non-react-statics: ^3.3.2
-  lodash-es: ^4.17.21
+  lodash: ^4.17.21
   mitt: ^3.0.0
   mockjs: ^1.1.0
   nanoid: ^3.1.30
@@ -73,16 +72,15 @@ dependencies:
   '@ebay/nice-modal-react': 1.2.6_biqbaboplfbrettd7655fr4n2y
   '@loadable/component': 5.15.2_react@18.2.0
   '@reduxjs/toolkit': 1.8.4_kkwg4cbsojnjnupd3btipussee
-  ahooks: 3.7.0_react@18.2.0
   antd: 4.22.3_biqbaboplfbrettd7655fr4n2y
-  antd-form-builder: 2.1.4_hu4uqtx7jogl6ep2q6xt4l6fte
+  antd-form-builder: 2.1.4_coayrzr5iscmgnlk6cfuzwzcoq
   axios: 0.27.2
   classnames: 2.3.1
   dayjs: 1.11.4
   echarts: 5.3.3
   echarts-for-react: 3.0.2_echarts@5.3.3+react@18.2.0
   hoist-non-react-statics: 3.3.2
-  lodash-es: 4.17.21
+  lodash: 4.17.21
   mitt: 3.0.0
   prop-types: 15.8.1
   react: 18.2.0
@@ -100,7 +98,7 @@ devDependencies:
   '@types/echarts': 4.9.16
   '@types/hoist-non-react-statics': 3.3.1
   '@types/loadable__component': 5.13.4
-  '@types/lodash-es': 4.17.6
+  '@types/lodash': 4.14.183
   '@types/mockjs': 1.0.6
   '@types/node': 18.6.4
   '@types/qs': 6.9.7
@@ -1842,10 +1840,6 @@ packages:
       '@types/node': 18.6.4
     dev: true
 
-  /@types/js-cookie/2.2.7:
-    resolution: {integrity: sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==}
-    dev: false
-
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
@@ -1866,14 +1860,8 @@ packages:
       '@types/react': 18.0.15
     dev: true
 
-  /@types/lodash-es/4.17.6:
-    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
-    dependencies:
-      '@types/lodash': 4.14.182
-    dev: true
-
-  /@types/lodash/4.14.182:
-    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
+  /@types/lodash/4.14.183:
+    resolution: {integrity: sha512-UXavyuxzXKMqJPEpFPri6Ku5F9af6ZJXUneHhvQJxavrEjuHkFp2YnDWHcxJiG7hk8ZkWqjcyNeW1s/smZv5cw==}
     dev: true
 
   /@types/minimatch/3.0.5:
@@ -2192,27 +2180,6 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  /ahooks-v3-count/1.0.0:
-    resolution: {integrity: sha512-V7uUvAwnimu6eh/PED4mCDjE7tokeZQLKlxg9lCTMPhN+NjsSbtdacByVlR1oluXQzD3MOw55wylDmQo4+S9ZQ==}
-    dev: false
-
-  /ahooks/3.7.0_react@18.2.0:
-    resolution: {integrity: sha512-IOZ6IpVeAd7aWtV2O+dBmCQc0aHt+WPG3B5tPHnVVcPnEq9FDJxx8IIA5hLxN4lRa1m1ZMx6pOE2rrYW7bjU6A==}
-    engines: {node: '>=8.0.0'}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@types/js-cookie': 2.2.7
-      ahooks-v3-count: 1.0.0
-      dayjs: 1.11.4
-      intersection-observer: 0.12.2
-      js-cookie: 2.2.1
-      lodash: 4.17.21
-      react: 18.2.0
-      resize-observer-polyfill: 1.5.1
-      screenfull: 5.2.0
-    dev: false
-
   /ajv/6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
     dependencies:
@@ -2257,7 +2224,7 @@ packages:
     dependencies:
       color-convert: 2.0.1
 
-  /antd-form-builder/2.1.4_hu4uqtx7jogl6ep2q6xt4l6fte:
+  /antd-form-builder/2.1.4_coayrzr5iscmgnlk6cfuzwzcoq:
     resolution: {integrity: sha512-YPmWyOPuOzCyeFKieDh3sVbx5jeblT5CuwUwzsMYC6IW33YDA1+K7MCiVzw/jO6T7KdIzgiewuWFOTcFQlZsvg==}
     engines: {node: '>=8', npm: '>=5'}
     peerDependencies:
@@ -2273,6 +2240,7 @@ packages:
       '@ant-design/icons': 4.7.0_biqbaboplfbrettd7655fr4n2y
       antd: 4.22.3_biqbaboplfbrettd7655fr4n2y
       eslint-plugin-react-hooks: 4.6.0_eslint@8.21.0
+      lodash: 4.17.21
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4553,10 +4521,6 @@ packages:
       side-channel: 1.0.4
     dev: true
 
-  /intersection-observer/0.12.2:
-    resolution: {integrity: sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==}
-    dev: false
-
   /into-stream/3.1.0:
     resolution: {integrity: sha512-TcdjPibTksa1NQximqep2r17ISRiNE9fwlfbg3F8ANdvP5/yrFTew86VcO//jk4QTaMlbjypPBq76HN2zaKfZQ==}
     engines: {node: '>=4'}
@@ -4812,10 +4776,6 @@ packages:
       bin-wrapper: /bin-wrapper-china/0.1.0
     dev: true
 
-  /js-cookie/2.2.1:
-    resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
-    dev: false
-
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -4953,10 +4913,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
-
-  /lodash-es/4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: false
 
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
@@ -6609,11 +6565,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
-
-  /screenfull/5.2.0:
-    resolution: {integrity: sha512-9BakfsO2aUQN2K9Fdbj87RJIEZ82Q9IGim7FqM5OsebfoFC6ZHXgDq/KvniuLTPdeM8wY2o6Dj3WQ7KeQCj3cA==}
-    engines: {node: '>=0.10.0'}
     dev: false
 
   /scroll-into-view-if-needed/2.2.29:

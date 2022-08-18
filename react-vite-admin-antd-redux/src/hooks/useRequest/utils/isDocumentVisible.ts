@@ -1,4 +1,4 @@
-import isBrowser from '../../../utils/isBrowser';
+const isBrowser = typeof window !== "undefined";
 
 export default function isDocumentVisible(): boolean {
   if (isBrowser) {

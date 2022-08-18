@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import type { Plugin, Timeout } from '../types';
+import { useRef } from "react";
+import type { Plugin, Timeout } from "../types";
 
 const useLoadingDelayPlugin: Plugin<any, any[]> = (fetchInstance, { loadingDelay }) => {
   const timerRef = useRef<Timeout>();
