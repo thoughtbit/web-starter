@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 import { useEffect, useRef, useState } from "react";
 import useMemoizedFn from "../useMemoizedFn";
 import usePagination from "../usePagination";
@@ -38,7 +37,7 @@ const useAntdTable = <TData extends Data, TParams extends Params>(
   const isAntdV4 = !!form?.getInternalHooks;
 
   // get current active field values
-  const getActivetFieldValues = () => {
+  const getActiveFieldValues = () => {
     if (!form) {
       return {};
     }
@@ -64,7 +63,7 @@ const useAntdTable = <TData extends Data, TParams extends Params>(
     if (!form) {
       return Promise.resolve({});
     }
-    const activeFieldsValue = getActivetFieldValues();
+    const activeFieldsValue = getActiveFieldValues();
     const fields = Object.keys(activeFieldsValue);
 
     // antd 4

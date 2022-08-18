@@ -5,9 +5,7 @@ interface CreateAsyncProcessReturn<T extends (...args: any[]) => any> {
   run: (...args: Parameters<T>) => Promise<ReturnType<T>>;
 }
 
-export function createAsyncProcess<T extends (...args: any[]) => any>(
-  fn: T
-): CreateAsyncProcessReturn<T> {
+export function useCreateAsyncProcess<T extends (...args: any[]) => any>(fn: T) {
   const active: CreateAsyncProcessReturn<T>["active"] = useRef(false);
 
   const run: CreateAsyncProcessReturn<T>["run"] = async (...args) => {
@@ -17,9 +15,8 @@ export function createAsyncProcess<T extends (...args: any[]) => any>(
     return result;
   };
 
-  return { active, run };
+  return [active, run];
 }
-
 /*
-const { active: loading, run: runWrappedFetchList } = createAsyncProcess(fetchList);
+const [loading, runWrappedFetchList] = useCreateAsyncProcess(fetchList);
 */

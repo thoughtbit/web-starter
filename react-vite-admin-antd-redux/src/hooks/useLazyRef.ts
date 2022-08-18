@@ -1,6 +1,6 @@
-import {useRef, MutableRefObject} from 'react';
+import { useRef, type MutableRefObject } from "react";
 
-const UNIQUE_IDENTIFIER = Symbol('unique_identifier');
+const UNIQUE_IDENTIFIER = Symbol("unique_identifier");
 
 /**
  * useLazyRef provides a lazy initial value, similar to lazy

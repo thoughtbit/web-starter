@@ -32,7 +32,7 @@ export function useTimeout() {
 /*
 const [setTestTimeout, clearTestTimeout] = useTimeout();
 setTestTimeout(()=> {
-  
+  // 处理
 }, 1000);
 clearTestTimeout();
 */
