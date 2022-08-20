@@ -15,12 +15,12 @@ const PrivateRoute: React.FC<OwnProps> = ({ children, hasAnyAuthorities = [], ..
   const isAuthorized = hasAnyAuthority(authorities, hasAnyAuthorities);
   const { location } = useRoute();
 
-  useEffect(() => {
-    console.log("---isAuthenticated---->", isAuthenticated);
-    console.log("----authorities--->", authorities);
-    console.log("----hasAnyAuthorities--->", hasAnyAuthorities);
-    console.log("---isAuthorized---->", isAuthorized);
-  }, []);
+  // useEffect(() => {
+  //   console.log("---isAuthenticated---->", isAuthenticated);
+  //   console.log("----authorities--->", authorities);
+  //   console.log("----hasAnyAuthorities--->", hasAnyAuthorities);
+  //   console.log("---isAuthorized---->", isAuthorized);
+  // }, []);
 
   if (!children) {
     throw new Error(`A component needs to be specified for private route for path ${(restProps as any).path}`);

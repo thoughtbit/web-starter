@@ -9,7 +9,7 @@ const userManageRouter: RouteObject[] = [
   {
     path: "/user",
     element: (
-      <PrivateRoute hasAnyAuthorities={["admin"]}>
+      <PrivateRoute>
         <BasicLayout />
       </PrivateRoute>
     ),

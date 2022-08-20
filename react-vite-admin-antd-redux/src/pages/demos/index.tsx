@@ -33,6 +33,11 @@ function Demos() {
               Demo5
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/demos/demo6" className="nav-link">
+              Demo6
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <div className="mx-auto max-w-sm">

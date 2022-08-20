@@ -1,4 +1,3 @@
-import { user } from "@/pages/users/state";
 import { createAsyncThunk, createSlice, isFulfilled, isPending, isRejected } from "@reduxjs/toolkit";
 import { message } from "antd";
 import type { AsyncThunkConfig, RootState } from "@/store";

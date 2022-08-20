@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import { useRequest } from "ahooks";
 import _debounce from "lodash/debounce";
 import { useSearchParam } from "@/hooks";
+import useRequest from "@/hooks/useRequest";
 import request from "@/services/request";
 
 export default function Demo3() {

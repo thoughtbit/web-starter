@@ -32,15 +32,25 @@ export default [
     url: "/api/users",
     method: "get",
     statusCode: 200,
-    response: () => ({
-      code: 0,
-      data: {
-        ...Mock.mock({
-          "list|1-100": [userInfo],
-        }),
-      },
-      message: "ok",
-    }),
+    response: ({ query, body }: any) => {
+      console.log("query>>>>>>>>", query);
+      console.log("body>>>>>>>>", body);
+      return {
+        code: 0,
+        data: {
+          ...Mock.mock({
+            "users|1-100": [userInfo],
+          }),
+
+          page: parseInt(query.page),
+          perPage: 10,
+          totalPages: 100,
+          totalCount: 100,
+          // filters:[{ name: "activeLast30Days", value: true }, { name: "allUsers", value: false }] 
+        },
+        message: "ok",
+      };
+    },
   },
   {
     url: "/api/users/getUserInfo",
@@ -153,7 +163,7 @@ export default [
           data: {
             token: token,
             username: "test",
-            roles: [],
+            roles: ["user"],
           },
         };
       } else {

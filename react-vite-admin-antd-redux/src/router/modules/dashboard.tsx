@@ -8,13 +8,17 @@ const Dashboard = lazy(() => import("@/pages/dashboard/workplace"));
 const dashboardRouter: RouteObject[] = [
   {
     path: "/dashboard",
-    element: <BasicLayout />,
+    element: (
+      <PrivateRoute hasAnyAuthorities={["admin"]}>
+        <BasicLayout />
+      </PrivateRoute>
+    ),
     meta: {
       title: "统计报表",
       icon: "",
     },
     children: [
-      { index: true, element: <>总览</> },
+      { index: true, element: <Dashboard />},
       {
         path: "workplace",
         element: <Dashboard />,

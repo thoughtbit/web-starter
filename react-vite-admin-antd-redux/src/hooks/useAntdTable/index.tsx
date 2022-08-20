@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useEffect, useRef, useState } from "react";
 import useMemoizedFn from "../useMemoizedFn";
-import usePagination from "../usePagination";
+import usePagination from "../useAntdPagination";
 import useUpdateEffect from "../useUpdateEffect";
 
 import type { Antd4ValidateFields, AntdTableOptions, Data, Params, Service, AntdTableResult } from "./types";

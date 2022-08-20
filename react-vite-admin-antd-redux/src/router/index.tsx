@@ -3,9 +3,8 @@ import { useRoutes, Navigate, Routes } from "react-router-dom";
 import { Loadable, renderRoutes } from "@/components";
 import { formatModules } from "@/utils/formatModules";
 import type { RouteObject } from "./types";
-import PrivateRoute from "./private-route";
 
-const modules = import.meta.glob("./modules/*.tsx", { eager: true });
+const modules = import.meta.glob("./modules/**/!(*.test.[jt]sx)*.([jt]sx)", { eager: true });
 const appRouters = formatModules(modules, []);
 
 const Login = lazy(() => import("@/pages/auth"));
@@ -16,11 +15,7 @@ const Result500 = lazy(() => import("@/pages/result/500"));
 export const routers: RouteObject[] = [
   {
     path: "/",
-    element: (
-      <PrivateRoute>
-        <Navigate to="/dashboard" />
-      </PrivateRoute>
-    ),
+    element: <Navigate to="/dashboard" />,
     meta: {
       title: "首页",
     },

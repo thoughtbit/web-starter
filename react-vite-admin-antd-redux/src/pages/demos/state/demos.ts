@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import debounce from "lodash/debounce";
-import type { AppDispatch, ThunkResult } from "@/store";
+import type { ThunkResult } from "@/store";
 import request from "@/services/request";
 import qs from "qs";
 
@@ -12,6 +12,7 @@ type User = {
   password: string;
   gender: number;
 };
+
 type UserListState = {
   users: User[];
   query: string;
@@ -22,6 +23,7 @@ type UserListState = {
   filters: UserFilter[];
   isLoading: boolean;
 };
+
 type UsersFetched = {
   users: User[];
   perPage: number;
@@ -66,7 +68,7 @@ export function fetchUsers(): ThunkResult<void> {
   };
 }
 
-const fetchUsersWithDebounce = debounce((dispatch: AppDispatch) => dispatch(fetchUsers()), 500);
+const fetchUsersWithDebounce = debounce((dispatch) => dispatch(fetchUsers()), 500);
 
 export function changeQuery(query: string): ThunkResult<void> {
   return async (dispatch) => {
@@ -92,7 +94,7 @@ export function changePage(page: number): ThunkResult<void> {
   };
 }
 
-export const userListSlice: any = createSlice({
+const userListSlice = createSlice({
   name: "userList",
   initialState,
   reducers: {
@@ -126,7 +128,7 @@ export const userListSlice: any = createSlice({
     }),
     filterChanged: (state: UserListState, action: PayloadAction<UserFilter>) => {
       const { name, value } = action.payload;
-
+      console.log("=====>", state.filters, name, value);
       if (state.filters.some((filter) => filter.name === name)) {
         return {
           ...state,

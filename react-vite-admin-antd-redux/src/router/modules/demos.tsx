@@ -9,12 +9,13 @@ const Demo2 = lazy(() => import("@/pages/demos/demo2"));
 const Demo3 = lazy(() => import("@/pages/demos/demo3"));
 const Demo4 = lazy(() => import("@/pages/demos/demo4"));
 const Demo5 = lazy(() => import("@/pages/demos/demo5"));
+const Demo6 = lazy(() => import("@/pages/demos/demo6"));
 
 const demoRouter: RouteObject[] = [
   {
     path: "/demos",
     element: (
-      <PrivateRoute hasAnyAuthorities={["user"]}>
+      <PrivateRoute>
         <BasicLayout />
       </PrivateRoute>
     ),
@@ -71,6 +72,13 @@ const demoRouter: RouteObject[] = [
         element: <Demo5 />,
         meta: {
           title: "例子5",
+        },
+      },
+      {
+        path: "demo6",
+        element: <Demo6 />,
+        meta: {
+          title: "例子6",
         },
       },
     ],
