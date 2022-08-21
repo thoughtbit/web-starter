@@ -33,19 +33,19 @@ const initialState: UserState = {
 export const getUserList = createAsyncThunk<any, any, AsyncThunkConfig>(
   `${namespace}/getUserList`,
   async (params: { pageSize: number; current: number }, { extra }) => {
-    const { getUsers } = extra;
+    const { getUserList } = extra;
     const { pageSize, current } = params;
-    return await getUsers({
+    return await getUserList({
       pageSize,
       current,
     })
       .then((result: Recordable) => {
-        console.log("查看当前用户详情:", result);
-        const { code, data, total } = result;
+        console.log("查看当前用户列表:", result);
+        const { code, data } = result;
         if (code === 0) {
           return {
-            list: data,
-            total: total,
+            list: data.users,
+            total: data.totalCount,
             pageSize: params.pageSize,
             current: params.current,
           };
@@ -58,6 +58,15 @@ export const getUserList = createAsyncThunk<any, any, AsyncThunkConfig>(
       });
   }
 );
+
+export const changePage = (pageSize: number, current: number) =>  async (dispatch: AppDispatch) => {
+  await dispatch(
+    getUserList({
+      pageSize: pageSize,
+      current: current,
+    })
+  );
+};
 
 export const reset = () => (dispatch: AppDispatch) => {
   dispatch(listUserSlice.actions.clearPageState());
@@ -95,6 +104,6 @@ const listUserSlice = createSlice({
 
 export const { clearPageState, switchPageLoading } = listUserSlice.actions;
 
-export const selectUserList = (state: RootState) => state.user.userList;
+export const selectUserList = (state: RootState) => state.user;
 
 export default listUserSlice.reducer;

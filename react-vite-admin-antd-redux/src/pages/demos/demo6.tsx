@@ -1,6 +1,6 @@
-import { type HTMLProps, memo, useEffect, ComponentType, useCallback, useRef } from "react";
+import { type HTMLProps, memo, useEffect, useCallback, useRef } from "react";
 import { connect, type ConnectedProps } from "react-redux";
-import { type RootState, useAppDispatch, useAppSelector, type AppDispatch } from "@/store";
+import { type RootState, type AppDispatch } from "@/store";
 
 import { changeFilter, changePage, changeQuery, fetchUsers } from "./state/demos";
 import React from "react";
@@ -48,7 +48,7 @@ type UserListItemProps = {
 };
 
 const UserListItem = memo(({ user }: UserListItemProps) => {
-  return <li key={user.userId}>{user.name}</li>;
+  return <li>{user.name}</li>;
 });
 
 export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, "onChange"> {
@@ -149,6 +149,7 @@ const RadioButtonGroup: React.FC<any> = ({ value, options, onChange, onClick, au
 };
 
 const Pagination: React.FC<any> = ({ currentPage, onNavigate }) => {
+  console.log("======>", onNavigate)
   return (
     <div className="pagination">
       <ul>
@@ -208,8 +209,8 @@ const Demo6: React.FC<Props> = ({
         "加载中"
       ) : (
         <ul>
-          {users.map((user) => (
-            <UserListItem user={user} />
+          {users.map((user: any) => (
+            <UserListItem key={user.id} user={user} />
           ))}
         </ul>
       )}

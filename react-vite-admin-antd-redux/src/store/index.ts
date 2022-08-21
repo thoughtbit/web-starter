@@ -39,15 +39,16 @@ export type RootState = ReturnType<typeof rootReducers>;
 // export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, AnyAction>;
+export type ExtraArgumentType = typeof ApiService;
 export type AsyncThunkConfig = {
   state: RootState;
   dispatch: AppDispatch;
-  extra: typeof ApiService;
+  extra: ExtraArgumentType;
 };
 
 // Utility type to get strongly types thunks
-export type ThunkResult<R> = ThunkAction<R, RootState, unknown, PayloadAction<any>>;
-export type ThunkDispatch = GenericThunkDispatch<RootState, unknown, Action>;
+export type ThunkResult<R> = ThunkAction<R, RootState, ExtraArgumentType, PayloadAction<any>>;
+export type ThunkDispatch = GenericThunkDispatch<RootState, ExtraArgumentType, Action>;
 
 export type AppListenerEffectAPI = ListenerEffectAPI<RootState, AppDispatch>;
 

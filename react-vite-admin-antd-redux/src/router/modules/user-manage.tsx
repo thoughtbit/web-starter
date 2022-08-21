@@ -18,8 +18,8 @@ const userManageRouter: RouteObject[] = [
       icon: "",
     },
     children: [
-      { index: true, element: <Users /> },
-      { path: "list", element: <>用户列表</> },
+      { index: true, element: <>用户中心</> },
+      { path: "list", element: <Users />  },
       {
         path: "index",
         element: <Users />,

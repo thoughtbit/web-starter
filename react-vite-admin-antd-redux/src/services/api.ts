@@ -59,12 +59,13 @@ const UserApiService = {
       },
     });
   },
-  // getUsers: () => {
-  //   return request({
-  //     url: "/api/users",
-  //     method: "get",
-  //   });
-  // },
+  getUserList: (query: any) => {
+    return request({
+      url: "/api/users",
+      method: "get",
+      params: query,
+    });
+  },
   getUserInfo: (query: any) => {
     return request({
       url: "/api/users/getUserInfo",

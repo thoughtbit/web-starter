@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import debounce from "lodash/debounce";
-import type { ThunkResult } from "@/store";
+import type { ExtraArgumentType, ThunkResult } from "@/store";
 import request from "@/services/request";
 import qs from "qs";
 
@@ -43,21 +43,15 @@ const initialState: UserListState = {
 };
 
 export function fetchUsers(): ThunkResult<void> {
-  return async (dispatch, getState) => {
+  return async (dispatch, getState, ApiService) => {
     try {
+      const { getUsers } = ApiService;
       const { page, query, filters } = getState().demos;
 
-      const result = await request({
-        url: "/api/users",
-        method: "get",
-        params: {
-          page: page,
-          query: query,
-          filters: filters,
-        },
-        paramsSerializer: (params: any) => {
-          return qs.stringify(params, { arrayFormat: "repeat" });
-        },
+      const result = await getUsers({
+        page: page,
+        query: query,
+        filters: filters,
       });
 
       dispatch(usersFetched(result.data));
@@ -128,7 +122,7 @@ const userListSlice = createSlice({
     }),
     filterChanged: (state: UserListState, action: PayloadAction<UserFilter>) => {
       const { name, value } = action.payload;
-      console.log("=====>", state.filters, name, value);
+      // console.log("=====>", state.filters, name, value);
       if (state.filters.some((filter) => filter.name === name)) {
         return {
           ...state,
