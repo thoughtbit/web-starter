@@ -1,12 +1,12 @@
-import { useCallback, useState } from "react";
+import { useReducer } from 'react';
 
-const useUpdate = () => {
-  const [, setState] = useState({});
+const updateReducer = (num: number): number => (num + 1) % 1_000_000;
 
-  return useCallback(() => setState({}), []);
-};
+export default function useUpdate(): () => void {
+  const [, update] = useReducer(updateReducer, 0);
 
-export default useUpdate;
+  return update;
+}
 
 /*
 // useUpdate 会返回一个函数，调用该函数会强制组件重新渲染。

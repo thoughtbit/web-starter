@@ -1,5 +1,3 @@
-const isServer = typeof window === "undefined";
-
 const trim = (str: string): string => (str || "").replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, "");
 
 export const noop = () => {};
@@ -73,6 +71,18 @@ export const removeClass = function (el: Element, cls: string) {
   }
 };
 
-export const isBrowser = typeof window !== "undefined";
+export const isBrowser = !!(typeof window !== "undefined" && window.document && window.document.createElement);
 
 export const isNavigator = typeof navigator !== "undefined";
+
+export function isElement(el: any): el is Element {
+  return el != null && typeof el == "object" && "nodeType" in el && el.nodeType === Node.ELEMENT_NODE;
+}
+
+export function getOwnerWindow(node?: Element | null): typeof globalThis {
+  return isElement(node) ? getOwnerDocument(node)?.defaultView ?? window : window;
+}
+
+export function getOwnerDocument(node?: Element | null): Document {
+  return isElement(node) ? node.ownerDocument ?? document : document;
+}

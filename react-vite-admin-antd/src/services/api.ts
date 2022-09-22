@@ -49,22 +49,39 @@ const UserApiService = {
   //   });
   // },
 
-  // getUsers: (query: any) => {
-  //   return request({
-  //     url: "/api/users",
-  //     method: "get",
-  //     params: query,
-  //     paramsSerializer: (params: any) => {
-  //       return qs.stringify(params, { arrayFormat: "repeat" });
-  //     },
-  //   });
-  // },
-  getUsers: () => {
+  getUsers: (query: any) => {
     return request({
       url: "/api/users",
       method: "get",
+      params: query,
+      paramsSerializer: (params: any) => {
+        return qs.stringify(params, { arrayFormat: "repeat" });
+      },
     });
   },
+  getUserList: (query: any) => {
+    return request({
+      url: "/api/users",
+      method: "get",
+      params: query,
+    });
+  },
+  getUserInfo: (query: any) => {
+    return request({
+      url: "/api/users/getUserInfo",
+      method: "get",
+      params: query,
+    });
+  },
+
+  getRoles: (query: any) => {
+    return request({
+      url: "/api/user/getRoles",
+      method: "get",
+      params: query,
+    });
+  },
+
   login: (data: Recordable) => {
     return request({
       url: "/api/user/login",
@@ -94,9 +111,7 @@ const UserApiService = {
   },
 };
 
-const CommonApiService = {
-
-};
+const CommonApiService = {};
 
 const MenuApiService = {
   getMenuList: () => {
@@ -106,7 +121,6 @@ const MenuApiService = {
     });
   },
 };
-
 
 export default {
   ...UserApiService,

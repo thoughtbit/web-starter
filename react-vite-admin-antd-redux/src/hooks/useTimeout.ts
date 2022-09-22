@@ -1,38 +1,10 @@
-import { useEffect, useState } from "react";
+import useTimeoutFn from "./useTimeoutFn";
+import useUpdate from "./useUpdate";
 
-/**
- * @internal
- * Helper to manage a browser timeout.
- * Ensures that the timeout isn't set multiple times at once,
- * and is cleaned up when the component is unloaded.
- *
- * @returns A pair of [setTimeout, clearTimeout] that are stable between renders.
- */
-export function useTimeout() {
-  const [timeout] = useState(() => ({
-    id: undefined as ReturnType<typeof setTimeout> | undefined,
-    set: (fn: () => void, delay: number) => {
-      timeout.clear();
-      timeout.id = setTimeout(fn, delay);
-    },
-    clear: () => {
-      if (timeout.id !== undefined) {
-        clearTimeout(timeout.id);
-        timeout.id = undefined;
-      }
-    },
-  }));
+export type UseTimeoutReturn = [() => boolean | null, () => void, () => void];
 
-  // Clean up the timeout when the component is unloaded
-  useEffect(() => timeout.clear, [timeout]);
+export default function useTimeout(ms: number = 0): UseTimeoutReturn {
+  const update = useUpdate();
 
-  return [timeout.set, timeout.clear] as const;
+  return useTimeoutFn(update, ms);
 }
-
-/*
-const [setTestTimeout, clearTestTimeout] = useTimeout();
-setTestTimeout(()=> {
-  // 处理
-}, 1000);
-clearTestTimeout();
-*/

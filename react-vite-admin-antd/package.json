@@ -32,7 +32,6 @@
     "@ant-design/icons": "^4.7.0",
     "@ebay/nice-modal-react": "^1.2.6",
     "@loadable/component": "^5.15.2",
-    "ahooks": "^3.7.0",
     "antd": "^4.22.3",
     "antd-form-builder": "^2.1.4",
     "axios": "^0.27.2",

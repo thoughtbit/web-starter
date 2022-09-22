@@ -110,11 +110,11 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
       // 设置代理，根据项目实际情况配置
       proxy: {
         // 选项写法
-        '/api': {
-          target: 'http://jsonplaceholder.typicode.com',
+        '/cps': {
+          target: 'http://172.16.20.61:9002/cps/getCPSVisualData',
           changeOrigin: true,
           secure: false,
-          rewrite: (path) => path.replace(/^\/api/, ''),
+          rewrite: (path) => path.replace(/^\/cps/, ''),
         },
         // 正则表达式写法
         '^/fallback/.*': {

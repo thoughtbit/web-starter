@@ -1,23 +1,31 @@
-import * as React from "react";
+import { type DependencyList, useEffect, useRef, useCallback } from "react";
+import { useSafeLayoutEffect } from './useSafeLayoutEffect';
 
 /**
- * A custom hook that converts a callback to a ref to avoid triggering re-renders when passed as a
- * prop or avoid re-executing effects when passed as a dependency
+ * React hook to persist any value between renders,
+ * but keeps it up-to-date if it changes.
+ *
+ * @param fn the function to persist
+ * @param deps the function dependency list
  */
-export function useCallbackRef<T extends (...args: any[]) => any>(callback: T | undefined): T {
-  const callbackRef = React.useRef(callback);
+export function useCallbackRef<T extends (...args: any[]) => any>(
+  fn: T | undefined,
+  deps: DependencyList = []
+): T {
+  const callbackRef = useRef(fn);
 
-  React.useEffect(() => {
-    callbackRef.current = callback;
+  useSafeLayoutEffect(() => {
+    callbackRef.current = fn;
   });
 
   // https://github.com/facebook/react/issues/19240
-  return React.useMemo(() => ((...args) => callbackRef.current?.(...args)) as T, []);
+  return useCallback(((...args) => callbackRef.current?.(...args)) as T, deps)
 }
 
 export default useCallbackRef;
 
 /*
-// 使用
+// 使用]
 const handleChange = useCallbackRef(onChange);
+const handleChange = useCallbackRef(onChange, [def]);
 */

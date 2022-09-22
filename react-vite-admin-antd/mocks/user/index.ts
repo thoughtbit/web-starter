@@ -24,29 +24,59 @@ const userInfo = {
   isDelete: "@boolean",
 };
 
+const token = "o5w0hoYeIWzMsxxCXKMdkZfveu2BLRXY";
+
 // 用户相关模拟数据
 export default [
   {
     url: "/api/users",
     method: "get",
     statusCode: 200,
-    response: () => ({
-      code: 0,
-      data: {
-        ...Mock.mock({
-          "list|1-100": [userInfo],
-        }),
-      },
-      message: "ok",
-    }),
+    response: ({ query, body }: any) => {
+      console.log("query>>>>>>>>", query);
+      console.log("body>>>>>>>>", body);
+      return {
+        code: 0,
+        data: {
+          ...Mock.mock({
+            "users|1-100": [userInfo],
+          }),
+
+          page: parseInt(query.page),
+          perPage: 10,
+          totalPages: 100,
+          totalCount: 100,
+          // filters:[{ name: "activeLast30Days", value: true }, { name: "allUsers", value: false }] 
+        },
+        message: "ok",
+      };
+    },
   },
   {
     url: "/api/users/getUserInfo",
     timeout: 1000,
     method: "get",
-    response: ({ query }: any) => {
-      if (query.id === 1) {
+    response: ({ query, body }: any) => {
+      console.log("query>>>>>>>>", query);
+      console.log("body>>>>>>>>", body);
+      if (query.token == token) {
         return resultSuccess(userInfo);
+      } else {
+        return resultError();
+      }
+    },
+  },
+  {
+    url: "/api/user/getRoles",
+    method: "get",
+    response: ({ query }: any) => {
+      console.log("query>>>>>>>>", query);
+      if (query.token == token) {
+        return {
+          code: 0,
+          message: "ok",
+          data: ["admin", "user"],
+        };
       } else {
         return resultError();
       }
@@ -110,6 +140,7 @@ export default [
   {
     url: "/api/user/login",
     method: "post",
+    statusCode: 200,
     response: ({ body, query }: any) => {
       console.log("body>>>>>>>>", body);
       console.log("query>>>>>>>>", query);
@@ -120,15 +151,26 @@ export default [
           code: 0,
           message: "用户登录成功",
           data: {
-            token: "o5w0hoYeIWzMsxxCXKMdkZfveu2BLRXY",
+            token: token,
             username: "admin",
+            roles: ["admin", "*"],
+          },
+        };
+      } else if (username === "test" && password === "123456") {
+        return {
+          code: 0,
+          message: "用户登录成功",
+          data: {
+            token: token,
+            username: "test",
+            roles: ["user"],
           },
         };
       } else {
         return {
           code: 401,
           message: "账号或者密码错误",
-          data: {}
+          data: {},
         };
       }
     },

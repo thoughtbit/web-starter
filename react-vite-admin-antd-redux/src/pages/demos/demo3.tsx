@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import _debounce from "lodash/debounce";
 import { useSearchParam } from "@/hooks";
 import useRequest from "@/hooks/useRequest";
@@ -12,13 +12,33 @@ export default function Demo3() {
     });
   };
 
-  const { data, error, loading, run } = useRequest(getUsers, {
+  // const { data, error, loading, run } = useRequest(getUsers, {
+  //   manual: true,
+  //   throttleWait: 1000,
+  //   loadingDelay: 300,
+  // });
+
+  // const users = useMemo(() => data?.data.list, [data]);
+
+  const [state, setState] = useState([]);
+
+  const { error, loading, run } = useRequest(getUsers, {
     manual: true,
-    throttleWait: 1000,
-    loadingDelay: 300,
+    onBefore: (params) => {
+      console.info(`Start Request: ${params}`);
+    },
+    onSuccess: (result, params) => {
+      setState(result.data.list);
+      console.log(`The username was changed to "${params}" !`);
+    },
+    onError: (error) => {
+      console.error(error.message);
+    },
+    onFinally: (params, result, error) => {
+      console.info(`Request finish`);
+    },
   });
 
-  const users = useMemo(() => data?.data.list, [data]);
 
   if (error) return <p> {error?.message}</p>;
   if (loading) return <p>Loading...</p>;
@@ -33,8 +53,8 @@ export default function Demo3() {
       </p>
 
       <ul>
-        {users &&
-          users.map((user: any) => {
+        {state &&
+          state.map((user: any) => {
             return (
               <li key={user.id}>
                 {user.name} -- {user.email}

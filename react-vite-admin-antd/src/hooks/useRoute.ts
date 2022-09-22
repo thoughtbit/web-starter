@@ -5,6 +5,14 @@ export function useRoute() {
   const location = useLocation();
   const params = useParams();
   const navigate = useNavigate();
+  const history = useMemo(
+    () => ({
+      replace: (path: string) => {
+        navigate(path, { replace: true });
+      },
+    }),
+    [navigate]
+  );
 
   return useMemo(() => {
     return {
@@ -13,10 +21,11 @@ export function useRoute() {
       Outlet,
       navigate,
       params,
+      history,
       location,
       searchParams: new URL(window.location.href).searchParams,
     };
-  }, [params, location]);
+  }, [params, history, location]);
 }
 
 export default useRoute;

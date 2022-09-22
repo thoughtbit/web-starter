@@ -1,0 +1,42 @@
+.register-form {
+	.form-item-icon {
+		color: #999;
+	}
+  .form-item-agreement {
+		.ant-form-item-control-input-content {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.tip {
+			padding: 0;
+			margin: 0;
+		}
+	}
+	.form-item-captcha {
+		.ant-form-item-control-input-content {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+	&-captcha-btn {
+		margin-left: 10px;
+	}
+
+	.switch-container {
+		margin-top: 24px;
+		.tip {
+			font-size: 14px;
+			color: #1890ff;
+			cursor: pointer;
+			display: inline-flex;
+			align-items: center;
+			margin-right: 14px;
+		}
+	}
+	&-button {
+	}
+}
