@@ -11,6 +11,8 @@ const Demo4 = lazy(() => import("@/pages/demos/demo4"));
 const Demo5 = lazy(() => import("@/pages/demos/demo5"));
 const Demo6 = lazy(() => import("@/pages/demos/demo6"));
 const Demo7 = lazy(() => import("@/pages/demos/demo7"));
+const Demo8 = lazy(() => import("@/pages/demos/demo8"));
+const Demo9 = lazy(() => import("@/pages/demos/demo9"));
 
 const demoRouter: RouteObject[] = [
   {
@@ -83,6 +85,20 @@ const demoRouter: RouteObject[] = [
         element: <Demo7 />,
         meta: {
           title: "例子7",
+        },
+      },
+      {
+        path: "demo8",
+        element: <Demo8 />,
+        meta: {
+          title: "例子8",
+        },
+      },
+      {
+        path: "demo9",
+        element: <Demo9 />,
+        meta: {
+          title: "例子9",
         },
       },
     ],

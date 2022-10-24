@@ -1,0 +1,90 @@
+<template>
+  <view class="page">
+    <view class="box">
+      <view>计数: {{ counter }}</view>
+      <view>姓名: {{ name }}; 年龄: {{ age }}</view>
+      <view wx:ref="user">moocss</view>
+      <button type="primary" class="ui-btn" hover-class="ui-btn-hover" bindtap="onClick">执行</button>
+    </view>
+  </view>
+</template>
+
+<script type="application/json">
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "演示 mpxjs 语法"
+  }
+</script>
+<script>
+  import { createPage, ref, watch, watchEffect, onLoad, onMounted, reactive, toRefs } from '@mpxjs/core';
+
+  createPage({
+    onReady() {
+      console.log('1.2.onReady');
+      console.log('user-ref:', this.$refs.user);
+    },
+    setup(props, context) {
+      console.log('props:', props);
+      console.log('context:', context);
+      const user = ref(null);
+      const counter = ref(0);
+      console.log('counter:', counter, counter.value);
+
+      const people = reactive({
+        name: 'hiyuki',
+        age: 26,
+        gender: 'male',
+        city: 'Beijing',
+      });
+      people.age = 30;
+
+      const onClick = async () => {
+        console.log('onClick');
+        counter.value++;
+      };
+
+      onLoad(() => {
+        console.log('2.1. onLoad');
+      });
+
+      onMounted(() => {
+        console.log('2.2. onMounted');
+
+        // 最早在 onMounted 中才能访问refs，对于节点返回 NodesRef 对象，对于组件返回组件实例
+        console.log('user ref:', context.refs.user);
+      });
+
+      watch(counter, () => {
+        console.log('The new counter value is: ' + counter.value);
+      });
+
+      watchEffect(() => {
+        console.log('watchEffect:', counter.value);
+      });
+
+      return {
+        counter,
+        ...toRefs(people),
+        onClick,
+        user,
+      };
+    },
+  });
+</script>
+
+<style lang="scss">
+  .page {
+    padding: 24rpx;
+    .ui-ipt {
+      border: 1px solid #888;
+      line-height: 28px;
+      padding: 10rpx;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 24rpx;
+      background-color: #f5f5f5;
+      margin-bottom: 20rpx;
+    }
+  }
+</style>

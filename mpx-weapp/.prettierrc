@@ -1,0 +1,31 @@
+{
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "css",
+  "insertPragma": false,
+  "jsxSingleQuote": false,
+  "jsxBracketSameLine": false,
+  "printWidth": 120,
+  "proseWrap": "always",
+  "quoteProps": "as-needed",
+  "requirePragma": false,
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": false,
+  "vueIndentScriptAndStyle": false,
+  "noSemi": true,
+  "rcVerbose": true,
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": "*.wxml",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
+}

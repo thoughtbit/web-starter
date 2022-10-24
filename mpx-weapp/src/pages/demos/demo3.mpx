@@ -1,0 +1,78 @@
+<template>
+  <view class="page">
+    <view class="box">
+      <button class="ui-btn" hover-class="ui-btn-hover" bindtap="onWeChatLogin">执行</button>
+      <view wx:if="{{loading}}">loading...</view>
+      <view wx:elif="{{result}}">{{ token }}</view>
+      <view wx:else> error: {{ error ? error : '' }} </view>
+    </view>
+  </view>
+</template>
+
+<script type="application/json">
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "演示 - useRequest"
+  }
+</script>
+<script>
+  import { createPage, watchEffect, computed, onLoad, onMounted } from '@mpxjs/core';
+  import { useRequest } from '@/hooks/use-request';
+  import { LOGIN_URL } from '@/config';
+
+  createPage({
+    onReady() {
+      console.log('1.2.onReady');
+    },
+    setup(props, context) {
+      console.log('props:', props);
+      console.log('context:', context);
+
+      const { execute, error, loading, result } = useRequest();
+
+      onLoad(() => {
+        console.log('2.1. onLoad');
+      });
+
+      onMounted(() => {
+        console.log('2.2. onMounted');
+      });
+
+      watchEffect(() => {
+        console.log('error:', error.value);
+      });
+
+      const onWeChatLogin = () => {
+        execute(LOGIN_URL, 'POST', { openId: '1234' });
+      };
+
+      const token = computed(() => result.value.token ?? '');
+
+      return {
+        error,
+        loading,
+        token,
+        result,
+
+        onWeChatLogin,
+      };
+    },
+  });
+</script>
+
+<style lang="scss">
+  .page {
+    padding: 24rpx;
+    .ui-ipt {
+      border: 1px solid #888;
+      line-height: 28px;
+      padding: 10rpx;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 24rpx;
+      background-color: #f5f5f5;
+      margin-bottom: 20rpx;
+    }
+  }
+</style>

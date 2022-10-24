@@ -1,0 +1,80 @@
+<template>
+  <view class="page">
+    <view class="list">
+      <view
+        class="item"
+        hover-class="item-hover"
+        wx:for="{{list}}"
+        wx:key="id"
+        wx:for-index="idx"
+        bindtap="onLink(item.url)"
+      >
+        {{ idx }}-{{ item.name }}
+      </view>
+    </view>
+  </view>
+</template>
+
+<script type="application/json">
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "演示"
+  }
+</script>
+<script>
+  import mpx, { createPage, ref } from '@mpxjs/core';
+
+  createPage({
+    onReady() {
+      console.log('1.2.onReady');
+    },
+    setup(props, context) {
+      console.log('props:', props);
+      console.log('context:', context);
+      const list = ref([
+        {
+          id: 1,
+          name: '演示1',
+          url: '../../pages/demos/demo1',
+        },
+        {
+          id: 2,
+          name: '演示2',
+          url: '../../pages/demos/demo2',
+        },
+        {
+          id: 3,
+          name: '演示3',
+          url: '../../pages/demos/demo3',
+        },
+      ]);
+
+      const onLink = (url) => {
+        mpx.navigateTo({
+          url: url,
+        });
+      };
+
+      return {
+        list,
+        onLink,
+      };
+    },
+  });
+</script>
+
+<style lang="scss">
+  .page {
+    padding: 24rpx;
+    .list {
+      .item {
+        border-bottom: 1px solid #eee;
+        padding: 0 24rpx;
+        line-height: 88rpx;
+        &-hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+</style>

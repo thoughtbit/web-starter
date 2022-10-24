@@ -3,7 +3,7 @@ import type { Router } from "vue-router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { isLogin } from "@/utils/auth";
-import { setRouteEmitter } from "@/utils/route-listener";
+import { setRouteEmitter } from "@/router/route-listener";
 
 NProgress.configure({
   showSpinner: false,

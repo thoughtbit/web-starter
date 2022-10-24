@@ -153,7 +153,7 @@ const checkStatus = (response: AxiosResponse) => {
 
 const defaultConfig = {
   baseURL: API_HOST,
-  timeout: 20000,
+  timeout: 10000,
   withCredentials: true,
   // 适配器, 请求重试
   adapter: retryAdapterEnhancer(axios.defaults.adapter, {

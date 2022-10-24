@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import cs from 'classnames';
 import styles from './index.module.scss';
@@ -15,5 +16,14 @@ const Footer: React.FC<FooterProps> = ({ children, className, ...restProps }) =>
     </div>
   );
 };
+
+Footer.defaultProps = {
+  children: null,
+}
+
+Footer.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string
+}
 
 export default Footer;

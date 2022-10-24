@@ -3,7 +3,7 @@ import StorageManager, { USER_INFO_KEY } from "@/services/storage";
 import { api } from "@/services";
 import { setToken, clearToken } from "@/utils/auth";
 import type { UserState, UserInfo } from "./types";
-import { removeRouteListener } from "@/utils/route-listener";
+import { removeRouteListener } from "@/router/route-listener";
 
 export const useUserStore = defineStore("user", {
   state: (): UserState => ({

@@ -1,0 +1,45 @@
+<script src="./app.ts"></script>
+
+<style lang="scss">
+  @import '@/assets/styles/base';
+  page {
+    height: 100%;
+  }
+  .page {
+    position: relative;
+    min-height: 100%;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+  }
+</style>
+
+<script type="application/json">
+  {
+    "pages": ["./pages/index/index", "./pages/login/index", "./pages/demos/index", "./pages/demos/demo1", "./pages/demos/demo2", "./pages/demos/demo3"],
+    "packages": ["./subpackage/app.mpx"],
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#027FE8",
+      "backgroundColor": "#ffffff",
+      "navigationBarTitleText": "MPX 演示",
+      "navigationBarTextStyle": "white"
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+      "van-button": "@vant/weapp/button/index",
+      "van-cell": "@vant/weapp/cell/index",
+      "van-cell-group": "@vant/weapp/cell-group/index",
+      "van-field": "@vant/weapp/field/index",
+      "van-checkbox": "@vant/weapp/checkbox/index",
+      "van-popup": "@vant/weapp/popup/index",
+      "van-picker": "@vant/weapp/picker/index",
+      "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+      "van-share-sheet": "@vant/weapp/share-sheet/index"
+    },
+    "debug": false,
+    "networkTimeout": {
+      "request": 10000,
+      "downloadFile": 30000
+    }
+  }
+</script>

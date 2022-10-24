@@ -1,0 +1,83 @@
+
+import { isRef, ref, unref, watch } from '@mpxjs/core';
+import { isClient } from '@/utils/util';
+import { resolveUnref } from './shared/resolveUnref';
+import { tryOnScopeDispose } from './shared/tryOnScopeDispose';
+import type { Fn, MaybeComputedRef, Pausable } from './types';
+
+export interface UseIntervalFnOptions {
+  /**
+   * Start the timer immediately
+   *
+   * @default true
+   */
+  immediate?: boolean;
+
+  /**
+   * Execute the callback immediate after calling this function
+   *
+   * @default false
+   */
+  immediateCallback?: boolean;
+}
+
+/**
+ * Wrapper for `setInterval` with controls
+ *
+ * @param cb
+ * @param interval
+ * @param options
+ */
+export function useIntervalFn(
+  cb: Fn,
+  interval: MaybeComputedRef<number> = 1000,
+  options: UseIntervalFnOptions = {}
+): Pausable {
+  const { immediate = true, immediateCallback = false } = options;
+
+  let timer: ReturnType<typeof setInterval> | null = null;
+  const isActive = ref<boolean>(false);
+
+  function clean() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function pause() {
+    isActive.value = false;
+    clean();
+  }
+
+  function resume() {
+    if (unref(interval) <= 0) return;
+    isActive.value = true;
+    if (immediateCallback) cb();
+    clean();
+    timer = setInterval(cb, resolveUnref(interval));
+  }
+
+  if (immediate && isClient) resume();
+
+  if (isRef(interval)) {
+    const stopWatch = watch(interval, () => {
+      if (isActive.value && isClient) resume();
+    });
+    tryOnScopeDispose(stopWatch);
+  }
+
+  tryOnScopeDispose(pause);
+
+  return {
+    isActive,
+    pause,
+    resume,
+  };
+}
+
+/*
+const { pause, resume, isActive } = useIntervalFn(() => {
+  // your function
+}, 1000)
+*/

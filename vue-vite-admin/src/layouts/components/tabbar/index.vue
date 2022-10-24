@@ -19,7 +19,7 @@
 import { defineComponent, computed } from "vue";
 import { useRouter } from "vue-router";
 import type { RouteLocationNormalized } from "vue-router";
-import { listenerRouteChange } from "@/utils/route-listener";
+import { listenerRouteChange } from "@/router/route-listener";
 import { useStore } from "@/store";
 
 export default defineComponent({

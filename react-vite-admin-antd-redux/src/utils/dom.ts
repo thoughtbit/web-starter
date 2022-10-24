@@ -1,24 +1,23 @@
 const trim = (str: string): string => (str || "").replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, "");
 
-export const noop = () => {};
-
 export function on<T extends Window | Document | HTMLElement | EventTarget>(
   obj: T | null,
-  ...args: Parameters<T["addEventListener"]> | [string, Function | null, ...any]
+  ...args: Parameters<T['addEventListener']> | [string, Function | null, ...any]
 ): void {
   if (obj && obj.addEventListener) {
-    obj.addEventListener(...(args as Parameters<HTMLElement["addEventListener"]>));
+    obj.addEventListener(...(args as Parameters<HTMLElement['addEventListener']>));
   }
 }
 
 export function off<T extends Window | Document | HTMLElement | EventTarget>(
   obj: T | null,
-  ...args: Parameters<T["removeEventListener"]> | [string, Function | null, ...any]
+  ...args: Parameters<T['removeEventListener']> | [string, Function | null, ...any]
 ): void {
   if (obj && obj.removeEventListener) {
-    obj.removeEventListener(...(args as Parameters<HTMLElement["removeEventListener"]>));
+    obj.removeEventListener(...(args as Parameters<HTMLElement['removeEventListener']>));
   }
 }
+
 
 function hasClass(el: Element, cls: string) {
   if (!el || !cls) return false;
@@ -71,7 +70,7 @@ export const removeClass = function (el: Element, cls: string) {
   }
 };
 
-export const isBrowser = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+export const isBrowser = typeof window !== 'undefined';
 
 export const isNavigator = typeof navigator !== "undefined";
 

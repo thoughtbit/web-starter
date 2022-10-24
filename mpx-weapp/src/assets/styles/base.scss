@@ -1,0 +1,144 @@
+/* 公共类
+-------------------------------------------------------------- */
+/* clearfix */
+.clearfix:before,
+.clearfix:after,
+.layout:before,
+.layout:after,
+.group:before,
+.group:after,
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after,
+.layout:after,
+.group:after,
+.container:after,
+.row:after {
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+.clearfix,
+.layout,
+.group,
+.container,
+.row {
+  zoom: 1;
+  display: flow-root;
+}
+
+/* 模拟细线 */
+.hairline {
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 1px solid #eee;
+  transform: scale(0.5);
+}
+
+/* 连续字符换行 */
+.wrap {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+/* 连续字符不换行 */
+.nowrap {
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+/* 文字溢出显示省略号 */
+.ellipsis {
+  display: block;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.ellipsisLn {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+/* hide text */
+.hide-text {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* text align */
+
+.tc {
+  text-align: center;
+}
+
+.tr {
+  text-align: right;
+}
+
+.tj {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+/* float */
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+/* disabled */
+.disabled {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: default;
+  -ms-pointer-events: none;
+  pointer-events: none;
+}
+
+.ui-btn {
+  height: 90rpx;
+  border-radius: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  color: #ffffff;
+  background-color: #087ddf;
+  background-image: linear-gradient(to right, #00aaeb, #087ddf);
+  padding: 0 24rpx;
+  &-hover {
+    background-color: #0572cb;
+    background-image: linear-gradient(to right, #087ddf, #0262b1);
+    box-shadow: inset 0px 0px 10px 0px #0262b1;
+  }
+}

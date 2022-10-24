@@ -1,0 +1,22 @@
+<template>
+  <view>这里是subPackage</view>
+</template>
+
+<script>
+  import { createPage, onLoad } from '@mpxjs/core';
+
+  createPage({
+    setup() {
+      onLoad(() => {
+        console.log('subpackage onload');
+      });
+    },
+  });
+</script>
+
+<script type="application/json">
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "子系统"
+  }
+</script>

@@ -1,0 +1,96 @@
+<template>
+  <view class="page">
+    <view class="box">
+      <view for="timeout">
+        设置延时时间: (ms)
+        <input name="timeout" maxlength="10" bindinput="bindKeyInput" class="ui-ipt" />
+      </view>
+
+      <view for="error">
+        拒绝服务:
+        <van-checkbox name="error" value="{{ throwError }}" bind:change="onChange"> 选中 </van-checkbox>
+      </view>
+      <button class="ui-btn" hover-class="ui-btn-hover" bindtap="onClick">执行</button>
+      <view wx:if="{{loading}}">loading...</view>
+      <view wx:elif="{{result}}">{{ result }}</view>
+      <view wx:else> error: {{ error }} </view>
+    </view>
+  </view>
+</template>
+
+<script type="application/json">
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "演示 - usePromise"
+  }
+</script>
+<script>
+  import { createPage, ref, watchEffect } from '@mpxjs/core';
+  import { usePromise } from '@/hooks/use-promise';
+
+  createPage({
+    onReady() {
+      console.log('1.2.onReady');
+    },
+    setup(props, context) {
+      console.log('props:', props);
+      console.log('context:', context);
+
+      const timeout = ref(1000);
+      const throwError = ref(false);
+      const { execute, error, loading, result, promise } = usePromise(
+        (ms) => {
+          if (throwError.value) {
+            return Promise.reject(new Error('Throw Error checked'));
+          }
+          return new Promise((res) => setTimeout(() => res('sucess'), ms));
+        },
+        { immediate: false }
+      );
+
+      watchEffect(() => {
+        console.log('error:', error.value);
+      });
+
+      const onChange = (e) => {
+        throwError.value = e.detail;
+      };
+
+      const onClick = async () => {
+        await execute(timeout.value);
+        await promise.value.then((res) => {
+          console.log('---->', res);
+        });
+      };
+
+      const bindKeyInput = (e) => {
+        console.log('bindKeyInput:', e);
+        timeout.value = e.detail.value;
+      };
+
+      return {
+        onChange,
+        onClick,
+        bindKeyInput,
+
+        timeout,
+        throwError,
+        error,
+        execute,
+        loading,
+        result,
+      };
+    },
+  });
+</script>
+
+<style lang="scss">
+  .page {
+    padding: 24rpx;
+    .ui-ipt {
+      border: 1px solid #888;
+      line-height: 28px;
+      padding: 10rpx;
+    }
+  }
+</style>
