@@ -1,5 +1,42 @@
 <template>
-  <view class="page"> </view>
+  <view class="page">
+    <view class="box">
+      <view>{{ message }}</view>
+      <van-button type="primary" block bind:click="handleEmit">发送hello</van-button>
+      <van-button type="warning" block bind:click="handlClear">移除事件监听</van-button>
+      <view wx:ref="divRef" class="ui-btn" hover-class="ui-btn-hover">查找元素</view>
+    </view>
+    <view class="box">
+      <view>{{ count }}</view>
+      <van-button size="small" type="primary" block bind:click="dec(1)">Decrement(-1)</van-button>
+      <van-button size="small" type="primary" block bind:click="inc(1)">Increment(+1)</van-button>
+      <van-button size="small" type="primary" block bind:click="set(10)">Set(10)</van-button>
+    </view>
+    <view class="box">
+      <view>{{ loading }}</view>
+      <van-button size="small" type="primary" block bind:click="setLoading(true)">setLoading</van-button>
+      <van-button size="small" type="primary" block bind:click="toggle()">toggle</van-button>
+    </view>
+
+    <view class="box">
+      <!-- <view>Ready: {{ ready }}</view>
+      <van-button type="primary" block :disabled="{{!ready}}" bind:click="start()"> Start Again </van-button> -->
+
+      <view>{{ text }}, {{ isPending }}</view>
+
+      <button type="primary" disabled="{{isPending}}" bindtap="restart()">Restart</button>
+    </view>
+
+    <view class="box">
+      <view>{{ word }}</view>
+      <view>
+        interval:
+        <input wx:model="{{interval}}" type="number" placeholder="interval" />
+      </view>
+      <button type="primary" wx:if="{{isActive}}" bindtap="pause">Pause</button>
+      <button type="primary" wx:if="{{!isActive}}" bindtap="resume">Resume</button>
+    </view>
+  </view>
 </template>
 
 <script type="application/json">
@@ -9,14 +46,89 @@
   }
 </script>
 <script>
-  import { createPage } from '@mpxjs/core';
+  import { createPage, ref, onMounted } from '@mpxjs/core';
+  import { useEventBus } from '@/hooks/use-event-bus';
+  import { useCounter } from '@/hooks/use-counter';
+  import { useLoading } from '@/hooks/use-loading';
+  import { useDate } from '@/hooks/use-date';
+  // import { useTimeout } from '@/hooks/use-timeout';
+  import { useTimeoutFn } from '@/hooks/use-timeout-fn';
+
+  import { useIntervalFn } from '@/hooks/use-interval-fn';
+  import { rand } from '@/utils/util';
 
   createPage({
     onReady() {
       console.log('1.onReady');
+      console.log('divRef:', this.$refs.divRef);
     },
-    setup() {
-      return {};
+    setup(props, { refs }) {
+      const message = ref('');
+      const { on, emit, clear } = useEventBus();
+      const { count, inc, dec, set } = useCounter(1, { min: 0, max: 200 });
+      const { loading, setLoading, toggle } = useLoading();
+      const dayjs = useDate();
+      // const { ready, start } = useTimeout(2000, { controls: true });
+
+      const text = ref('请稍等3秒钟');
+      const { start, isPending } = useTimeoutFn(() => {
+        text.value = 'Fired!';
+      }, 3000);
+      const restart = () => {
+        text.value = '请稍等3秒钟';
+        start();
+      };
+
+      const greetings = ['Hello', 'Hi', 'Yo!', 'Hey', 'Hola', 'こんにちは', 'Bonjour', 'Salut!', '你好', 'Привет'];
+      const word = ref('Hello');
+      const interval = ref(500);
+      const { pause, resume, isActive } = useIntervalFn(() => {
+        word.value = greetings[rand(0, greetings.length - 1)];
+      }, interval);
+
+      const listener = (e) => {
+        message.value = e.name;
+      };
+      on('hello', listener);
+
+      const handleEmit = () => {
+        emit('hello', { name: 'moocss' });
+      };
+
+      onMounted(() => {
+        console.log('--divRef-->', refs.divRef);
+        console.log('===>', dayjs.value.format('YYYY-MM-DD'));
+      });
+
+      const handlClear = () => {
+        clear();
+      };
+
+      return {
+        emit,
+        message,
+        handleEmit,
+        handlClear,
+
+        count,
+        inc,
+        dec,
+        set,
+
+        loading,
+        setLoading,
+        toggle,
+
+        isPending,
+        restart,
+        text,
+
+        word,
+        interval,
+        isActive,
+        pause,
+        resume,
+      };
     },
   });
 </script>
@@ -24,5 +136,11 @@
 <style lang="scss">
   .page {
     padding: 24rpx;
+    .box {
+      border: 1px solid #ccc;
+      padding: 24rpx;
+      background-color: #f5f5f5;
+      margin-bottom: 20rpx;
+    }
   }
 </style>

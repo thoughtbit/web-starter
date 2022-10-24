@@ -1,6 +1,5 @@
 
 import { isRef, ref, unref, watch } from '@mpxjs/core';
-import { isClient } from '@/utils/util';
 import { resolveUnref } from './shared/resolveUnref';
 import { tryOnScopeDispose } from './shared/tryOnScopeDispose';
 import type { Fn, MaybeComputedRef, Pausable } from './types';
@@ -58,11 +57,11 @@ export function useIntervalFn(
     timer = setInterval(cb, resolveUnref(interval));
   }
 
-  if (immediate && isClient) resume();
+  if (immediate) resume();
 
   if (isRef(interval)) {
     const stopWatch = watch(interval, () => {
-      if (isActive.value && isClient) resume();
+      if (isActive.value) resume();
     });
     tryOnScopeDispose(stopWatch);
   }

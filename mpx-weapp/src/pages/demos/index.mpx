@@ -22,7 +22,8 @@
   }
 </script>
 <script>
-  import mpx, { createPage, ref } from '@mpxjs/core';
+  import mpx, { createPage, ref, onMounted } from '@mpxjs/core';
+  import { useEventBus } from '@/hooks/use-event-bus';
 
   createPage({
     onReady() {
@@ -31,6 +32,18 @@
     setup(props, context) {
       console.log('props:', props);
       console.log('context:', context);
+      const { on } = useEventBus();
+
+      onMounted(() => {
+        on('hello', (e) => {
+          console.log('父页面, 接收信息:', e);
+          mpx.showToast({
+            title: `父页面, 接收到信息:${e.name}`,
+            icon: 'none',
+          });
+        });
+      });
+
       const list = ref([
         {
           id: 1,

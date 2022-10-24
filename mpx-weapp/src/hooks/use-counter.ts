@@ -23,5 +23,5 @@ export function useCounter(initialValue = 0, options: UseCounterOptions = {}) {
 }
 
 /*
-const { count, inc, dec, set, reset } = useCounter()
+const { count, inc, dec, set, reset } = useCounter(1, { min: 0, max: 16 })
 */

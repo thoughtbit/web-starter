@@ -1,6 +1,5 @@
 import { ref } from '@mpxjs/core';
 import type { ComputedRef, Ref } from '@mpxjs/core';
-import { isClient } from '@/utils/util';
 import type { Stoppable } from './types';
 import { resolveUnref } from './shared/resolveUnref';
 import { tryOnScopeDispose } from './shared/tryOnScopeDispose';
@@ -58,7 +57,7 @@ export function useTimeoutFn(
 
   if (immediate) {
     isPending.value = true;
-    if (isClient) start();
+    start();
   }
 
   tryOnScopeDispose(stop);

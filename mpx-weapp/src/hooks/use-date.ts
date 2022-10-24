@@ -4,7 +4,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(relativeTime);
 
-export default function useDate(d: dayjs.ConfigType = Date.now(), timeout: number) {
+export function useDate(d: dayjs.ConfigType = Date.now(), timeout: number) {
   const date = ref(dayjs(d));
 
   if (timeout) {

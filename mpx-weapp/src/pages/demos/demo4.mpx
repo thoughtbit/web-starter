@@ -8,8 +8,8 @@
     <view class="space" />
     <view class="box">
       <view wx:if="{{loading}}">loading...</view>
-      <view wx:elif="{{list}}">
-        <view wx:for="{{list}}" wx:for-item="user" wx:key="id" wx:for-index="idx">
+      <view class="list" wx:elif="{{list}}">
+        <view class="item" wx:for="{{list}}" wx:for-item="user" wx:key="id" wx:for-index="idx">
           {{ idx + 1 }} : {{ user.name }} : {{ user.email }}
         </view>
       </view>
@@ -83,6 +83,13 @@
     }
     .page-number {
       text-align: center;
+    }
+
+    .list {
+      .item {
+        line-height: 88rpx;
+        padding: 10rpx 20rpx;
+      }
     }
   }
 </style>

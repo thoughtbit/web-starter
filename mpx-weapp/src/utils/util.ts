@@ -50,8 +50,6 @@ export function minMax(val: number, min: number, max: number) {
   return val;
 }
 
-export const isClient = typeof window !== 'undefined';
-
 export function promiseTimeout(ms: number, throwOnTimeout = false, reason = 'Timeout'): Promise<void> {
   return new Promise((resolve, reject) => {
     if (throwOnTimeout) setTimeout(() => reject(reason), ms);
@@ -62,3 +60,12 @@ export function promiseTimeout(ms: number, throwOnTimeout = false, reason = 'Tim
 export function invoke<T>(fn: () => T): T {
   return fn();
 }
+
+export const now = () => Date.now();
+export const timestamp = () => +Date.now();
+export const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, n));
+export const rand = (min: number, max: number) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
