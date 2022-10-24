@@ -21,7 +21,7 @@
       "backgroundTextStyle": "light",
       "navigationBarBackgroundColor": "#027FE8",
       "backgroundColor": "#ffffff",
-      "navigationBarTitleText": "MPX 演示",
+      "navigationBarTitleText": "MPX WeApp",
       "navigationBarTextStyle": "white"
     },
     "sitemapLocation": "sitemap.json",
