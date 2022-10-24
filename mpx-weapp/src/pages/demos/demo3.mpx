@@ -2,6 +2,7 @@
   <view class="page">
     <view class="box">
       <button class="ui-btn" hover-class="ui-btn-hover" bindtap="onWeChatLogin">执行</button>
+      <button wx:if="{{canceled}}" class="ui-btn" hover-class="ui-btn-hover" bindtap="onWeChatCancelLogin">取消</button>
       <view wx:if="{{loading}}">loading...</view>
       <view wx:elif="{{result}}">{{ token }}</view>
       <view wx:else> error: {{ error ? error : '' }} </view>
@@ -17,7 +18,7 @@
 </script>
 <script>
   import { createPage, watchEffect, computed, onLoad, onMounted } from '@mpxjs/core';
-  import { useRequest } from '@/hooks/use-request';
+  import { useRequest, abortController } from '@/hooks/use-request';
   import { LOGIN_URL } from '@/config';
 
   createPage({
@@ -28,7 +29,7 @@
       console.log('props:', props);
       console.log('context:', context);
 
-      const { execute, error, loading, result } = useRequest();
+      const { execute, error, loading, result, cancel, canceled } = useRequest();
 
       onLoad(() => {
         console.log('2.1. onLoad');
@@ -43,7 +44,18 @@
       });
 
       const onWeChatLogin = () => {
-        execute(LOGIN_URL, 'POST', { openId: '1234' });
+        execute(
+          LOGIN_URL,
+          'POST',
+          { openId: '1234' },
+          {
+            cancelToken: abortController.token,
+          }
+        );
+      };
+
+      const onWeChatCancelLogin = () => {
+        cancel('取消当前服务');
       };
 
       const token = computed(() => result.value.token ?? '');
@@ -53,8 +65,10 @@
         loading,
         token,
         result,
+        canceled,
 
         onWeChatLogin,
+        onWeChatCancelLogin,
       };
     },
   });

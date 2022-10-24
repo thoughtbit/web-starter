@@ -9,7 +9,7 @@
         wx:for-index="idx"
         bindtap="onLink(item.url)"
       >
-        {{ idx }}-{{ item.name }}
+        {{ idx + 1 }}-{{ item.name }}
       </view>
     </view>
   </view>
@@ -46,6 +46,16 @@
           id: 3,
           name: '演示3',
           url: '../../pages/demos/demo3',
+        },
+        {
+          id: 4,
+          name: '演示4',
+          url: '../../pages/demos/demo4',
+        },
+        {
+          id: 5,
+          name: '演示5',
+          url: '../../pages/demos/demo5',
         },
       ]);
 

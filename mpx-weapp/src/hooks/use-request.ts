@@ -2,7 +2,7 @@ import type { fetchOption } from '@mpxjs/fetch';
 import { PromiseOptions, usePromise } from './use-promise';
 import { cancelToken, request } from '@/utils/request';
 import type { HttpMethod, AnyObj } from '@/utils/request';
-import { Ref } from '@mpxjs/core';
+import { ref, type Ref } from '@mpxjs/core';
 
 type PromiseType<T extends Promise<any>> = T extends Promise<infer R> ? R : never;
 
@@ -13,20 +13,27 @@ export interface PromiseResult<T extends Promise<any>, TR = PromiseType<T>, TErr
   loading: Ref<boolean>;
   error: Ref<TError>;
   cancel: Function;
+  canceled: Ref<boolean>;
 }
-
+export const abortController = cancelToken;
 export function useRequest<T extends Promise<any>>(config: PromiseOptions): PromiseResult<T> {
+  const isAborted = ref(false);
+
   const use = usePromise(async (url: string, method: HttpMethod, data: AnyObj, options: fetchOption | any) => {
-    const result = await request(url, method, data, options);
-    return result;
+    return await request(url, method, data, options);
   }, config);
 
   const abort = (message?: string) => {
-    cancelToken.exec(message);
+    if (!use.loading.value) {
+      return;
+    }
+    abortController.exec(message);
+    isAborted.value = true;
   };
 
   return {
     ...use,
     cancel: abort,
+    canceled: isAborted,
   };
 }

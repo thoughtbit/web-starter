@@ -1,0 +1,88 @@
+<template>
+  <view class="page">
+    <button class="ui-btn" hover-class="ui-btn-hover" bindtap="handlePrev">上一页</button>
+    <view class="space" />
+    <button class="ui-btn" hover-class="ui-btn-hover" bindtap="handleNext">下一页</button>
+    <view class="space" />
+    <view class="page-number">当前页:{{ userId }}</view>
+    <view class="space" />
+    <view class="box">
+      <view wx:if="{{loading}}">loading...</view>
+      <view wx:elif="{{list}}">
+        <view wx:for="{{list}}" wx:for-item="user" wx:key="id" wx:for-index="idx">
+          {{ idx + 1 }} : {{ user.name }} : {{ user.email }}
+        </view>
+      </view>
+      <view wx:else> error: {{ error ? error : '' }} </view>
+    </view>
+  </view>
+</template>
+
+<script type="application/json">
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "演示 demo5"
+  }
+</script>
+<script>
+  import { createPage, ref, computed, watch, onLoad } from '@mpxjs/core';
+  import { useRequest } from '@/hooks/use-request';
+  import { APP_BASE_URL } from '@/config';
+
+  createPage({
+    onReady() {
+      console.log('1.onReady');
+    },
+    setup() {
+      const userId = ref(1);
+
+      const { execute, error, loading, result } = useRequest();
+
+      const handlePrev = () => {
+        userId.value -= 1;
+      };
+
+      const handleNext = () => {
+        userId.value += 1;
+      };
+
+      onLoad(() => {
+        execute(`${APP_BASE_URL}/users/${userId.value}`, 'GET');
+      });
+
+      watch(userId, (userId) => {
+        execute(`${APP_BASE_URL}/users/${userId}`, 'GET');
+      });
+
+      const list = computed(() => result.value?.list ?? []);
+
+      return {
+        userId,
+
+        error,
+        loading,
+        list,
+
+        handlePrev,
+        handleNext,
+      };
+    },
+  });
+</script>
+<style lang="scss">
+  .page {
+    padding: 24rpx;
+    .box {
+      border: 1px solid #ccc;
+      padding: 24rpx;
+      background-color: #f5f5f5;
+      margin-bottom: 20rpx;
+    }
+    .space {
+      height: 24rpx;
+    }
+    .page-number {
+      text-align: center;
+    }
+  }
+</style>

@@ -15,7 +15,16 @@
 
 <script type="application/json">
   {
-    "pages": ["./pages/index/index", "./pages/login/index", "./pages/demos/index", "./pages/demos/demo1", "./pages/demos/demo2", "./pages/demos/demo3"],
+    "pages": [
+      "./pages/index/index",
+      "./pages/login/index",
+      "./pages/demos/index",
+      "./pages/demos/demo1",
+      "./pages/demos/demo2",
+      "./pages/demos/demo3",
+      "./pages/demos/demo4",
+      "./pages/demos/demo5"
+    ],
     "packages": ["./subpackage/app.mpx"],
     "window": {
       "backgroundTextStyle": "light",

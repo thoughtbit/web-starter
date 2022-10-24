@@ -152,15 +152,19 @@ export type HttpMethod = 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' 
  * url
  * data 以对象的格式传入
  */
-export function request(url: string, method: HttpMethod, data: AnyObj = {}, options: fetchOption | any = {}): Promise<any> {
+export function request(
+  url: string,
+  method: HttpMethod,
+  data: AnyObj = {},
+  options: fetchOption | any = {}
+): Promise<any> {
   const defaultOptions = {
     url,
     method,
     data,
   };
 
-  options = Object.assign(defaultOptions, options);
-  return mpx.xfetch.fetch(options);
+  return mpx.xfetch.fetch(Object.assign(defaultOptions, options));
 }
 
 /**
