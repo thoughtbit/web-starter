@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>mpx webview bridge</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    .page {
+      box-sizing: border-box;
+      height: 100vh;
+      padding: 10px;
+    }
+
+    .button {
+      position: relative;
+      display: inline-block;
+      box-sizing: border-box;
+      width: 100%;
+      height: 44px;
+      margin: 0 0 10px 0;
+      padding: 0;
+      font-size: 16px;
+      line-height: 1.2;
+      text-align: center;
+      border-radius: 2px;
+      cursor: pointer;
+      -webkit-transition: opacity 0.2s;
+      transition: opacity 0.2s;
+      -webkit-appearance: none;
+      color: #fff;
+      background-color: #07c160;
+      border: 1px solid #07c160;
+    }
+
+    .env-text {
+      color: #4e4e00;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <h1>这里是webview里的页面</h1>
+    <button class="button" onclick="back()">点此回到小程序</button>
+    <br />
+    <button class="button" onclick="getEnv()">获取当前环境</button>
+    <span id="envText" class="env-text"></span>
+    <br />
+    <button class="button" onclick="navigateToBack()">通过navigateTo跳回小程序</button>
+    <br />
+    <button class="button" onclick="redirectToBack()">通过redirectTo跳回小程序</button>
+    <br />
+    <button class="button" onclick="postMessageHandle()">调用postMessage</button>
+  </div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.14.7/vconsole.min.js"></script>
+  <script>
+    const vConsole = new VConsole({ theme: 'dark' });
+    console.log('vconsole ready')
+  </script>
+
+  <!--有缓存，调试需要加query给webviewbridge-->
+  <script src="./webviewbridge.min.js"></script>
+
+  <script>
+    function back() {
+      console.log('click back btn')
+      mpx.navigateBack()
+    }
+    // console.log(mpx, 'mpxmpx')
+    function getEnv() {
+      mpx.getEnv((res) => {
+        document.querySelector('#envText').textContent = JSON.stringify(res)
+        console.log(res)
+      })
+      // .catch(e => {
+      //   // could catch error like this
+      //   console.error(e, 6666)
+      // })
+    }
+
+    function navigateToBack() {
+      mpx.navigateTo({
+        url: '../../pages/demos/index'
+      })
+    }
+
+    function redirectToBack() {
+      mpx.redirectTo({
+        url: '../../pages/demos/index'
+      })
+    }
+
+    function postMessageHandle() {
+      mpx.postMessage({
+        data: '这是来自h5的消息'
+      })
+      mpx.navigateBack()
+    }
+  </script>
+</body>
+
+</html>

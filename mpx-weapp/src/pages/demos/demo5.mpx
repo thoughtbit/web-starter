@@ -64,11 +64,11 @@
 <script type="application/json">
   {
     "usingComponents": {},
-    "navigationBarTitleText": "演示 demo5"
+    "navigationBarTitleText": "演示 hooks"
   }
 </script>
 <script>
-  import { createPage, ref, onMounted, computed } from '@mpxjs/core';
+  import { createPage, ref, onMounted } from '@mpxjs/core';
   import { useState } from '@/hooks/use-state';
   import { useEventBus } from '@/hooks/use-event-bus';
   import { useCounter } from '@/hooks/use-counter';
@@ -80,7 +80,7 @@
   import { useIntervalFn } from '@/hooks/use-interval-fn';
   import { rand } from '@/utils/util';
 
-  import { usePagination } from '@/hooks/use-pagination';
+  // import { usePagination } from '@/hooks/use-pagination';
   import { useArrayPagination } from '@/hooks/use-array-pagination';
 
   createPage({

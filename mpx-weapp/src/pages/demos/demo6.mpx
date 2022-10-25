@@ -1,0 +1,39 @@
+<template>
+  <view class="page"> </view>
+</template>
+
+<script type="application/json">
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "演示 demo6"
+  }
+</script>
+<script>
+  import { createPage } from '@mpxjs/core';
+
+  createPage({
+    setup() {
+      return {};
+    },
+  });
+</script>
+<style lang="scss">
+  .page {
+    padding: 24rpx;
+    .box {
+      border: 1px solid #ccc;
+      padding: 24rpx;
+      background-color: #f5f5f5;
+      margin-bottom: 20rpx;
+    }
+    .space {
+      height: 24rpx;
+    }
+    .list {
+      .item {
+        line-height: 88rpx;
+        padding: 10rpx 20rpx;
+      }
+    }
+  }
+</style>

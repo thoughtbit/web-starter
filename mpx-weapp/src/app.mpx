@@ -18,7 +18,9 @@
     "pages": [
       "./pages/index/index",
       "./pages/login/index",
+
       "./pages/demos/index",
+      "./pages/demos/webview",
       "./pages/demos/demo1",
       "./pages/demos/demo2",
       "./pages/demos/demo3",

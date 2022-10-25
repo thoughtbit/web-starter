@@ -1,12 +1,16 @@
 import mpx, { createApp } from '@mpxjs/core';
 import apiProxy from '@mpxjs/api-proxy';
-import { createPinia } from '@mpxjs/pinia';
+import { setupStore } from './stores';
 import { autoLogin } from './utils/auth';
 import { getUserInfo } from './utils/wxapi';
 
-const pinia = createPinia();
-mpx.use(pinia);
-mpx.use(apiProxy, { usePromise: true });
+(() => {
+  // 各个平台之间 api 进行转换
+  mpx.use(apiProxy, { usePromise: true });
+
+  // 注册全局状态
+  setupStore(mpx);
+})();
 
 createApp({
   data: {},

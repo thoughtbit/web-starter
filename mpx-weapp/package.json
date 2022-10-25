@@ -19,17 +19,17 @@
   "author": "moocss <moocss@163.com>",
   "license": "ISC",
   "dependencies": {
-    "@mpxjs/api-proxy": "^2.8.0",
-    "@mpxjs/core": "^2.8.0",
-    "@mpxjs/store": "^2.8.0",
-    "@mpxjs/pinia": "^2.8.0",
-    "@mpxjs/utils": "^2.8.0",
-    "@mpxjs/fetch": "^2.8.0",
-    "vue": "^2.7.13",
-    "vue-demi": "^0.13.11",
+    "@mpxjs/api-proxy": "^2.8.1",
+    "@mpxjs/core": "^2.8.5",
+    "@mpxjs/fetch": "^2.8.2",
+    "@mpxjs/pinia": "^2.8.2",
+    "@mpxjs/store": "^2.8.2",
+    "@mpxjs/utils": "^2.8.2",
     "@vant/weapp": "^1.10.5",
     "dayjs": "^1.10.7",
-    "mitt": "^3.0.0"
+    "mitt": "^3.0.0",
+    "vue": "^2.7.13",
+    "vue-demi": "^0.13.11"
   },
   "browserslist": [
     "ios >= 9",

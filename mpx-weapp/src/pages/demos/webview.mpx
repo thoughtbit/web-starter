@@ -1,0 +1,38 @@
+<template>
+  <view class="page">
+    <!--有缓存，调试需要加query-->
+    <web-view src="{{url}}" bindmessage="onmessage" />
+  </view>
+</template>
+
+<script type="application/json">
+  {
+    "usingComponents": {}
+  }
+</script>
+<script>
+  import { createPage } from '@mpxjs/core';
+
+  createPage({
+    data: {
+      url: `https://blog.moocss.com/h5/index.html?v=${new Date().getTime()}`,
+    },
+    setup() {
+      const msg = ref('');
+      const onmessage = (e) => {
+        console.log(e.detail.data);
+      };
+      return {
+        msg,
+
+        onmessage,
+      };
+    },
+  });
+</script>
+
+<style lang="scss">
+  .page {
+    padding: 24rpx;
+  }
+</style>

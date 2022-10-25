@@ -46,6 +46,11 @@
 
       const list = ref([
         {
+          id: 0,
+          name: 'Webview 演示',
+          url: '../../pages/demos/webview',
+        },
+        {
           id: 1,
           name: '演示1',
           url: '../../pages/demos/demo1',
