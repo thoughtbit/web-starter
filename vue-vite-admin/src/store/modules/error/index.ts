@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import type { State } from "./types";
 
-export const useAppStore = defineStore("error", {
+export const useErrorStore = defineStore("error", {
   state: (): State => ({
     errors: {},
   }),

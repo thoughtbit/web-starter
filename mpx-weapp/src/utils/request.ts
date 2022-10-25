@@ -3,6 +3,7 @@ import mpxFetch, { CancelToken } from '@mpxjs/fetch';
 import type { fetchOption } from '@mpxjs/fetch';
 
 import storage, { TOKEN_KEY } from './storage';
+import { DEBUG } from '@/config';
 
 mpx.use(mpxFetch);
 
@@ -36,7 +37,9 @@ const CODE = {
 
 // 默认错误处理方式
 const errorHandler = (error: any) => {
-  console.log('网络异常:', error);
+  if (DEBUG) {
+    console.log('网络异常:', error);
+  }
 
   const { statusCode, errMsg } = error;
   // 自己定义code，连接错误的status
@@ -62,7 +65,9 @@ const errorHandler = (error: any) => {
 
 // 处理网络请求带来的校验
 const checkStatus = (response: any) => {
-  console.log('response:', response);
+  if (DEBUG) {
+    console.log('response:', response);
+  }
   // 自己定义code，连接错误的status
   const code = response?.statusCode ?? CODE.REQUEST_FORBID;
 
@@ -108,7 +113,9 @@ const checkStatus = (response: any) => {
 
 mpx.xfetch.interceptors.request.use(
   (config) => {
-    console.log('request:', config);
+    if (DEBUG) {
+      console.log('request:', config);
+    }
 
     const accessToken = storage.get(TOKEN_KEY);
 

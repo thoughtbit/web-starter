@@ -75,6 +75,11 @@
           name: '演示5',
           url: '../../pages/demos/demo5',
         },
+        {
+          id: 6,
+          name: '演示6',
+          url: '../../pages/demos/demo6',
+        },
       ]);
 
       const onLink = (url) => {

@@ -8,7 +8,7 @@ import { removeRouteListener } from "@/router/route-listener";
 export const useUserStore = defineStore("user", {
   state: (): UserState => ({
     users: [],
-    userInfo: undefined,
+    userInfo: null,
     role: "",
   }),
   getters: {

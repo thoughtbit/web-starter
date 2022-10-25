@@ -1,5 +1,10 @@
 <template>
-  <view class="page"> </view>
+  <view class="page">
+    <view class="box">
+      <view wx:if="{{isLogin}}">{{ getUserInfo.name }} - {{ getUserInfo.email }}</view>
+      <van-button size="small" type="primary" block bind:click="handleLogin">登录</van-button>
+    </view>
+  </view>
 </template>
 
 <script type="application/json">
@@ -10,10 +15,26 @@
 </script>
 <script>
   import { createPage } from '@mpxjs/core';
+  import { useUserStore } from '@/stores';
+  import { storeToRefs } from '@mpxjs/pinia';
 
   createPage({
     setup() {
-      return {};
+      const user = useUserStore();
+
+      // 默认是 静态对象,  使用 storeToRefs 包裹转换成 响应式对象
+      const { isLogin, getUserInfo } = storeToRefs(user);
+
+      const handleLogin = () => {
+        user.login();
+      };
+
+      return {
+        isLogin,
+        getUserInfo,
+
+        handleLogin,
+      };
     },
   });
 </script>

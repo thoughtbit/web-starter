@@ -25,7 +25,8 @@
       "./pages/demos/demo2",
       "./pages/demos/demo3",
       "./pages/demos/demo4",
-      "./pages/demos/demo5"
+      "./pages/demos/demo5",
+      "./pages/demos/demo6"
     ],
     "packages": ["./subpackage/app.mpx"],
     "window": {
