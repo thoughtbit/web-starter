@@ -1,6 +1,8 @@
 <template>
   <view class="page">
-    <button type="primary" class="ui-btn" hover-class="ui-btn-hover" bindtap="onClick">登录</button>
+    <view class="box">
+      <van-button size="small" type="primary" block bind:click="handleLogin">登录</van-button>
+    </view>
   </view>
 </template>
 
@@ -12,54 +14,48 @@
 </script>
 <script>
   import mpx, { createPage } from '@mpxjs/core';
-  import { onLogin } from '@/utils/auth';
+  import { useUserStore } from '@/stores';
+  import { storeToRefs } from '@mpxjs/pinia';
 
   createPage({
-    onLoad() {
-      console.log('onLoad');
-    },
-    onReady() {
-      console.log('onReady');
-    },
-    onClick() {
-      mpx
-        .showActionSheet({
-          itemList: ['管理员', '普通用户', '匿名用户'],
-        })
-        .then((res) => {
-          console.log(res.tapIndex);
+    setup() {
+      const user = useUserStore();
 
-          mpx
-            .showModal({
-              title: '标题',
-              content: '这是一个弹窗',
-              // success(res) {
-              //   if (res.cancel) {
-              //     console.log('用户点击取消');
-              //   }
-              // },
-            })
-            .then((resp) => {
-              if (res.cancel) {
-                console.log('用户点击取消');
-                console.log('1. showModal:', resp);
-              } else {
-                onLogin();
-              }
-            })
-            .catch((error) => {
-              console.log('2. showModal:', error);
-            });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      // 默认是 静态对象,  使用 storeToRefs 包裹转换成 响应式对象
+      const { isLogin, getUserInfo } = storeToRefs(user);
+
+      const handleLogin = () => {
+        mpx
+          .showActionSheet({
+            itemList: ['管理员', '普通用户', '匿名用户'],
+          })
+          .then((res) => {
+            console.log(res.tapIndex);
+
+            user.login();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+
+      return {
+        isLogin,
+        getUserInfo,
+
+        handleLogin,
+      };
     },
   });
 </script>
-
 <style lang="scss">
   .page {
     padding: 24rpx;
+    .box {
+      border: 1px solid #ccc;
+      padding: 24rpx;
+      background-color: #f5f5f5;
+      margin-bottom: 20rpx;
+    }
   }
 </style>

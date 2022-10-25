@@ -1,0 +1,46 @@
+<template>
+  <view class="page">
+    <view wx:if="{{isLogin}}">{{ getUserInfo.name }} - {{ getUserInfo.email }}</view>
+    <view wx:else>
+       <van-button size="small" type="primary" block bind:click="handleLogin">登录</van-button>
+    </view>
+  </view>
+</template>
+
+<script type="application/json">
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "我的"
+  }
+</script>
+<script>
+  import mpx, { createPage } from '@mpxjs/core';
+  import { useUserStore } from '@/stores';
+  import { storeToRefs } from '@mpxjs/pinia';
+
+  createPage({
+    setup() {
+      const user = useUserStore();
+
+      // 默认是 静态对象,  使用 storeToRefs 包裹转换成 响应式对象
+      const { isLogin, getUserInfo } = storeToRefs(user);
+
+      const handleLogin = () => {
+        mpx.navigateTo({
+          url: "../../pages/login/index"
+        })
+      }
+
+      return {
+        isLogin,
+        getUserInfo,
+      };
+    },
+  });
+</script>
+
+<style lang="scss">
+  .page {
+    padding: 24rpx;
+  }
+</style>

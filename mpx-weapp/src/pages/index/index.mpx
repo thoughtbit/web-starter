@@ -7,9 +7,7 @@
       </view> -->
       <m-list></m-list>
       <image class="logo" src="../../assets/images/logo.png" />
-      <van-button type="default">默认按钮</van-button>
-      <van-button type="primary" bind:click="onLogin">主要按钮</van-button>
-      <button type="primary" class="ui-btn" hover-class="ui-btn-hover" bindtap="onClick">微信一键登录</button>
+      <button type="primary" class="ui-btn" hover-class="ui-btn-hover" bindtap="onWxLogin">普通登录</button>
       <button type="primary" class="ui-btn" hover-class="ui-btn-hover" bindtap="onDemo">演示</button>
       <button type="primary" class="ui-btn" hover-class="ui-btn-hover" bindtap="handleTap">子拆包</button>
     </view>
@@ -70,10 +68,13 @@
       console.log('onReachBottom: 页面上拉触底事件的处理函数');
     },
 
-    onClick() {
-      // wx.navigateTo({
-      //   url: '../../pages/login/index',
-      // });
+    onLogin() {
+      mpx.navigateTo({
+        url: '../../pages/login/index',
+      });
+    },
+
+    onWxLogin() {
       mpx
         .showToast({ title: '登录成功', icon: 'success', duration: 2000 })
         .then((res) => {

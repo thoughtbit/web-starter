@@ -48,9 +48,9 @@ export const useUserStore = defineStore('user', {
             });
           }
 
-          // mpx.navigateTo({
-          //   url: '../../pages/index/index',
-          // });
+          mpx.navigateTo({
+            url: '../../pages/mine/index',
+          });
         })
         .catch(() => {
           storage.remove(TOKEN_KEY);

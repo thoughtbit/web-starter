@@ -18,6 +18,7 @@
     "pages": [
       "./pages/index/index",
       "./pages/login/index",
+      "./pages/mine/index",
 
       "./pages/demos/index",
       "./pages/demos/webview",
