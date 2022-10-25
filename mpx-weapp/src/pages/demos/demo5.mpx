@@ -4,7 +4,7 @@
       <view>{{ message }}</view>
       <van-button type="primary" block bind:click="handleEmit">发送hello</van-button>
       <van-button type="warning" block bind:click="handlClear">移除事件监听</van-button>
-      <view wx:ref="divRef" class="ui-btn" hover-class="ui-btn-hover">查找元素</view>
+      <view wx:ref="divRef" class="ui-btn" hover-class="ui-btn-hover">元素</view>
     </view>
     <view class="box">
       <view>{{ count }}</view>
@@ -36,6 +36,28 @@
       <button type="primary" wx:if="{{isActive}}" bindtap="pause">Pause</button>
       <button type="primary" wx:if="{{!isActive}}" bindtap="resume">Resume</button>
     </view>
+
+    <view class="box">
+      {{ visible }}
+      <button type="primary" bindtap="handleState">setState({{ visible }})</button>
+    </view>
+
+    <view class="box">
+      <view>page {{ currentPage }} of {{ lastPage }} </view>
+      <view>
+        <button disabled="{{ currentPage === 1 ? true : false }}" type="primary" size="mini" bindtap="prev">
+          prev
+        </button>
+        <button disabled="{{ lastPage == currentPage ? true : false }}" type="primary" size="mini" bindtap="next">
+          next
+        </button>
+      </view>
+      <view class="list">
+        <view class="item" wx:for="{{result}}" wx:for-item="item" wx:key="id" wx:for-index="idx">
+          {{ idx + 1 }}.{{ item }}
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -46,7 +68,8 @@
   }
 </script>
 <script>
-  import { createPage, ref, onMounted } from '@mpxjs/core';
+  import { createPage, ref, onMounted, computed } from '@mpxjs/core';
+  import { useState } from '@/hooks/use-state';
   import { useEventBus } from '@/hooks/use-event-bus';
   import { useCounter } from '@/hooks/use-counter';
   import { useLoading } from '@/hooks/use-loading';
@@ -56,6 +79,9 @@
 
   import { useIntervalFn } from '@/hooks/use-interval-fn';
   import { rand } from '@/utils/util';
+
+  import { usePagination } from '@/hooks/use-pagination';
+  import { useArrayPagination } from '@/hooks/use-array-pagination';
 
   createPage({
     onReady() {
@@ -104,6 +130,28 @@
         clear();
       };
 
+      const [visible, setVisible] = useState(false);
+      const handleState = () => setVisible(!visible.value);
+
+      // const arrayRef = ref(new Array(100).fill(1).map((_, i) => i));
+      // paginate array
+      // const { currentPage, lastPage, next, prev, offset, pageSize } = usePagination({
+      //   currentPage: 1,
+      //   pageSize: 10,
+      //   total: computed(() => arrayRef.value.length),
+      // });
+
+      // const result = computed(() => {
+      //   const array = arrayRef.value;
+      //   if (!Array.isArray(array)) return [];
+      //   return array.slice(offset.value, offset.value + pageSize.value);
+      // });
+
+      const array = new Array(100).fill(0).map((_, i) => i);
+      const { result, next, prev, currentPage, lastPage } = useArrayPagination(array, {
+        pageSize: 3,
+      });
+
       return {
         emit,
         message,
@@ -128,6 +176,15 @@
         isActive,
         pause,
         resume,
+
+        visible,
+        handleState,
+
+        currentPage,
+        lastPage,
+        next,
+        prev,
+        result,
       };
     },
   });
