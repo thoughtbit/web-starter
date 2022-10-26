@@ -1,0 +1,47 @@
+<template>
+  <view class="page">
+    <view class="head">
+      <view wx:if="{{isLogin}}">{{ getUserInfo.name }} - {{ getUserInfo.email }}</view>
+      <view wx:else> 未登录 </view>
+    </view>
+    <map
+      id="map"
+      class="map"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      show-location
+      scale="{{scale}}"
+      markers="{{markers}}"
+    />
+  </view>
+</template>
+
+<script type="application/json">
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "小车轨迹"
+  }
+</script>
+
+<script src="./index.ts"></script>
+
+<style lang="scss">
+  .page {
+    padding: 0;
+    .head {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 8;
+      padding: 24rpx;
+      background-color: rgba(0, 0, 0, 0.4);
+      text-align: center;
+      color: #fff;
+    }
+    .map {
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+</style>

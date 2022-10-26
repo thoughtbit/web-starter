@@ -4,6 +4,7 @@
       "./pages/index/index",
       "./pages/login/index",
       "./pages/mine/index",
+      "./pages/car/index",
 
       "./pages/demos/index",
       "./pages/demos/webview",
@@ -35,6 +36,15 @@
       "van-share-sheet": "@vant/weapp/share-sheet/index"
     },
     "debug": false,
+
+    "requiredPrivateInfos": ["getLocation", "startLocationUpdate", "onLocationChange"],
+    "permission": {
+      "scope.userLocation": {
+        "desc": "你的位置信息将用于小程序获取所在位置信息"
+      }
+    },
+    "requiredBackgroundModes": ["location"],
+
     "networkTimeout": {
       "request": 10000,
       "downloadFile": 30000

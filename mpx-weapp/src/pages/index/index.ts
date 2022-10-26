@@ -70,6 +70,11 @@ createPage({
       url: subPackageIndexPage,
     });
   },
+  handleMap() {
+    mpx.navigateTo({
+      url: '../../pages/car/index',
+    });
+  },
   setup() {
     const systemInfo = reactive({
       statusBarHeight: 0,

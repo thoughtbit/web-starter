@@ -3,18 +3,23 @@
     <view class="box">
       <view>{{ message }}</view>
       <van-button type="primary" block bind:click="handleEmit">发送hello</van-button>
+      <view class="space" />
       <van-button type="warning" block bind:click="handlClear">移除事件监听</van-button>
+      <view class="space" />
       <view wx:ref="divRef" class="ui-btn" hover-class="ui-btn-hover">元素</view>
     </view>
     <view class="box">
       <view>{{ count }}</view>
       <van-button size="small" type="primary" block bind:click="dec(1)">Decrement(-1)</van-button>
+      <view class="space" />
       <van-button size="small" type="primary" block bind:click="inc(1)">Increment(+1)</van-button>
+      <view class="space" />
       <van-button size="small" type="primary" block bind:click="set(10)">Set(10)</van-button>
     </view>
     <view class="box">
       <view>{{ loading }}</view>
       <van-button size="small" type="primary" block bind:click="setLoading(true)">setLoading</van-button>
+      <view class="space" />
       <van-button size="small" type="primary" block bind:click="toggle()">toggle</van-button>
     </view>
 
@@ -34,6 +39,7 @@
         <input wx:model="{{interval}}" type="number" placeholder="interval" />
       </view>
       <button type="primary" wx:if="{{isActive}}" bindtap="pause">Pause</button>
+      <view class="space" />
       <button type="primary" wx:if="{{!isActive}}" bindtap="resume">Resume</button>
     </view>
 
@@ -48,6 +54,7 @@
         <button disabled="{{ currentPage === 1 ? true : false }}" type="primary" size="mini" bindtap="prev">
           prev
         </button>
+        <view class="space" />
         <button disabled="{{ lastPage == currentPage ? true : false }}" type="primary" size="mini" bindtap="next">
           next
         </button>
@@ -216,6 +223,9 @@
       padding: 24rpx;
       background-color: #f5f5f5;
       margin-bottom: 20rpx;
+    }
+    .space {
+      height: 24rpx;
     }
   }
 </style>
