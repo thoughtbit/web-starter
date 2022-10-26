@@ -1,5 +1,7 @@
 <template>
-  <view class="page"> </view>
+  <view class="page">
+
+  </view>
 </template>
 
 <script type="application/json">
@@ -13,7 +15,8 @@
 
   createPage({
     setup() {
-      return {};
+
+      return { };
     },
   });
 </script>

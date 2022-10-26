@@ -34,7 +34,7 @@ function countReducer(state, setState, action) {
       break;
   }
 }
-const [count countDispatch] = useReducer(countReducer, 10);
+const [count, countDispatch] = useReducer(countReducer, 10);
 ```
 
 ```html

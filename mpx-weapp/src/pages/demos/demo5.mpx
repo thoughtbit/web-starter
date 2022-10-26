@@ -58,6 +58,16 @@
         </view>
       </view>
     </view>
+
+    <view class="box">
+      <view class="row row-center">
+        {{ counter }}
+      </view>
+      <view class="row row-center">
+        <button type="primary" size="mini" block bindtap="dispatch({ type: 'PLUS' })">+</button>
+        <button type="primary" size="mini" block bindtap="dispatch({ type: 'MINUS' })">-</button>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -82,6 +92,9 @@
 
   // import { usePagination } from '@/hooks/use-pagination';
   import { useArrayPagination } from '@/hooks/use-array-pagination';
+
+  import { useReducer } from '@/hooks/use-reducer';
+  import { countReducer } from './reducer';
 
   createPage({
     onReady() {
@@ -152,6 +165,8 @@
         pageSize: 3,
       });
 
+      const [counter, dispatch] = useReducer(countReducer, 10);
+
       return {
         emit,
         message,
@@ -185,6 +200,9 @@
         next,
         prev,
         result,
+
+        counter,
+        dispatch,
       };
     },
   });

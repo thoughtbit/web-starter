@@ -2,17 +2,7 @@
   <view>这里是subPackage</view>
 </template>
 
-<script>
-  import { createPage, onLoad } from '@mpxjs/core';
-
-  createPage({
-    setup() {
-      onLoad(() => {
-        console.log('subpackage onload');
-      });
-    },
-  });
-</script>
+<script src="./index.ts"></script>
 
 <script type="application/json">
   {

@@ -20,10 +20,10 @@
   "license": "ISC",
   "dependencies": {
     "@mpxjs/api-proxy": "^2.8.1",
-    "@mpxjs/core": "^2.8.5",
-    "@mpxjs/fetch": "^2.8.2",
+    "@mpxjs/core": "^2.8.6",
+    "@mpxjs/fetch": "^2.8.6",
+    "@mpxjs/store": "^2.8.6",
     "@mpxjs/pinia": "^2.8.2",
-    "@mpxjs/store": "^2.8.2",
     "@mpxjs/utils": "^2.8.2",
     "@vant/weapp": "^1.10.5",
     "dayjs": "^1.10.7",
@@ -36,9 +36,9 @@
     "chrome >= 47"
   ],
   "devDependencies": {
-    "@mpxjs/webpack-plugin": "^2.8.0",
-    "@mpxjs/size-report": "^2.8.0",
-    "@mpxjs/babel-plugin-inject-page-events": "^2.8.0",
+    "@mpxjs/webpack-plugin": "^2.8.6",
+    "@mpxjs/size-report": "^2.8.1",
+    "@mpxjs/babel-plugin-inject-page-events": "^2.8.1",
     "@mpxjs/eslint-config": "^1.0.3",
     "@mpxjs/miniprogram-simulate": "^1.4.17",
     "@mpxjs/mpx-jest": "0.0.24",

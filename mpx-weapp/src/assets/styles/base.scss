@@ -142,3 +142,41 @@
     box-shadow: inset 0px 0px 10px 0px #0262b1;
   }
 }
+
+/* flexbox */
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  min-width: 0;
+}
+.row-no-wrap {
+  flex-wrap: nowrap;
+}
+.row-start {
+  justify-content: flex-start;
+}
+.row-center {
+  justify-content: center;
+}
+.row-end {
+  justify-content: flex-end;
+}
+.row-space-between {
+  justify-content: space-between;
+}
+.row-space-around {
+  justify-content: space-around;
+}
+.row-space-evenly {
+  justify-content: space-evenly;
+}
+.row-top {
+  align-items: flex-start;
+}
+.row-middle {
+  align-items: center;
+}
+.row-bottom {
+  align-items: flex-end;
+}
