@@ -1,0 +1,32 @@
+.login-form {
+	.form-item-icon {
+		color: #999;
+	}
+	&-forgot {
+		text-align: right;
+	}
+	.form-item-remember,
+	.form-item-captcha {
+		.ant-form-item-control-input-content {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+
+	&-button {
+	}
+
+	.switch-container {
+		margin-top: 24px;
+		.tip {
+			font-size: 14px;
+			color: #1890ff;
+			cursor: pointer;
+			display: inline-flex;
+			align-items: center;
+			margin-right: 14px;
+		}
+	}
+}
