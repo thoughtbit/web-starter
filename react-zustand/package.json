@@ -1,0 +1,38 @@
+{
+  "name": "react-zustand",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.8.0",
+    "@formkit/auto-animate": "1.0.0-beta.5",
+    "antd": "^5.1.0",
+    "axios": "^1.2.1",
+    "hoist-non-react-statics": "^3.3.2",
+    "immer": "^9.0.16",
+    "lodash": "^4.17.21",
+    "mitt": "^3.0.0",
+    "qs": "^6.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.6.1",
+    "zustand": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/hoist-non-react-statics": "^3.3.1",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.6.4",
+    "@types/qs": "^6.9.7",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "sass": "^1.57.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  }
+}

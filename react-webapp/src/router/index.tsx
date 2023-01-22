@@ -13,7 +13,7 @@ const Result403 = lazy(() => import("@/pages/result/403"));
 const Result404 = lazy(() => import("@/pages/result/404"));
 const Result500 = lazy(() => import("@/pages/result/500"));
 
-export const routers: RouteObject[] = [
+export const routers: RouteObject[] | any = [
   {
     path: "/",
     element: <Home/>,

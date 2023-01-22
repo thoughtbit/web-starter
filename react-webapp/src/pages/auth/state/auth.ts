@@ -1,6 +1,6 @@
 import type { StateCreator } from "zustand";
 import type { StoreState, AuthSlice } from "@/stores/types";
-import { api } from "@/services";
+import  api from "@/services";
 
 const initialState = {
   userInfo: null,

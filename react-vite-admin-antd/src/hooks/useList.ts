@@ -147,12 +147,6 @@ function useList<T>(initialList: IHookStateInitAction<T[]> = []): [T[], ListActi
         actions.set(resolveHookState(initialList).slice());
       },
     };
-
-    /**
-     * @deprecated Use removeAt method instead
-     */
-    (a as ListActions<T>).remove = a.removeAt;
-
     return a as ListActions<T>;
   }, []);
 

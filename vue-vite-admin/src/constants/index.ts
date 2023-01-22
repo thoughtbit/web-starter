@@ -10,3 +10,7 @@ const JWT_TOKEN = import.meta.env.VITE_APP_JWT_TOKEN;
 // console.log("[constants]",  MODE, DEBUG, APP_VERSION, APP_BASE_URL, APP_API_URL, APP_API_URL_PREFIX, JWT_TOKEN);
 
 export { MODE, DEBUG, APP_VERSION, APP_BASE_URL, APP_API_URL, APP_API_URL_PREFIX, APP_NAME, JWT_TOKEN };
+
+const AppContextKey = Symbol("AppContextKey");
+
+export { AppContextKey };

@@ -20,7 +20,10 @@ export function useRequest<T extends Promise<any>>(config: PromiseOptions): Prom
   const isAborted = ref(false);
 
   const use = usePromise(async (url: string, method: HttpMethod, data: AnyObj, options: fetchOption | any) => {
-    return await request(url, method, data, options);
+    return await request(url, method, data, {
+      cancelToken: abortController.token,
+      ...options,
+    });
   }, config);
 
   const abort = (message?: string) => {

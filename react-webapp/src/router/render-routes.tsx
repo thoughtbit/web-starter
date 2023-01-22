@@ -12,7 +12,7 @@ const genRoute = (route: RouteObject, parentPath: string) => {
     return <Route key={currentPath} path={currentPath} index={index} element={element} />;
   } else {
     return (
-      <Route key={currentPath} index={index} path={currentPath} element={element}>
+      <Route key={currentPath} path={currentPath} element={element}>
         {children?.map((child: any) => genRoute(child, currentPath))}
       </Route>
     );

@@ -5,12 +5,16 @@ import { setupStore } from "./store";
 import { setupI18n } from "./locales";
 import { registerGlobalComponents, globalProperties, globalError } from "./plugins";
 
+import { AppContextKey } from "./constants";
+
 import "virtual:svg-icons-register";
 import "toastify-js/src/toastify.css";
 import "./assets/styles/app.scss";
 
 // If you want to use ElMessage, import it.
 import "element-plus/theme-chalk/src/message.scss";
+
+
 
 const app = createApp(App);
 (async () => {
@@ -32,4 +36,9 @@ const app = createApp(App);
 
   // 路由准备就绪后挂载 App
   app.mount("#app");
+
+  // 注入appData 数据
+  // app.provide(AppContextKey, {
+  //   routes: routes,
+  // });
 })();

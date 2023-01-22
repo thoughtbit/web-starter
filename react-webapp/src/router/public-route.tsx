@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 import { Navigate } from "react-router-dom";
-import { useStore } from "@/store";
+import { useStore } from "@/stores";
 
 type Props = {
   children: ReactElement;

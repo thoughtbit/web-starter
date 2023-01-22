@@ -48,9 +48,6 @@
           LOGIN_URL,
           'POST',
           { openId: '1234' },
-          {
-            cancelToken: abortController.token,
-          }
         );
       };
 

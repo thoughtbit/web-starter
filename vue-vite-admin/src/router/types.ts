@@ -1,5 +1,6 @@
 import { defineComponent } from "vue";
-import type { RouteMeta, NavigationGuard, RouteRecordRaw } from "vue-router";
+import type { RouteMeta, NavigationGuard, RouteRecordRaw, RouterOptions } from "vue-router";
+export type { RouterHistory } from 'vue-router';
 
 export type Component<T = any> =
   | ReturnType<typeof defineComponent>
@@ -38,3 +39,25 @@ export interface CustomRouteMeta extends RouteMeta {
 export interface CustomRouteRecordRaw extends Omit<RouteRecordRaw, "meta"> {
   meta: CustomRouteMeta;
 }
+
+
+/*
+routes
+*/
+export interface IRoute {
+  id: string;
+  path?: string;
+  index?: boolean;
+  parentId?: string;
+  redirect?: string;
+}
+
+export interface IRoutesById {
+  [id: string]: IRoute;
+}
+
+export interface IRouteComponents {
+  [id: string]: any;
+}
+
+export type RouterConfig = Omit<RouterOptions, 'history' | 'routes'>;

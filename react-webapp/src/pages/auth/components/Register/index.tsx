@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 import { Button, Checkbox, Form, Input } from "antd-mobile";
-import { LockOutline, CollectMoneyOutline, UserOutline } from 'antd-mobile-icons'
 
 import { useCountDown, useRoute } from "@/hooks";
 
@@ -21,7 +20,7 @@ const Register: React.FC = () => {
     console.log("Failed:", errorInfo);
   };
 
-  const onChange = (e) => {
+  const onChange = (e: any) => {
     console.log(`checked = ${e.target.checked}`);
   };
 
@@ -37,12 +36,11 @@ const Register: React.FC = () => {
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      autoComplete="off"
     >
       {registerType === "phone" && (
         <>
           <Form.Item name="username" rules={[{ required: true, message: "手机号必填" }]}>
-            <Input size="large" prefix={<UserOutline className="form-item-icon" />} placeholder="请输入账号" />
+            <Input placeholder="请输入账号" />
           </Form.Item>
         </>
       )}
@@ -54,24 +52,19 @@ const Register: React.FC = () => {
             { required: true, message: "请输入正确的邮箱" },
           ]}
         >
-          <Input type="text" size="large" placeholder="请输入您的邮箱" />
+          <Input type="text" placeholder="请输入您的邮箱" />
         </Form.Item>
       )}
 
       <Form.Item name="password" rules={[{ required: true, message: "密码必填" }]} hasFeedback>
-        <Input.Password
-          size="large"
-          prefix={<LockOutline className="form-item-icon" />}
-          type="password"
-          placeholder="请输入密码"
-        />
+        <Input type="password" placeholder="请输入密码" />
       </Form.Item>
 
       {registerType === "phone" && (
         <>
           <Form.Item className="form-item-captcha">
             <Form.Item name="captcha" noStyle rules={[{ required: true, message: "验证码必填" }]}>
-              <Input size="large" prefix={<CollectMoneyOutline className="form-item-icon" />} placeholder="请输入验证码" />
+              <Input placeholder="请输入验证码" />
             </Form.Item>
 
             <Button
@@ -93,8 +86,7 @@ const Register: React.FC = () => {
           noStyle
           rules={[
             {
-              validator: (_, value) =>
-                value ? Promise.resolve() : Promise.reject(new Error("请先阅读并同意协议")),
+              validator: (_, value) => (value ? Promise.resolve() : Promise.reject(new Error("请先阅读并同意协议"))),
             },
           ]}
         >
@@ -106,7 +98,7 @@ const Register: React.FC = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" block size="large" className="register-form-button">
+        <Button block size="large" className="register-form-button">
           登录
         </Button>
       </Form.Item>

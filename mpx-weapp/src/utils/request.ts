@@ -37,9 +37,9 @@ const CODE = {
 
 // 默认错误处理方式
 const errorHandler = (error: any) => {
-  if (DEBUG) {
-    console.log('网络异常:', error);
-  }
+  // if (DEBUG) {
+  //   console.log('网络异常:', error);
+  // }
 
   const { statusCode, errMsg } = error;
   // 自己定义code，连接错误的status

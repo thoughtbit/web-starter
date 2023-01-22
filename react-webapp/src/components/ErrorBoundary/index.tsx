@@ -11,13 +11,16 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ children, ...restProps })
         return (
           <div className="" role="alert">
             <h2 className="">哎呀，出问题了 :( </h2>
-            <p>
-              <code>{error && error.toString()}</code>
-            </p>
 
-            <button className="" onClick={() => window.location.assign(window.location.origin)}>
-              刷新
-            </button>
+            <pre>
+              <code>{error && error.toString()}</code>
+            </pre>
+
+            <div>
+              <button className="" onClick={() => window.location.assign(window.location.origin)}>
+                刷新
+              </button>
+            </div>
           </div>
         );
       }}

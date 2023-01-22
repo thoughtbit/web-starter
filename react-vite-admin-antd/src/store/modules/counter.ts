@@ -36,6 +36,7 @@ const useCounterStore = create<CounterSlice>()(
   )
 );
 
+// selector 
 export const getCount = () => useCounterStore.getState().count;
 
 export default useCounterStore;

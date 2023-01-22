@@ -3,7 +3,7 @@ import type { ConfigEnv } from "vite";
 import dayjs from "dayjs";
 import { resolve } from "path";
 import react from "@vitejs/plugin-react";
-import tsconfigPaths from 'vite-tsconfig-paths'
+import tsconfigPaths from "vite-tsconfig-paths";
 import { createHtml, createSvgr } from "./../plugins";
 import pkg from "./../../package.json";
 
@@ -20,21 +20,12 @@ export default (configEnv: ConfigEnv, viteEnv: Record<string, string>) => {
   return defineConfig({
     base: VITE_APP_BASE_URL,
     root: cmd,
-    plugins: [tsconfigPaths(), react(), createSvgr(), createHtml(VITE_APP_NAME)],
-    // resolve: {
-    //   alias: [
-    //     {
-    //       find: "@",
-    //       replacement: resolve(__dirname, "../../src"),
-    //     },
-    //     {
-    //       find: "assets",
-    //       replacement: resolve(__dirname, "../../src/assets"),
-    //     },
-    //   ],
-    //   // 可以忽略的后缀
-    //   extensions: [".js", ".ts", ".jsx", ".tsx", ".json", ".mjs"],
-    // },
+    plugins: [
+      tsconfigPaths(),
+      react(),
+      createSvgr(),
+      createHtml(VITE_APP_NAME),
+    ],
     define: {
       "process.env": {},
       __APP_ENV__: JSON.stringify(mode),

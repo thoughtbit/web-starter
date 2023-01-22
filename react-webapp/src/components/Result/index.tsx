@@ -2,9 +2,9 @@ import React, { memo } from "react";
 import { Button } from "antd-mobile";
 import { useRoute } from "@/hooks";
 
-import { ReactComponent as Light403Icon } from "@/assets/images/result/result-403.svg";
-import { ReactComponent as Light404Icon } from "@/assets/images/result/result-404.svg";
-import { ReactComponent as Light500Icon } from "@/assets/images/result/result-500.svg";
+import { ReactComponent as Light403Icon } from "@/assets/icons/result-403.svg";
+import { ReactComponent as Light404Icon } from "@/assets/icons/result-404.svg";
+import { ReactComponent as Light500Icon } from "@/assets/icons/result-500.svg";
 import styles from "./index.module.scss";
 
 enum ECode {
