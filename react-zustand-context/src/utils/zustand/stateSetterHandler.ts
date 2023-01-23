@@ -1,5 +1,5 @@
 import type { WritableDraft } from 'immer/dist/internal';
-import { StateSetter } from './../types';
+import { StateSetter } from './types';
 
 export const stateSetterHandler =
   <TState extends Record<string, any>, TKey extends keyof TState>(
@@ -10,3 +10,10 @@ export const stateSetterHandler =
     set((state) => {
       state[name] = typeof value === 'function' ? (value as Function)(state[name]) : value;
     });
+
+/*
+  (set, get) => ({
+    setFilters: stateSetterHandler(set, 'filters'),
+    setPanel: stateSetterHandler(set, 'panel'),
+  }),
+*/

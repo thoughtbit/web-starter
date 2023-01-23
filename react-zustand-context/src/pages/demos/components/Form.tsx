@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { useStore } from '@/store';
+import { useStore } from 'zustand';
+import { store } from '@/store';
 
 const Form = () => {
-  const addTodo = useStore((state) => state.addTodo);
+  const addTodo = useStore(store, (s) => s.addTodo);
 
   const [inputValue, setInputValue] = useState('');
 

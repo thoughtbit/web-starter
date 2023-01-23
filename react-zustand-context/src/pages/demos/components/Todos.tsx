@@ -1,12 +1,13 @@
 import { useCallback } from 'react';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { useStore } from '@/store';
+import { useStore } from 'zustand';
+import { store } from '@/store';
 
 const Todos = () => {
   const [parent, enableAnimations] = useAutoAnimate<any>(/* optional config */);
-  const todos = useStore(useCallback((state) => state.todos, []));
-  const removeTodo = useStore((state) => state.removeTodo);
-  const toggleTodo = useStore(useCallback((state) => state.toggleTodo, []));
+  const todos = useStore(store, useCallback((state) => state.todos, []));
+  const removeTodo = useStore(store, (state) => state.removeTodo);
+  const toggleTodo = useStore(store, useCallback((state) => state.toggleTodo, []));
 
   return (
     <>
@@ -14,7 +15,7 @@ const Todos = () => {
       <p>{todos.length} todos in the list</p>
       <ul ref={parent}>
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <li key={`todo_item_${todo.id}`}>
             <input
               type="checkbox"
               defaultChecked={todo.completed}

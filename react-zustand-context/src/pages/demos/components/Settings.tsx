@@ -1,9 +1,9 @@
-import { useStore } from "@/store";
-
+import { useStore } from 'zustand';
+import { store } from '@/store';
 
 const Settings = () => {
-  const toggleDarkMode = useStore((state) => state.toggleDarkMode);
-  const darkTheme = useStore((state) => state.darkMode);
+  const toggleDarkMode = useStore(store, (s) => s.toggleDarkMode);
+  const darkTheme = useStore(store, (s) => s.darkMode);
 
   return (
     <div>

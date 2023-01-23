@@ -1,14 +1,15 @@
-import { useStore } from '@/store';
+import { useStore } from 'zustand';
+import { store } from '@/store';
 
 const Counter = () => {
-  const [count, decrement, increment, resetCount] = useStore((state) => [
-    state.count,
-    state.decrement,
-    state.increment,
-    state.resetCount,
+  const [count, decrement, increment, resetCount] = useStore(store, (s) => [
+    s.count,
+    s.decrement,
+    s.increment,
+    s.resetCount,
   ]);
 
-  const { getState, setState, subscribe, destroy } = useStore;
+  const { getState, setState, subscribe, destroy } = store;
   
   return (
     <div>

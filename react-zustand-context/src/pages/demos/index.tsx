@@ -1,25 +1,30 @@
 import { useEffect } from 'react';
+import { useStore } from 'zustand';
 import Settings from './components/Settings';
 import { useRoute } from '@/hooks';
-import { useStore } from '@/store';
+import { store } from '@/store';
 
 import styles from './index.module.scss';
-
 
 function Demos() {
   const { NavLink, Outlet } = useRoute();
 
-  const darkTheme = useStore((state) => state.darkMode);
+  const darkTheme = useStore(store, (s) => s.darkMode);
 
   useEffect(() => {
-    const body = document.getElementsByTagName("body")[0];
-    darkTheme ? body.classList.add("dark") : body.classList.remove("dark");
+    const body = document.getElementsByTagName('body')[0];
+    darkTheme ? body.classList.add('dark') : body.classList.remove('dark');
   }, [darkTheme]);
 
   return (
     <>
       <nav className={styles.navbar}>
         <ul className={styles.menu}>
+          <li>
+            <NavLink to="/demos/demo" className="nav-link">
+              Demo
+            </NavLink>
+          </li>
           <li>
             <NavLink to="/demos/demo1" className="nav-link">
               Demo1

@@ -1,16 +1,3 @@
-import type { Dispatch, SetStateAction } from 'react';
-import type { StoreApi } from 'zustand';
-
-export type StateCreator<
-  TState extends AnyObject,
-  TActions extends AnyObject = TState,
-  TSetState = StoreApi<TState>['setState'],
-  TGetState = StoreApi<TState & TActions>['getState'],
-  TStoreApi = StoreApi<TState & TActions>
-> = (set: TSetState, get: TGetState, api: TStoreApi) => TActions;
-
-export type StateSetter<T> = Dispatch<SetStateAction<T>>;
-
 // counter
 export type CounterStore = {
   count: number;
@@ -57,5 +44,9 @@ export type GlobalsActions = {
 };
 export type GlobalsState = GlobalsStore & GlobalsActions;
 
-// all 
+// all
 export type StoreState = CounterState & TodosState & AuthState & GlobalsState;
+
+// slice selector
+type ExtractState<S> = S extends { getState: () => infer T } ? T : never;
+export type SliceSelector<T, U> = (state: ExtractState<T>) => U;

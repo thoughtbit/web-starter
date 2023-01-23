@@ -1,6 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { store } from './store';
+import Provider from './store/provider';
+
 import App from './App';
 
 function renderApp() {
@@ -9,9 +12,11 @@ function renderApp() {
   const app = createRoot(root);
   app.render(
     <React.StrictMode>
-      <Router>
-        <App />
-      </Router>
+      <Provider createStore={() => store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
     </React.StrictMode>
   );
 }

@@ -7,7 +7,7 @@ const initialState: CounterStore = {
 
 export const createCounterSlice: StateCreator<
   StoreState,
-  [['zustand/devtools', never], ['zustand/persist', unknown]],
+  [['zustand/devtools', never], ['zustand/persist', unknown], ["zustand/immer", never]],
   [],
   CounterState
 > = (set) => ({

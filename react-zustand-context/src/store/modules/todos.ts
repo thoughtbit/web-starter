@@ -18,7 +18,7 @@ const initialState: TodosStore = {
 
 export const createTodosSlice: StateCreator<
   StoreState,
-  [['zustand/devtools', never], ['zustand/persist', unknown]],
+  [['zustand/devtools', never], ['zustand/persist', unknown], ["zustand/immer", never]],
   [],
   TodosState
 > = (set) => ({

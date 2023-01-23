@@ -11,7 +11,7 @@ const initialState: AuthStore = {
 
 export const createAuthSlice: StateCreator<
   StoreState,
-  [["zustand/devtools", never], ["zustand/persist", unknown]],
+  [["zustand/devtools", never], ["zustand/persist", unknown], ["zustand/immer", never]],
   [],
   AuthState
 > = (set) => ({

@@ -7,7 +7,7 @@ const initialState: GlobalsStore = {
 
 export const createGlobalsSlice: StateCreator<
   StoreState,
-  [['zustand/devtools', never], ['zustand/persist', unknown]],
+  [['zustand/devtools', never], ['zustand/persist', unknown], ["zustand/immer", never]],
   [],
   GlobalsState
 > = (set) => ({

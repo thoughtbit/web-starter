@@ -1,12 +1,12 @@
-import React from 'react';
 import { isEqual } from 'lodash';
-import { useStore, storeSelector } from '@/store';
+import { useStore } from 'zustand';
+import { store, storeSelector } from '@/store';
 import Form from './components/Form';
 import Todos from './components/Todos';
 
 const Demo1 = () => {
-  const state = useStore();
-  const { isEmptyTodoList, displayListSelector } = useStore(storeSelector, isEqual);
+  const state = useStore(store, (s) => s);
+  const { isEmptyTodoList, displayListSelector } = useStore(store, storeSelector, isEqual);
 
   return (
     <div>
