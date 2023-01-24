@@ -1,6 +1,4 @@
-import { createStore } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
-import { immer } from 'zustand/middleware/immer';
+import { createStore } from '@/utils/zustand';
 import { createGlobalsSlice } from './modules/global';
 import { createAuthSlice } from './modules/auth';
 import { createCounterSlice } from './modules/counter';
@@ -8,21 +6,16 @@ import { createTodosSlice } from './modules/todos';
 
 import type { StoreState } from './types';
 
-export const store = createStore<StoreState>()(
-  devtools(
-    persist(
-      immer((...a) => ({
-        ...createCounterSlice(...a),
-        ...createTodosSlice(...a),
-        ...createAuthSlice(...a),
-        ...createGlobalsSlice(...a),
-      })),
-      {
-        name: 'zustand-storage',
-      }
-    )
-  )
-);
+export const store = createStore<StoreState>({
+  persist: true,
+  devtools: false,
+  name: 'zustand-storage',
+})((...a) => ({
+  ...createCounterSlice(...a),
+  ...createTodosSlice(...a),
+  ...createAuthSlice(...a),
+  ...createGlobalsSlice(...a),
+}));
 
 // selector
 export const storeSelector = (state: StoreState) => {
