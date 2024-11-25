@@ -80,7 +80,7 @@
     "http-proxy-middleware": "^1.0.3",
     "image-webpack-loader": "^6.0.0",
     "json-server": "^0.16.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lowdb": "^1.0.0",
     "mockjs": "^1.1.0",
     "node-sass": "^4.12.0",
