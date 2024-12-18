@@ -1,7 +1,9 @@
 import { useStore } from 'zustand';
 import { store } from '@/store';
+import { useEffect, useRef } from 'react';
 
 const Counter = () => {
+  const scratchRef = useRef<number>();
   const [count, decrement, increment, resetCount] = useStore(store, (s) => [
     s.count,
     s.decrement,
@@ -10,15 +12,18 @@ const Counter = () => {
   ]);
 
   const { getState, setState, subscribe, destroy } = store;
-  
+
+  useEffect(() => {
+    subscribe((state) => (scratchRef.current = state.count));
+  }, []);
+
   return (
     <div>
-      <h2>zustand state</h2>
       <span>计数: {count}</span>
-      <button className="btn" type="button" onClick={increment}>
+      <button className="btn" type="button" onClick={() => increment(1)}>
         +
       </button>
-      <button className="btn" type="button" onClick={decrement}>
+      <button className="btn" type="button" onClick={() => decrement(1)}>
         -
       </button>
 
@@ -39,6 +44,7 @@ const Counter = () => {
       >
         getState()
       </button>
+      <p>subscribe监听: {scratchRef.current}</p>
     </div>
   );
 };

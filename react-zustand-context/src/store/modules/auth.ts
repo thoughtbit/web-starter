@@ -1,17 +1,20 @@
-import type { StateCreator } from "zustand";
-import type { StoreState, AuthStore, AuthState } from "@/store/types";
-import { api } from "@/services";
+import type { StateCreator } from 'zustand';
+import { message } from 'antd';
+import type { StoreState, AuthStore, AuthState } from '@/store/types';
+import { api } from '@/services';
+
 
 const initialState: AuthStore = {
   userInfo: null,
-  token: "",
+  token: '',
   authorities: [],
   isAuthenticated: false,
+  loginByPassword: {}
 };
 
 export const createAuthSlice: StateCreator<
   StoreState,
-  [["zustand/devtools", never], ["zustand/persist", unknown], ["zustand/immer", never]],
+  [['zustand/devtools', never], ['zustand/persist', unknown], ['zustand/immer', never]],
   [],
   AuthState
 > = (set) => ({
@@ -20,7 +23,7 @@ export const createAuthSlice: StateCreator<
     return await api
       .login(params)
       .then((result: any) => {
-        console.log("用户登录:", result);
+        console.log('用户登录:', result);
         const { code, data } = result;
         if (code === 0) {
           set({ token: data.token, userInfo: data });
@@ -39,7 +42,7 @@ export const createAuthSlice: StateCreator<
     return await api
       .logout()
       .then((result) => {
-        console.log("退出登录:", result);
+        console.log('退出登录:', result);
         set(() => ({
           token: null,
           userInfo: null,

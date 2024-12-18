@@ -1,0 +1,57 @@
+{
+  "name": "@vue/devtools-ui",
+  "type": "module",
+  "version": "7.3.6",
+  "author": "webfansplz",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/types/src/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style.css": "./dist/style.css",
+    "./theme": {
+      "types": "./dist/types/theme/index.d.ts",
+      "import": "./dist/theme.js",
+      "require": "./dist/theme.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/types/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsx ./scripts/update-icons.ts && vite build",
+    "story:build": "histoire build",
+    "story:dev": "histoire dev",
+    "story:preview": "histoire preview"
+  },
+  "peerDependencies": {
+    "@unocss/reset": ">=0.50.0-0",
+    "floating-vue": ">=2.0.0-0",
+    "unocss": ">=0.50.0-0",
+    "vue": ">=3.0.0-0"
+  },
+  "dependencies": {
+    "@vue/devtools-shared": "workspace:*",
+    "@vueuse/components": "^10.11.0",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/integrations": "^10.11.0",
+    "colord": "^2.9.3",
+    "focus-trap": "^7.5.4"
+  },
+  "devDependencies": {
+    "@histoire/plugin-vue": "^0.17.17",
+    "@iconify-json/ic": "^1.1.17",
+    "@types/node": "^20.14.10",
+    "@unocss/reset": "^0.61.3",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "floating-vue": "5.2.2",
+    "histoire": "^0.17.17",
+    "unocss": "^0.61.3",
+    "vite-plugin-dts": "^3.9.1"
+  }
+}

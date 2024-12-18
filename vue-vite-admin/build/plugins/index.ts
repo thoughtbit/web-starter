@@ -8,3 +8,4 @@ export { default as createImagemin } from "./image-min";
 export { default as createCompress } from "./compress";
 export { default as createElementPlusResolver } from "./element-plus-resolver";
 export { default as createAutoImportElementPlus } from "./auto-import-element-plus";
+export { default as createUnoCSS } from "./unocss";

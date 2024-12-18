@@ -1,0 +1,10 @@
+*.local
+
+.DS_Store
+package-lock.json
+yarn-error.log
+
+bin
+dist
+dist_electron
+node_modules

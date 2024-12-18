@@ -1,0 +1,44 @@
+{
+  "name": "@vue/devtools-applet",
+  "type": "module",
+  "version": "7.3.6",
+  "author": "webfansplz",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style.css": "./dist/index.css"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "stub": "vite build --watch"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "dependencies": {
+    "@vue/devtools-core": "workspace:^",
+    "@vue/devtools-kit": "workspace:^",
+    "@vue/devtools-shared": "workspace:^",
+    "@vue/devtools-ui": "workspace:^",
+    "lodash-es": "^4.17.21",
+    "perfect-debounce": "^1.0.0",
+    "shiki": "^1.10.3",
+    "splitpanes": "^3.1.5",
+    "vue-virtual-scroller": "2.0.0-beta.8"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "unplugin-vue": "^5.0.5",
+    "vite-plugin-dts": "^3.9.1",
+    "vue": "^3.4.31",
+    "vue-router": "^4.4.0"
+  }
+}

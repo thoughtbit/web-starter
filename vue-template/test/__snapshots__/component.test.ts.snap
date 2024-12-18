@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TheCounter.vue > should render 1`] = `
+"<div>
+  <p class=\\"font-semibold\\">10</p><button class=\\"btn m-4 h-8 w-8 rounded-full text-center\\"> + </button><button class=\\"btn m-4 h-8 w-8 rounded-full text-center\\"> - </button>
+</div>"
+`;
+
+exports[`count.vue > should render 1`] = `
+"<div>
+  <p class=\\"font-semibold\\">0</p><button class=\\"btn m-4 h-8 w-8 rounded-full text-center\\"> + </button><button class=\\"btn m-4 h-8 w-8 rounded-full text-center\\"> - </button>
+</div>"
+`;

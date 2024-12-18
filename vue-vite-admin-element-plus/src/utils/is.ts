@@ -76,6 +76,9 @@ export function isWindow(el: any): el is Window {
   return el === window;
 }
 
+
+export const isBrowser = () => typeof window !== 'undefined';
+
 export const isComponentInstance = (value: any): value is ComponentPublicInstance => {
   return value?.$ !== undefined;
 };

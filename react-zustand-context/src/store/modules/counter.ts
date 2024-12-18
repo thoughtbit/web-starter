@@ -13,7 +13,11 @@ export const createCounterSlice: StateCreator<
 > = (set) => ({
   ...initialState,
 
-  increment: () => set((state) => ({ count: state.count + 1 })),
-  decrement: () => set((state) => ({ count: state.count - 1 })),
+  increment: (step: number) => set((state) => {
+    state.count +=step;
+  }),
+  decrement: (step: number) => set((state) => {
+    state.count -=step;
+  }),
   resetCount: () => set({ ...initialState }),
 });

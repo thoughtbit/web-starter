@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
 
-import { useStore, useStoreApi } from '@/store';
-import type { StoreState } from '@/store/types';
+import { useStore, useStoreApi } from './store';
+import type { StoreState } from './types';
 
 type StoreUpdaterProps = StoreState & {
   isEmptyTodoList: () => void;

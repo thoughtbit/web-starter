@@ -1,0 +1,23 @@
+.custom-intro-tooltip * {
+  color: black;
+
+  a {
+    border: 1px solid var(--text-color-primary);
+    background-color: #{--main-bg-color};
+    text-shadow: none;
+  }
+}
+
+.custom-intro-tooltip {
+  width: 300px;
+  border: 1px solid var(--text-color-primary);
+  background-color: #{--main-bg-color};
+
+  .introjs-skipbutton {
+    font-size: var(--font-size-base);
+  }
+}
+
+.custom-intro-highlight {
+  border: 1px solid var(--text-color-primary);
+}

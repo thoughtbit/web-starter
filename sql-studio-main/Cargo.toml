@@ -1,0 +1,58 @@
+[package]
+name = "sql-studio"
+version = "0.1.17"
+edition = "2021"
+repository = "https://github.com/frectonz/sql-studio"
+description = "Single binary, single command SQL Database Explorer."
+homepage = "https://sql-studio.frectonz.io/"
+authors = ["frectonz"]
+
+[dependencies]
+chrono = { version = "0.4.38", features = ["serde"] }
+clap = { version = "4.5.6", features = ["derive"] }
+color-eyre = "0.6.3"
+include_dir = "0.7.3"
+rusqlite = { version = "0.31.0", features = ["bundled"] }
+serde = { version = "1.0.203", features = ["derive"] }
+serde_json = "1.0.117"
+tokio = { version = "1.38.0", features = ["full"] }
+tokio-rusqlite = "0.5.1"
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+warp = "0.3.7"
+open = "3.2.0"
+async-trait = "0.1.80"
+futures = "0.3.30"
+libsql = { git = "https://github.com/tursodatabase/libsql.git", features = ["remote"] }
+tokio-postgres = "0.7.10"
+mysql_async = { version = "0.34.1", default-features = false, features = ["rustls-tls", "default-rustls"] }
+duckdb = { git = "https://github.com/frectonz/duckdb-rs.git", features = ["bundled"] }
+humantime = "2.1.0"
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
+
+# Config for 'cargo dist'
+[workspace.metadata.dist]
+# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
+cargo-dist-version = "0.15.0"
+# CI backends to support
+ci = "github"
+# The installers to generate for each app
+installers = ["shell", "powershell"]
+# Target platforms to build apps for (Rust target-triple syntax)
+targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+# Publish jobs to run in CI
+pr-run-mode = "plan"
+# Whether to install an updater program
+install-updater = true
+# Skip checking whether the specified configuration files are up to date
+allow-dirty = ["ci"]

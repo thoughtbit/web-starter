@@ -3,8 +3,8 @@ export type CounterStore = {
   count: number;
 };
 export type CounterActions = {
-  increment: () => void;
-  decrement: () => void;
+  increment: (step: number) => void;
+  decrement: (step: number) => void;
   resetCount: () => void;
 };
 export type CounterState = CounterStore & CounterActions;
@@ -27,10 +27,13 @@ export type AuthStore = {
   token: string | null;
   isAuthenticated: boolean;
   authorities: string[];
+
+  loginByPassword: Recordable;
 };
 export type AuthActions = {
   login: (params: any) => void;
   logout: () => void;
+  
 };
 export type AuthState = AuthStore & AuthActions;
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="author" content="moocss" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="icon" href="/favicon.ico" />
+  <title>
+    <%= appName %>
+  </title>
+  <style type="text/css">
+    * {padding: 0;margin: 0;}
+    html,body,.app{height:100%;width:100%;}
+    .launch{background-color:#f8f8f8;height:100%;display:flex;flex-direction:column;}
+    .launch__main{user-select:none;width:100%;flex-grow:1;display:flex;justify-content:center;align-items:center;flex-direction:column;}
+    .launch__footer{width:100%;flex-grow:0;text-align:center;padding:20px 0;font-size: 14px;color:#999;}
+    .launch__footer>a{color:#999;text-decoration:none;}
+    .launch__loading{height: 68px;width: 68px;margin-bottom:20px;}
+    .launch__title{color:#14B5A7;font-size: 20px;margin-bottom:10px;}
+    .launch__sub-title{color:#14B5A7;font-size: 14px;}
+  </style>
+  <link rel="stylesheet" href="./js/libs/element-plus.min.css" />
+  <link rel="stylesheet" href="./js/libs/xgplayer.min.css" />
+</head>
+<body role="document">
+  <noscript>
+    <strong>你没有启用JavaScript. 此应用无法运行. 请开启JavaScript.</strong>
+  </noscript>
+  <div id="app" class="app">
+    <div class="launch">
+      <div class="launch__main">
+        <img class="launch__loading" src="/img/svg/loading-circles.svg" alt="loading">
+        <div class="launch__title">
+          <%= appName %>加载资源中
+        </div>
+        <div class="launch__sub-title">
+          请耐心等待...
+        </div>
+      </div>
+      <div class="launch__footer">
+        Copyright &copy; 2022-2024. All Rights Reserved
+      </div>
+    </div>
+  </div>
+  <script src="./js/libs/vue-request.min.js"></script>
+  <script src="./js/libs/vueuse.min.js"></script>
+  <script src="./js/libs/element-plus.min.js"></script>
+  <script src="./js/libs/axios.min.js"></script>
+  <script src="./js/libs/echarts.min.js"></script>
+  <script src="./js/libs/vue-echarts.min.js"></script>
+  <script src="./js/libs/lodash.min.js"></script>
+  <script src="./js/libs/dayjs.min.js"></script>
+  <script src="./js/libs/xgplayer.min.js"></script>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

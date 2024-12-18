@@ -1,0 +1,15 @@
+@import '@unocss/reset/tailwind.css';
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100%;
+  overflow: auto;
+}
+html.dark {
+  background: #121212;
+}

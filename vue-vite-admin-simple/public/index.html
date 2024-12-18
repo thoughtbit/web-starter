@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="author" content="moocss" />
+  <meta name="keywords" content="脚手架" />
+  <meta name="description" content="脚手架" />
+  <link rel="icon" href="/favicon.ico" />
+  <title>
+    <%= appName %>
+  </title>
+  <!--[if lt IE 11]><script>window.location.href='/ie.html';</script><![endif]-->
+  <style type="text/css">
+    * {padding: 0;margin: 0;}
+    html,body,.app{height:100%;width:100%;}
+    .launch{background-color:rgba(0, 0, 0, 0.6);height:100%;display:flex;flex-direction:column;}
+    .launch__main{user-select:none;width:100%;flex-grow:1;display:flex;justify-content:center;align-items:center;flex-direction:column;}
+    .launch__footer{width:100%;flex-grow:0;text-align:center;padding:20px 0;font-size: 14px;color:#eee;}
+    .launch__footer>a{color:#999;text-decoration:none;}
+    .launch__loading{height: 68px;width: 68px;margin-bottom:20px;}
+    .launch__title{color:#fff;font-size: 20px;margin-bottom:10px;}
+    .launch__sub-title{color:#fff;font-size: 14px;}
+  </style>
+</head>
+<body role="document">
+  <noscript>
+    <strong>你没有启用JavaScript. 此应用无法运行. 请开启JavaScript.</strong>
+  </noscript>
+  <div id="app" class="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

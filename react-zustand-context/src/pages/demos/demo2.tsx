@@ -1,11 +1,12 @@
 import { isEqual } from 'lodash';
 import { useStore } from 'zustand';
 import { store, storeSelector } from '@/store';
-import Form from './components/Form';
+import Form from './components/TodoForm';
 import Todos from './components/Todos';
 
-const Demo1 = () => {
+const Demo2 = () => {
   const state = useStore(store, (s) => s);
+  // 深比较
   const { isEmptyTodoList, displayListSelector } = useStore(store, storeSelector, isEqual);
 
   return (
@@ -26,4 +27,4 @@ const Demo1 = () => {
   );
 };
 
-export default Demo1;
+export default Demo2;

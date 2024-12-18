@@ -4,7 +4,7 @@ import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import dayjs from "dayjs";
 import { resolve } from "path";
-import { createElementPlusResolver, createHtml, createSvgLoader, createSvgIcons } from "./../plugins";
+import { createElementPlusResolver, createUnoCSS, createHtml, createSvgLoader, createSvgIcons } from "./../plugins";
 import pkg from "./../../package.json";
 
 export default (configEnv: ConfigEnv, viteEnv: Record<string, string>) => {
@@ -24,6 +24,7 @@ export default (configEnv: ConfigEnv, viteEnv: Record<string, string>) => {
       vue(),
       vueJsx(),
       createElementPlusResolver(),
+      createUnoCSS(),
       createSvgLoader(),
       createSvgIcons(command === "build"),
       createHtml(VITE_APP_NAME),

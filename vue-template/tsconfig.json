@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "~/*": [
+        "./*"
+      ]
+    },
+    "types": [
+      "vite/client",
+      "node",
+      "unplugin-vue-macros/macros-global",
+      "vite-plugin-vue-layouts/client",
+      "unplugin-vue-router/client"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.js"
+  ],
+  "include": [
+    "**/*.tsx",
+    "**/*.ts",
+    "**/*.vue",
+    "**/*.d.ts",
+    "typings/typed-router.d.ts"
+  ]
+}

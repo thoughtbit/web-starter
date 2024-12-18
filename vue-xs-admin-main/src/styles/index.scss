@@ -1,0 +1,144 @@
+@use './theme.scss';
+@use './intro.scss';
+@use './transition.scss';
+@use './sidebar.scss';
+@use './mixin.scss';
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    Arial, sans-serif;
+  font-size: var(--font-size-base);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+#app {
+  // height: 100%;
+  color: var(--text-color-primary);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &::after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+    font-size: 0;
+  }
+}
+
+.title {
+  display: inline-block;
+  font-size: var(--font-size-large);
+  font-weight: 700;
+}
+
+.page-container {
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--main-bg-color);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.disabled {
+  border-color: var(--text-color-disabled);
+  color: var(--text-color-disabled);
+
+  &:hover {
+    border-color: var(--text-color-disabled) !important;
+    background-color: var(--main-bg-color) !important;
+    color: var(--text-color-disabled) !important;
+    cursor: not-allowed;
+  }
+}
+
+// 灰色
+.html-grey {
+  filter: grayscale(100%);
+}
+
+// 色弱
+.html-weakness {
+  filter: invert(80%);
+}
+
+@for $i from 1 to 6 {
+  * > .enter-x:nth-child(#{$i}) {
+    transform: translateX(50px);
+  }
+  * > .-enter-x:nth-child(#{$i}) {
+    transform: translateX(-50px);
+  }
+  * > .enter-x:nth-child(#{$i}),
+  * > .-enter-x:nth-child(#{$i}) {
+    z-index: 10 - $i;
+    animation: enter-x-animation 0.4s ease-in-out 0.3s;
+    animation-delay: calc(($i * 1s) / 10);
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  * > .enter-y:nth-child(#{$i}) {
+    transform: translateY(50px);
+  }
+  * > .-enter-y:nth-child(#{$i}) {
+    transform: translateY(-50px);
+  }
+  * > .enter-y:nth-child(#{$i}),
+  * > .-enter-y:nth-child(#{$i}) {
+    z-index: 10 - $i;
+    animation: enter-x-animation 0.4s ease-in-out 0.3s;
+    animation-delay: calc(($i * 1s) / 5);
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes enter-x-animation {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes enter-y-animation {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
