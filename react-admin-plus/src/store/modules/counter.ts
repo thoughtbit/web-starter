@@ -1,0 +1,23 @@
+import type { StateCreator } from 'zustand';
+import type { StoreState, CounterStore, CounterState } from '../types';
+
+const initialState: CounterStore = {
+  count: 0,
+};
+
+export const createCounterSlice: StateCreator<
+  StoreState,
+  [['zustand/devtools', never], ['zustand/persist', unknown], ["zustand/immer", never]],
+  [],
+  CounterState
+> = (set) => ({
+  ...initialState,
+
+  increment: (step: number) => set((state) => {
+    state.count +=step;
+  }),
+  decrement: (step: number) => set((state) => {
+    state.count -=step;
+  }),
+  resetCount: () => set({ ...initialState }),
+});
